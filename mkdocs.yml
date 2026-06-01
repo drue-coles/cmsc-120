@@ -1,0 +1,59 @@
+site_name: Java for CMSC 120
+
+theme:
+  name: material
+
+nav:
+  - Preface: preface.md
+
+  - "Chapter 1: The Programming Environment":
+     - "1.1 What is a Program?": chapter1/what-is-a-program.md
+     - "1.2 The Story of Java": chapter1/story-of-java.md
+     - "1.3 Installing Java": chapter1/installing-java.md
+     - "1.4 The Standard Java Library": chapter1/standard-library.md
+ 
+  - "Chapter 2: Anatomy of a Simple Program":
+     - "2.1 An Empty Program": chapter2/empty-program.md
+     - "2.2 Console Output": chapter2/console-output.md
+     - "2.3 Variables and Arithmetic": chapter2/variables-arithmetic.md
+     - "2.4 Style and Documentation": chapter2/style-docs.md
+     
+  - "Chapter 3: Using Objects":
+     - "3.1 Strings": chapter3/strings.md
+     - "3.2 Creating Objects": chapter3/creating-objects.md
+     - "3.3 Random Numbers": chapter3/random-numbers.md
+     - "3.4 Keyboard Input": chapter3/keyboard-input.md
+     - "3.5 Arbitrary-Precision Integers": chapter3/biginteger.md
+     - "3.6 Dates and Times": chapter3/dates-times.md
+     - "3.7 Graphics": chapter3/graphics.md
+     - "3.8 Practice Problems": chapter3/practice-problems.md
+     
+  - "Chapter 4: Helper Methods":
+     - "4.1 Design Principles for Modular Programs": chapter4/design-principles.md
+     - "4.2 Helper Methods in Practice": chapter4/helper-methods.md
+     - "4.3 Practice Problems": chapter4/practice.md
+
+  - "Chapter 5: Decisions":
+     - "5.1 Boolean Expressions": chapter5/boolean-expressions.md
+     - "5.2 if Statements": chapter5/if-statements.md
+     - "5.3 if-else Statements": chapter5/if-else.md
+     - "5.4 Equality Operators": chapter5/equality-operators.md
+     - "5.5 Conditional Operators": chapter5/conditional-operators.md
+     - "5.6 Unary Operators": chapter5/unary-operators.md
+     - "5.7 Switch Statements": chapter5/switch.md
+     - "5.8 Practice Problems": chapter5/practice.md
+
+  - "Chapter 6: Loops":
+     - "6.1 While Loops": chapter6/while-loops.md
+     - "6.2 For Loops": chapter6/for-loops.md
+     - "6.3 Monte Carlo Simulations": chapter6/monte-carlo.md
+     - "6.4 Nested Loops": chapter6/nested-loops.md
+     - "6.5 Practice Problems": chapter6/practice.md
+     
+  - "Chapter 7: Arrays":
+     - "7.1 Linear Arrays": chapter7/linear-arrays.md
+     - "7.2 Balls into Bins": chapter7/balls-bins.md
+     - "7.3 ArrayLists": chapter7/arraylists.md
+     - "7.4 Two-Dimensional Arrays": chapter7/2d-arrays.md
+     - "7.5 Practice Problems": chapter7/practice.md
+     
