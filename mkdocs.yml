@@ -4,8 +4,6 @@ theme:
   name: material
 
 nav:
-  - Preface: preface.md
-
   - "Chapter 1: The Programming Environment":
      - "1.1 What is a Program?": chapter1/what-is-a-program.md
      - "1.2 The Story of Java": chapter1/story-of-java.md
@@ -56,4 +54,3 @@ nav:
      - "7.3 ArrayLists": chapter7/arraylists.md
      - "7.4 Two-Dimensional Arrays": chapter7/2d-arrays.md
      - "7.5 Practice Problems": chapter7/practice.md
-     

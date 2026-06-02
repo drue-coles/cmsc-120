@@ -1,12 +1,16 @@
 # 1.2 The Story of Java
 
-**Key terms:** object-oriented programming, architecture neutrality, object, attribute, method call or invocation, object identity, object state, class, instance, instantiate, type, robustness, extensibility
+**Key terms:** architecture neutrality, object, attribute, method, call or invoke (a method), 
+object identity, object state, class, instance, instantiate, type, robust, extensible
 
 ---
 
 ## 1.2.1 Origins
 
-Java was created in 1991 by a team at Sun Microsystems led by James Gosling. The goal was to develop an operating environment for networked devices and embedded systems—special-purpose computing units built into mechanical or electronic devices. The project in its original form failed to gain traction because the market for this technology did not yet exist.
+Java was created in 1991 by a team at Sun Microsystems led by James Gosling. The goal was to develop 
+an operating environment for networked devices and embedded systems (special-purpose computing 
+units built into mechanical or electronic devices). The project in its original form failed to gain 
+traction because the market for this technology did not yet exist.
 
 But in 1994, just as the popularity of the World Wide Web was about to skyrocket, the team realized that the technology it had developed could be repurposed to create a web browser capable of downloading and executing code to generate interactive content, at a time when other browsers displayed only static text and images. The browser was primarily a proof of concept and not commercially viable, but it demonstrated Java’s potential and established its reputation as a versatile, platform-neutral programming environment.
 
