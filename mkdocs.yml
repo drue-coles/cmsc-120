@@ -2,6 +2,16 @@ site_name: Java for CMSC 120
 
 theme:
   name: material
+  features:
+     - toc.hide
+
+extra_css:
+  - stylesheets/extra.css
+
+markdown_extensions:
+  - attr_list
+  - pymdownx.details
+  - pymdownx.superfences
 
 nav:
   - "Chapter 1: The Programming Environment":
@@ -13,8 +23,8 @@ nav:
   - "Chapter 2: Anatomy of a Simple Program":
      - "2.1 An Empty Program": chapter2/empty-program.md
      - "2.2 Console Output": chapter2/console-output.md
-     - "2.3 Variables and Arithmetic": chapter2/variables-arithmetic.md
-     - "2.4 Style and Documentation": chapter2/style-docs.md
+     - "2.3 Variables and Arithmetic": chapter2/variables-and-arithmetic.md
+     - "2.4 Style and Documentation": chapter2/style-and-documentation.md
      
   - "Chapter 3: Using Objects":
      - "3.1 Strings": chapter3/strings.md

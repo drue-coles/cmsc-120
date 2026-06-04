@@ -43,25 +43,29 @@ APIs are used widely in software development. For example:
 
 Services and libraries described by an API do not have to be online. For example, operating systems provide a system-call API that lets programs request access to protected resources such as files and memory.
 
-The distinction between an API and a library is subtle but important. An API defines what can be done and how to do it; a library contains the actual code that performs the work. In other words, the API is an abstract specification—a contract between provider and user—while the library is the concrete implementation that fulfills it.
+The distinction between an API and a library is subtle but important. An API defines what can be 
+done and how to do it; a library contains the actual code that performs the work. In other words, 
+the API is an abstract specification — a contract between provider and user — while the library is 
+the concrete implementation that fulfills it.
 
-The **Java API** defines the interface to the standard Java library—the official description of its 
-classes and methods. The **Java API Specification** lists all packages and classes in the Java API. 
-You can view the most recent version by visiting <a href="https://docs.oracle.
-com/javase">https://docs.oracle.com/javase</a>, then clicking API Documentation and selecting 
-`java.base`. The base module, which contains all classes intended for general-purpose programming, 
-includes over 50 packages and more than 6,000 classes.
+The **Java API** defines the interface to the standard Java library — the official description of 
+its classes and methods. The **Java API Specification** lists all packages and classes in the Java 
+API. You can view the most recent version by visiting 
+<a href="https://docs.oracle.com/javase">https://docs.oracle.com/javase</a>, then clicking API 
+Documentation and selecting `java.base`. The base module, which contains all classes intended for 
+general-purpose programming, includes over 50 packages and more than 6,000 classes.
 
 For each class, the specification provides an overview of its purpose and a **black-box 
 description** of each method. In science and engineering, a system is said to be treated as a black 
 box when it is understood solely in terms of its inputs and outputs, without reference to its 
 internal workings. A black-box description of a method tells you its name, purpose, **arguments** 
-(required inputs), and the result or effect of calling it—it does not tell you how it performs its 
+(required inputs), and the result or effect of calling it — it does not tell you how it performs 
+its 
 work.
 
 The methods themselves are written in Java by the designers of the library. As programmers, we do 
-not need to know how the methods were implemented—just as we do not need to understand how an engine 
-works in order to drive a car.
+not need to know how the methods were implemented — just as we do not need to understand how an 
+engine works in order to drive a car.
 
 In later chapters, you will encounter sub-APIs within the Java API, such as the date-time API for 
 working with temporal data. These are focused groups of related packages within the larger Java 

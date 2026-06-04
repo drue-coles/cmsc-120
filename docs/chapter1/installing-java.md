@@ -11,15 +11,21 @@ and terminology introduced here.
 
 ## 1.3.1 The Java Virtual Machine
 
-A **virtual machine (VM)** is an application that provides a simulated environment for running other programs. There are two kinds: system VMs and process VMs.
+A **virtual machine (VM)** is an application that provides a simulated environment for running other 
+programs. There are two kinds: system VMs and process VMs.
 
-A system VM imitates an entire operating system. For example, if your computer runs Windows but you want to use software written only for Linux, you can run a Linux VM that behaves as though it were a separate computer. The VM presents the illusion of a particular hardware and operating system environment, even if the underlying hardware is entirely different.
+A system VM imitates an entire operating system. For example, if your computer runs Windows but you 
+want to use software written only for Linux, you can run a Linux VM that behaves as though it were a 
+separate computer. The VM presents the illusion of a particular hardware and operating system 
+environment, even if the underlying hardware is entirely different.
 
-A process VM provides a complete virtual computing system with its own virtual CPU and machine language. Its purpose is to hide the physical details of real machines and offer a standard execution environment for programs compiled into its virtual instruction set.
+A process VM provides a complete virtual computing system with its own virtual CPU and machine 
+language. Its purpose is to hide the physical details of real machines and offer a standard 
+execution environment for programs compiled into its virtual instruction set.
 
 The **Java Virtual Machine (JVM)** is a process VM that defines the Java language in a 
 machine-independent way. The Java compiler translates **source files** (plain text files containing 
-source code) into **class files** containing **bytecode**—machine instructions for the JVM. At 
+source code) into **class files** containing **bytecode** — machine instructions for the JVM. At 
 runtime, the JVM translates each bytecode instruction into one or more host-machine instructions. 
 In practice, it may compile frequently executed sections of code to avoid repeated translation for 
 improved performance.
