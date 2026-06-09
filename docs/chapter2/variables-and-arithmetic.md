@@ -1,7 +1,7 @@
 # 2.3 Variables and Arithmetic
 
-**Key terms:** type, primitive type, built-in type, floating-point type, variable, 
-assignment operator, declaration, identifier, initializer, static typing, type safety, method 
+**Key terms:** type, primitive type, built-in type, floating-point type, variable, declaration,
+assignment operator, initializer, identifier, statically typed language, type safety, method 
 overloading, lower camel case, upper camel case
 
 ## 2.3.1 Primitive Types
@@ -24,9 +24,8 @@ Figure 2.3.1: [Primitive Types](images/figure2.3.1.png)
 The non-integral types differ in both range and the number of decimal places. The two types for 
 numbers with decimal points are known as **floating-point types**, because they represent real 
 numbers in which the decimal point can shift to accommodate very large or very small magnitudes. 
-A full and authoritative description of the primitive types can be found in the latest Java Language 
-Specification, available at 
-<a href="https://docs.oracle.com/javase/specs/">https://docs.oracle.com/javase/specs/</a>.
+A full and authoritative description of the primitive types can be found in the latest 
+<a href="https://docs.oracle.com/javase/specs/">Java Language Specification</a>.
 
 ## 2.3.2 Variables
 
@@ -63,21 +62,20 @@ valid variable name.
 
 ## 2.3.3 Static Typing
 
-The word **static** has a number of different meanings in the context of programming, but 
+The word *static* has a number of different meanings in the context of programming, but 
 generally it refers to something that is known or happens at compile time, as opposed to 
 *dynamic*, which means at runtime. In a **statically typed language** such as Java, every variable 
 must have a fixed type that is known to the compiler.
 
 Some languages do not require variables to be typed. This freedom affords the programmer a degree of 
-flexibility but increases the potential for type errors—operations on a variable that are invalid 
-for its type. For example, assigning a floating-point value to an int variable is detected and 
+flexibility but increases the potential for type errors — operations on a variable that are invalid 
+for its type. For example, assigning a floating-point value to an `int` variable is detected and 
 flagged by the Java compiler. Static typing improves **type safety** by preventing such errors and 
 by reducing opportunities to indirectly access protected areas of memory.
 
 In language design, many choices involve a trade-off between flexibility and safety. Java 
 consistently favors safety: by enforcing static typing and other constraints, it limits the freedom 
 of the programmer to reduce errors and ensure predictable behavior at runtime.
-
 
 ## 2.3.4 The `var` Keyword
 
@@ -105,11 +103,11 @@ These ideas are illustrated in Listing 2.3.4.
 #### Listing 2.3.5 - [ArithmeticDemo.java](https://github.com/drue-coles/cmsc-120/blob/master/code/src/chap02/sect3/ArithmeticDemo.java){:target="_blank"}
 
 ??? "Output 2.3.5"
-```text
--16
-4
-3
-```
+    ```text
+    -16
+    4
+    3
+    ```
 
 The variable `z` is initialized to the value of the expression `(x + y) * (x - y)`, which is -16 
 since `x` and `y` are 3 and 5, respectively. The first output statement passes `z` (an `int` 
