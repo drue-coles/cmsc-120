@@ -1,17 +1,15 @@
-# 3.5 Arbitrary-Precision Integers
+# 3.5 Unbounded Integers
 
-**Key terms:** arbitrary-precision integer, class constant, constant case
+**Key terms:** class constant, constant case
 
-In computing, an **arbitrary-precision integer** models a mathematical integer: its values are not 
-restricted to any fixed range. Some languages implement arbitrary-precision arithmetic directly on 
-their built-in numeric types by representing values as sequences of fixed-width units (usually 32- 
-or 64-bit chunks) and executing software routines that operate across those units. Other 
-languages — Java among them — provide library classes. Java’s `BigInteger` class lets client code 
-perform arbitrary-precision arithmetic.
+Some languages provide integers of essentially unlimited size directly through their built-in 
+numeric types. Such values are represented internally as sequences of fixed-width units (usually 32- 
+or 64-bit chunks), with arithmetic performed by software routines that operate across those units. 
+Java, however, provides this capability through a library class, `BigInteger`.
 
-Some languages support *operator overloading*, allowing a class to define the behavior of 
-operators on its instances. Java does not, so arithmetic on `BigInteger` objects must be expressed
-through method calls:
+Java does not support operator overloading, which allows classes to define the behavior of operators 
+on their instances, so arithmetic operations on `BigInteger` objects must be expressed through 
+method calls:
 
 ```java
 // compute (x + y) * (x - y)

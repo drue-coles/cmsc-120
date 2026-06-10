@@ -10,8 +10,15 @@ extra_css:
 
 markdown_extensions:
   - attr_list
+  - admonition
   - pymdownx.details
   - pymdownx.superfences
+  - pymdownx.arithmatex:
+      generic: true
+
+extra_javascript:
+  - https://polyfill.io/v3/polyfill.min.js?features=es6
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
 
 nav:
   - "Chapter 1: The Programming Environment":
@@ -31,7 +38,7 @@ nav:
      - "3.2 Creating Objects": chapter3/creating-objects.md
      - "3.3 Random Numbers": chapter3/random-numbers.md
      - "3.4 Keyboard Input": chapter3/keyboard-input.md
-     - "3.5 Arbitrary-Precision Integers": chapter3/biginteger.md
+     - "3.5 Unbounded Integers": chapter3/biginteger.md
      - "3.6 Dates and Times": chapter3/dates-times.md
      - "3.7 Graphics": chapter3/graphics.md
      - "3.8 Practice Problems": chapter3/practice-problems.md
@@ -39,7 +46,7 @@ nav:
   - "Chapter 4: Helper Methods":
      - "4.1 Design Principles for Modular Programs": chapter4/design-principles.md
      - "4.2 Helper Methods in Practice": chapter4/helper-methods.md
-     - "4.3 Practice Problems": chapter4/practice.md
+     - "4.3 Practice Problems": chapter4/practice-problems.md
 
   - "Chapter 5: Decisions":
      - "5.1 Boolean Expressions": chapter5/boolean-expressions.md
@@ -49,18 +56,18 @@ nav:
      - "5.5 Conditional Operators": chapter5/conditional-operators.md
      - "5.6 Unary Operators": chapter5/unary-operators.md
      - "5.7 Switch Statements": chapter5/switch.md
-     - "5.8 Practice Problems": chapter5/practice.md
+     - "5.8 Practice Problems": chapter5/practice-problems.md
 
   - "Chapter 6: Loops":
      - "6.1 While Loops": chapter6/while-loops.md
      - "6.2 For Loops": chapter6/for-loops.md
      - "6.3 Monte Carlo Simulations": chapter6/monte-carlo.md
      - "6.4 Nested Loops": chapter6/nested-loops.md
-     - "6.5 Practice Problems": chapter6/practice.md
+     - "6.5 Practice Problems": chapter6/practice-problems.md
      
   - "Chapter 7: Arrays":
      - "7.1 Linear Arrays": chapter7/linear-arrays.md
      - "7.2 Balls into Bins": chapter7/balls-bins.md
      - "7.3 ArrayLists": chapter7/arraylists.md
      - "7.4 Two-Dimensional Arrays": chapter7/2d-arrays.md
-     - "7.5 Practice Problems": chapter7/practice.md
+     - "7.5 Practice Problems": chapter7/practice-problems.md
