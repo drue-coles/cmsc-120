@@ -18,7 +18,6 @@ markdown_extensions:
       generic: true
 
 extra_javascript:
-  - https://polyfill.io/v3/polyfill.min.js?features=es6
   - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
 
 nav:
@@ -51,7 +50,7 @@ nav:
 
   - "Chapter 5: Decisions":
      - "5.1 Boolean Expressions": chapter5/boolean-expressions.md
-     - "5.2 if Statements": chapter5/if-statements-statements.md
+     - "5.2 if Statements": chapter5/if-statements.md
      - "5.3 if-else Statements": chapter5/if-else-statements.md
      - "5.4 Switch Statements": chapter5/switch-statements.md
      - "5.5 Operators": chapter5/operators.md
