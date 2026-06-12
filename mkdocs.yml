@@ -1,4 +1,5 @@
 site_name: Java for CMSC 120
+site_url: https://drue-coles.github.io/cmsc-120/
 
 theme:
   name: material
