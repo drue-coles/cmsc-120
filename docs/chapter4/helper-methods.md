@@ -107,7 +107,7 @@ violating the DRY principle.
 #### Listing 4.2.5 - [RandomOvals.java](...)
 
 ??? "Output 4.2.5"
-![Output 4.2.5 – Random Ovals](images/output4.2.5.png)
+    ![Output 4.2.5 – Random Ovals](images/output4.2.5.png)
 
 A helper method creates and styles `Ellipse` objects with the desired properties, which are then 
 added to the root node of the scene. A `StackPane` serves as the root node. This container organizes 
