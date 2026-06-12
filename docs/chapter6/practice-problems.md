@@ -1,3 +1,3 @@
-# 7.2 Balls into Bins
+# 6.5 Practice Problems
 
 Content for this section is under development.

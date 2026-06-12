@@ -1,4 +1,4 @@
-package chap07.sect5;
+package chap07.sect4;
 
 import javafx.application.Application;
 import javafx.scene.Scene;
@@ -11,8 +11,11 @@ import javafx.stage.Stage;
  * Displays a time-space diagram of a sequence of bits updated by Rule 90. At discrete steps, each
  * bit becomes the exclusive-or of its two neighbors. The initial configuration consists of a 1 in
  * the middle and 0s everywhere else. From this configuration, a structured pattern emerges over
- * time. (See https://en.wikipedia.org/wiki/Rule_90 for more on Rule 90. For alternative ways to
- * generate the same pattern, see https://en.wikipedia.org/wiki/Sierpiński_triangle.)
+ * time.
+ *
+ * @see <a href="https://en.wikipedia.org/wiki/Rule_90">Rule 90</a>.
+ * @see <a href="https://en.wikipedia.org/wiki/Sierpi%C5%84ski_triangle">Sierpiński Triangle</a> for
+ * alternative ways to generate the same pattern.
  *
  * @author Drue Coles
  */

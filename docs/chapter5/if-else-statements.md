@@ -1,3 +1,3 @@
-# 7.2 Balls into Bins
+# 5.3 `if`-`else` Statements
 
 Content for this section is under development.

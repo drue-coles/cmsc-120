@@ -1,3 +1,3 @@
-# 7.2 Balls into Bins
+# 7.3 Array Lists
 
 Content for this section is under development.
