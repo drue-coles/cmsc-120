@@ -68,7 +68,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#51-design-principles-for-modular-programs" class="md-skip">
+        <a href="#51-boolean-expressions" class="md-skip">
           Skip to content
         </a>
       
@@ -1006,6 +1006,24 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5.1 Boolean Expressions
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -1022,6 +1040,64 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#511-expressions-and-operators" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.1.1 Expressions and Operators
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#512-deep-equality" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.1.2 Deep Equality
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5.1.2 Deep Equality">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#listing-512-deepequalityjava" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Listing 5.1.2 - DeepEquality.java
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -1583,6 +1659,53 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#511-expressions-and-operators" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.1.1 Expressions and Operators
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#512-deep-equality" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.1.2 Deep Equality
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5.1.2 Deep Equality">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#listing-512-deepequalityjava" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Listing 5.1.2 - DeepEquality.java
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1598,8 +1721,49 @@
 
 
 
-<h1 id="51-design-principles-for-modular-programs">5.1 Design Principles for Modular Programs</h1>
-<p>Content for this section is under development.</p>
+<h1 id="51-boolean-expressions">5.1 Boolean Expressions</h1>
+<p><strong>Key terms</strong>: conditional execution, decision statement, expression, operand, binary operator, 
+unary operator, ternary operator, Boolean expression, Boolean literal, relational operator, 
+shallow equality, deep equality</p>
+<p>So far we have seen only <strong>sequential execution</strong> of code: each statement of a method is executed in 
+turn. This chapter deals with <strong>conditional execution</strong>, which enables one or more statements to be 
+executed only if a specified condition holds. Java has several <strong>decision statements</strong> for this 
+purpose.</p>
+<p>Before introducing decision statements themselves, it is necessary to understand how 
+<strong>expressions</strong> are constructed and evaluated in Java.</p>
+<h2 id="511-expressions-and-operators">5.1.1 Expressions and Operators</h2>
+<p>An <strong>expression</strong> is a collection of values combined by operators to produce a single value. The
+values are called <strong>operands</strong>. An operand can be an explicit value, a value returned by a method,
+or another expression. Most operators in Java are <strong>binary operators</strong>; that is, they are applied to 
+exactly two operands. The addition operator (<code>+</code>), for example, combines two numeric values to form 
+a sum. Java also has several <strong>unary operators</strong>, which act on a single operand, and even a 
+<strong>ternary operator</strong> (three operands) introduced later in this chapter.</p>
+<p><strong>Boolean expressions</strong> are expressions that evaluate to true or false. There are two <strong>Boolean 
+literals</strong> in Java, <code>true</code> and <code>false</code>. Recall that <code>boolean</code> is one of the primitive types. A 
+<code>boolean</code> variable can be assigned one of these literals, or the value of a Boolean expression.</p>
+<p>Java's <strong>relational operators</strong> can be used to construct Boolean expressions involving numbers. For 
+example, <code>x &lt; 0</code> is <code>true</code> if the value of <code>x</code> is less than zero. Java’s other relational operators 
+are <code>&lt;=</code> (less than or equal to), <code>&gt;</code>, <code>&gt;=</code>, <code>==</code> (equals), and <code>!=</code> (not equals). </p>
+<h2 id="512-deep-equality">5.1.2 Deep Equality</h2>
+<p>It is usually a mistake to compare object references with the <code>==</code> operator. Listing 5.1.2 
+highlights the underlying problem.</p>
+<h4 id="listing-512-deepequalityjava">Listing 5.1.2 - <a href="https://github.com/drue-coles/cmsc-120/blob/master/code/src/chap05/sect1/DeepEquality.java" target="_blank">DeepEquality.java</a></h4>
+<details>
+<summary>Output 5.1.2</summary>
+<div class="highlight"><pre><span></span><code>int values: 123 == 123 is true
+BigIntegers: 123 == 123 is false
+BigIntegers: 123.equals(123) is true   
+</code></pre></div>
+</details>
+<p>The first line of output is no surprise, but what about the second? The key fact here is that <code>b1</code> 
+and <code>b2</code> are object <em>references</em>, not objects. They are the memory locations of two different 
+<code>BigInteger</code>s that happen to be in the same state (both represent the number 123). This is why the 
+expression <code>b1 == b2</code> is false.</p>
+<p>If <code>x</code> and <code>y</code> are object references, the expression <code>x == y</code> is a test for <strong>shallow equality</strong> — 
+whether they refer to the same object. Programmers generally intend to compare the <em>states</em> of 
+two objects rather than their identities. The condition of two objects being in the same state is 
+known as <strong>deep equality</strong>, and <code>BigInteger</code> has an <code>equals</code> method to test for it. The <code>equals</code> 
+method is used in Listing 5.1.2 to generate the third line of output.</p>
 
 
 
