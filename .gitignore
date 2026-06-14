@@ -1,0 +1,11 @@
+# MkDocs generated site
+site/
+
+# IntelliJ IDEA
+.idea/
+*.iml
+out/
+
+# OS junk (optional but common)
+.DS_Store
+Thumbs.db

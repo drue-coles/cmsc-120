@@ -59,7 +59,7 @@ method returns when this is not clear from the description.
 Players could be added with additional calls to `rollDice`. Testing and debugging are simplified 
 because the simulation and sorting logic are confined to the helper method.
 
-#### Listing 4.2.2 - [ThreeDiceRoller2.java](...)
+#### Listing 4.2.2 - [ThreeDiceRoller2.java](https://github.com/drue-coles/cmsc-120/blob/master/code/src/chap04/sect2/ThreeDiceRoller2.java)
 
 Replacing repeated blocks of code with method calls is a direct application of the DRY principle. It 
 makes the program shorter, clearer, and less error-prone.
@@ -78,7 +78,7 @@ In Listing 4.2.4, `rollDice` is enhanced with a parameter representing the numbe
 When the method is called in `main`, the argument's value is copied to the parameter and used by the 
 method to generate random numbers.
 
-#### Listing 4.2.4 - [ThreeDiceRoller3.java](...)
+#### Listing 4.2.4 - [ThreeDiceRoller3.java](https://github.com/drue-coles/cmsc-120/blob/master/code/src/chap04/sect2/ThreeDiceRoller3.java)
 
 This parameterized version of the helper method makes generalizing the program straightforward: the 
 `main` method only needs to read user input and pass it to `rollDice`.

@@ -7,10 +7,8 @@ shallow equality, deep equality
 So far we have seen only **sequential execution** of code: each statement of a method is executed in 
 turn. This chapter deals with **conditional execution**, which enables one or more statements to be 
 executed only if a specified condition holds. Java has several **decision statements** for this 
-purpose.
-
-Before introducing decision statements themselves, it is necessary to understand how 
-**expressions** are constructed and evaluated in Java.
+purpose. Before introducing them, it is necessary to understand how **expressions** are constructed 
+and evaluated in Java.
 
 ## 5.1.1 Expressions and Operators
 
@@ -23,7 +21,8 @@ a sum. Java also has several **unary operators**, which act on a single operand,
 
 **Boolean expressions** are expressions that evaluate to true or false. There are two **Boolean 
 literals** in Java, `true` and `false`. Recall that `boolean` is one of the primitive types. A 
-`boolean` variable can be assigned one of these literals, or the value of a Boolean expression.
+`boolean` variable can be assigned one of these literals, or the value of another Boolean 
+expression.
 
 Java's **relational operators** can be used to construct Boolean expressions involving numbers. For 
 example, `x < 0` is `true` if the value of `x` is less than zero. Java’s other relational operators 
