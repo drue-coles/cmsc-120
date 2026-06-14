@@ -1739,11 +1739,14 @@ whitespace so consistent indentation is not enforced at the language level, but 
 indentation to reflect the logical structure of code is generally regarded as one of the most 
 important ingredients of good coding style. </p>
 <p>Do not confuse the equals operator (<code>==</code>) with the assignment operator (<code>=</code>). The former is used to 
-compare two values whereas the latter assigns a value to a variable. To illustrate, consider this 
-statement: <code>x = x + 1;</code> It would not make sense to read this as <code>x</code> <em>equals</em> <code>x + 1</code>: two numbers 
-that differ by 1, like 6 and 7, are not equal. But that is not what the code says. It says, <code>x</code> 
-<em>gets</em> <code>x + 1</code>. When this statement is executed, the expression on the right-hand side is evaluated 
-and the result is assigned to <code>x</code>. In short, the value of <code>x</code> is incremented by 1.</p>
+compare two values whereas the latter assigns a value to a variable. To illustrate, consider the 
+following code:</p>
+<div class="highlight"><pre><span></span><code><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+</code></pre></div>
+<p>It would not make sense to read this as <code>x</code> <em>equals</em> <code>x + 1</code>: two numbers that differ by 1, like 6 
+and 7, are not equal. But that is not what the code says. It says, <code>x</code> <em>gets</em> <code>x + 1</code>. When this 
+statement is executed, the expression on the right-hand side is evaluated and the result is assigned 
+to <code>x</code> — that is, the value of <code>x</code> is incremented by 1.</p>
 
 
 
