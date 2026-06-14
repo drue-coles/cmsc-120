@@ -1034,6 +1034,24 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5.2 if Statements
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -1050,6 +1068,53 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#521-syntax-and-semantics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.2.1 Syntax and Semantics
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5.2.1 Syntax and Semantics">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#listing-521-comeoutrolljava" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Listing 5.2.1 - ComeOutRoll.java
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -1583,6 +1648,42 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#521-syntax-and-semantics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.2.1 Syntax and Semantics
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5.2.1 Syntax and Semantics">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#listing-521-comeoutrolljava" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Listing 5.2.1 - ComeOutRoll.java
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1599,7 +1700,50 @@
 
 
 <h1 id="52-if-statements">5.2 <code>if</code> Statements</h1>
-<p>Content for this section is under development.</p>
+<p><strong>Key terms</strong>: none introduced</p>
+<h2 id="521-syntax-and-semantics">5.2.1 Syntax and Semantics</h2>
+<p>Java provides three statements for conditional execution: <code>if</code>, <code>if</code>-<code>else</code>, and <code>switch</code>. The 
+general syntax for an <code>if</code> statement is:</p>
+<div class="highlight"><pre><span></span><code><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">E</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">   </span><span class="n">S</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Here <em>E</em> denotes a Boolean expression and <em>S</em> is a block of statements. If the block consists of 
+a single statement, the curly braces are not strictly required, but it is considered good practice 
+to include them anyway. The meaning of this construct is just what one would expect: if <em>E</em> is 
+<code>true</code> then <em>S</em> is executed; otherwise <em>S</em> is skipped.</p>
+<p>Listing 5.2.1 uses <code>if</code> statements to simulate the first roll of a popular dice game. The outcome 
+depends on the total rolled, so different messages are displayed under different conditions.</p>
+<h4 id="listing-521-comeoutrolljava">Listing 5.2.1 - <a href="https://github.com/drue-coles/cmsc-120/blob/master/code/src/chap05/sect2/ComeOutRoll.java" target="_blank">ComeOutRoll.java</a></h4>
+<details>
+<summary>Output 5.2.1a</summary>
+<div class="highlight"><pre><span></span><code>You rolled 4 + 3 = 7. 
+You win.
+</code></pre></div>
+</details>
+<details>
+<summary>Output 5.2.1b</summary>
+<div class="highlight"><pre><span></span><code>You rolled 2 + 1 = 3. 
+You lose.
+</code></pre></div>
+</details>
+<details>
+<summary>Output 5.2.1c</summary>
+<div class="highlight"><pre><span></span><code>You rolled 3 + 2 = 5. 
+The game continues.
+</code></pre></div>
+</details>
+<p>Statements within a block are always indented to emphasize that they are elements of a higher-level 
+structure. This convention is observed in most programming languages. The Java compiler ignores 
+whitespace so consistent indentation is not enforced at the language level, but the use of 
+indentation to reflect the logical structure of code is generally regarded as one of the most 
+important ingredients of good coding style. </p>
+<p>Do not confuse the equals operator (<code>==</code>) with the assignment operator (<code>=</code>). The former is used to 
+compare two values whereas the latter assigns a value to a variable. To illustrate, consider this 
+statement: <code>x = x + 1;</code> It would not make sense to read this as <code>x</code> <em>equals</em> <code>x + 1</code>: two numbers 
+that differ by 1, like 6 and 7, are not equal. But that is not what the code says. It says, <code>x</code> 
+<em>gets</em> <code>x + 1</code>. When this statement is executed, the expression on the right-hand side is evaluated 
+and the result is assigned to <code>x</code>. In short, the value of <code>x</code> is incremented by 1.</p>
 
 
 
