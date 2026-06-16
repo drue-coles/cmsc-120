@@ -6,7 +6,7 @@
   max-width: 100% !important;
 }
 
-.md-typeset pre > code {
+.md-typeset .highlight {
   max-height: 30rem;
   overflow-y: auto;
 }
