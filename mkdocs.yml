@@ -53,13 +53,13 @@ nav:
      - "5.1 Boolean Expressions": chapter5/boolean-expressions.md
      - "5.2 if Statements": chapter5/if-statements.md
      - "5.3 if-else Statements": chapter5/if-else-statements.md
-     - "5.4 Switch Statements": chapter5/switch-statements.md
+     - "5.4 switch Statements": chapter5/switch-statements.md
      - "5.5 Operators": chapter5/operators.md
      - "5.6 Practice Problems": chapter5/practice-problems.md
 
   - "Chapter 6: Loops":
-     - "6.1 While Loops": chapter6/while-loops.md
-     - "6.2 For Loops": chapter6/for-loops.md
+     - "6.1 while Loops": chapter6/while-loops.md
+     - "6.2 for Loops": chapter6/for-loops.md
      - "6.3 Monte Carlo Simulations": chapter6/monte-carlo-simulations.md
      - "6.4 Nested Loops": chapter6/nested-loops.md
      - "6.5 Practice Problems": chapter6/practice-problems.md
