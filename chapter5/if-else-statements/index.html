@@ -1062,6 +1062,24 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5.3 if-else Statements
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -1078,6 +1096,92 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#531-syntax-and-semantics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.3.1 Syntax and Semantics
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5.3.1 Syntax and Semantics">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#listing-531-coinflipjava" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Listing 5.3.1 - CoinFlip.java
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#532-conditional-operator" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.3.2 Conditional Operator
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#533-if-else-chains" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.3.3 if-else Chains
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5.3.3 if-else Chains">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#listing-533-comeoutrolljava" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Listing 5.3.3 - ComeOutRoll.java
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -1583,6 +1687,81 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#531-syntax-and-semantics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.3.1 Syntax and Semantics
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5.3.1 Syntax and Semantics">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#listing-531-coinflipjava" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Listing 5.3.1 - CoinFlip.java
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#532-conditional-operator" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.3.2 Conditional Operator
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#533-if-else-chains" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.3.3 if-else Chains
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5.3.3 if-else Chains">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#listing-533-comeoutrolljava" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Listing 5.3.3 - ComeOutRoll.java
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1599,7 +1778,152 @@
 
 
 <h1 id="53-if-else-statements">5.3 <code>if</code>-<code>else</code> Statements</h1>
-<p>Content for this section is under development.</p>
+<p><strong>Key terms</strong>: conditional operator, <code>if</code>-<code>else</code> chain</p>
+<h2 id="531-syntax-and-semantics">5.3.1 Syntax and Semantics</h2>
+<p>An <code>if</code>-<code>else</code> statement ensures that exactly one of two possible courses of action is taken 
+depending on a specified condition. The general syntax is:</p>
+<div class="highlight"><pre><span></span><code><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">E</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span>
+<span class="w">    </span><span class="c1">// executed if E is true</span>
+<span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span><span class="w"> </span>
+<span class="w">    </span><span class="c1">// executed if E is false</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Listing 5.3.1 uses an <code>if</code>-<code>else</code> statement to simulate a coin flip. A random decision is made by 
+calling <code>nextBoolean</code> from the <code>ThreadLocalRandom</code> class, which returns <code>true</code> or <code>false</code> with equal 
+probability. The second coin flip uses Java's ternary <code>if</code>-<code>else</code> operator, discussed below.</p>
+<h4 id="listing-531-coinflipjava">Listing 5.3.1 - <a href="https://github.com/drue-coles/cmsc-120/blob/master/code/src/chap05/sect3/CoinFlip.java">CoinFlip.java</a></h4>
+<div class="highlight"><span class="filename">CoinFlip.java</span><pre><span></span><code><span class="kn">package</span><span class="w"> </span><span class="nn">chap05.sect3</span><span class="p">;</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">java.util.concurrent.ThreadLocalRandom</span><span class="p">;</span>
+
+<span class="cm">/**</span>
+<span class="cm"> * Flips two coins and outputs the results.</span>
+<span class="cm"> *</span>
+<span class="cm"> * @author Drue Coles</span>
+<span class="cm"> */</span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">CoinFlip</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">   </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="n">ThreadLocalRandom</span><span class="w"> </span><span class="n">rand</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ThreadLocalRandom</span><span class="p">.</span><span class="na">current</span><span class="p">();</span>
+
+<span class="w">      </span><span class="c1">// first flip: using if-else statement</span>
+<span class="w">      </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">print</span><span class="p">(</span><span class="s">&quot;Coin flip 1: &quot;</span><span class="p">);</span>
+<span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">rand</span><span class="p">.</span><span class="na">nextBoolean</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+<span class="w">         </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;HEADS&quot;</span><span class="p">);</span>
+<span class="w">      </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">         </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;TAILS&quot;</span><span class="p">);</span>
+<span class="w">      </span><span class="p">}</span>
+
+<span class="w">      </span><span class="c1">// second flip: using if-else operator</span>
+<span class="w">      </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Coin flip 2: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="n">rand</span><span class="p">.</span><span class="na">nextBoolean</span><span class="p">()</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="s">&quot;HEADS&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s">&quot;TAILS&quot;</span><span class="p">));</span>
+<span class="w">   </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<details>
+<summary>Output 5.3.1</summary>
+<div class="highlight"><pre><span></span><code>Coin flip 1: HEADS 
+Coin flip 2: TAILS
+</code></pre></div>
+</details>
+<p>Another common way to simulate Boolean events such as coin flips is to generate a random <code>double</code> 
+between 0 and 1 and compare it to a threshold probability. This technique can be used to simulate 
+events with any desired probability, not just 50-50 outcomes. The following code fragment shows how
+to simulate a biased coin flip, one that has a 75% chance of coming up heads.</p>
+<div class="highlight"><pre><span></span><code><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">rand</span><span class="p">.</span><span class="na">nextDouble</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">bias</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span>
+<span class="w">    </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;HEADS&quot;</span><span class="p">);</span>
+<span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span><span class="w"> </span>
+<span class="w">    </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;TAILS&quot;</span><span class="p">);</span><span class="w"> </span>
+<span class="p">}</span>
+</code></pre></div>
+<h2 id="532-conditional-operator">5.3.2 Conditional Operator</h2>
+<p>Java has a single ternary operator, written <code>?:</code> and called the <strong>conditional operator</strong>. It is 
+a compact way of writing a simple <code>if</code>-<code>else</code> expression. The syntax is of the form:</p>
+<div class="highlight"><pre><span></span><code>E ? E1 : E2
+</code></pre></div>
+<p>If <em>E</em> is <code>true</code>, the entire expression evaluates to <em>E1</em>; otherwise it evaluates to <em>E2</em>. The next 
+code fragment shows two concrete examples of the conditional operator in action. </p>
+<div class="highlight"><pre><span></span><code><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">y</span><span class="p">);</span><span class="w"> </span>
+<span class="n">String</span><span class="w"> </span><span class="n">coin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">rand</span><span class="p">.</span><span class="na">nextBoolean</span><span class="p">()</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="s">&quot;HEADS&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;TAILS&quot;</span><span class="p">;</span>
+</code></pre></div>
+<p>In the first line, the greater of <code>x</code> and <code>y</code> is written to the output window. In the second, <code>coin</code> 
+is initialized to <code>"HEADS"</code> or <code>"TAILS"</code> depending on whether <code>nextBoolean</code> returns <code>true</code> or 
+<code>false</code>, respectively.</p>
+<h2 id="533-if-else-chains">5.3.3 <code>if</code>-<code>else</code> Chains</h2>
+<p>An <strong><code>if</code>-<code>else</code> chain</strong> is a sequence of nested <code>if</code>-<code>else</code> statements used for multi-way selection.
+Listing 5.3.3 is a revised version of Listing 5.2.1 (ComeOutRoll) that uses an <code>if</code>-<code>else</code> chain to 
+simplify the code.</p>
+<h4 id="listing-533-comeoutrolljava">Listing 5.3.3 - <a href="https://github.com/drue-coles/cmsc-120/blob/master/code/src/chap05/sect3/ComeOutRoll.java">ComeOutRoll.java</a></h4>
+<div class="highlight"><span class="filename">ComeOutRoll.java</span><pre><span></span><code><span class="kn">package</span><span class="w"> </span><span class="nn">chap05.sect3</span><span class="p">;</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">java.util.concurrent.ThreadLocalRandom</span><span class="p">;</span>
+
+<span class="cm">/**</span>
+<span class="cm"> * Simulates the first roll in the game of Craps. The player rolls two dice and the outcome depends</span>
+<span class="cm"> * on the sum: natural (7 or 11) - player wins; craps (2, 3, or 12) - player loses; otherwise, the</span>
+<span class="cm"> * game continues according to a different rule.</span>
+<span class="cm"> *</span>
+<span class="cm"> * @author Drue Coles</span>
+<span class="cm"> * @version 2.0 - uses if-else chain</span>
+<span class="cm"> */</span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">ComeOutRoll</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">   </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="n">ThreadLocalRandom</span><span class="w"> </span><span class="n">rand</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ThreadLocalRandom</span><span class="p">.</span><span class="na">current</span><span class="p">();</span>
+<span class="w">      </span><span class="kt">int</span><span class="w"> </span><span class="n">die1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">rand</span><span class="p">.</span><span class="na">nextInt</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">7</span><span class="p">);</span>
+<span class="w">      </span><span class="kt">int</span><span class="w"> </span><span class="n">die2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">rand</span><span class="p">.</span><span class="na">nextInt</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">7</span><span class="p">);</span>
+<span class="w">      </span><span class="kd">final</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">comeOutRoll</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">die1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">die2</span><span class="p">;</span>
+
+<span class="w">      </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">printf</span><span class="p">(</span><span class="s">&quot;You rolled %d + %d = %d. %n&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">die1</span><span class="p">,</span><span class="w"> </span><span class="n">die2</span><span class="p">,</span><span class="w"> </span><span class="n">comeOutRoll</span><span class="p">);</span>
+
+<span class="w">      </span><span class="kd">final</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">winMessage</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Natural. You win.&quot;</span><span class="p">;</span>
+<span class="w">      </span><span class="kd">final</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">loseMessage</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Craps. You lose.&quot;</span><span class="p">;</span>
+<span class="w">      </span><span class="kd">final</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">continueMessage</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;The game continues&quot;</span><span class="p">;</span>
+
+<span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">comeOutRoll</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">7</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">         </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">winMessage</span><span class="p">);</span>
+<span class="w">      </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">comeOutRoll</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">11</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">         </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">winMessage</span><span class="p">);</span>
+<span class="w">      </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">comeOutRoll</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">         </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">loseMessage</span><span class="p">);</span>
+<span class="w">      </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">comeOutRoll</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">         </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">loseMessage</span><span class="p">);</span>
+<span class="w">      </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">comeOutRoll</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">12</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">         </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">loseMessage</span><span class="p">);</span>
+<span class="w">      </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">         </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">continueMessage</span><span class="p">);</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">   </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>The <code>if</code>-<code>else</code> chain enables multi-way selection. By convention, such chains are written in a flat 
+alignment style to improve readability, but the following equivalent form uses indentation to 
+make the nested logic explicit. If <code>comeOutRoll</code> is 7, the program prints <code>winMessage</code>; otherwise, 
+execution continues with the nested <code>if</code>-<code>else</code> structure to check for the other possible sums.</p>
+<div class="highlight"><pre><span></span><code><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">comeOutRoll</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">7</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">   </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">winMessage</span><span class="p">);</span><span class="w"> </span>
+<span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">   </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">comeOutRoll</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">11</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">winMessage</span><span class="p">);</span>
+<span class="w">   </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">comeOutRoll</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">         </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">loseMessage</span><span class="p">);</span>
+<span class="w">      </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">         </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">comeOutRoll</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">loseMessage</span><span class="p">);</span>
+<span class="w">         </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">comeOutRoll</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">12</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">               </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">loseMessage</span><span class="p">);</span>
+<span class="w">            </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">               </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">continueMessage</span><span class="p">);</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">         </span><span class="p">}</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">   </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>The fully nested version is shown here only as a learning aid — it precisely mirrors the execution 
+logic. But once this has been seen, the behavior of a conventionally formatted <code>if</code>-<code>else</code> chain is 
+easy to understand.</p>
 
 
 

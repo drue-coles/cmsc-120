@@ -1749,7 +1749,33 @@ Listing 3.5.1, this method is used to obtain the base, while the exponent is rea
 <code>nextInt</code>. The exponentiation is then performed with <code>BigInteger</code>’s <code>pow</code> method, avoiding the 
 overflow that occurred with primitive values using <code>Math.pow</code>.</p>
 <p>The <code>printf</code> method can format a <code>BigInteger</code> with <code>%,d</code> as if it were an <code>int</code>.</p>
-<h4 id="listing-351-powercalculatorjava">Listing 3.5.1 - <a href="https://github.com/drue-coles/cmsc-120/blob/master/code/src/chap03/sect5/PowerCalculator.java" target="_blank">PowerCalculator.java</a></h4>
+<h4 id="listing-351-powercalculatorjava">Listing 3.5.1 - <a href="https://github.com/drue-coles/cmsc-120/blob/master/code/src/chap03/sect5/PowerCalculator.java">PowerCalculator.java</a></h4>
+<div class="highlight"><span class="filename">PowerCalculator.java</span><pre><span></span><code><span class="kn">package</span><span class="w"> </span><span class="nn">chap03.sect5</span><span class="p">;</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">java.math.BigInteger</span><span class="p">;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">java.util.Scanner</span><span class="p">;</span>
+
+<span class="cm">/**</span>
+<span class="cm"> * Performs unbounded integer exponentiation with a user-specified base and exponent.</span>
+<span class="cm"> *</span>
+<span class="cm"> * @author Drue Coles</span>
+<span class="cm"> */</span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">PowerCalculator</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">   </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="c1">// prompt the user and read input</span>
+<span class="w">      </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">print</span><span class="p">(</span><span class="s">&quot;Enter two integers (base and exponent): &quot;</span><span class="p">);</span>
+<span class="w">      </span><span class="n">Scanner</span><span class="w"> </span><span class="n">in</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Scanner</span><span class="p">(</span><span class="n">System</span><span class="p">.</span><span class="na">in</span><span class="p">);</span>
+<span class="w">      </span><span class="n">BigInteger</span><span class="w"> </span><span class="n">base</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">in</span><span class="p">.</span><span class="na">nextBigInteger</span><span class="p">();</span>
+<span class="w">      </span><span class="kt">int</span><span class="w"> </span><span class="n">exponent</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">in</span><span class="p">.</span><span class="na">nextInt</span><span class="p">();</span>
+
+<span class="w">      </span><span class="n">BigInteger</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">base</span><span class="p">.</span><span class="na">pow</span><span class="p">(</span><span class="n">exponent</span><span class="p">);</span>
+
+<span class="w">      </span><span class="c1">// format and display result as an equation</span>
+<span class="w">      </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">printf</span><span class="p">(</span><span class="s">&quot;%d^%d = %,d %n&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">base</span><span class="p">,</span><span class="w"> </span><span class="n">exponent</span><span class="p">,</span><span class="w"> </span><span class="n">result</span><span class="p">);</span>
+<span class="w">   </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
 <details>
 <summary>Output 3.5.1</summary>
 <div class="highlight"><pre><span></span><code>Enter two integers (base and exponent): 2 100

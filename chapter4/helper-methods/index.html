@@ -1885,11 +1885,11 @@ local variable</p>
 used, while the <strong>body</strong> (enclosed in curly braces) contains the statements to be executed. By 
 convention, the body is indented one level beyond the header. Indentation visually signals 
 containment: the method belongs to the class, and the statements belong to the method:</p>
-<div class="highlight"><pre><span></span><code><span class="kd">class</span> <span class="nc">header</span><span class="w"> </span><span class="p">{</span>
-<span class="w">   </span><span class="n">method</span><span class="w"> </span><span class="n">header</span><span class="w"> </span><span class="p">{</span>
-<span class="w">      </span><span class="n">method</span><span class="w"> </span><span class="n">body</span>
-<span class="w">   </span><span class="p">}</span>
-<span class="p">}</span>
+<div class="highlight"><pre><span></span><code>class header {
+   method header {
+      method body
+   }
+}
 </code></pre></div>
 <p>The method header consists of optional modifiers, a return type, a method name, a parameter list 
 enclosed in parentheses, and an optional exception list:</p>
@@ -1935,6 +1935,42 @@ method returns when this is not clear from the description.</p>
 <p>Players could be added with additional calls to <code>rollDice</code>. Testing and debugging are simplified 
 because the simulation and sorting logic are confined to the helper method.</p>
 <h4 id="listing-422-threediceroller2java">Listing 4.2.2 - <a href="https://github.com/drue-coles/cmsc-120/blob/master/code/src/chap04/sect2/ThreeDiceRoller2.java">ThreeDiceRoller2.java</a></h4>
+<div class="highlight"><span class="filename">ThreeDiceRoller2.java</span><pre><span></span><code><span class="kn">package</span><span class="w"> </span><span class="nn">chap04.sect2</span><span class="p">;</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">java.util.concurrent.ThreadLocalRandom</span><span class="p">;</span>
+
+<span class="cm">/**</span>
+<span class="cm"> * Rolls three dice for two players and displays them in ascending order.</span>
+<span class="cm"> *</span>
+<span class="cm"> * @author Drue Coles</span>
+<span class="cm"> */</span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">ThreeDiceRoller2</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">   </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">printf</span><span class="p">(</span><span class="s">&quot;Player 1 rolls %s %n&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">rollDice</span><span class="p">());</span>
+<span class="w">      </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">printf</span><span class="p">(</span><span class="s">&quot;Player 2 rolls %s %n&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">rollDice</span><span class="p">());</span>
+<span class="w">   </span><span class="p">}</span>
+
+<span class="w">   </span><span class="cm">/**</span>
+<span class="cm">    * Rolls three dice.</span>
+<span class="cm">    *</span>
+<span class="cm">    * @return a string with the dice values in ascending order</span>
+<span class="cm">    */</span>
+<span class="w">   </span><span class="kd">private</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">rollDice</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="n">ThreadLocalRandom</span><span class="w"> </span><span class="n">rand</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ThreadLocalRandom</span><span class="p">.</span><span class="na">current</span><span class="p">();</span>
+<span class="w">      </span><span class="kd">final</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">sides</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">6</span><span class="p">;</span>
+<span class="w">      </span><span class="kt">int</span><span class="w"> </span><span class="n">die1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">rand</span><span class="p">.</span><span class="na">nextInt</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">sides</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
+<span class="w">      </span><span class="kt">int</span><span class="w"> </span><span class="n">die2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">rand</span><span class="p">.</span><span class="na">nextInt</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">sides</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
+<span class="w">      </span><span class="kt">int</span><span class="w"> </span><span class="n">die3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">rand</span><span class="p">.</span><span class="na">nextInt</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">sides</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
+
+<span class="w">      </span><span class="kt">int</span><span class="w"> </span><span class="n">lo</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Math</span><span class="p">.</span><span class="na">min</span><span class="p">(</span><span class="n">die1</span><span class="p">,</span><span class="w"> </span><span class="n">Math</span><span class="p">.</span><span class="na">min</span><span class="p">(</span><span class="n">die2</span><span class="p">,</span><span class="w"> </span><span class="n">die3</span><span class="p">));</span>
+<span class="w">      </span><span class="kt">int</span><span class="w"> </span><span class="n">hi</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Math</span><span class="p">.</span><span class="na">max</span><span class="p">(</span><span class="n">die1</span><span class="p">,</span><span class="w"> </span><span class="n">Math</span><span class="p">.</span><span class="na">max</span><span class="p">(</span><span class="n">die2</span><span class="p">,</span><span class="w"> </span><span class="n">die3</span><span class="p">));</span>
+<span class="w">      </span><span class="kt">int</span><span class="w"> </span><span class="n">mid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">die1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">die2</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">die3</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">lo</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">hi</span><span class="p">;</span>
+
+<span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="n">lo</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;-&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">mid</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;-&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">hi</span><span class="p">;</span>
+<span class="w">   </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
 <p>Replacing repeated blocks of code with method calls is a direct application of the DRY principle. It 
 makes the program shorter, clearer, and less error-prone.</p>
 <h2 id="423-returning-values-vs-writing-output">4.2.3 Returning Values vs. Writing Output</h2>
@@ -1948,6 +1984,45 @@ useful as a program evolves.</p>
 When the method is called in <code>main</code>, the argument's value is copied to the parameter and used by the 
 method to generate random numbers.</p>
 <h4 id="listing-424-threediceroller3java">Listing 4.2.4 - <a href="https://github.com/drue-coles/cmsc-120/blob/master/code/src/chap04/sect2/ThreeDiceRoller3.java">ThreeDiceRoller3.java</a></h4>
+<div class="highlight"><span class="filename">ThreeDiceRoller3.java</span><pre><span></span><code><span class="kn">package</span><span class="w"> </span><span class="nn">chap04.sect2</span><span class="p">;</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">java.util.Scanner</span><span class="p">;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">java.util.concurrent.ThreadLocalRandom</span><span class="p">;</span>
+
+<span class="cm">/**</span>
+<span class="cm"> * Rolls three dice for two players and displays them in ascending order.</span>
+<span class="cm"> *</span>
+<span class="cm"> * @author Drue Coles</span>
+<span class="cm"> */</span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">ThreeDiceRoller3</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">   </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="n">Scanner</span><span class="w"> </span><span class="n">in</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Scanner</span><span class="p">(</span><span class="n">System</span><span class="p">.</span><span class="na">in</span><span class="p">);</span>
+<span class="w">      </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">print</span><span class="p">(</span><span class="s">&quot;Enter number of sides: &quot;</span><span class="p">);</span>
+<span class="w">      </span><span class="kt">int</span><span class="w"> </span><span class="n">sides</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">in</span><span class="p">.</span><span class="na">nextInt</span><span class="p">();</span>
+<span class="w">      </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">printf</span><span class="p">(</span><span class="s">&quot;Player 1 rolls %s %n&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">rollDice</span><span class="p">(</span><span class="n">sides</span><span class="p">));</span>
+<span class="w">      </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">printf</span><span class="p">(</span><span class="s">&quot;Player 2 rolls %s %n&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">rollDice</span><span class="p">(</span><span class="n">sides</span><span class="p">));</span>
+<span class="w">   </span><span class="p">}</span>
+
+<span class="w">   </span><span class="cm">/**</span>
+<span class="cm">    * Rolls three dice.</span>
+<span class="cm">    *</span>
+<span class="cm">    * @return a string with the three values in ascending order</span>
+<span class="cm">    */</span>
+<span class="w">   </span><span class="kd">private</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">rollDice</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">sides</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="n">ThreadLocalRandom</span><span class="w"> </span><span class="n">rand</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ThreadLocalRandom</span><span class="p">.</span><span class="na">current</span><span class="p">();</span>
+<span class="w">      </span><span class="kt">int</span><span class="w"> </span><span class="n">die1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">rand</span><span class="p">.</span><span class="na">nextInt</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">sides</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
+<span class="w">      </span><span class="kt">int</span><span class="w"> </span><span class="n">die2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">rand</span><span class="p">.</span><span class="na">nextInt</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">sides</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
+<span class="w">      </span><span class="kt">int</span><span class="w"> </span><span class="n">die3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">rand</span><span class="p">.</span><span class="na">nextInt</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">sides</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
+
+<span class="w">      </span><span class="kt">int</span><span class="w"> </span><span class="n">lo</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Math</span><span class="p">.</span><span class="na">min</span><span class="p">(</span><span class="n">die1</span><span class="p">,</span><span class="w"> </span><span class="n">Math</span><span class="p">.</span><span class="na">min</span><span class="p">(</span><span class="n">die2</span><span class="p">,</span><span class="w"> </span><span class="n">die3</span><span class="p">));</span>
+<span class="w">      </span><span class="kt">int</span><span class="w"> </span><span class="n">hi</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Math</span><span class="p">.</span><span class="na">max</span><span class="p">(</span><span class="n">die1</span><span class="p">,</span><span class="w"> </span><span class="n">Math</span><span class="p">.</span><span class="na">max</span><span class="p">(</span><span class="n">die2</span><span class="p">,</span><span class="w"> </span><span class="n">die3</span><span class="p">));</span>
+<span class="w">      </span><span class="kt">int</span><span class="w"> </span><span class="n">mid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">die1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">die2</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">die3</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">lo</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">hi</span><span class="p">;</span>
+
+<span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="n">lo</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;-&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">mid</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;-&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">hi</span><span class="p">;</span>
+<span class="w">   </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
 <p>This parameterized version of the helper method makes generalizing the program straightforward: the 
 <code>main</code> method only needs to read user input and pass it to <code>rollDice</code>.</p>
 <h2 id="425-local-variables">4.2.5 Local Variables</h2>
@@ -1966,6 +2041,75 @@ the viewing area. Implementing this program monolithically would make it longer 
 since each call to the helper method would have to be replaced by all the statements it contains, 
 violating the DRY principle.</p>
 <h4 id="listing-425-randomovalsjava">Listing 4.2.5 - <a href="...">RandomOvals.java</a></h4>
+<div class="highlight"><span class="filename">RandomOvals.java</span><pre><span></span><code><span class="kn">package</span><span class="w"> </span><span class="nn">chap04.sect2</span><span class="p">;</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">java.util.concurrent.ThreadLocalRandom</span><span class="p">;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">javafx.application.Application</span><span class="p">;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">javafx.scene.Scene</span><span class="p">;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">javafx.scene.layout.StackPane</span><span class="p">;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">javafx.scene.paint.Color</span><span class="p">;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">javafx.scene.shape.Ellipse</span><span class="p">;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">javafx.stage.Stage</span><span class="p">;</span>
+
+<span class="cm">/**</span>
+<span class="cm"> * Draws five ovals, each with a random color and a random angle of rotation.</span>
+<span class="cm"> *</span>
+<span class="cm"> * @author Drue Coles</span>
+<span class="cm"> */</span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">RandomOvals</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">Application</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">   </span><span class="nd">@Override</span>
+<span class="w">   </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">start</span><span class="p">(</span><span class="n">Stage</span><span class="w"> </span><span class="n">stage</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="n">StackPane</span><span class="w"> </span><span class="n">root</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">StackPane</span><span class="p">();</span>
+<span class="w">      </span><span class="kd">final</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">300</span><span class="p">;</span>
+<span class="w">      </span><span class="n">Scene</span><span class="w"> </span><span class="n">scene</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Scene</span><span class="p">(</span><span class="n">root</span><span class="p">,</span><span class="w"> </span><span class="n">size</span><span class="p">,</span><span class="w"> </span><span class="n">size</span><span class="p">,</span><span class="w"> </span><span class="n">Color</span><span class="p">.</span><span class="na">BLACK</span><span class="p">);</span>
+
+<span class="w">      </span><span class="kd">final</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">padding</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">20</span><span class="p">;</span><span class="w"> </span><span class="c1">// space between oval and edge of scene</span>
+<span class="w">      </span><span class="kd">final</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">ovalWidth</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">size</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">padding</span><span class="p">;</span>
+<span class="w">      </span><span class="kd">final</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">ovalHeight</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ovalWidth</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span>
+
+<span class="w">      </span><span class="n">root</span><span class="p">.</span><span class="na">getChildren</span><span class="p">().</span><span class="na">add</span><span class="p">(</span><span class="n">randomOval</span><span class="p">(</span><span class="n">ovalWidth</span><span class="p">,</span><span class="w"> </span><span class="n">ovalHeight</span><span class="p">));</span>
+<span class="w">      </span><span class="n">root</span><span class="p">.</span><span class="na">getChildren</span><span class="p">().</span><span class="na">add</span><span class="p">(</span><span class="n">randomOval</span><span class="p">(</span><span class="n">ovalWidth</span><span class="p">,</span><span class="w"> </span><span class="n">ovalHeight</span><span class="p">));</span>
+<span class="w">      </span><span class="n">root</span><span class="p">.</span><span class="na">getChildren</span><span class="p">().</span><span class="na">add</span><span class="p">(</span><span class="n">randomOval</span><span class="p">(</span><span class="n">ovalWidth</span><span class="p">,</span><span class="w"> </span><span class="n">ovalHeight</span><span class="p">));</span>
+<span class="w">      </span><span class="n">root</span><span class="p">.</span><span class="na">getChildren</span><span class="p">().</span><span class="na">add</span><span class="p">(</span><span class="n">randomOval</span><span class="p">(</span><span class="n">ovalWidth</span><span class="p">,</span><span class="w"> </span><span class="n">ovalHeight</span><span class="p">));</span>
+<span class="w">      </span><span class="n">root</span><span class="p">.</span><span class="na">getChildren</span><span class="p">().</span><span class="na">add</span><span class="p">(</span><span class="n">randomOval</span><span class="p">(</span><span class="n">ovalWidth</span><span class="p">,</span><span class="w"> </span><span class="n">ovalHeight</span><span class="p">));</span>
+
+<span class="w">      </span><span class="n">stage</span><span class="p">.</span><span class="na">setTitle</span><span class="p">(</span><span class="s">&quot;Random Ovals&quot;</span><span class="p">);</span>
+<span class="w">      </span><span class="n">stage</span><span class="p">.</span><span class="na">setScene</span><span class="p">(</span><span class="n">scene</span><span class="p">);</span>
+<span class="w">      </span><span class="n">stage</span><span class="p">.</span><span class="na">show</span><span class="p">();</span>
+<span class="w">   </span><span class="p">}</span>
+
+<span class="w">   </span><span class="cm">/**</span>
+<span class="cm">    * Creates and returns an oval shape with a randomly assigned color and angle of rotation.</span>
+<span class="cm">    */</span>
+<span class="w">   </span><span class="kd">private</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="n">Ellipse</span><span class="w"> </span><span class="nf">randomOval</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">width</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">height</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="c1">// constructor expects horizontal/vertical radius, not full width/height</span>
+<span class="w">      </span><span class="n">Ellipse</span><span class="w"> </span><span class="n">ellipse</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Ellipse</span><span class="p">(</span><span class="n">width</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="n">height</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">2</span><span class="p">);</span>
+<span class="w">      </span><span class="n">ellipse</span><span class="p">.</span><span class="na">setFill</span><span class="p">(</span><span class="kc">null</span><span class="p">);</span>
+<span class="w">      </span><span class="n">ellipse</span><span class="p">.</span><span class="na">setStrokeWidth</span><span class="p">(</span><span class="mi">4</span><span class="p">);</span>
+<span class="w">      </span><span class="n">ellipse</span><span class="p">.</span><span class="na">setStroke</span><span class="p">(</span><span class="n">randomColor</span><span class="p">());</span>
+<span class="w">      </span><span class="n">ellipse</span><span class="p">.</span><span class="na">setRotate</span><span class="p">(</span><span class="n">ThreadLocalRandom</span><span class="p">.</span><span class="na">current</span><span class="p">().</span><span class="na">nextInt</span><span class="p">(</span><span class="mi">360</span><span class="p">));</span>
+<span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="n">ellipse</span><span class="p">;</span>
+<span class="w">   </span><span class="p">}</span>
+
+<span class="w">   </span><span class="cm">/**</span>
+<span class="cm">    * Creates and returns a color with random RGB components.</span>
+<span class="cm">    */</span>
+<span class="w">   </span><span class="kd">private</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="n">Color</span><span class="w"> </span><span class="nf">randomColor</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="n">ThreadLocalRandom</span><span class="w"> </span><span class="n">rand</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ThreadLocalRandom</span><span class="p">.</span><span class="na">current</span><span class="p">();</span>
+<span class="w">      </span><span class="kt">double</span><span class="w"> </span><span class="n">r</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">rand</span><span class="p">.</span><span class="na">nextDouble</span><span class="p">();</span>
+<span class="w">      </span><span class="kt">double</span><span class="w"> </span><span class="n">g</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">rand</span><span class="p">.</span><span class="na">nextDouble</span><span class="p">();</span>
+<span class="w">      </span><span class="kt">double</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">rand</span><span class="p">.</span><span class="na">nextDouble</span><span class="p">();</span>
+
+<span class="w">      </span><span class="c1">// brightened for contrast with black background</span>
+<span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="n">Color</span><span class="p">.</span><span class="na">color</span><span class="p">(</span><span class="n">r</span><span class="p">,</span><span class="w"> </span><span class="n">g</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">).</span><span class="na">brighter</span><span class="p">().</span><span class="na">brighter</span><span class="p">();</span>
+<span class="w">   </span><span class="p">}</span><span class="w">   </span>
+
+<span class="w">   </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="n">launch</span><span class="p">(</span><span class="n">args</span><span class="p">);</span>
+<span class="w">   </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
 <details>
 <summary>Output 4.2.5</summary>
 <p><img alt="Output 4.2.5 – Random Ovals" src="../images/output4.2.5.png" /></p>

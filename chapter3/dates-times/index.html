@@ -1773,7 +1773,46 @@ the rules and conventions governing temporal data.</p>
 program creates instances representing the user's birthdate and the current date using the factory 
 methods <code>LocalDate.of</code> and <code>LocalDate.now</code>, then outputs the user's age and the number of days 
 lived.</p>
-<h4 id="listing-361-daysalivejava">Listing 3.6.1 - <a href="https://github.com/drue-coles/cmsc-120/blob/master/code/src/chap03/sect6/DaysAlive.java" target="_blank">DaysAlive.java</a></h4>
+<h4 id="listing-361-daysalivejava">Listing 3.6.1 - <a href="https://github.com/drue-coles/cmsc-120/blob/master/code/src/chap03/sect6/DaysAlive.java">DaysAlive.java</a></h4>
+<div class="highlight"><span class="filename">DaysAlive.java</span><pre><span></span><code><span class="kn">package</span><span class="w"> </span><span class="nn">chap03.sect6</span><span class="p">;</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">java.time.LocalDate</span><span class="p">;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">java.time.Period</span><span class="p">;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">java.time.format.DateTimeFormatter</span><span class="p">;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">java.time.temporal.ChronoUnit</span><span class="p">;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">java.util.Scanner</span><span class="p">;</span>
+
+<span class="cm">/**</span>
+<span class="cm"> * Outputs the current date and the elapsed time since the user&#39;s birthdate.</span>
+<span class="cm"> * </span>
+<span class="cm"> * @author Drue Coles</span>
+<span class="cm"> */</span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">DaysAlive</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">   </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="c1">// read user&#39;s birthdate</span>
+<span class="w">      </span><span class="n">Scanner</span><span class="w"> </span><span class="n">in</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Scanner</span><span class="p">(</span><span class="n">System</span><span class="p">.</span><span class="na">in</span><span class="p">);</span>
+<span class="w">      </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">print</span><span class="p">(</span><span class="s">&quot;Enter date of birth in MM DD YYYY format: &quot;</span><span class="p">);</span>
+<span class="w">      </span><span class="kt">int</span><span class="w"> </span><span class="n">month</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">in</span><span class="p">.</span><span class="na">nextInt</span><span class="p">();</span>
+<span class="w">      </span><span class="kt">int</span><span class="w"> </span><span class="n">day</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">in</span><span class="p">.</span><span class="na">nextInt</span><span class="p">();</span>
+<span class="w">      </span><span class="kt">int</span><span class="w"> </span><span class="n">year</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">in</span><span class="p">.</span><span class="na">nextInt</span><span class="p">();</span>
+<span class="w">      </span><span class="n">LocalDate</span><span class="w"> </span><span class="n">birthday</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">LocalDate</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="n">year</span><span class="p">,</span><span class="w"> </span><span class="n">month</span><span class="p">,</span><span class="w"> </span><span class="n">day</span><span class="p">);</span>
+
+<span class="w">      </span><span class="c1">// output today&#39;s date</span>
+<span class="w">      </span><span class="n">LocalDate</span><span class="w"> </span><span class="n">today</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">LocalDate</span><span class="p">.</span><span class="na">now</span><span class="p">();</span>
+<span class="w">      </span><span class="n">DateTimeFormatter</span><span class="w"> </span><span class="n">formatter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">DateTimeFormatter</span><span class="p">.</span><span class="na">ofPattern</span><span class="p">(</span><span class="s">&quot;EEEE, MMMM dd, yyyy&quot;</span><span class="p">);</span>
+<span class="w">      </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">printf</span><span class="p">(</span><span class="s">&quot;Today is %s. %n&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">today</span><span class="p">.</span><span class="na">format</span><span class="p">(</span><span class="n">formatter</span><span class="p">));</span>
+
+<span class="w">      </span><span class="c1">// output current age</span>
+<span class="w">      </span><span class="n">Period</span><span class="w"> </span><span class="n">period</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Period</span><span class="p">.</span><span class="na">between</span><span class="p">(</span><span class="n">birthday</span><span class="p">,</span><span class="w"> </span><span class="n">today</span><span class="p">);</span>
+<span class="w">      </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">printf</span><span class="p">(</span><span class="s">&quot;You are %d years old. %n&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">period</span><span class="p">.</span><span class="na">getYears</span><span class="p">());</span>
+
+<span class="w">      </span><span class="c1">// calculate total number of days since birth</span>
+<span class="w">      </span><span class="kt">long</span><span class="w"> </span><span class="n">daysAlive</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ChronoUnit</span><span class="p">.</span><span class="na">DAYS</span><span class="p">.</span><span class="na">between</span><span class="p">(</span><span class="n">birthday</span><span class="p">,</span><span class="w"> </span><span class="n">today</span><span class="p">);</span>
+<span class="w">      </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">printf</span><span class="p">(</span><span class="s">&quot;You have been alive for %,d days. %n&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">daysAlive</span><span class="p">);</span>
+<span class="w">   </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
 <details>
 <summary>Output 3.6.1</summary>
 <div class="highlight"><pre><span></span><code>Enter date of birth in MM DD YYYY format: 10 17 2006
@@ -1800,7 +1839,53 @@ of days between two dates.</p>
 <h2 id="362-localtimes-and-durations">3.6.2 LocalTimes and Durations</h2>
 <p>Listing 3.6.2 introduces <code>LocalTime</code> and uses the <code>Duration</code> class to represent the interval between 
 the current moment and a user-entered time.</p>
-<h4 id="listing-362-favoritetimejava">Listing 3.6.2 - <a href="https://github.com/drue-coles/cmsc-120/blob/master/code/src/chap03/sect6/FavoriteTime.java" target="_blank">FavoriteTime.java</a></h4>
+<h4 id="listing-362-favoritetimejava">Listing 3.6.2 - <a href="https://github.com/drue-coles/cmsc-120/blob/master/code/src/chap03/sect6/FavoriteTime.java">FavoriteTime.java</a></h4>
+<div class="highlight"><span class="filename">FavoriteTime.java</span><pre><span></span><code><span class="kn">package</span><span class="w"> </span><span class="nn">chap03.sect6</span><span class="p">;</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">java.time.Duration</span><span class="p">;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">java.time.LocalTime</span><span class="p">;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">java.time.format.DateTimeFormatter</span><span class="p">;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">java.util.Scanner</span><span class="p">;</span>
+
+<span class="cm">/**</span>
+<span class="cm"> * Prompts the user for a favorite time of day and calculates how long the user must wait until it</span>
+<span class="cm"> * arrives.</span>
+<span class="cm"> *</span>
+<span class="cm"> * @author Drue Coles</span>
+<span class="cm"> */</span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">FavoriteTime</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">Scanner</span><span class="w"> </span><span class="n">scanner</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Scanner</span><span class="p">(</span><span class="n">System</span><span class="p">.</span><span class="na">in</span><span class="p">);</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">print</span><span class="p">(</span><span class="s">&quot;Enter your favorite time of day (HH:MM) in 24-hour format: &quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="n">String</span><span class="w"> </span><span class="n">input</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">scanner</span><span class="p">.</span><span class="na">next</span><span class="p">();</span>
+
+<span class="w">        </span><span class="c1">// parse user input</span>
+<span class="w">        </span><span class="n">LocalTime</span><span class="w"> </span><span class="n">futureTime</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">LocalTime</span><span class="p">.</span><span class="na">parse</span><span class="p">(</span><span class="n">input</span><span class="p">);</span><span class="w"> </span><span class="c1">// assumes two-digit hour such as 05</span>
+<span class="w">        </span><span class="n">LocalTime</span><span class="w"> </span><span class="n">now</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">LocalTime</span><span class="p">.</span><span class="na">now</span><span class="p">();</span>
+
+<span class="w">        </span><span class="c1">// display current and future times in hh:mm:ss (24-hour format)</span>
+<span class="w">        </span><span class="n">DateTimeFormatter</span><span class="w"> </span><span class="n">formatter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">DateTimeFormatter</span><span class="p">.</span><span class="na">ofPattern</span><span class="p">(</span><span class="s">&quot;HH:mm:ss&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">printf</span><span class="p">(</span><span class="s">&quot;%13s %s %n&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Current time:&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">now</span><span class="p">.</span><span class="na">format</span><span class="p">(</span><span class="n">formatter</span><span class="p">));</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">printf</span><span class="p">(</span><span class="s">&quot;%13s %s %n&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Future time:&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">futureTime</span><span class="p">.</span><span class="na">format</span><span class="p">(</span><span class="n">formatter</span><span class="p">));</span>
+
+<span class="w">        </span><span class="c1">// compute number of seconds until future time</span>
+<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">secondsInDay</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">24</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">60</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">60</span><span class="p">;</span>
+<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">nowSecs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">now</span><span class="p">.</span><span class="na">toSecondOfDay</span><span class="p">();</span>
+<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">futureSecs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">futureTime</span><span class="p">.</span><span class="na">toSecondOfDay</span><span class="p">();</span>
+<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">waitingSeconds</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Math</span><span class="p">.</span><span class="na">floorMod</span><span class="p">(</span><span class="n">futureSecs</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">nowSecs</span><span class="p">,</span><span class="w"> </span><span class="n">secondsInDay</span><span class="p">);</span><span class="w"> </span>
+
+<span class="w">        </span><span class="n">Duration</span><span class="w"> </span><span class="n">waitingTime</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Duration</span><span class="p">.</span><span class="na">ofSeconds</span><span class="p">(</span><span class="n">waitingSeconds</span><span class="p">);</span>
+
+<span class="w">        </span><span class="c1">// display waiting time in HH:MM:SS format</span>
+<span class="w">        </span><span class="kt">long</span><span class="w"> </span><span class="n">totalSeconds</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">waitingTime</span><span class="p">.</span><span class="na">getSeconds</span><span class="p">();</span>
+<span class="w">        </span><span class="kt">long</span><span class="w"> </span><span class="n">hours</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">totalSeconds</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">3600</span><span class="p">;</span>
+<span class="w">        </span><span class="kt">long</span><span class="w"> </span><span class="n">minutes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">totalSeconds</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">3600</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">60</span><span class="p">;</span>
+<span class="w">        </span><span class="kt">long</span><span class="w"> </span><span class="n">seconds</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">totalSeconds</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">60</span><span class="p">;</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">printf</span><span class="p">(</span><span class="s">&quot;%13s %02d:%02d:%02d %n&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Waiting time:&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">hours</span><span class="p">,</span><span class="w"> </span><span class="n">minutes</span><span class="p">,</span><span class="w"> </span><span class="n">seconds</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
 <details>
 <summary>Output 3.6.2</summary>
 <div class="highlight"><pre><span></span><code>Enter your favorite time of day (HH:MM) in 24-hour format: 05:30

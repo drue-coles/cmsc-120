@@ -1868,7 +1868,39 @@ initialization.</p>
 <p>Each explicit creation of an object in Listing 3.2.1 follows the same pattern at runtime: <code>new</code> 
 allocates memory for the object, the specified constructor is executed, and a reference to the 
 object is returned.</p>
-<h4 id="listing-321-constructordemojava">Listing 3.2.1 - <a href="https://github.com/drue-coles/cmsc-120/blob/master/code/src/chap03/sect2/ConstructorDemo.java" target="_blank">ConstructorDemo.java</a></h4>
+<h4 id="listing-321-constructordemojava">Listing 3.2.1 - <a href="https://github.com/drue-coles/cmsc-120/blob/master/code/src/chap03/sect2/ConstructorDemo.java">ConstructorDemo.java</a></h4>
+<div class="highlight"><span class="filename">ConstructorDemo.java</span><pre><span></span><code><span class="kn">package</span><span class="w"> </span><span class="nn">chap03.sect2</span><span class="p">;</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">java.math.BigInteger</span><span class="p">;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">java.util.BitSet</span><span class="p">;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">java.util.Properties</span><span class="p">;</span>
+
+<span class="cm">/**</span>
+<span class="cm"> * Demonstrates the use of the new operator to create objects and constructors to initialize them.</span>
+<span class="cm"> *</span>
+<span class="cm"> * @author Drue Coles</span>
+<span class="cm"> */</span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">ConstructorDemo</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">BigInteger</span><span class="w"> </span><span class="n">val</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">BigInteger</span><span class="p">(</span><span class="s">&quot;100000000001&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">val</span><span class="p">.</span><span class="na">pow</span><span class="p">(</span><span class="mi">2</span><span class="p">));</span>
+
+<span class="w">        </span><span class="n">BitSet</span><span class="w"> </span><span class="n">b1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">BitSet</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
+<span class="w">        </span><span class="n">b1</span><span class="p">.</span><span class="na">set</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span><span class="w">     </span><span class="c1">// -1--------</span>
+<span class="w">        </span><span class="n">b1</span><span class="p">.</span><span class="na">set</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">9</span><span class="p">);</span><span class="w">  </span><span class="c1">// -1---1111-</span>
+<span class="w">        </span><span class="n">b1</span><span class="p">.</span><span class="na">flip</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">7</span><span class="p">);</span><span class="w"> </span><span class="c1">// -1-11--11-</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">b1</span><span class="p">);</span>
+
+<span class="w">        </span><span class="n">Properties</span><span class="w"> </span><span class="n">creature</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Properties</span><span class="p">();</span>
+<span class="w">        </span><span class="n">creature</span><span class="p">.</span><span class="na">setProperty</span><span class="p">(</span><span class="s">&quot;common name&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;quoll&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="n">creature</span><span class="p">.</span><span class="na">setProperty</span><span class="p">(</span><span class="s">&quot;kingdom&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Animalia&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="n">creature</span><span class="p">.</span><span class="na">setProperty</span><span class="p">(</span><span class="s">&quot;phylum&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Chordata&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="n">creature</span><span class="p">.</span><span class="na">setProperty</span><span class="p">(</span><span class="s">&quot;class&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Mammalia&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">creature</span><span class="p">.</span><span class="na">getProperty</span><span class="p">(</span><span class="s">&quot;common name&quot;</span><span class="p">));</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
 <details>
 <summary>Output 3.2.1</summary>
 <div class="highlight"><pre><span></span><code>10000000000200000000001
@@ -1923,7 +1955,29 @@ belong to the <code>java.lang</code> package, whose classes are implicitly impor
 objects are created with the <code>new</code> operator and initialized by a constructor.</p>
 <p>In Listing 3.2.4, characters in a <code>StringBuilder</code> are replaced and reversed. The program's output 
 confirms that the objects themselves are modified by the mutators.</p>
-<h4 id="listing-324-stringbuilderdemojava">Listing 3.2.4 - <a href="https://github.com/drue-coles/cmsc-120/blob/master/code/src/chap03/sect2/StringBuilderDemo.java" target="_blank">StringBuilderDemo.java</a></h4>
+<h4 id="listing-324-stringbuilderdemojava">Listing 3.2.4 - <a href="https://github.com/drue-coles/cmsc-120/blob/master/code/src/chap03/sect2/StringBuilderDemo.java">StringBuilderDemo.java</a></h4>
+<div class="highlight"><span class="filename">StringBuilderDemo.java</span><pre><span></span><code><span class="kn">package</span><span class="w"> </span><span class="nn">chap03.sect2</span><span class="p">;</span>
+
+<span class="cm">/**</span>
+<span class="cm"> * Demonstrates the use of StringBuilders for mutable character sequences.</span>
+<span class="cm"> *</span>
+<span class="cm"> * @author Drue Coles</span>
+<span class="cm"> */</span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">StringBuilderDemo</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">   </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="n">StringBuilder</span><span class="w"> </span><span class="n">country</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">StringBuilder</span><span class="p">(</span><span class="s">&quot;FINLAND&quot;</span><span class="p">);</span>
+<span class="w">      </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">country</span><span class="p">);</span>
+<span class="w">      </span><span class="n">country</span><span class="p">.</span><span class="na">replace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;ICE&quot;</span><span class="p">);</span><span class="w"> </span><span class="c1">// mutator</span>
+<span class="w">      </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">country</span><span class="p">);</span>
+
+<span class="w">      </span><span class="n">StringBuilder</span><span class="w"> </span><span class="n">word</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">StringBuilder</span><span class="p">(</span><span class="s">&quot;GATEMAN&quot;</span><span class="p">);</span>
+<span class="w">      </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">word</span><span class="p">);</span>
+<span class="w">      </span><span class="n">word</span><span class="p">.</span><span class="na">reverse</span><span class="p">();</span><span class="w"> </span><span class="c1">// mutator</span>
+<span class="w">      </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">word</span><span class="p">);</span>
+<span class="w">   </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
 <details>
 <summary>Output 3.2.4</summary>
 <div class="highlight"><pre><span></span><code>FINLAND
@@ -1980,7 +2034,37 @@ formats strings containing various types of data in the same way as <code>String
 The <code>%n</code> at the end of the format string is an escape sequence for a line separator. While <code>\n</code> 
 usually works, the correct encoding of a line separator is platform-dependent. However, <code>printf</code> and 
 <code>String.format</code> replace <code>%n</code> with the correct platform line separator (probably <code>\n</code> or <code>\r\n</code>).</p>
-<h4 id="listing-325-factorymethoddemojava">Listing 3.2.5 - <a href="https://github.com/drue-coles/cmsc-120/blob/master/code/src/chap03/sect2/FactoryMethodDemo.java" target="_blank">FactoryMethodDemo.java</a></h4>
+<h4 id="listing-325-factorymethoddemojava">Listing 3.2.5 - <a href="https://github.com/drue-coles/cmsc-120/blob/master/code/src/chap03/sect2/FactoryMethodDemo.java">FactoryMethodDemo.java</a></h4>
+<div class="highlight"><span class="filename">FactoryMethodDemo.java</span><pre><span></span><code><span class="kn">package</span><span class="w"> </span><span class="nn">chap03.sect2</span><span class="p">;</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">java.time.LocalDate</span><span class="p">;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">java.time.format.DateTimeFormatter</span><span class="p">;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">java.util.Currency</span><span class="p">;</span>
+
+<span class="cm">/**</span>
+<span class="cm"> * Demonstrates the use of factory methods to create Currency and LocalDate objects.</span>
+<span class="cm"> *</span>
+<span class="cm"> * @author Drue Coles</span>
+<span class="cm"> */</span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">FactoryMethodDemo</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// display four currency symbols</span>
+<span class="w">        </span><span class="n">String</span><span class="w"> </span><span class="n">eur</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Currency</span><span class="p">.</span><span class="na">getInstance</span><span class="p">(</span><span class="s">&quot;EUR&quot;</span><span class="p">).</span><span class="na">getSymbol</span><span class="p">();</span><span class="w"> </span><span class="c1">// euro</span>
+<span class="w">        </span><span class="n">String</span><span class="w"> </span><span class="n">gbp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Currency</span><span class="p">.</span><span class="na">getInstance</span><span class="p">(</span><span class="s">&quot;GBP&quot;</span><span class="p">).</span><span class="na">getSymbol</span><span class="p">();</span><span class="w"> </span><span class="c1">// pound</span>
+<span class="w">        </span><span class="n">String</span><span class="w"> </span><span class="n">jpy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Currency</span><span class="p">.</span><span class="na">getInstance</span><span class="p">(</span><span class="s">&quot;JPY&quot;</span><span class="p">).</span><span class="na">getSymbol</span><span class="p">();</span><span class="w"> </span><span class="c1">// yen</span>
+<span class="w">        </span><span class="n">String</span><span class="w"> </span><span class="n">usd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Currency</span><span class="p">.</span><span class="na">getInstance</span><span class="p">(</span><span class="s">&quot;USD&quot;</span><span class="p">).</span><span class="na">getSymbol</span><span class="p">();</span><span class="w"> </span><span class="c1">// dollar</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">printf</span><span class="p">(</span><span class="s">&quot;Currency symbols: %s %s %s %s %n&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">eur</span><span class="p">,</span><span class="w"> </span><span class="n">gbp</span><span class="p">,</span><span class="w"> </span><span class="n">jpy</span><span class="p">,</span><span class="w"> </span><span class="n">usd</span><span class="p">);</span>
+
+<span class="w">        </span><span class="c1">// display a historical date and today&#39;s date</span>
+<span class="w">        </span><span class="n">LocalDate</span><span class="w"> </span><span class="n">apollo11</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">LocalDate</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="mi">1969</span><span class="p">,</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w"> </span><span class="mi">20</span><span class="p">);</span>
+<span class="w">        </span><span class="n">LocalDate</span><span class="w"> </span><span class="n">today</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">LocalDate</span><span class="p">.</span><span class="na">now</span><span class="p">();</span>
+<span class="w">        </span><span class="n">DateTimeFormatter</span><span class="w"> </span><span class="n">fmt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">DateTimeFormatter</span><span class="p">.</span><span class="na">ofPattern</span><span class="p">(</span><span class="s">&quot;EEEE, MMMM d, uuuu&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">printf</span><span class="p">(</span><span class="s">&quot;First moon landing: %s %n&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">apollo11</span><span class="p">.</span><span class="na">format</span><span class="p">(</span><span class="n">fmt</span><span class="p">));</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">printf</span><span class="p">(</span><span class="s">&quot;Today: %s %n&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">today</span><span class="p">.</span><span class="na">format</span><span class="p">(</span><span class="n">fmt</span><span class="p">));</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
 <details>
 <summary>Output 3.2.5</summary>
 <div class="highlight"><pre><span></span><code>Currency symbols: € £ ¥ $

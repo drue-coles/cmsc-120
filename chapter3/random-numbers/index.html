@@ -1686,7 +1686,32 @@ outcomes, such as games of chance. The standard library provides several classes
 this purpose, but <code>ThreadLocalRandom</code> is the modern, general-purpose choice: it is fast, easy to 
 use, and avoids the limitations of older classes. An instance is obtained via the factory method 
 <code>current</code>. Listing 3.3.1 uses it to roll a pair of virtual dice.</p>
-<h4 id="listing-331-dicerollerjava">Listing 3.3.1 - <a href="https://github.com/drue-coles/cmsc-120/blob/master/code/src/chap03/sect3/DiceRoller.java" target="_blank">DiceRoller.java</a></h4>
+<h4 id="listing-331-dicerollerjava">Listing 3.3.1 - <a href="https://github.com/drue-coles/cmsc-120/blob/master/code/src/chap03/sect3/DiceRoller.java">DiceRoller.java</a></h4>
+<div class="highlight"><span class="filename">DiceRoller.java</span><pre><span></span><code><span class="kn">package</span><span class="w"> </span><span class="nn">chap03.sect3</span><span class="p">;</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">java.util.concurrent.ThreadLocalRandom</span><span class="p">;</span>
+
+<span class="cm">/**</span>
+<span class="cm"> * Rolls a pair of virtual dice and outputs the result.</span>
+<span class="cm"> *</span>
+<span class="cm"> * @author Drue Coles</span>
+<span class="cm"> */</span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">DiceRoller</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">   </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="n">ThreadLocalRandom</span><span class="w"> </span><span class="n">rand</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ThreadLocalRandom</span><span class="p">.</span><span class="na">current</span><span class="p">();</span>
+
+<span class="w">      </span><span class="c1">// roll dice and compute sum</span>
+<span class="w">      </span><span class="kt">int</span><span class="w"> </span><span class="n">die1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">rand</span><span class="p">.</span><span class="na">nextInt</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">7</span><span class="p">);</span>
+<span class="w">      </span><span class="kt">int</span><span class="w"> </span><span class="n">die2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">rand</span><span class="p">.</span><span class="na">nextInt</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">7</span><span class="p">);</span>
+<span class="w">      </span><span class="kt">int</span><span class="w"> </span><span class="n">sum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">die1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">die2</span><span class="p">;</span>
+
+<span class="w">      </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;First die: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">die1</span><span class="p">);</span>
+<span class="w">      </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Second die: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">die2</span><span class="p">);</span>
+<span class="w">      </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Sum: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">sum</span><span class="p">);</span>
+<span class="w">   </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
 <details>
 <summary>Output 3.3.1</summary>
 <div class="highlight"><pre><span></span><code>First die: 5

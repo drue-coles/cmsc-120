@@ -1898,6 +1898,39 @@ certain IDEs, performing pre-launch setup, or targeting older Java versions — 
 <p>Listing 3.7.3 does nothing more than display an empty scene, but it illustrates the high-level 
 structure of every JavaFX application.</p>
 <h4 id="listing-373-emptyscenejava">Listing 3.7.3 - <a href="https://github.com/drue-coles/cmsc-120/blob/master/code/src/chap03/sect7/EmptyScene.java">EmptyScene.java</a></h4>
+<div class="highlight"><span class="filename">EmptyScene.java</span><pre><span></span><code><span class="kn">package</span><span class="w"> </span><span class="nn">chap03.sect7</span><span class="p">;</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">javafx.application.Application</span><span class="p">;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">javafx.scene.Scene</span><span class="p">;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">javafx.scene.layout.Pane</span><span class="p">;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">javafx.stage.Stage</span><span class="p">;</span>
+
+<span class="cm">/**</span>
+<span class="cm"> * Displays an empty scene, illustrating the minimal structure of a JavaFX application.</span>
+<span class="cm"> *</span>
+<span class="cm"> * @author Drue Coles</span>
+<span class="cm"> */</span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">EmptyScene</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">Application</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">   </span><span class="nd">@Override</span>
+<span class="w">   </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">start</span><span class="p">(</span><span class="n">Stage</span><span class="w"> </span><span class="n">stage</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="c1">// create scene graph&#39;s root node and attach it to a scene (boilerplate)</span>
+<span class="w">      </span><span class="n">Pane</span><span class="w"> </span><span class="n">root</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Pane</span><span class="p">();</span>
+<span class="w">      </span><span class="n">Scene</span><span class="w"> </span><span class="n">scene</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Scene</span><span class="p">(</span><span class="n">root</span><span class="p">,</span><span class="w"> </span><span class="mi">500</span><span class="p">,</span><span class="w"> </span><span class="mi">300</span><span class="p">);</span>
+
+<span class="w">      </span><span class="c1">// application-specific code goes here</span>
+
+<span class="w">      </span><span class="c1">// finalize window setup (boilerplate)</span>
+<span class="w">      </span><span class="n">stage</span><span class="p">.</span><span class="na">setTitle</span><span class="p">(</span><span class="s">&quot;An Empty Scene&quot;</span><span class="p">);</span>
+<span class="w">      </span><span class="n">stage</span><span class="p">.</span><span class="na">setScene</span><span class="p">(</span><span class="n">scene</span><span class="p">);</span>
+<span class="w">      </span><span class="n">stage</span><span class="p">.</span><span class="na">show</span><span class="p">();</span>
+<span class="w">   </span><span class="p">}</span>
+
+<span class="w">   </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="n">launch</span><span class="p">(</span><span class="n">args</span><span class="p">);</span>
+<span class="w">   </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
 <details>
 <summary>Output 3.7.3</summary>
 <p><img alt="Output 3.7.3 – EmptyScene window" src="../images/output3.7.3.png" /></p>
@@ -1924,6 +1957,61 @@ corner of the scene, with x increasing to the right and y increasing downward.</
 <p>Each rectangle is added to the scene graph by calling <code>getChildren()</code> on the root node and inserting 
 the rectangle into the returned list.</p>
 <h4 id="listing-374-randomtricolorflagjava">Listing 3.7.4 - <a href="https://github.com/drue-coles/cmsc-120/blob/master/code/src/chap03/sect7/RandomTricolorFlag.java">RandomTricolorFlag.java</a></h4>
+<div class="highlight"><span class="filename">RandomTricolorFlag.java</span><pre><span></span><code><span class="kn">package</span><span class="w"> </span><span class="nn">chap03.sect7</span><span class="p">;</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">javafx.application.Application</span><span class="p">;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">javafx.scene.Scene</span><span class="p">;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">javafx.scene.layout.Pane</span><span class="p">;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">javafx.scene.paint.Color</span><span class="p">;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">javafx.scene.shape.Rectangle</span><span class="p">;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">javafx.stage.Stage</span><span class="p">;</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">java.util.concurrent.ThreadLocalRandom</span><span class="p">;</span>
+
+<span class="cm">/**</span>
+<span class="cm"> * Displays a tricolor flag (three parallel stripes) with random colors.</span>
+<span class="cm"> *</span>
+<span class="cm"> * @author Drue Coles</span>
+<span class="cm"> */</span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">RandomTricolorFlag</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">Application</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">   </span><span class="nd">@Override</span>
+<span class="w">   </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">start</span><span class="p">(</span><span class="n">Stage</span><span class="w"> </span><span class="n">stage</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="n">Pane</span><span class="w"> </span><span class="n">root</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Pane</span><span class="p">();</span>
+<span class="w">      </span><span class="n">Scene</span><span class="w"> </span><span class="n">scene</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Scene</span><span class="p">(</span><span class="n">root</span><span class="p">);</span><span class="w"> </span><span class="c1">// scene size is determined by the root&#39;s contents</span>
+
+<span class="w">      </span><span class="c1">// common flag dimensions (3:2 aspect ratio)</span>
+<span class="w">      </span><span class="kd">final</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">width</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">450</span><span class="p">;</span>
+<span class="w">      </span><span class="kd">final</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">height</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">300</span><span class="p">;</span>
+
+<span class="w">      </span><span class="c1">// vertical stripes divide the flag evenly across its width</span>
+<span class="w">      </span><span class="kd">final</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">stripeWidth</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">width</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mf">3.0</span><span class="p">;</span>
+<span class="w">      </span><span class="kd">final</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">stripeHeight</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">height</span><span class="p">;</span>
+<span class="w">      </span><span class="n">Rectangle</span><span class="w"> </span><span class="n">stripe1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Rectangle</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">stripeWidth</span><span class="p">,</span><span class="w"> </span><span class="n">stripeHeight</span><span class="p">);</span>
+<span class="w">      </span><span class="n">Rectangle</span><span class="w"> </span><span class="n">stripe2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Rectangle</span><span class="p">(</span><span class="n">stripeWidth</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">stripeWidth</span><span class="p">,</span><span class="w"> </span><span class="n">stripeHeight</span><span class="p">);</span>
+<span class="w">      </span><span class="n">Rectangle</span><span class="w"> </span><span class="n">stripe3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Rectangle</span><span class="p">(</span><span class="mi">2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">stripeWidth</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">stripeWidth</span><span class="p">,</span><span class="w"> </span><span class="n">stripeHeight</span><span class="p">);</span>
+
+<span class="w">      </span><span class="c1">// random colors for the outer stripes, with the middle color interpolated</span>
+<span class="w">      </span><span class="n">ThreadLocalRandom</span><span class="w"> </span><span class="n">rand</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ThreadLocalRandom</span><span class="p">.</span><span class="na">current</span><span class="p">();</span>
+<span class="w">      </span><span class="n">Color</span><span class="w"> </span><span class="n">c1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Color</span><span class="p">.</span><span class="na">color</span><span class="p">(</span><span class="n">rand</span><span class="p">.</span><span class="na">nextDouble</span><span class="p">(),</span><span class="w"> </span><span class="n">rand</span><span class="p">.</span><span class="na">nextDouble</span><span class="p">(),</span><span class="w"> </span><span class="n">rand</span><span class="p">.</span><span class="na">nextDouble</span><span class="p">());</span>
+<span class="w">      </span><span class="n">Color</span><span class="w"> </span><span class="n">c3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Color</span><span class="p">.</span><span class="na">color</span><span class="p">(</span><span class="n">rand</span><span class="p">.</span><span class="na">nextDouble</span><span class="p">(),</span><span class="w"> </span><span class="n">rand</span><span class="p">.</span><span class="na">nextDouble</span><span class="p">(),</span><span class="w"> </span><span class="n">rand</span><span class="p">.</span><span class="na">nextDouble</span><span class="p">());</span>
+<span class="w">      </span><span class="n">Color</span><span class="w"> </span><span class="n">c2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">c1</span><span class="p">.</span><span class="na">interpolate</span><span class="p">(</span><span class="n">c3</span><span class="p">,</span><span class="w"> </span><span class="mf">0.5</span><span class="p">);</span>
+<span class="w">      </span><span class="n">stripe1</span><span class="p">.</span><span class="na">setFill</span><span class="p">(</span><span class="n">c1</span><span class="p">);</span>
+<span class="w">      </span><span class="n">stripe2</span><span class="p">.</span><span class="na">setFill</span><span class="p">(</span><span class="n">c2</span><span class="p">);</span>
+<span class="w">      </span><span class="n">stripe3</span><span class="p">.</span><span class="na">setFill</span><span class="p">(</span><span class="n">c3</span><span class="p">);</span>
+
+<span class="w">      </span><span class="n">root</span><span class="p">.</span><span class="na">getChildren</span><span class="p">().</span><span class="na">addAll</span><span class="p">(</span><span class="n">stripe1</span><span class="p">,</span><span class="w"> </span><span class="n">stripe2</span><span class="p">,</span><span class="w"> </span><span class="n">stripe3</span><span class="p">);</span>
+
+<span class="w">      </span><span class="n">stage</span><span class="p">.</span><span class="na">setTitle</span><span class="p">(</span><span class="s">&quot;Random Tricolor Flag&quot;</span><span class="p">);</span>
+<span class="w">      </span><span class="n">stage</span><span class="p">.</span><span class="na">setScene</span><span class="p">(</span><span class="n">scene</span><span class="p">);</span>
+<span class="w">      </span><span class="n">stage</span><span class="p">.</span><span class="na">show</span><span class="p">();</span>
+<span class="w">   </span><span class="p">}</span>
+
+<span class="w">   </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="n">launch</span><span class="p">(</span><span class="n">args</span><span class="p">);</span>
+<span class="w">   </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
 <details>
 <summary>Output 3.7.4</summary>
 <p><img alt="Output 3.7.4 – RandomTricolorFlag window" src="../images/output3.7.4.png" /></p>
@@ -1956,6 +2044,80 @@ can represent any closed shape with straight-line sides. Its constructor takes a
 coordinates specifying the corners in the order they are connected; the last corner is automatically 
 joined to the first to close the polygon.</p>
 <h4 id="listing-375-arrowjava">Listing 3.7.5 - <a href="https://github.com/drue-coles/cmsc-120/blob/master/code/src/chap03/sect7/Arrow.java">Arrow.java</a></h4>
+<div class="highlight"><span class="filename">Arrow.java</span><pre><span></span><code><span class="kn">package</span><span class="w"> </span><span class="nn">chap03.sect7</span><span class="p">;</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">javafx.application.Application</span><span class="p">;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">javafx.scene.Scene</span><span class="p">;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">javafx.scene.layout.Pane</span><span class="p">;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">javafx.scene.paint.Color</span><span class="p">;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">javafx.scene.shape.Circle</span><span class="p">;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">javafx.scene.shape.Polygon</span><span class="p">;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">javafx.scene.shape.Rectangle</span><span class="p">;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">javafx.scene.shape.Shape</span><span class="p">;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">javafx.stage.Stage</span><span class="p">;</span>
+
+<span class="cm">/**</span>
+<span class="cm"> * Displays an arrow in a circle of light. Sizes and coordinates are expressed relative to the size</span>
+<span class="cm"> * of the scene, so the arrow scales correctly if the size is changed.</span>
+<span class="cm"> *</span>
+<span class="cm"> * @author Drue Coles</span>
+<span class="cm"> */</span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Arrow</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">Application</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">    </span><span class="nd">@Override</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">start</span><span class="p">(</span><span class="n">Stage</span><span class="w"> </span><span class="n">stage</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">Pane</span><span class="w"> </span><span class="n">root</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Pane</span><span class="p">();</span>
+<span class="w">        </span><span class="kd">final</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">sceneSize</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">300</span><span class="p">;</span>
+<span class="w">        </span><span class="n">Scene</span><span class="w"> </span><span class="n">scene</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Scene</span><span class="p">(</span><span class="n">root</span><span class="p">,</span><span class="w"> </span><span class="n">sceneSize</span><span class="p">,</span><span class="w"> </span><span class="n">sceneSize</span><span class="p">,</span><span class="w"> </span><span class="n">Color</span><span class="p">.</span><span class="na">BLACK</span><span class="p">);</span>
+
+<span class="w">        </span><span class="c1">// center of the scene</span>
+<span class="w">        </span><span class="kd">final</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">centerX</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sceneSize</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mf">2.0</span><span class="p">;</span>
+<span class="w">        </span><span class="kd">final</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">centerY</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sceneSize</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mf">2.0</span><span class="p">;</span>
+
+<span class="w">        </span><span class="c1">// circle of light</span>
+<span class="w">        </span><span class="kd">final</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">padding</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">5.0</span><span class="p">;</span>
+<span class="w">        </span><span class="kd">final</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">radius</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sceneSize</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mf">2.0</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">padding</span><span class="p">;</span>
+<span class="w">        </span><span class="kd">final</span><span class="w"> </span><span class="n">Circle</span><span class="w"> </span><span class="n">circle</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Circle</span><span class="p">(</span><span class="n">centerX</span><span class="p">,</span><span class="w"> </span><span class="n">centerY</span><span class="p">,</span><span class="w"> </span><span class="n">radius</span><span class="p">,</span><span class="w"> </span><span class="n">Color</span><span class="p">.</span><span class="na">LIGHTSTEELBLUE</span><span class="p">);</span>
+
+<span class="w">        </span><span class="c1">// arrow dimensions</span>
+<span class="w">        </span><span class="kd">final</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">tipWidth</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sceneSize</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mf">2.0</span><span class="p">;</span>
+<span class="w">        </span><span class="kd">final</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">shaftWidth</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sceneSize</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mf">5.0</span><span class="p">;</span>
+<span class="w">        </span><span class="kd">final</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">shaftHeight</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">radius</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">padding</span><span class="p">;</span>
+
+<span class="w">        </span><span class="c1">// arrow tip: an isosceles triangle centered horizontally with apex at the top</span>
+<span class="w">        </span><span class="kd">final</span><span class="w"> </span><span class="n">Polygon</span><span class="w"> </span><span class="n">arrowTip</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Polygon</span><span class="p">(</span>
+<span class="w">                </span><span class="n">centerX</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">padding</span><span class="p">,</span><span class="w">             </span><span class="c1">// apex coordinates</span>
+<span class="w">                </span><span class="n">centerX</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">tipWidth</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="n">centerY</span><span class="p">,</span><span class="w">  </span><span class="c1">// base left coordinates</span>
+<span class="w">                </span><span class="n">centerX</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">tipWidth</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="n">centerY</span><span class="w">   </span><span class="c1">// base right coordinates</span>
+<span class="w">        </span><span class="p">);</span>
+
+<span class="w">        </span><span class="c1">// arrow shaft: a vertical rectangle centered horizontally below the tip</span>
+<span class="w">        </span><span class="kd">final</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">topLeftX</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">centerX</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">shaftWidth</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
+<span class="w">        </span><span class="kd">final</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">topLeftY</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">centerY</span><span class="p">;</span>
+<span class="w">        </span><span class="kd">final</span><span class="w"> </span><span class="n">Rectangle</span><span class="w"> </span><span class="n">arrowShaft</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Rectangle</span><span class="p">(</span><span class="n">topLeftX</span><span class="p">,</span><span class="w"> </span><span class="n">topLeftY</span><span class="p">,</span><span class="w"> </span><span class="n">shaftWidth</span><span class="p">,</span><span class="w"> </span><span class="n">shaftHeight</span><span class="p">);</span>
+
+<span class="w">        </span><span class="c1">// combine tip and shaft into a single shape</span>
+<span class="w">        </span><span class="kd">final</span><span class="w"> </span><span class="n">Shape</span><span class="w"> </span><span class="n">arrow</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Shape</span><span class="p">.</span><span class="na">union</span><span class="p">(</span><span class="n">arrowTip</span><span class="p">,</span><span class="w"> </span><span class="n">arrowShaft</span><span class="p">);</span>
+<span class="w">        </span><span class="n">arrow</span><span class="p">.</span><span class="na">setFill</span><span class="p">(</span><span class="n">Color</span><span class="p">.</span><span class="na">GREEN</span><span class="p">);</span>
+<span class="w">        </span><span class="n">arrow</span><span class="p">.</span><span class="na">setStroke</span><span class="p">(</span><span class="n">Color</span><span class="p">.</span><span class="na">BLACK</span><span class="p">);</span>
+
+<span class="w">        </span><span class="kd">final</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">strokeWidth</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">6.0</span><span class="p">;</span>
+<span class="w">        </span><span class="kd">final</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">rotationAngle</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">45.0</span><span class="p">;</span>
+<span class="w">        </span><span class="n">arrow</span><span class="p">.</span><span class="na">setStrokeWidth</span><span class="p">(</span><span class="n">strokeWidth</span><span class="p">);</span>
+<span class="w">        </span><span class="n">arrow</span><span class="p">.</span><span class="na">setRotate</span><span class="p">(</span><span class="n">rotationAngle</span><span class="p">);</span><span class="w"> </span><span class="c1">// rotates arrow around its center</span>
+
+<span class="w">        </span><span class="n">root</span><span class="p">.</span><span class="na">getChildren</span><span class="p">().</span><span class="na">addAll</span><span class="p">(</span><span class="n">circle</span><span class="p">,</span><span class="w"> </span><span class="n">arrow</span><span class="p">);</span>
+
+<span class="w">        </span><span class="n">stage</span><span class="p">.</span><span class="na">setTitle</span><span class="p">(</span><span class="s">&quot;Arrow&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="n">stage</span><span class="p">.</span><span class="na">setScene</span><span class="p">(</span><span class="n">scene</span><span class="p">);</span>
+<span class="w">        </span><span class="n">stage</span><span class="p">.</span><span class="na">show</span><span class="p">();</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">launch</span><span class="p">(</span><span class="n">args</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
 <details>
 <summary>Output 3.7.5</summary>
 <p><img alt="Output 3.7.5 – Arrow window" src="../images/output3.7.5.png" /></p>
