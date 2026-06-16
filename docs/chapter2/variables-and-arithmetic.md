@@ -100,7 +100,10 @@ floating-point value, floating-point division produces the exact quotient. The r
 (`%`) yields the portion of `x` that is left after subtracting as many multiples of `y` as possible. 
 These ideas are illustrated in Listing 2.3.4.
 
-#### Listing 2.3.5 - [ArithmeticDemo.java](https://github.com/drue-coles/cmsc-120/blob/master/code/src/chap02/sect3/ArithmeticDemo.java){:target="_blank"}
+#### Listing 2.3.5 - [ArithmeticDemo.java](https://github.com/drue-coles/cmsc-120/blob/master/code/src/chap02/sect3/ArithmeticDemo.java)
+``` java title="ArithmeticDemo.java"
+--8<-- "code/src/chap02/sect3/ArithmeticDemo.java"
+```
 
 ??? "Output 2.3.5"
     ```text

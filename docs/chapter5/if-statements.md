@@ -1,6 +1,6 @@
 # 5.2 `if` Statements
 
-**Key terms**: none introduced
+**Key terms**: block
 
 ## 5.2.1 Syntax and Semantics
 
@@ -9,19 +9,21 @@ general syntax for an `if` statement is:
 
 ```java
 if (E) {
-   S
+   // conditionally executed code
 }
 ```
 
-Here *E* denotes a Boolean expression and *S* is a block of statements. If the block consists of 
-a single statement, the curly braces are not strictly required, but it is considered good practice 
-to include them anyway. The meaning of this construct is just what one would expect: if *E* is 
-`true` then *S* is executed; otherwise *S* is skipped.
+Here *E* denotes a Boolean expression. The statements enclosed in curly braces form a **block**, a 
+sequence of one or more statements treated as a single unit. If a block contains only a single 
+statement, the braces may be omitted, though including them is generally considered good practice. 
 
 Listing 5.2.1 uses `if` statements to simulate the first roll of a popular dice game. The outcome 
 depends on the total rolled, so different messages are displayed under different conditions.
 
 #### Listing 5.2.1 - [ComeOutRoll.java](https://github.com/drue-coles/cmsc-120/blob/master/code/src/chap05/sect2/ComeOutRoll.java){:target="_blank"}
+``` java title="ComeOutRoll.java"
+--8<-- "code/src/chap05/sect2/ComeOutRoll.java"
+```
 
 ??? "Output 5.2.1a"
     ```text

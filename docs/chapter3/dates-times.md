@@ -22,7 +22,10 @@ program creates instances representing the user's birthdate and the current date
 methods `LocalDate.of` and `LocalDate.now`, then outputs the user's age and the number of days 
 lived.
 
-#### Listing 3.6.1 - [DaysAlive.java](https://github.com/drue-coles/cmsc-120/blob/master/code/src/chap03/sect6/DaysAlive.java){:target="_blank"}
+#### Listing 3.6.1 - [DaysAlive.java](https://github.com/drue-coles/cmsc-120/blob/master/code/src/chap03/sect6/DaysAlive.java)
+``` java title="DaysAlive.java"
+--8<-- "code/src/chap03/sect6/DaysAlive.java"
+```
 
 ??? "Output 3.6.1"
     ```text
@@ -54,7 +57,10 @@ of days between two dates.
 Listing 3.6.2 introduces `LocalTime` and uses the `Duration` class to represent the interval between 
 the current moment and a user-entered time.
 
-#### Listing 3.6.2 - [FavoriteTime.java](https://github.com/drue-coles/cmsc-120/blob/master/code/src/chap03/sect6/FavoriteTime.java){:target="_blank"}
+#### Listing 3.6.2 - [FavoriteTime.java](https://github.com/drue-coles/cmsc-120/blob/master/code/src/chap03/sect6/FavoriteTime.java)
+``` java title="FavoriteTime.java"
+--8<-- "code/src/chap03/sect6/FavoriteTime.java"
+```
 
 ??? "Output 3.6.2"
     ```text

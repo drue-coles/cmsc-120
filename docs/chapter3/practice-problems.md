@@ -282,11 +282,7 @@ number of days since birth.
 
 ### 3.8.5 Graphics
 
----
-
-**Note:** Problems a–d can be solved using only those shape classes introduced in Section 3.7. 
-
----
+> Problems a-d can be solved using only those shape classes introduced in Section 3.7. 
 
 **a. Bullseye.** Draws a bullseye composed of red and black rings. Use a `StackPane` for the root 
 node — it automatically centers its children, so each circle can be created using the 
@@ -313,14 +309,10 @@ lower half obscured by a background-colored rectangle so that it appears as a se
 ??? "Output 3.8.5d"
     ![Output 3.8.5d – Poisonous Mushroom](images/output3.8.5d.png)
 
---- 
-
-**Note**: For problems e–f, consult the API documentation for `Text` and `Font`. A color has a 
-fourth attribute beyond its RGB components — its alpha value (opacity). To create semi-transparent 
-shapes, either use the four-argument `Color` constructor or call `interpolate` on a color, blending 
-it toward `Color.TRANSPARENT`.
-
----
+> For Problems e-f, consult the API documentation for `Text` and `Font`. A color has a fourth 
+attribute beyond its RGB components — its alpha value (opacity). To create semi-transparent shapes, 
+either use the four-argument `Color` constructor or call `interpolate` on a color, blending it 
+toward `Color.TRANSPARENT`.
 
 **e. Alpha Values.** Draws three circles with the bottom half of each obscured by a semi-transparent
 rectangle labeled with its alpha value.
@@ -335,12 +327,8 @@ for the strike-through.
 ??? "Output 3.8.5f"
     ![Output 3.8.5f – Tow Away Zone](images/output3.8.5f.png)
 
----
-
-**Note:** Problems g–k involve shape classes not introduced in the chapter: `Arc`, `Ellipse`, 
-`Line`, and `Polyline`.
-
----
+> Problems g–k involve shape classes not introduced in the chapter: `Arc`, `Ellipse`, `Line`, and 
+`Polyline`.
 
 **g. Butterfly.** Draws a butterfly. Use `Line` for the antennas.
 
@@ -370,12 +358,8 @@ and two struts (`Polygon`) connecting the cockpit to the wings.
 ??? "Output 3.8.5k"
     ![Output 3.8.5k – TIE Fighter](images/output3.8.5k.png)
 
----
-
-**Note:** Problems l-n use `BoxBlur` and `Reflection` effects. Other necessary classes include 
-`Font`, `Text`, `Arc`, `Ellipse`, and `Line`.
-
----
+> Problems l-n use `BoxBlur` and `Reflection` effects. Other necessary classes include `Font`, 
+`Text`, `Arc`, `Ellipse`, and `Line`.
 
 **l. Planet and Moon.** Draws a planet and a crescent moon using an `Arc` with a `BoxBlur` effect 
 for the planet. The crescent is formed via shape intersection.

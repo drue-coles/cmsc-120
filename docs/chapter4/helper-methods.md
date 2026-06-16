@@ -10,7 +10,7 @@ used, while the **body** (enclosed in curly braces) contains the statements to b
 convention, the body is indented one level beyond the header. Indentation visually signals 
 containment: the method belongs to the class, and the statements belong to the method:
 
-```java
+```text
 class header {
    method header {
       method body
@@ -60,6 +60,9 @@ Players could be added with additional calls to `rollDice`. Testing and debuggin
 because the simulation and sorting logic are confined to the helper method.
 
 #### Listing 4.2.2 - [ThreeDiceRoller2.java](https://github.com/drue-coles/cmsc-120/blob/master/code/src/chap04/sect2/ThreeDiceRoller2.java)
+``` java title="ThreeDiceRoller2.java"
+--8<-- "code/src/chap04/sect2/ThreeDiceRoller2.java"
+```
 
 Replacing repeated blocks of code with method calls is a direct application of the DRY principle. It 
 makes the program shorter, clearer, and less error-prone.
@@ -79,6 +82,9 @@ When the method is called in `main`, the argument's value is copied to the param
 method to generate random numbers.
 
 #### Listing 4.2.4 - [ThreeDiceRoller3.java](https://github.com/drue-coles/cmsc-120/blob/master/code/src/chap04/sect2/ThreeDiceRoller3.java)
+``` java title="ThreeDiceRoller3.java"
+--8<-- "code/src/chap04/sect2/ThreeDiceRoller3.java"
+```
 
 This parameterized version of the helper method makes generalizing the program straightforward: the 
 `main` method only needs to read user input and pass it to `rollDice`.
@@ -105,6 +111,9 @@ since each call to the helper method would have to be replaced by all the statem
 violating the DRY principle.
 
 #### Listing 4.2.5 - [RandomOvals.java](...)
+``` java title="RandomOvals.java"
+--8<-- "code/src/chap04/sect2/RandomOvals.java"
+```
 
 ??? "Output 4.2.5"
     ![Output 4.2.5 – Random Ovals](images/output4.2.5.png)

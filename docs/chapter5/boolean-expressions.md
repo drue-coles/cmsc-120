@@ -33,7 +33,10 @@ are `<=` (less than or equal to), `>`, `>=`, `==` (equals), and `!=` (not equals
 It is usually a mistake to compare object references with the `==` operator. Listing 5.1.2 
 highlights the underlying problem.
 
-#### Listing 5.1.2 - [DeepEquality.java](https://github.com/drue-coles/cmsc-120/blob/master/code/src/chap05/sect1/DeepEquality.java){:target="_blank"}
+#### Listing 5.1.2 - [DeepEquality.java](https://github.com/drue-coles/cmsc-120/blob/master/code/src/chap05/sect1/DeepEquality.java)
+``` java title="DeepEqualtiy.java"
+--8<-- "code/src/chap05/sect1/DeepEquality.java"
+```
 
 ??? "Output 5.1.2"
     ```text

@@ -21,7 +21,10 @@ certain aspects of string handling are built directly into the language:
 
 This language-level support for string handling is illustrated in Listing 3.1.1.
 
-#### Listing 3.1.1 - [ConcatDemo.java](https://github.com/drue-coles/cmsc-120/blob/master/code/src/chap03/sect1/ConcatDemo.java){:target="_blank"}
+#### Listing 3.1.1 - [ConcatDemo.java](https://github.com/drue-coles/cmsc-120/blob/master/code/src/chap03/sect1/ConcatDemo.java)
+``` java title="ConcatDemo.java"
+--8<-- "code/src/chap03/sect1/ConcatDemo.java"
+```
 
 ??? "Output 3.1.1"
     ```textbutterfly
@@ -48,7 +51,10 @@ arguments (possibly empty).
 
 The String class has over 60 instance methods, several of which appear in Listing 3.1.2.
 
-#### Listing 3.1.2 - [InstanceMethodDemo.java](https://github.com/drue-coles/cmsc-120/blob/master/code/src/chap03/sect1/InstanceMethodDemo.java){:target="_blank"}
+#### Listing 3.1.2 - [InstanceMethodDemo.java](https://github.com/drue-coles/cmsc-120/blob/master/code/src/chap03/sect1/InstanceMethodDemo.java)
+``` java title="InstanceMethodDemo.java"
+--8<-- "code/src/chap03/sect1/InstanceMethodDemo.java"
+```
 
 ??? "Output 3.1.2"
     ```text
@@ -129,7 +135,10 @@ flexibly using the static methods `String.format` and `String.join` (discussed b
 methods separate the formatting logic from the data, making it easier to adjust either without
 rewriting the entire statement.
 
-#### Listing 3.1.3 - [StaticMethodDemo.java](https://github.com/drue-coles/cmsc-120/blob/master/code/src/chap03/sect1/StaticMethodDemo.java){:target="_blank"}
+#### Listing 3.1.3 - [StaticMethodDemo.java](https://github.com/drue-coles/cmsc-120/blob/master/code/src/chap03/sect1/StaticMethodDemo.java)
+``` java title="StaticMethodDemo.java"
+--8<-- "code/src/chap03/sect1/StaticMethodDemo.java"
+```
 
 ??? "Output 3.1.3"
     ```text
@@ -205,7 +214,10 @@ expected to convert the string to uppercase letters, but the second output state
 this is not the case. Instead, the method creates and returns a new string whose letters have
 been converted.
 
-#### Listing 3.1.5 - [ImmutabilityDemo.java](https://github.com/drue-coles/cmsc-120/blob/master/code/src/chap03/sect1/ImmutabilityDemo.java){:target="_blank"}
+#### Listing 3.1.5 - [ImmutabilityDemo.java](https://github.com/drue-coles/cmsc-120/blob/master/code/src/chap03/sect1/ImmutabilityDemo.java)
+``` java title="ImmutabilityDemo.java"
+--8<-- "code/src/chap03/sect1/ImmutabilityDemo.java"
+```
 
 ??? "Output 3.1.5"
     ```text
@@ -303,7 +315,10 @@ backslash, escape it as `\\`.
 These escape sequences are demonstrated in Listing 3.1.7. The final line of output uses Unicode
 escapes (`\uXXXX`), which are discussed below.
 
-#### Listing 3.1.7 - [EscapeDemo.java](https://github.com/drue-coles/cmsc-120/blob/master/code/src/chap03/sect1/EscapeDemo.java){:target="_blank"}
+#### Listing 3.1.7 - [EscapeDemo.java](https://github.com/drue-coles/cmsc-120/blob/master/code/src/chap03/sect1/EscapeDemo.java)
+``` java title="EscapeDemo.java"
+--8<-- "code/src/chap03/sect1/EscapeDemo.java"
+```
 
 ??? "Output 3.1.7"
     ```text

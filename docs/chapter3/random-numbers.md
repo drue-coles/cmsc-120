@@ -24,7 +24,10 @@ this purpose, but `ThreadLocalRandom` is the modern, general-purpose choice: it 
 use, and avoids the limitations of older classes. An instance is obtained via the factory method 
 `current`. Listing 3.3.1 uses it to roll a pair of virtual dice.
 
-#### Listing 3.3.1 - [DiceRoller.java](https://github.com/drue-coles/cmsc-120/blob/master/code/src/chap03/sect3/DiceRoller.java){:target="_blank"}
+#### Listing 3.3.1 - [DiceRoller.java](https://github.com/drue-coles/cmsc-120/blob/master/code/src/chap03/sect3/DiceRoller.java)
+``` java title="DiceRoller.java"
+--8<-- "code/src/chap03/sect3/DiceRoller.java"
+```
 
 ??? "Output 3.3.1"
     ```text

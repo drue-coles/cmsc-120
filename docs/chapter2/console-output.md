@@ -10,7 +10,10 @@ keyboard, and output appears in a terminal window. Listing 2.2.1 consists of a m
 `main` method containing a single statement. In Java, **statements** play the same role as 
 imperative sentences in English: they are commands, and each ends with a semicolon.
 
-#### Listing 2.2.1 - [Greetings.java](https://github.com/drue-coles/cmsc-120/blob/master/code/src/chap02/sect2/Greetings.java){:target="_blank"}
+#### Listing 2.2.1 - [Greetings.java](https://github.com/drue-coles/cmsc-120/blob/master/code/src/chap02/sect2/Greetings.java)
+``` java title="Greetings.java"
+--8<-- "code/src/chap02/sect2/Greetings.java"
+```
 
 ??? "Output 2.2.1"
     ```text

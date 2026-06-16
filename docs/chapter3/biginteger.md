@@ -40,7 +40,10 @@ overflow that occurred with primitive values using `Math.pow`.
 
 The `printf` method can format a `BigInteger` with `%,d` as if it were an `int`.
 
-#### Listing 3.5.1 - [PowerCalculator.java](https://github.com/drue-coles/cmsc-120/blob/master/code/src/chap03/sect5/PowerCalculator.java){:target="_blank"}
+#### Listing 3.5.1 - [PowerCalculator.java](https://github.com/drue-coles/cmsc-120/blob/master/code/src/chap03/sect5/PowerCalculator.java)
+``` java title="PowerCalculator.java"
+--8<-- "code/src/chap03/sect5/PowerCalculator.java"
+```
 
 ??? "Output 3.5.1"
     ```text

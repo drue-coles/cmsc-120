@@ -42,6 +42,9 @@ values, from which the median is easily determined. The code is simple and corre
 all the work is packed into `main`.
 
 #### Listing 4.1.3 - [ThreeDiceRoller.java](https://github.com/drue-coles/cmsc-120/blob/master/code/src/chap04/sect1/ThreeDiceRoller.java)
+``` java title="ThreeDiceRoller.java"
+--8<-- "code/src/chap04/sect1/ThreeDiceRoller.java"
+```
 
 ??? "Output 4.1.3"
     ```text

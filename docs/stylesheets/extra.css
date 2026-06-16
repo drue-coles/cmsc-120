@@ -5,3 +5,8 @@
 .md-grid {
   max-width: 100% !important;
 }
+
+.md-typeset pre > code {
+  max-height: 30rem;
+  overflow-y: auto;
+}

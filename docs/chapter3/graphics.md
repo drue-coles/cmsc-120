@@ -55,6 +55,9 @@ Listing 3.7.3 does nothing more than display an empty scene, but it illustrates 
 structure of every JavaFX application.
 
 #### Listing 3.7.3 - [EmptyScene.java](https://github.com/drue-coles/cmsc-120/blob/master/code/src/chap03/sect7/EmptyScene.java)
+``` java title="EmptyScene.java"
+--8<-- "code/src/chap03/sect7/EmptyScene.java"
+```
 
 ??? "Output 3.7.3"
     ![Output 3.7.3 – EmptyScene window](images/output3.7.3.png)
@@ -87,6 +90,9 @@ Each rectangle is added to the scene graph by calling `getChildren()` on the roo
 the rectangle into the returned list.
 
 #### Listing 3.7.4 - [RandomTricolorFlag.java](https://github.com/drue-coles/cmsc-120/blob/master/code/src/chap03/sect7/RandomTricolorFlag.java)
+``` java title="RandomTricolorFlag.java"
+--8<-- "code/src/chap03/sect7/RandomTricolorFlag.java"
+```
 
 ??? "Output 3.7.4"
     ![Output 3.7.4 – RandomTricolorFlag window](images/output3.7.4.png)
@@ -127,6 +133,9 @@ coordinates specifying the corners in the order they are connected; the last cor
 joined to the first to close the polygon.
 
 #### Listing 3.7.5 - [Arrow.java](https://github.com/drue-coles/cmsc-120/blob/master/code/src/chap03/sect7/Arrow.java)
+``` java title="Arrow.java"
+--8<-- "code/src/chap03/sect7/Arrow.java"
+```
 
 ??? "Output 3.7.5"
     ![Output 3.7.5 – Arrow window](images/output3.7.5.png)

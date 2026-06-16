@@ -33,7 +33,10 @@ exception.
 
 Listing 3.4.1 performs an exponentiation with a base and exponent entered by the user.
 
-#### Listing 3.4.1 - [PowerCalculator.java](https://github.com/drue-coles/cmsc-120/blob/master/code/src/chap03/sect4/PowerCalculator.java){:target="_blank"}
+#### Listing 3.4.1 - [PowerCalculator.java](https://github.com/drue-coles/cmsc-120/blob/master/code/src/chap03/sect4/PowerCalculator.java)
+``` java title="PowerCalculator.java"
+--8<-- "code/src/chap03/sect4/PowerCalculator.java"
+```
 
 ??? "Output 3.4.1"
     ```text

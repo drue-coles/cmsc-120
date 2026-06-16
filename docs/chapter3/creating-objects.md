@@ -16,7 +16,10 @@ Each explicit creation of an object in Listing 3.2.1 follows the same pattern at
 allocates memory for the object, the specified constructor is executed, and a reference to the 
 object is returned.
 
-#### Listing 3.2.1 - [ConstructorDemo.java](https://github.com/drue-coles/cmsc-120/blob/master/code/src/chap03/sect2/ConstructorDemo.java){:target="_blank"}
+#### Listing 3.2.1 - [ConstructorDemo.java](https://github.com/drue-coles/cmsc-120/blob/master/code/src/chap03/sect2/ConstructorDemo.java)
+``` java title="ConstructorDemo.java"
+--8<-- "code/src/chap03/sect2/ConstructorDemo.java"
+```
 
 ??? "Output 3.2.1"
     ```text
@@ -92,7 +95,10 @@ objects are created with the `new` operator and initialized by a constructor.
 In Listing 3.2.4, characters in a `StringBuilder` are replaced and reversed. The program's output 
 confirms that the objects themselves are modified by the mutators.
 
-#### Listing 3.2.4 - [StringBuilderDemo.java](https://github.com/drue-coles/cmsc-120/blob/master/code/src/chap03/sect2/StringBuilderDemo.java){:target="_blank"}
+#### Listing 3.2.4 - [StringBuilderDemo.java](https://github.com/drue-coles/cmsc-120/blob/master/code/src/chap03/sect2/StringBuilderDemo.java)
+``` java title="StringBuilderDemo.java"
+--8<-- "code/src/chap03/sect2/StringBuilderDemo.java"
+```
 
 ??? "Output 3.2.4"
     ```text
@@ -157,7 +163,10 @@ The `%n` at the end of the format string is an escape sequence for a line separa
 usually works, the correct encoding of a line separator is platform-dependent. However, `printf` and 
 `String.format` replace `%n` with the correct platform line separator (probably `\n` or `\r\n`).
 
-#### Listing 3.2.5 - [FactoryMethodDemo.java](https://github.com/drue-coles/cmsc-120/blob/master/code/src/chap03/sect2/FactoryMethodDemo.java){:target="_blank"}
+#### Listing 3.2.5 - [FactoryMethodDemo.java](https://github.com/drue-coles/cmsc-120/blob/master/code/src/chap03/sect2/FactoryMethodDemo.java)
+``` java title="FactoryMethodDemo.java"
+--8<-- "code/src/chap03/sect2/FactoryMethodDemo.java"
+```
 
 ??? "Output 3.2.5"
     ```text
