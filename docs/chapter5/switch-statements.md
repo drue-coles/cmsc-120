@@ -23,14 +23,13 @@ The branch whose case label matches the switch value is selected for execution. 
 branch is optional.
 
 Listing 5.4.1 revisits the Craps example from Sections 5.2 and 5.3, using a `switch` statement 
-instead of an `if`-`else` chain to determine the output, resulting in a slightly shorter 
-program with no loss in clarity.  
+instead of an `if`-`else` chain to determine the output with less code and equal clarity.
 
 #### Listing 5.4.1 - [ComeOutRoll.java](https://github.com/drue-coles/cmsc-120/blob/master/code/src/chap05/sect4/ComeOutRoll.java)
 ```java title="ComeOutRoll.java"
 --8<-- "code/src/chap05/sect4/ComeOutRoll.java"
 ```
 
-A `switch` can also be used as an expression. The second `switch` in Listing 5.4.1 illustrates this 
-idea. Unlike a `switch` statement, which performs an action, a `switch` expression produces a value. 
-In this example, the value is assigned to the variable `result`.
+A `switch` can also be used as an expression. Unlike a `switch` *statement*, which performs an 
+action, a `switch` *expression* produces a value. The second `switch` in Listing 5.4.1 illustrates 
+the idea. 
