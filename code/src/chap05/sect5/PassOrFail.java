@@ -25,7 +25,7 @@ public class PassOrFail {
             double avg3 = (s1 + s2 + s3) / 3.0;
             double avg2 = (s1 + s2 + s3 - min) / 2.0;
 
-            if ((avg3 >= 80 && min >= 70) || avg2 >= 90) {
+            if (avg2 >= 90 || (avg3 >= 80 && min >= 70)) {
                 System.out.println("PASS");
             } else {
                 System.out.println("FAIL");
