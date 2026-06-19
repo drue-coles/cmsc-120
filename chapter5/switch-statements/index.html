@@ -14,7 +14,7 @@
         <link rel="prev" href="../if-else-statements/">
       
       
-        <link rel="next" href="../operators/">
+        <link rel="next" href="../logical-operators/">
       
       
         
@@ -25,7 +25,7 @@
     
     
       
-        <title>5.4 Switch Statements - Java for CMSC 120</title>
+        <title>5.4 switch Statements - Java for CMSC 120</title>
       
     
     
@@ -68,7 +68,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#57-switch-statements" class="md-skip">
+        <a href="#54-switch-statements" class="md-skip">
           Skip to content
         </a>
       
@@ -104,7 +104,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              5.4 Switch Statements
+              5.4 switch Statements
             
           </span>
         </div>
@@ -1090,6 +1090,24 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5.4 switch Statements
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -1097,7 +1115,7 @@
   <span class="md-ellipsis">
     
   
-    5.4 Switch Statements
+    5.4 switch Statements
   
 
     
@@ -1106,6 +1124,53 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#541-syntax-and-semantics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.4.1 Syntax and Semantics
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5.4.1 Syntax and Semantics">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#listing-541-comeoutrolljava" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Listing 5.4.1 - ComeOutRoll.java
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -1119,14 +1184,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../operators/" class="md-nav__link">
+      <a href="../logical-operators/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    5.5 Operators
+    5.5 Logical Operators
   
 
     
@@ -1236,7 +1301,7 @@
   <span class="md-ellipsis">
     
   
-    6.1 While Loops
+    6.1 while Loops
   
 
     
@@ -1264,7 +1329,7 @@
   <span class="md-ellipsis">
     
   
-    6.2 For Loops
+    6.2 for Loops
   
 
     
@@ -1583,6 +1648,42 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#541-syntax-and-semantics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.4.1 Syntax and Semantics
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5.4.1 Syntax and Semantics">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#listing-541-comeoutrolljava" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Listing 5.4.1 - ComeOutRoll.java
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1598,8 +1699,72 @@
 
 
 
-<h1 id="57-switch-statements">5.7 Switch Statements</h1>
-<p>Content for this section is under development.</p>
+<h1 id="54-switch-statements">5.4 <code>switch</code> Statements</h1>
+<p><strong>Key terms</strong>: none introduced</p>
+<h2 id="541-syntax-and-semantics">5.4.1 Syntax and Semantics</h2>
+<p>Sometimes a program must choose among several alternatives based on the value of an expression. This 
+can always be accomplished with an <code>if</code>-<code>else</code> chain, but when the same expression is compared 
+against several possible values, a <code>switch</code> statement is often more compact and easier to read. The 
+general syntax is:</p>
+<div class="highlight"><pre><span></span><code><span class="k">switch</span><span class="w"> </span><span class="p">(</span><span class="n">value</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="c1">// executed if value matches a</span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="c1">// executed if value matches b</span>
+<span class="w">    </span><span class="k">case</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="c1">// executed if value matches c</span>
+<span class="w">    </span><span class="c1">// other cases</span>
+<span class="w">    </span><span class="k">default</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="c1">// executed if no case matches</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>The branch whose case label matches the switch value is selected for execution. The <code>default</code> 
+branch is optional.</p>
+<p>Listing 5.4.1 revisits the Craps example from Sections 5.2 and 5.3, using a <code>switch</code> statement 
+instead of an <code>if</code>-<code>else</code> chain to determine the output with less code and equal clarity.</p>
+<h4 id="listing-541-comeoutrolljava">Listing 5.4.1 - <a href="https://github.com/drue-coles/cmsc-120/blob/master/code/src/chap05/sect4/ComeOutRoll.java">ComeOutRoll.java</a></h4>
+<div class="highlight"><span class="filename">ComeOutRoll.java</span><pre><span></span><code><span class="kn">package</span><span class="w"> </span><span class="nn">chap05.sect4</span><span class="p">;</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">java.util.concurrent.ThreadLocalRandom</span><span class="p">;</span>
+
+<span class="cm">/**</span>
+<span class="cm"> * Simulates the first roll in the game of Craps. The player rolls two dice and the outcome depends</span>
+<span class="cm"> * on the sum: natural (7 or 11) - player wins; craps (2, 3, or 12) - player loses; otherwise, the</span>
+<span class="cm"> * game continues according to a different rule.</span>
+<span class="cm"> *</span>
+<span class="cm"> * @author Drue Coles</span>
+<span class="cm"> * @version 3.0 - uses both a switch statement and a switch expression for comparison</span>
+<span class="cm"> */</span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">ComeOutRoll</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">   </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="n">ThreadLocalRandom</span><span class="w"> </span><span class="n">rand</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ThreadLocalRandom</span><span class="p">.</span><span class="na">current</span><span class="p">();</span>
+<span class="w">      </span><span class="kt">int</span><span class="w"> </span><span class="n">die1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">rand</span><span class="p">.</span><span class="na">nextInt</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">7</span><span class="p">);</span>
+<span class="w">      </span><span class="kt">int</span><span class="w"> </span><span class="n">die2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">rand</span><span class="p">.</span><span class="na">nextInt</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">7</span><span class="p">);</span>
+<span class="w">      </span><span class="kd">final</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">comeOutRoll</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">die1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">die2</span><span class="p">;</span>
+
+<span class="w">      </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">printf</span><span class="p">(</span><span class="s">&quot;You rolled %d + %d = %d. %n&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">die1</span><span class="p">,</span><span class="w"> </span><span class="n">die2</span><span class="p">,</span><span class="w"> </span><span class="n">comeOutRoll</span><span class="p">);</span>
+
+<span class="w">      </span><span class="kd">final</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">winMessage</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Natural. You win.&quot;</span><span class="p">;</span>
+<span class="w">      </span><span class="kd">final</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">loseMessage</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Craps. You lose.&quot;</span><span class="p">;</span>
+<span class="w">      </span><span class="kd">final</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">continueMessage</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;The game continues.&quot;</span><span class="p">;</span>
+
+<span class="w">      </span><span class="c1">// switch statement</span>
+<span class="w">      </span><span class="k">switch</span><span class="w"> </span><span class="p">(</span><span class="n">comeOutRoll</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">         </span><span class="k">case</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w"> </span><span class="mi">11</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">winMessage</span><span class="p">);</span>
+<span class="w">         </span><span class="k">case</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">12</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">loseMessage</span><span class="p">);</span>
+<span class="w">         </span><span class="k">default</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">continueMessage</span><span class="p">);</span>
+<span class="w">      </span><span class="p">}</span>
+
+<span class="w">      </span><span class="c1">// switch expression</span>
+<span class="w">      </span><span class="n">String</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">switch</span><span class="w"> </span><span class="p">(</span><span class="n">comeOutRoll</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">         </span><span class="k">case</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w"> </span><span class="mi">11</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="s">&quot;Natural. You win.&quot;</span><span class="p">;</span>
+<span class="w">         </span><span class="k">case</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">12</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="s">&quot;Craps. You lose.&quot;</span><span class="p">;</span>
+<span class="w">         </span><span class="k">default</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="s">&quot;The game continues.&quot;</span><span class="p">;</span>
+<span class="w">      </span><span class="p">};</span>
+<span class="w">      </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">result</span><span class="p">);</span>
+<span class="w">   </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>A <code>switch</code> can also be used as an expression. Unlike a <code>switch</code> <em>statement</em>, which performs an 
+action, a <code>switch</code> <em>expression</em> produces a value. The second <code>switch</code> in Listing 5.4.1 illustrates 
+the idea. </p>
 
 
 
