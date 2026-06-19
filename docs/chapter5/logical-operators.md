@@ -1,7 +1,8 @@
 # 5.5 Logical Operators
 
-**Key terms**: logical operator, disjunction, conjunction, negation, pipe symbol, short-circuit
-evaluation, negation (not) operator
+**Key terms**: logical operator, logical OR, pipe symbol, logical AND, negation (not) operator, 
+short-circuit 
+evaluation
 
 ## 5.5.1 Logical OR
 
@@ -18,9 +19,9 @@ But in ordinary speech this would be expressed more naturally as:
 > If the sum is 7 or 11 then you win, otherwise if the sum is 2, 3, or 12 
 > then you lose, otherwise the game continues.
 
-Java provides **logical operators** analogous to the English words *or* and *and*. The logical OR 
-operator, written `||`, corresponds to **disjunction** in formal logic: it evaluates to `true` if at 
-least one of its operands is `true`. The `|` character is called the **pipe symbol**.
+Java provides **logical operators** analogous to the English words *or* and *and*. The **logical 
+OR** operator, written `||`, corresponds to disjunction in formal logic: it evaluates to `true` if 
+at least one of its operands is `true`. The `|` character is called the **pipe symbol**.
 
 Listing 5.5.1 shows the most succinct version of `ComeOutRoll` using logical OR to combine the 
 winning conditions into a single expression and likewise for the losing conditions.
@@ -59,7 +60,7 @@ else if (avg3 >= 80) {
 
 The code is correct but somewhat complicated. The sequential `if`-`else` conditions can be combined 
 using logical OR to form a single condition, and the nested `if` statements can be combined with 
-logical AND (written `&&`). The resulting code is simple and easy to read:
+**logical AND** (written `&&`). The resulting code is simple and easy to read:
 
 ```java
 if (avg2 >= 90 || avg3 >= 80 && min >= 70) { 
