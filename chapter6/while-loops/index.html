@@ -1228,6 +1228,24 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6.1 while Loops
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -1244,6 +1262,86 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#611-while-loops" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.1.1 while Loops
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6.1.1 while Loops">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#listing-611a-summerjava" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Listing 6.1.1a - Summer.java
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#listing-611b-gamblersruinjava" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Listing 6.1.1b - GamblersRuin.java
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#612-syntactic-sugar" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.1.2 Syntactic Sugar
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#613-do-while-loops" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.1.3 do-while Loops
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -1583,6 +1681,75 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#611-while-loops" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.1.1 while Loops
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6.1.1 while Loops">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#listing-611a-summerjava" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Listing 6.1.1a - Summer.java
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#listing-611b-gamblersruinjava" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Listing 6.1.1b - GamblersRuin.java
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#612-syntactic-sugar" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.1.2 Syntactic Sugar
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#613-do-while-loops" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.1.3 do-while Loops
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1599,7 +1766,168 @@
 
 
 <h1 id="61-while-loops">6.1 <code>while</code> Loops</h1>
-<p>Content for this section is under development.</p>
+<p><strong>Key terms</strong>: compound assignment operator, increment/decrement operator, syntactic sugar</p>
+<p>Loops are programming structures that enable a block of statements to be executed repeatedly as long 
+as a specified condition is satisfied. There are three looping structures in Java. They are 
+equivalent in the sense that whatever you can do with one you can do with another, but one may be 
+more convenient than another depending on the situation. Loops are essential for almost all 
+real-world programming problems.</p>
+<h2 id="611-while-loops">6.1.1 <code>while</code> Loops</h2>
+<p>A <code>while</code> loop resembles an <code>if</code> statement. For the sake of comparison, the general syntax is shown 
+for both below. </p>
+<div class="highlight"><pre><span></span><code><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">E</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// conditionally executed code</span>
+<span class="p">}</span>
+
+<span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">E</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// conditionally executed code</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>The <code>if</code> statement either executes the body or it does not, depending on the Boolean expression <em>E</em>. 
+With the loop, however, execution continues after this initial step by returning to the evaluation 
+of <em>E</em> for another possible execution of the body.</p>
+<p>Listing 6.1.1a uses a <code>while</code> loop to calculate the sum of positive integers up to a user-specified 
+limit. </p>
+<h4 id="listing-611a-summerjava">Listing 6.1.1a - <a href="https://github.com/drue-coles/cmsc-120/blob/master/code/src/chap06/sect1/Summer.java">Summer.java</a></h4>
+<div class="highlight"><span class="filename">Summer.java</span><pre><span></span><code><span class="kn">package</span><span class="w"> </span><span class="nn">chap06.sect1</span><span class="p">;</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">java.util.Scanner</span><span class="p">;</span>
+
+<span class="cm">/**</span>
+<span class="cm"> * Calculates the sum of consecutive positive integers up to a user-specified limit.</span>
+<span class="cm"> *</span>
+<span class="cm"> * @author Drue Coles</span>
+<span class="cm"> */</span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Summer</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">   </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">print</span><span class="p">(</span><span class="s">&quot;Enter a positive integer: &quot;</span><span class="p">);</span>
+<span class="w">      </span><span class="n">Scanner</span><span class="w"> </span><span class="n">in</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Scanner</span><span class="p">(</span><span class="n">System</span><span class="p">.</span><span class="na">in</span><span class="p">);</span>
+<span class="w">      </span><span class="kd">final</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">limit</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">in</span><span class="p">.</span><span class="na">nextInt</span><span class="p">();</span>
+<span class="w">      </span><span class="kt">int</span><span class="w"> </span><span class="n">sum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">      </span><span class="kt">int</span><span class="w"> </span><span class="n">next</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+
+<span class="w">      </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">next</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">limit</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">         </span><span class="n">sum</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">next</span><span class="p">;</span>
+<span class="w">         </span><span class="n">next</span><span class="o">++</span><span class="p">;</span>
+<span class="w">      </span><span class="p">}</span>
+
+<span class="w">      </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">printf</span><span class="p">(</span><span class="s">&quot;1 + 2 + 3 + ... + %,d = %,d %n&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">limit</span><span class="p">,</span><span class="w"> </span><span class="n">sum</span><span class="p">);</span>
+<span class="w">   </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<details>
+<summary>Output 6.1.1a</summary>
+<div class="highlight"><pre><span></span><code>Enter a positive integer: 100 
+1 + 2 + 3 + ... + 100 = 5050
+</code></pre></div>
+</details>
+<p>Listing 6.1.1b uses a <code>while</code> loop to simulate the Gambler's Ruin, a statistical concept concerning 
+a simple coin-flipping game. The details are explained in the class documentation. The program also 
+introduces new Java syntax in the loop body, which is explained below in Section 6.1.2.</p>
+<h4 id="listing-611b-gamblersruinjava">Listing 6.1.1b - <a href="https://github.com/drue-coles/cmsc-120/blob/master/code/src/chap06/sect1/GamblersRuin.java">GamblersRuin.java</a></h4>
+<div class="highlight"><span class="filename">GamblersRuin.java</span><pre><span></span><code><span class="kn">package</span><span class="w"> </span><span class="nn">chap06.sect1</span><span class="p">;</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">java.util.Scanner</span><span class="p">;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">java.util.concurrent.ThreadLocalRandom</span><span class="p">;</span>
+
+<span class="cm">/**</span>
+<span class="cm"> * Prompts the user for an initial balance and simulates the gambler&#39;s ruin: the gambler wins a</span>
+<span class="cm"> * dollar for heads and loses a dollar for tails, and continues flipping until going broke. The</span>
+<span class="cm"> * program outputs the number of coin flips and the maximum balance.</span>
+<span class="cm"> *</span>
+<span class="cm"> * @author Drue Coles</span>
+<span class="cm"> */</span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">GamblersRuin</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">print</span><span class="p">(</span><span class="s">&quot;Enter initial balance: $&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="n">Scanner</span><span class="w"> </span><span class="n">in</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Scanner</span><span class="p">(</span><span class="n">System</span><span class="p">.</span><span class="na">in</span><span class="p">);</span>
+<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">balance</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">in</span><span class="p">.</span><span class="na">nextInt</span><span class="p">();</span>
+<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">max</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">balance</span><span class="p">;</span>
+<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">coinFlips</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+
+<span class="w">        </span><span class="c1">// simulate coin flips until balance reaches 0</span>
+<span class="w">        </span><span class="n">ThreadLocalRandom</span><span class="w"> </span><span class="n">rand</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ThreadLocalRandom</span><span class="p">.</span><span class="na">current</span><span class="p">();</span>
+<span class="w">        </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">balance</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">rand</span><span class="p">.</span><span class="na">nextBoolean</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="n">balance</span><span class="o">++</span><span class="p">;</span>
+<span class="w">            </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="n">balance</span><span class="o">--</span><span class="p">;</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">            </span><span class="n">coinFlips</span><span class="o">++</span><span class="p">;</span>
+
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">balance</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">max</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="n">max</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">balance</span><span class="p">;</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">printf</span><span class="p">(</span><span class="s">&quot;Number of flips: %,d %n&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">coinFlips</span><span class="p">);</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">printf</span><span class="p">(</span><span class="s">&quot;Maximum balance: $%,d %n&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">max</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<details>
+<summary>Output 6.1.1b</summary>
+<div class="highlight"><pre><span></span><code>Enter initial balance: $100 
+Maximum balance: $279
+Length of game: 54,846 coin flips
+</code></pre></div>
+</details>
+<p>Results from the program will vary since the game is a random process.</p>
+<h2 id="612-syntactic-sugar">6.1.2 Syntactic Sugar</h2>
+<p>Java’s arithmetic <strong>compound assignment operators</strong>, illustrated in the code fragment below, provide 
+a convenient syntax for combining an arithmetic operation with an assignment. The <code>+=</code> operator is
+pronounced <em>plus gets</em>, <code>-=</code> is pronounced <em>minus gets</em>, and so on.</p>
+<div class="highlight"><pre><span></span><code><span class="n">x</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mi">8</span><span class="p">;</span><span class="w"> </span><span class="c1">// same as x = x + 8; </span>
+<span class="n">x</span><span class="w"> </span><span class="o">-=</span><span class="w"> </span><span class="mi">8</span><span class="p">;</span><span class="w"> </span><span class="c1">// same as x = x - 8; </span>
+<span class="n">x</span><span class="w"> </span><span class="o">*=</span><span class="w"> </span><span class="mi">8</span><span class="p">;</span><span class="w"> </span><span class="c1">// same as x = x * 8;</span>
+<span class="n">x</span><span class="w"> </span><span class="o">/=</span><span class="w"> </span><span class="mi">8</span><span class="p">;</span><span class="w"> </span><span class="c1">// same as x = x / 8; </span>
+<span class="n">x</span><span class="w"> </span><span class="o">%=</span><span class="w"> </span><span class="mi">8</span><span class="p">;</span><span class="w"> </span><span class="c1">// same as x = x % 8;</span>
+</code></pre></div>
+<p>The <code>+=</code> operator can also be used to combine string concatenation and assignment:</p>
+<div class="highlight"><pre><span></span><code><span class="n">String</span><span class="w"> </span><span class="n">animal</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;ant&quot;</span><span class="p">;</span><span class="w"> </span>
+<span class="n">animal</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="s">&quot;elope&quot;</span><span class="p">;</span>
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">animal</span><span class="p">);</span><span class="w"> </span><span class="c1">// antelope</span>
+</code></pre></div>
+<p>Incrementing or decrementing an <code>int</code> variable by one is a common pattern, especially in loops. 
+Compound assignment operators can be used for this, but Java provides an even simpler syntax with 
+the <strong>increment and decrement operators</strong> (<code>++</code> and <code>--</code>):</p>
+<div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span><span class="w"> </span>
+<span class="kt">int</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">8</span><span class="p">;</span><span class="w"> </span>
+<span class="n">x</span><span class="o">++</span><span class="p">;</span><span class="w"> </span><span class="c1">// same as x += 1; </span>
+<span class="n">y</span><span class="o">--</span><span class="p">;</span><span class="w"> </span><span class="c1">// same as y -= 1; </span>
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot; &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">y</span><span class="p">);</span><span class="w"> </span><span class="c1">// 4 7</span>
+</code></pre></div>
+<p>The increment and decrement operators can be written in two forms. The <em>postfix form</em> is shown 
+above. In <em>prefix form</em>, the operator precedes the operand (as in <code>++x</code> and <code>--y</code>). When a statement 
+consists of an increment or decrement operation alone, it makes no difference which form is used, 
+but when combined with other actions in a single statement, the choice matters. Consider, for 
+example, the following:</p>
+<div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span><span class="w"> </span>
+<span class="kt">int</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="o">++</span><span class="p">;</span>
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot; &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">y</span><span class="p">);</span><span class="w"> </span><span class="c1">// 4 3</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">z</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">8</span><span class="p">;</span>
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="o">--</span><span class="n">z</span><span class="p">);</span><span class="w"> </span><span class="c1">// 7</span>
+</code></pre></div>
+<p>In the second line, two things are happening: <code>x</code> is being incremented and <code>y</code> is being assigned the
+value of <code>x</code>. But which happens first? With postfix form, the increment operation follows the 
+assignment. In prefix form, the increment operation would precede the assignment, in which case <code>y</code> 
+would get 4 instead of 3. </p>
+<p>In the last line, the prefix form of the decrement operator is applied to <code>z</code>, so the variable is 
+decremented before its value is passed to <code>println</code>.</p>
+<p>The increment and decrement operators, compound assignment operators, and the ternary conditional
+operator are all examples of what programmers call <strong>syntactic sugar</strong>: they do not provide any new
+capabilities, but they do provide a convenient shorthand for existing syntax.</p>
+<h2 id="613-do-while-loops">6.1.3 <code>do</code>-<code>while</code> Loops</h2>
+<p>A <code>do</code>-<code>while</code> loop is a variant of the <code>while</code> loop with syntax as shown below.</p>
+<div class="highlight"><pre><span></span><code><span class="k">do</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// conditionally executed code</span>
+<span class="p">}</span><span class="w"> </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">E</span><span class="p">);</span>
+</code></pre></div>
+<p>The body of a <code>do</code>-<code>while</code> loop is executed <em>before</em> the condition to continue (<em>E</em>) is evaluated, 
+but otherwise <code>do</code>-<code>while</code> behaves like <code>while</code>. It is convenient when it is necessary to ensure 
+that the body is executed at least once.</p>
 
 
 
