@@ -28,7 +28,8 @@ With the loop, however, execution continues after this initial step by returning
 of *E* for another possible execution of the body.
 
 Listing 6.1.1a uses a `while` loop to calculate the sum of positive integers up to a user-specified 
-limit. 
+limit. The program also introduces new Java syntax in the loop body, which is explained below in 
+Section 6.1.2.
 
 #### Listing 6.1.1a - [Summer.java](https://github.com/drue-coles/cmsc-120/blob/master/code/src/chap06/sect1/Summer.java)
 ``` java title="Summer.java"
@@ -42,8 +43,7 @@ limit.
     ```
 
 Listing 6.1.1b uses a `while` loop to simulate the Gambler's Ruin, a statistical concept concerning 
-a simple coin-flipping game. The details are explained in the class documentation. The program also 
-introduces new Java syntax in the loop body, which is explained below in Section 6.1.2.
+a simple coin-flipping game. The details are explained in the class documentation.
 
 #### Listing 6.1.1b - [GamblersRuin.java](https://github.com/drue-coles/cmsc-120/blob/master/code/src/chap06/sect1/GamblersRuin.java)
 ``` java title="GamblersRuin.java"
