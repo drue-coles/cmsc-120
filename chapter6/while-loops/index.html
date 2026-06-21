@@ -1279,22 +1279,33 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#611-while-loops" class="md-nav__link">
+  <a href="#611-syntactic-sugar" class="md-nav__link">
     <span class="md-ellipsis">
       
-        6.1.1 while Loops
+        6.1.1 Syntactic Sugar
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="6.1.1 while Loops">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#612-while-loops" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.1.2 while Loops
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6.1.2 while Loops">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#listing-611a-summerjava" class="md-nav__link">
+  <a href="#listing-612a-summerjava" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Listing 6.1.1a - Summer.java
+        Listing 6.1.2a - Summer.java
       
     </span>
   </a>
@@ -1302,10 +1313,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#listing-611b-gamblersruinjava" class="md-nav__link">
+  <a href="#listing-612b-gamblersruinjava" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Listing 6.1.1b - GamblersRuin.java
+        Listing 6.1.2b - GamblersRuin.java
       
     </span>
   </a>
@@ -1314,17 +1325,6 @@
         
       </ul>
     </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#612-syntactic-sugar" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        6.1.2 Syntactic Sugar
-      
-    </span>
-  </a>
   
 </li>
       
@@ -1688,22 +1688,33 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#611-while-loops" class="md-nav__link">
+  <a href="#611-syntactic-sugar" class="md-nav__link">
     <span class="md-ellipsis">
       
-        6.1.1 while Loops
+        6.1.1 Syntactic Sugar
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="6.1.1 while Loops">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#612-while-loops" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.1.2 while Loops
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6.1.2 while Loops">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#listing-611a-summerjava" class="md-nav__link">
+  <a href="#listing-612a-summerjava" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Listing 6.1.1a - Summer.java
+        Listing 6.1.2a - Summer.java
       
     </span>
   </a>
@@ -1711,10 +1722,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#listing-611b-gamblersruinjava" class="md-nav__link">
+  <a href="#listing-612b-gamblersruinjava" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Listing 6.1.1b - GamblersRuin.java
+        Listing 6.1.2b - GamblersRuin.java
       
     </span>
   </a>
@@ -1723,17 +1734,6 @@
         
       </ul>
     </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#612-syntactic-sugar" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        6.1.2 Syntactic Sugar
-      
-    </span>
-  </a>
   
 </li>
       
@@ -1772,7 +1772,53 @@ as a specified condition is satisfied. There are three looping structures in Jav
 equivalent in the sense that whatever you can do with one you can do with another, but one may be 
 more convenient than another depending on the situation. Loops are essential for almost all 
 real-world programming problems.</p>
-<h2 id="611-while-loops">6.1.1 <code>while</code> Loops</h2>
+<p>The programs in this section use several shorthand operators in loop bodies. These are introduced 
+first for clarity.</p>
+<h2 id="611-syntactic-sugar">6.1.1 Syntactic Sugar</h2>
+<p>Java’s arithmetic <strong>compound assignment operators</strong>, illustrated in the code fragment below, provide
+a convenient syntax for combining an arithmetic operation with an assignment. The <code>+=</code> operator is
+pronounced <em>plus gets</em>, <code>-=</code> is pronounced <em>minus gets</em>, and so on.</p>
+<div class="highlight"><pre><span></span><code><span class="n">x</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mi">8</span><span class="p">;</span><span class="w"> </span><span class="c1">// same as x = x + 8; </span>
+<span class="n">x</span><span class="w"> </span><span class="o">-=</span><span class="w"> </span><span class="mi">8</span><span class="p">;</span><span class="w"> </span><span class="c1">// same as x = x - 8; </span>
+<span class="n">x</span><span class="w"> </span><span class="o">*=</span><span class="w"> </span><span class="mi">8</span><span class="p">;</span><span class="w"> </span><span class="c1">// same as x = x * 8;</span>
+<span class="n">x</span><span class="w"> </span><span class="o">/=</span><span class="w"> </span><span class="mi">8</span><span class="p">;</span><span class="w"> </span><span class="c1">// same as x = x / 8; </span>
+<span class="n">x</span><span class="w"> </span><span class="o">%=</span><span class="w"> </span><span class="mi">8</span><span class="p">;</span><span class="w"> </span><span class="c1">// same as x = x % 8;</span>
+</code></pre></div>
+<p>The <code>+=</code> operator can also be used to combine string concatenation and assignment:</p>
+<div class="highlight"><pre><span></span><code><span class="n">String</span><span class="w"> </span><span class="n">animal</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;ant&quot;</span><span class="p">;</span><span class="w"> </span>
+<span class="n">animal</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="s">&quot;elope&quot;</span><span class="p">;</span>
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">animal</span><span class="p">);</span><span class="w"> </span><span class="c1">// antelope</span>
+</code></pre></div>
+<p>Incrementing or decrementing an <code>int</code> variable by one is common, especially in loops. Compound 
+assignment operators can be used for this, but Java provides an even simpler syntax with
+the <strong>increment and decrement operators</strong> (<code>++</code> and <code>--</code>):</p>
+<div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span><span class="w"> </span>
+<span class="kt">int</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">8</span><span class="p">;</span><span class="w"> </span>
+<span class="n">x</span><span class="o">++</span><span class="p">;</span><span class="w"> </span><span class="c1">// same as x += 1; </span>
+<span class="n">y</span><span class="o">--</span><span class="p">;</span><span class="w"> </span><span class="c1">// same as y -= 1; </span>
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot; &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">y</span><span class="p">);</span><span class="w"> </span><span class="c1">// 4 7</span>
+</code></pre></div>
+<p>The increment and decrement operators can be written in two forms. The <em>postfix form</em> is shown
+above. In <em>prefix form</em>, the operator precedes the operand (as in <code>++x</code> and <code>--y</code>). When a statement
+consists of an increment or decrement operation alone, it makes no difference which form is used,
+but when combined with other actions in a single statement, the choice matters. Consider, for
+example, the following:</p>
+<div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span><span class="w"> </span>
+<span class="kt">int</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="o">++</span><span class="p">;</span>
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot; &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">y</span><span class="p">);</span><span class="w"> </span><span class="c1">// 4 3</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">z</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">8</span><span class="p">;</span>
+<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="o">--</span><span class="n">z</span><span class="p">);</span><span class="w"> </span><span class="c1">// 7</span>
+</code></pre></div>
+<p>In the second line, two things are happening: <code>x</code> is being incremented and <code>y</code> is being assigned the
+value of <code>x</code>. But which happens first? With postfix form, the increment operation follows the
+assignment. In prefix form, the increment operation would precede the assignment, in which case <code>y</code>
+would get 4 instead of 3.</p>
+<p>In the last line, the prefix form of the decrement operator is applied to <code>z</code>, so the variable is
+decremented before its value is passed to <code>println</code>.</p>
+<p>The increment/decrement and compound assignment operators are examples of what programmers call 
+<strong>syntactic sugar</strong>: they do not add any new capabilities, but they do provide a convenient 
+shorthand for existing syntax.</p>
+<h2 id="612-while-loops">6.1.2 <code>while</code> Loops</h2>
 <p>A <code>while</code> loop resembles an <code>if</code> statement. For the sake of comparison, the general syntax is shown 
 for both below. </p>
 <div class="highlight"><pre><span></span><code><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">E</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
@@ -1786,10 +1832,9 @@ for both below. </p>
 <p>The <code>if</code> statement either executes the body or it does not, depending on the Boolean expression <em>E</em>. 
 With the loop, however, execution continues after this initial step by returning to the evaluation 
 of <em>E</em> for another possible execution of the body.</p>
-<p>Listing 6.1.1a uses a <code>while</code> loop to calculate the sum of positive integers up to a user-specified 
-limit. The program also introduces new Java syntax in the loop body, which is explained below in 
-Section 6.1.2.</p>
-<h4 id="listing-611a-summerjava">Listing 6.1.1a - <a href="https://github.com/drue-coles/cmsc-120/blob/master/code/src/chap06/sect1/Summer.java">Summer.java</a></h4>
+<p>Listing 6.1.2a uses a <code>while</code> loop to calculate the sum of positive integers up to a user-specified 
+limit. </p>
+<h4 id="listing-612a-summerjava">Listing 6.1.2a - <a href="https://github.com/drue-coles/cmsc-120/blob/master/code/src/chap06/sect1/Summer.java">Summer.java</a></h4>
 <div class="highlight"><span class="filename">Summer.java</span><pre><span></span><code><span class="kn">package</span><span class="w"> </span><span class="nn">chap06.sect1</span><span class="p">;</span>
 
 <span class="kn">import</span><span class="w"> </span><span class="nn">java.util.Scanner</span><span class="p">;</span>
@@ -1818,14 +1863,14 @@ Section 6.1.2.</p>
 <span class="p">}</span>
 </code></pre></div>
 <details>
-<summary>Output 6.1.1a</summary>
+<summary>Output 6.1.2a</summary>
 <div class="highlight"><pre><span></span><code>Enter a positive integer: 100 
 1 + 2 + 3 + ... + 100 = 5050
 </code></pre></div>
 </details>
-<p>Listing 6.1.1b uses a <code>while</code> loop to simulate the Gambler's Ruin, a statistical concept concerning 
+<p>Listing 6.1.2b uses a <code>while</code> loop to simulate the Gambler's Ruin, a statistical concept concerning 
 a simple coin-flipping game. The details are explained in the class documentation.</p>
-<h4 id="listing-611b-gamblersruinjava">Listing 6.1.1b - <a href="https://github.com/drue-coles/cmsc-120/blob/master/code/src/chap06/sect1/GamblersRuin.java">GamblersRuin.java</a></h4>
+<h4 id="listing-612b-gamblersruinjava">Listing 6.1.2b - <a href="https://github.com/drue-coles/cmsc-120/blob/master/code/src/chap06/sect1/GamblersRuin.java">GamblersRuin.java</a></h4>
 <div class="highlight"><span class="filename">GamblersRuin.java</span><pre><span></span><code><span class="kn">package</span><span class="w"> </span><span class="nn">chap06.sect1</span><span class="p">;</span>
 
 <span class="kn">import</span><span class="w"> </span><span class="nn">java.util.Scanner</span><span class="p">;</span>
@@ -1868,57 +1913,13 @@ a simple coin-flipping game. The details are explained in the class documentatio
 <span class="p">}</span>
 </code></pre></div>
 <details>
-<summary>Output 6.1.1b</summary>
+<summary>Output 6.1.2b</summary>
 <div class="highlight"><pre><span></span><code>Enter initial balance: $100 
 Maximum balance: $279
 Length of game: 54,846 coin flips
 </code></pre></div>
 </details>
 <p>Results from the program will vary since the game is a random process.</p>
-<h2 id="612-syntactic-sugar">6.1.2 Syntactic Sugar</h2>
-<p>Java’s arithmetic <strong>compound assignment operators</strong>, illustrated in the code fragment below, provide 
-a convenient syntax for combining an arithmetic operation with an assignment. The <code>+=</code> operator is
-pronounced <em>plus gets</em>, <code>-=</code> is pronounced <em>minus gets</em>, and so on.</p>
-<div class="highlight"><pre><span></span><code><span class="n">x</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mi">8</span><span class="p">;</span><span class="w"> </span><span class="c1">// same as x = x + 8; </span>
-<span class="n">x</span><span class="w"> </span><span class="o">-=</span><span class="w"> </span><span class="mi">8</span><span class="p">;</span><span class="w"> </span><span class="c1">// same as x = x - 8; </span>
-<span class="n">x</span><span class="w"> </span><span class="o">*=</span><span class="w"> </span><span class="mi">8</span><span class="p">;</span><span class="w"> </span><span class="c1">// same as x = x * 8;</span>
-<span class="n">x</span><span class="w"> </span><span class="o">/=</span><span class="w"> </span><span class="mi">8</span><span class="p">;</span><span class="w"> </span><span class="c1">// same as x = x / 8; </span>
-<span class="n">x</span><span class="w"> </span><span class="o">%=</span><span class="w"> </span><span class="mi">8</span><span class="p">;</span><span class="w"> </span><span class="c1">// same as x = x % 8;</span>
-</code></pre></div>
-<p>The <code>+=</code> operator can also be used to combine string concatenation and assignment:</p>
-<div class="highlight"><pre><span></span><code><span class="n">String</span><span class="w"> </span><span class="n">animal</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;ant&quot;</span><span class="p">;</span><span class="w"> </span>
-<span class="n">animal</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="s">&quot;elope&quot;</span><span class="p">;</span>
-<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">animal</span><span class="p">);</span><span class="w"> </span><span class="c1">// antelope</span>
-</code></pre></div>
-<p>Incrementing or decrementing an <code>int</code> variable by one is a common pattern, especially in loops. 
-Compound assignment operators can be used for this, but Java provides an even simpler syntax with 
-the <strong>increment and decrement operators</strong> (<code>++</code> and <code>--</code>):</p>
-<div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span><span class="w"> </span>
-<span class="kt">int</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">8</span><span class="p">;</span><span class="w"> </span>
-<span class="n">x</span><span class="o">++</span><span class="p">;</span><span class="w"> </span><span class="c1">// same as x += 1; </span>
-<span class="n">y</span><span class="o">--</span><span class="p">;</span><span class="w"> </span><span class="c1">// same as y -= 1; </span>
-<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot; &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">y</span><span class="p">);</span><span class="w"> </span><span class="c1">// 4 7</span>
-</code></pre></div>
-<p>The increment and decrement operators can be written in two forms. The <em>postfix form</em> is shown 
-above. In <em>prefix form</em>, the operator precedes the operand (as in <code>++x</code> and <code>--y</code>). When a statement 
-consists of an increment or decrement operation alone, it makes no difference which form is used, 
-but when combined with other actions in a single statement, the choice matters. Consider, for 
-example, the following:</p>
-<div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span><span class="w"> </span>
-<span class="kt">int</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="o">++</span><span class="p">;</span>
-<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot; &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">y</span><span class="p">);</span><span class="w"> </span><span class="c1">// 4 3</span>
-<span class="kt">int</span><span class="w"> </span><span class="n">z</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">8</span><span class="p">;</span>
-<span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="o">--</span><span class="n">z</span><span class="p">);</span><span class="w"> </span><span class="c1">// 7</span>
-</code></pre></div>
-<p>In the second line, two things are happening: <code>x</code> is being incremented and <code>y</code> is being assigned the
-value of <code>x</code>. But which happens first? With postfix form, the increment operation follows the 
-assignment. In prefix form, the increment operation would precede the assignment, in which case <code>y</code> 
-would get 4 instead of 3. </p>
-<p>In the last line, the prefix form of the decrement operator is applied to <code>z</code>, so the variable is 
-decremented before its value is passed to <code>println</code>.</p>
-<p>The increment and decrement operators, compound assignment operators, and the ternary conditional
-operator are all examples of what programmers call <strong>syntactic sugar</strong>: they do not provide any new
-capabilities, but they do provide a convenient shorthand for existing syntax.</p>
 <h2 id="613-do-while-loops">6.1.3 <code>do</code>-<code>while</code> Loops</h2>
 <p>A <code>do</code>-<code>while</code> loop is a variant of the <code>while</code> loop with syntax as shown below.</p>
 <div class="highlight"><pre><span></span><code><span class="k">do</span><span class="w"> </span><span class="p">{</span>
