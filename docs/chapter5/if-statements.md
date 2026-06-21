@@ -20,7 +20,7 @@ statement, the braces may be omitted, though including them is generally conside
 Listing 5.2.1 uses `if` statements to simulate the first roll of a popular dice game. The outcome 
 depends on the total rolled, so different messages are displayed under different conditions.
 
-#### Listing 5.2.1 - [ComeOutRoll.java](https://github.com/drue-coles/cmsc-120/blob/master/code/src/chap05/sect2/ComeOutRoll.java){:target="_blank"}
+#### Listing 5.2.1 - [ComeOutRoll.java](https://github.com/drue-coles/cmsc-120/blob/master/code/src/chap05/sect2/ComeOutRoll.java)
 ``` java title="ComeOutRoll.java"
 --8<-- "code/src/chap05/sect2/ComeOutRoll.java"
 ```

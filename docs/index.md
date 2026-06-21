@@ -16,5 +16,5 @@ What this book does *not* cover: the natural next point of study after completin
 would be the design and implementation of new classes — blueprints for objects — along with 
 interface types, inheritance, and polymorphism.  
 
-All program listings in this book are available under `code/src` at 
+All program listings in this book are available under `code/src/` at 
 <a href="https://github.com/drue-coles/cmsc-120">https://github.com/drue-coles/cmsc-120</a>.

@@ -1,1 +1,1 @@
-Code listings for *The Practice and Philosophy of Object-Oriented Programming in Java*
+Code listings for *Java for CMSC 120*

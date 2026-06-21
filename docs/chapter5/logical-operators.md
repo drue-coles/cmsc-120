@@ -1,8 +1,7 @@
 # 5.5 Logical Operators
 
 **Key terms**: logical operator, logical OR, pipe symbol, logical AND, negation (not) operator, 
-short-circuit 
-evaluation
+short-circuit evaluation
 
 ## 5.5.1 Logical OR
 
