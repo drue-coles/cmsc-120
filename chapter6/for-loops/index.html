@@ -1834,6 +1834,7 @@
 
 
 <h1 id="62-for-loops">6.2 <code>for</code> Loops</h1>
+<p>THIS SECTION IS STILL UNDER CONSTRUCTION</p>
 <p><strong>Key terms:</strong> loop control variable</p>
 <h2 id="621-syntax-and-semantics">6.2.1 Syntax and Semantics</h2>
 <p>The following code uses a <code>while</code> loop to output a sequence of 20 asterisks. The variable <code>i</code> is 
@@ -1864,7 +1865,7 @@ and improved readability. The preceding code may be written as:</p>
 The first statement (<em>S1</em>) typically declares and initializes a loop control variable, although 
 in principle it could be any valid statement. It is executed once and only once. Next, Boolean 
 expression <em>E</em> (which depends on the loop control variable) is evaluated: if <code>true</code>, the body is 
-executed and then statement <em>S2</em> is executed (which typically updates the loop-control 
+executed and then statement <em>S2</em> is executed (which typically updates the loop control 
 variable). The flow of execution then returns to the evaluation step. If <em>E</em> is <code>false</code>, 
 execution continues with the code following the loop.</p>
 <p>Listing 6.2.1a is a revision of the <code>Summer</code> program from the previous section using a <code>for</code> loop 
@@ -1898,7 +1899,7 @@ instead of a <code>while</code> loop.</p>
 </code></pre></div>
 <p>Listing 6.2.1b is a less trivial but still simple application. It approximates the value of π by 
 calculating partial sums of an infinite series familiar to students of calculus. The Unicode 
-character for the Greek letter π is used as a variable name and as part of the program’s output. </p>
+character for the Greek letter π is used as part of the program’s output. </p>
 <h4 id="listing-621b-piapproximatorjava">Listing 6.2.1b - <a href="https://github.com/drue-coles/cmsc-120/blob/master/code/src/chap06/sect2/PiApproximator.java">PiApproximator.java</a></h4>
 <div class="highlight"><span class="filename">PiApproximator.java</span><pre><span></span><code><span class="kn">package</span><span class="w"> </span><span class="nn">chap06.sect2</span><span class="p">;</span>
 
@@ -2038,10 +2039,10 @@ Seven out. You lose.
 <h2 id="623-case-study-fractal-generator">6.2.3 Case Study: Fractal Generator</h2>
 <p>A <a href="https://en.wikipedia.org/wiki/Sierpi%C5%84ski_triangle">Sierpiński triangle</a> is 
 a <a href="https://en.wikipedia.org/wiki/Fractal">fractal</a> that can be constructed in the 
-following way. </p>
-<p>Start with an equilateral triangle. Partition it into four smaller congruent equilateral triangles 
-and remove the one in the center. Repeat this process for each of the remaining triangles.</p>
-<p>Figure 6.2.3: <a href="https://en.wikipedia.org/wiki/Sierpi%C5%84ski_triangle#/media/File:Sierpinski_triangle_evolution.svg">First five iterations</a></p>
+following way: Start with an equilateral triangle. Partition it into four smaller congruent 
+equilateral triangles and remove the one in the center. Repeat this process for each of the 
+remaining triangles, and continue in this way indefinitely.</p>
+<p>Figure 6.2.3: <a href="../images/figure6.2.3.png">Construction of Sierpiński triangle</a></p>
 <p>Amazingly, the same result can be obtained using randomness in a way that is much easier to program. 
 Start by fixing three corners of a triangle, then repeat the following steps: </p>
 <ol>
