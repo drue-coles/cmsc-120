@@ -11,7 +11,7 @@ import javafx.stage.Stage;
 import java.util.concurrent.ThreadLocalRandom;
 
 /**
- * Draws a Sierpinski triangle.
+ * Draws a Sierpiński triangle.
  *
  * @author Drue Coles
  */
@@ -24,7 +24,7 @@ public class Fractal extends Application {
         Scene scene = new Scene(root, size, size, Color.BLACK);
 
         // three corners of a triangle
-        final int padding = 8;
+        final int padding = 10;
         final Point2D corner1 = new Point2D(size / 2.0, padding);
         final Point2D corner2 = new Point2D(padding, size - padding);
         final Point2D corner3 = new Point2D(size - padding, size - padding);
@@ -45,7 +45,7 @@ public class Fractal extends Application {
             root.getChildren().add(dot);
         }
 
-        stage.setTitle("Sierpinski Triangle");
+        stage.setTitle("Sierpiński Triangle");
         stage.setScene(scene);
         stage.show();
     }
