@@ -1,7 +1,7 @@
 package chap06.sect2;
 
 /**
- * Approximates the value of π using the Leibniz series: π = 4 - 4/3 + 4/5 - 4/7 + 4/9 - ...
+ * Approximates π using the Leibniz series: π = 4 - 4/3 + 4/5 - 4/7 + 4/9 - ...
  *
  * @author Drue Coles
  */

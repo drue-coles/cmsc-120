@@ -41,7 +41,7 @@ public class Fractal extends Application {
             currentPoint = midpoint(currentPoint, randomCorner);
 
             // draw a dot at location of current point
-            Circle dot = new Circle(currentPoint.getX(), currentPoint.getY(), 1, Color.GOLD);
+            Circle dot = new Circle(currentPoint.getX(), currentPoint.getY(), 1, Color.DARKORANGE);
             root.getChildren().add(dot);
         }
 
