@@ -122,7 +122,7 @@ following way: Start with an equilateral triangle. Partition it into four smalle
 equilateral triangles and remove the one in the center. Repeat this process for each of the 
 remaining triangles, continuing indefinitely.
 
-Figure 6.2.3: [Construction of a Sierpiński triangle](images/figure6.2.3.png)
+Figure 6.2.3: [First Five Steps of the Construction](images/figure6.2.3.png)
 
 Remarkably, the same result can be obtained using randomness in a way that is much easier to 
 program. Start by fixing three corners of a triangle, then repeat the following steps: 
