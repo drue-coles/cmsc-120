@@ -1,1 +1,1 @@
-Code listings for *Java for CMSC 120*
+Program listings from *Java for CMSC 120*

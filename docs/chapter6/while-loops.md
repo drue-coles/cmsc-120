@@ -114,9 +114,9 @@ a simple coin-flipping game. The details are explained in the class documentatio
 
 ??? "Output 6.1.2b"
     ```text
-    Enter initial balance: $100 
-    Maximum balance: $279
-    Length of game: 54,846 coin flips
+    Enter initial balance: $100
+    Number of flips: 4,068 
+    Maximum balance: $130 
     ```
 
 Results from the program will vary since the game is a random process.
