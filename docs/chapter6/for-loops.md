@@ -1,5 +1,7 @@
 # 6.2 `for` Loops
 
+THIS SECTION IS STILL UNDER CONSTRUCTION
+
 **Key terms:** loop control variable
 
 ## 6.2.1 Syntax and Semantics
