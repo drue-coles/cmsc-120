@@ -2036,18 +2036,22 @@ Seven out. You lose.
 </code></pre></div>
 </details>
 <h2 id="623-case-study-fractal-generator">6.2.3 Case Study: Fractal Generator</h2>
-<p>A Sierpinski triangle [link] is a fractal [link] that can be constructed in the following way. </p>
+<p>A <a href="https://en.wikipedia.org/wiki/Sierpi%C5%84ski_triangle">Sierpiński triangle</a> is 
+a <a href="https://en.wikipedia.org/wiki/Fractal">fractal</a> that can be constructed in the 
+following way. </p>
 <p>Start with an equilateral triangle. Partition it into four smaller congruent equilateral triangles 
-and remove the one in the center. Repeat this process for each of the remaining triangles.
-The first five iterations of this construction are shown in Figure 6.2.3a. </p>
-<p>Amazingly, the same result can be obtained using randomness in a way that is much easier to 
-program. Start by fixing three corners of a triangle, and then: </p>
-<p>Pick any point in the triangle and call it the current point. </p>
-<p>Choose a corner at random move the current point halfway to it. 3. </p>
-<p>Draw the current point and return to step 2. </p>
+and remove the one in the center. Repeat this process for each of the remaining triangles.</p>
+<p>Figure 6.2.3: <a href="https://en.wikipedia.org/wiki/Sierpi%C5%84ski_triangle#/media/File:Sierpinski_triangle_evolution.svg">First five iterations</a></p>
+<p>Amazingly, the same result can be obtained using randomness in a way that is much easier to program. 
+Start by fixing three corners of a triangle, then repeat the following steps: </p>
+<ol>
+<li>choose a random corner</li>
+<li>move halfway from current point toward that corner</li>
+<li>draw a dot at the new location</li>
+</ol>
 <p>You would probably not expect anything other than an unstructured smear of dots to arise from 
-this process, but after many repetitions the very delicate structure of a Sierpinski triangle 
-begins to emerge. Listing 6.2.3a is a JavaFX application that performs these steps to draw the 
+this process, but after many repetitions the very delicate structure of a Sierpiński triangle 
+begins to emerge. Listing 6.2.3 is a JavaFX application that performs these steps to draw the 
 fractal. This application is a bit longer and more involved than earlier ones, but the documentation 
 clarifies the coding logic. You might enjoy experimenting with the dot size and the number of dots.</p>
 <h4 id="listing-623-fractaljava">Listing 6.2.3 - <a href="https://github.com/drue-coles/cmsc-120/blob/master/code/src/chap06/sect2/Fractal.java">Fractal.java</a></h4>
@@ -2064,7 +2068,7 @@ clarifies the coding logic. You might enjoy experimenting with the dot size and 
 <span class="kn">import</span><span class="w"> </span><span class="nn">java.util.concurrent.ThreadLocalRandom</span><span class="p">;</span>
 
 <span class="cm">/**</span>
-<span class="cm"> * Draws a Sierpinski triangle.</span>
+<span class="cm"> * Draws a Sierpiński triangle.</span>
 <span class="cm"> *</span>
 <span class="cm"> * @author Drue Coles</span>
 <span class="cm"> */</span>
@@ -2077,7 +2081,7 @@ clarifies the coding logic. You might enjoy experimenting with the dot size and 
 <span class="w">        </span><span class="n">Scene</span><span class="w"> </span><span class="n">scene</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Scene</span><span class="p">(</span><span class="n">root</span><span class="p">,</span><span class="w"> </span><span class="n">size</span><span class="p">,</span><span class="w"> </span><span class="n">size</span><span class="p">,</span><span class="w"> </span><span class="n">Color</span><span class="p">.</span><span class="na">BLACK</span><span class="p">);</span>
 
 <span class="w">        </span><span class="c1">// three corners of a triangle</span>
-<span class="w">        </span><span class="kd">final</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">padding</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">8</span><span class="p">;</span>
+<span class="w">        </span><span class="kd">final</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">padding</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span>
 <span class="w">        </span><span class="kd">final</span><span class="w"> </span><span class="n">Point2D</span><span class="w"> </span><span class="n">corner1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Point2D</span><span class="p">(</span><span class="n">size</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mf">2.0</span><span class="p">,</span><span class="w"> </span><span class="n">padding</span><span class="p">);</span>
 <span class="w">        </span><span class="kd">final</span><span class="w"> </span><span class="n">Point2D</span><span class="w"> </span><span class="n">corner2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Point2D</span><span class="p">(</span><span class="n">padding</span><span class="p">,</span><span class="w"> </span><span class="n">size</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">padding</span><span class="p">);</span>
 <span class="w">        </span><span class="kd">final</span><span class="w"> </span><span class="n">Point2D</span><span class="w"> </span><span class="n">corner3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Point2D</span><span class="p">(</span><span class="n">size</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">padding</span><span class="p">,</span><span class="w"> </span><span class="n">size</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">padding</span><span class="p">);</span>
@@ -2098,7 +2102,7 @@ clarifies the coding logic. You might enjoy experimenting with the dot size and 
 <span class="w">            </span><span class="n">root</span><span class="p">.</span><span class="na">getChildren</span><span class="p">().</span><span class="na">add</span><span class="p">(</span><span class="n">dot</span><span class="p">);</span>
 <span class="w">        </span><span class="p">}</span>
 
-<span class="w">        </span><span class="n">stage</span><span class="p">.</span><span class="na">setTitle</span><span class="p">(</span><span class="s">&quot;Sierpinski Triangle&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="n">stage</span><span class="p">.</span><span class="na">setTitle</span><span class="p">(</span><span class="s">&quot;Sierpiński Triangle&quot;</span><span class="p">);</span>
 <span class="w">        </span><span class="n">stage</span><span class="p">.</span><span class="na">setScene</span><span class="p">(</span><span class="n">scene</span><span class="p">);</span>
 <span class="w">        </span><span class="n">stage</span><span class="p">.</span><span class="na">show</span><span class="p">();</span>
 <span class="w">    </span><span class="p">}</span>
@@ -2131,7 +2135,7 @@ clarifies the coding logic. You might enjoy experimenting with the dot size and 
 </code></pre></div>
 <details>
 <summary>Output 6.2.3</summary>
-<p><img alt="Output 6.2.3 – Fractal window" src="images/output6.2.3.png" /></p>
+<p><img alt="Output 6.2.3 – Fractal window" src="../images/output6.2.3.png" /></p>
 </details>
 
 
