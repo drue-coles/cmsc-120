@@ -150,9 +150,9 @@ self-explanatory except for a minor technical point discussed below.
     ```
 
 In the `simulateMassageQueue` method, the `for` loop repeats once for each minute of service. In the 
-body of the loop, we must determine whether a new customer is arriving for service at the current 
-time. This is a random event, but we know the average time between arrivals. A *k*-minute average is 
-modeled by assuming a probability of 1/*k* that a new arrival occurs in any given minute. This 
-explains the `if` condition for deciding if a new customer arrives. Specifically, the `nextDouble` 
-method returns a random `double` between 0 and 1, so the condition is true with probability 
-`1.0 / arrivalInterval`, matching the assumed arrival rate.
+body of the loop, it must be determined whether a new customer is arriving for service at the 
+current time. This is a random event, but the average time between arrivals is known. A *k*-minute 
+average is modeled by assuming a probability of 1/*k* that a new arrival occurs in any given minute.
+Specifically, in the `if` statement checking for a new arrival, `nextDouble` returns a random 
+`double` between 0 and 1, which is compared with the assumed arrival rate of 
+`1.0 / arrivalInterval`.
