@@ -24,9 +24,9 @@ not be consistent across different executions of the program. But with 100 milli
 output is consistently between 20.83% and 20.84%, suggesting that the true probability is within 
 this narrow range. 
 
-#### Listing 6.3.1 - [SumGame.java](https://github.com/drue-coles/cmsc-120/blob/master/code/src/chap06/sect/SumGame.java)
+#### Listing 6.3.1 - [SumGame.java](https://github.com/drue-coles/cmsc-120/blob/master/code/src/chap06/sect3/SumGame.java)
 ``` java title="SumGame.java"
---8<-- "code/src/chap06/sect2/SumGame.java"
+--8<-- "code/src/chap06/sect3/SumGame.java"
 ```
 
 ??? "Output 6.3.1"
@@ -49,9 +49,9 @@ approach 50 cents. After a million plays, the average might be 49.8357 cents; af
 it would likely be even closer. Similarly, the expected length of a random walk is the number of 
 steps that would be taken on average over many independent random walks.
 
-#### Listing 6.3.2 - [RandomWalk.java](https://github.com/drue-coles/cmsc-120/blob/master/code/src/chap06/sect/RandomWalk.java)
+#### Listing 6.3.2 - [RandomWalk.java](https://github.com/drue-coles/cmsc-120/blob/master/code/src/chap06/sect3/RandomWalk.java)
 ``` java title="RandomWalk.java"
---8<-- "code/src/chap06/sect2/RandomWalk.java"
+--8<-- "code/src/chap06/sect3/RandomWalk.java"
 ```
 
 ??? "Output 6.3.2"
@@ -67,7 +67,7 @@ It is perhaps surprising that Monte Carlo simulations can be used to approximate
 quantity such as π. This is shown in Listing 6.3.3; see the class documentation for the underlying 
 idea. 
 
-#### Listing 6.3.3 - [PiApproximator.java](https://github.com/drue-coles/cmsc-120/blob/master/code/src/chap06/sect/PiApproximator.java)
+#### Listing 6.3.3 - [PiApproximator.java](https://github.com/drue-coles/cmsc-120/blob/master/code/src/chap06/sect3/PiApproximator.java)
 ``` java title="PiApproximator.java"
 --8<-- "code/src/chap06/sect2/PiApproximator.java"
 ```
@@ -87,9 +87,9 @@ Listing 6.3.4a is a Monte Carlo simulation for approximating the probability of 
 The game logic is implemented as a helper method that returns a Boolean value indicating whether the 
 player wins or loses.
 
-#### Listing 6.3.4a - [CrapsProbabilityCalculator.java](https://github.com/drue-coles/cmsc-120/blob/master/code/src/chap06/sect/CrapsProbabilityCalculator.java)
+#### Listing 6.3.4a - [CrapsProbabilityCalculator.java](https://github.com/drue-coles/cmsc-120/blob/master/code/src/chap06/sect3/CrapsProbabilityCalculator.java)
 ``` java title="CrapsProbabilityCalculator.java"
---8<-- "code/src/chap06/sect2/CrapsProbabilityCalculator.java"
+--8<-- "code/src/chap06/sect3/CrapsProbabilityCalculator.java"
 ```
 
 ??? "Output 6.3.4a"
@@ -112,9 +112,9 @@ string; the caller (`main`) could extract the two pieces of information as subst
 `int` whose absolute value is the number of rolls and whose sign (positive or negative) indicates 
 the outcome (win or lose).
 
-#### Listing 6.3.4b - [CrapsProbabilityCalculator2.java](https://github.com/drue-coles/cmsc-120/blob/master/code/src/chap06/sect/CrapsProbabilityCalculator2.java)
+#### Listing 6.3.4b - [CrapsProbabilityCalculator2.java](https://github.com/drue-coles/cmsc-120/blob/master/code/src/chap06/sect3/CrapsProbabilityCalculator2.java)
 ``` java title="CrapsProbabilityCalculator2.java"
---8<-- "code/src/chap06/sect2/CrapsProbabilityCalculator2.java"
+--8<-- "code/src/chap06/sect3/CrapsProbabilityCalculator2.java"
 ```
 
 ??? "Output 6.3.4b"
