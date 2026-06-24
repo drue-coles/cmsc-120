@@ -2173,12 +2173,12 @@ Expected maximum number of people waiting: 3.20
 </code></pre></div>
 </details>
 <p>In the <code>simulateMassageQueue</code> method, the <code>for</code> loop repeats once for each minute of service. In the 
-body of the loop, we must determine whether a new customer is arriving for service at the current 
-time. This is a random event, but we know the average time between arrivals. A <em>k</em>-minute average is 
-modeled by assuming a probability of 1/<em>k</em> that a new arrival occurs in any given minute. This 
-explains the <code>if</code> condition for deciding if a new customer arrives. Specifically, the <code>nextDouble</code> 
-method returns a random <code>double</code> between 0 and 1, so the condition is true with probability 
-<code>1.0 / arrivalInterval</code>, matching the assumed arrival rate.</p>
+body of the loop, it must be determined whether a new customer is arriving for service at the 
+current time. This is a random event, but the average time between arrivals is known. A <em>k</em>-minute 
+average is modeled by assuming a probability of 1/<em>k</em> that a new arrival occurs in any given minute.
+Specifically, in the <code>if</code> statement checking for a new arrival, <code>nextDouble</code> returns a random 
+<code>double</code> between 0 and 1, which is compared with the assumed arrival rate of 
+<code>1.0 / arrivalInterval</code>.</p>
 
 
 
