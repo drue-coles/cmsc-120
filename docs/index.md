@@ -14,7 +14,11 @@ and arrays.
 
 What this book does *not* cover: the natural next point of study after completing this short book 
 would be the design and implementation of new classes — blueprints for objects — along with 
-interface types, inheritance, and polymorphism.  
+interface types, inheritance, polymorphism, and exception handling.  
+
+#### Source Code
 
 All program listings are available under `code/src/` at 
 <a href="https://github.com/drue-coles/cmsc-120">https://github.com/drue-coles/cmsc-120</a>.
+Each program compiles with Java 17, except in rare cases where a newer language or library feature 
+is used for simplicity. In such cases, an accompanying comment indicates the required Java version.
