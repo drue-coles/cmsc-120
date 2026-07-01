@@ -579,69 +579,127 @@ Start sequence: LLRRRLLRLLRLRRL
 Final sequence: RLRLRLRLLRLRLRL
 ```
 
-Rule 184 can be used to model traffic flow and various particle systems. For more information, 
-see the Wikipedia articles on Rule 184 and related 
-<a href="https://en.wikipedia.org/wiki/Elementary_cellular_automaton">elementary cellular automata</a> 
+Rule 184 can model traffic flow and particle systems. Curious readers may enjoy the Wikipedia
+articles on
+<a href="https://en.wikipedia.org/wiki/Rule_184">Rule 184</a> and
+<a href="https://en.wikipedia.org/wiki/Elementary_cellular_automaton">elementary cellular automata</a>.
 
 ## 6.5.2 Basic Graphics Applications
 
-**a. Rainbow Circles.** Write a JavaFX application that draws a series of concentric randomly 
-colored circles.
+**a. Rainbow Circles.** Draws a series of concentric circles with random colors.
 
 ??? "Output 6.5.2a"
 ![Output 6.5.2a – Rainbow Circles](images/output6.5.2a.png)
 
 ---
 
-**b. Petals.** 
+**b. Petals.**  Draws a petal-like structure by rotating identical ellipses about their centers at 
+regular intervals.
+
 
 ??? "Output 6.5.2b"
 ![Output 6.5.2b – Petals](images/output6.5.2b.png)
 
+For an extra challenge, experiment with the use of `RotateTransition` and/or `ScaleTransition` to 
+animate individual petals.
+
 ---
 
-**c. Interleaved Squares.**
+**c. Interleaved Squares.**  Draws a series of centered squares with decreasing side lengths. The 
+fill color alternates between red and green, and red are rotated by squares by 45 degrees.
 
 ??? "Output 6.5.2c-1"
 ![Output 6.5.2c-1 – Interleaved Squares](images/output6.5.2c-1.png)
+
+For an extra challenge, experiment with the use of `RotateTransition` to animate the individual 
+squares.
 
 ??? "Output 6.5.2c-2"
 ![Output 6.5.2c-2 – Interleaved Squares](images/output6.5.2c-2.png)
 
 ---
 
-**d. Color Bars.**
+**d. Color Bars.** Draws a sequence of randomly colored vertical bars with their bases along the 
+bottom edge of the scene. The height of each bar is chosen randomly between a fixed minimum and the 
+height of the scene. The bars all have the same width and are separated by a fixed gap.
 
 ??? "Output 6.5.2d"
 ![Output 6.5.2d – Color Bars](images/output6.5.d.png)
 
 ---
 
-**e. Random Tower.**
+**e. Random Tower.** Draws a tower of rectangles spanning the scene from top to bottom. Each 
+rectangle has the same height, while its width is chosen randomly between a fixed minimum and the 
+width of the scene.
 
 ??? "Output 6.5.2e"
-![Output 6.5.2e – Color Bars](images/output6.5.2e.png)
+![Output 6.5.2e – Random Tower](images/output6.5.2e.png)
 
 ---
 
-**f. Around the Sun.**
+**f. Around the Sun.**  Draws a top-down view of the Solar System with all the planets moving in 
+circular orbits around the Sun. 
 
 ??? "Output 6.5.2f"
 ![Output 6.5.2f – Around the Sun](images/output6.5.2f.png)
 
+Use `PathTransition` to animate the planets along their orbits. The distances and planet sizes are 
+not to scale (and real planetary orbits are elliptical), but the relative orbital speeds should be. 
+Look up the orbital periods (or speeds) of the planets and scale them proportionally so that Mercury 
+completes one orbit every second.
+
+One of the Chapter 7 practice problems invites you to simplify your solution to this problem using 
+arrays.
+
 ---
 
-**g. Pi Darts.**
+**g. Pi Darts.** Draws a visual representation of the dart game simulated in Listing 6.3.3a for 
+approximating π. 
 
-??? "Output 6.5.2g"
-![Output 6.5.2g – Pi Darts](images/output6.5.2g.png)
+??? "Output 6.5.2g-1"
+![Output 6.5.2g-1 – Pi Darts](images/output6.5.2g-1.png)
+
+Draw each random dart as a black dot and display the results in an alert box using the following 
+code:
+
+```java
+Alert alert = new Alert(AlertType.INFORMATION); 
+alert.setTitle(titleString); 
+alert.setHeaderText(headerString); 
+alert.setContentText(contentString); 
+alert.showAndWait(); 
+System.exit(0);
+```
+
+??? "Output 6.5.2g-2"
+![Output 6.5.2g-2 – Pi Darts](images/output6.5.2g-2.png)
 
 ---
 
-**h. Down the Drain.**
+**h. Down the Drain.** Uses PathTransition to move a dot along the path defined by a spiral. 
 
 ??? "Output 6.5.2h"
 ![Output 6.5.2h – Down the Drain](images/output6.5.2h.png)
+
+The spiral is an instance of `Polyline`. The endpoints of the small line segments that form the 
+polyline are obtained by selecting points on imaginary circles of gradually increasing radii. The 
+details involve concepts from elementary trigonometry, but you can use the following code to 
+build the polyline without having to understand the mathematics.
+
+```java
+// x and y denote the location of the center of the spiral 
+// n is the number of times the spiral wraps around the center 
+// rStep is the change in radius from one endpoint to the next 
+// aStep is the change in angle from endpoint to the next.
+Polyline polyline = new Polyline(); 
+double radius = 0; 
+for (double a = 0; a < 2 * n * Math.PI; a += Math.toRadians(aStep)) {
+    double u = x + radius * Math.cos(a); 
+    double v = y + radius * Math.sin(a); 
+    polyline.getPoints().
+    addAll(u, v); radius += rStep;
+}
+```
 
 ## 6.5.3 Monte Carlo Simulations
 
