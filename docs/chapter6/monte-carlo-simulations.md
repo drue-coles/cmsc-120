@@ -69,7 +69,7 @@ idea.
 
 #### Listing 6.3.3 - [PiApproximator.java](https://github.com/drue-coles/cmsc-120/blob/master/code/src/chap06/sect3/PiApproximator.java)
 ``` java title="PiApproximator.java"
---8<-- "code/src/chap06/sect2/PiApproximator.java"
+--8<-- "code/src/chap06/sect3/PiApproximator.java"
 ```
 
 ??? "Output 6.3.3"
