@@ -653,119 +653,202 @@ arrays.
 
 ---
 
-**g. Pi Darts.** Draws a visual representation of the dart game simulated in Listing 6.3.3a for 
-approximating π. 
+**g. Graphical π Approximator.** Displays a graphical representation of the Monte Carlo simulation 
+used to approximate π in Section 6.3.3. Random points are generated within a square scene. 
+Different colors are used to distinguish points within the circumscribed quarter circle from 
+those outside it.
 
 ??? "Output 6.5.2g-1"
-![Output 6.5.2g-1 – Pi Darts](images/output6.5.2g-1.png)
+![Output 6.5.2g-1 – Random Points](images/output6.5.2g-1.png)
 
-Draw each random dart as a black dot and display the results in an alert box using the following 
-code:
-
-```java
-Alert alert = new Alert(AlertType.INFORMATION); 
-alert.setTitle(titleString); 
-alert.setHeaderText(headerString); 
-alert.setContentText(contentString); 
-alert.showAndWait(); 
-System.exit(0);
-```
+The fraction of points inside the quarter circle approximates π/4, so multiplying that fraction by
+four approximates π itself. Display this information in an alert dialog:
 
 ??? "Output 6.5.2g-2"
-![Output 6.5.2g-2 – Pi Darts](images/output6.5.2g-2.png)
+![Output 6.5.2g-2 – Alert Dialog](images/output6.5.2g-2.png)
+
+The following helper method can be used to display the results in an alert dialog:
+
+```java
+/**
+ * Creates and returns an alert dialog with the simulation results.
+ */
+private static Alert getAlert(int pointsInQuarterCircle, int totalPoints) {
+    // Consult the API documentation for the Alert class.
+}
+```
+Call the method from `start` as follows:
+
+```java
+// display simulation results
+Alert alert = getAlert(pointsInQuarterCircle, totalPoints);
+alert.showAndWait();
+```
 
 ---
 
-**h. Down the Drain.** Uses PathTransition to move a dot along the path defined by a spiral. 
+**h. Down the Drain.** Animates a dot moving along a spiral path.
 
 ??? "Output 6.5.2h"
 ![Output 6.5.2h – Down the Drain](images/output6.5.2h.png)
 
-The spiral is an instance of `Polyline`. The endpoints of the small line segments that form the 
-polyline are obtained by selecting points on imaginary circles of gradually increasing radii. The 
-details involve concepts from elementary trigonometry, but you can use the following code to 
-build the polyline without having to understand the mathematics.
+Use `PathTransition` for the animation. Represent the spiral as a `Polyline` whose vertices lie on
+imaginary circles of gradually increasing radius. Constructing the polyline involves elementary
+trigonometry, but the following code can be used without understanding the mathematics:
 
 ```java
-// x and y denote the location of the center of the spiral 
-// n is the number of times the spiral wraps around the center 
-// rStep is the change in radius from one endpoint to the next 
-// aStep is the change in angle from endpoint to the next.
-Polyline polyline = new Polyline(); 
-double radius = 0; 
-for (double a = 0; a < 2 * n * Math.PI; a += Math.toRadians(aStep)) {
-    double u = x + radius * Math.cos(a); 
-    double v = y + radius * Math.sin(a); 
-    polyline.getPoints().
-    addAll(u, v); radius += rStep;
+ /**
+ * Creates and returns a polyline representing a spiral.
+ *
+ * @param x x-coordinate of center
+ * @param y y-coordinate of center
+ * @param n number of revolutions
+ * @param rStep increase in radius between successive vertices
+ * @param aStep increase in angle (in degrees) between successive vertices 
+ */
+private static Polyline getSpiral(int x, int y, int n, double rStep, double aStep) {
+    Polyline spiral = new Polyline();
+    double radius = 0;
+    for (double angle = 0; angle < 2 * n * Math.PI; angle += Math.toRadians(aStep)) {
+        double u = x + radius * Math.cos(angle);
+        double v = y + radius * Math.sin(angle);
+        spiral.getPoints().addAll(u, v);
+        radius += rStep;
+    }
+    return spiral;
 }
+
 ```
 
 ## 6.5.3 Monte Carlo Simulations
 
-**a. Roulette.** A roulette wheel has 38 equally sized slots. The wheel is spun and a little ball 
-is set spinning with it, eventually landing in one of the slots. Two of the slots are green, 18 are 
-red, and 18 are black. A common bet is to place $1 on red. In this case, if the ball lands on red 
-then the player gets his dollar back plus another dollar; otherwise, the player gets nothing. Write 
-a Monte Carlo simulation that calculates the expected loss from this wager. Display the result in 
-$X.YZ format.
+
+**a. Roulette.** An American roulette wheel has 38 equally sized slots. Two are green, 18 are red,
+and 18 are black. A common wager is to bet $1 on red. If the ball lands on a red slot, the player
+receives the original dollar back plus another dollar. Otherwise, the player loses the dollar.
+
+Write a Monte Carlo simulation that estimates the expected payout. 
+
+??? "Partial output 6.5.3a"
+    ```text
+    Spin the roulette wheel and bet a dollar on RED.
+    Simulating 100,000,000 trials...
+    Expected payout:
+    ```
+
+The correct result is slightly negative, indicating a small expected loss.
 
 ---
 
-**b. Three of a Kind.** Write a Monte Carlo simulation to estimate the probability of rolling four 
-dice with a result of at least three dice showing the same number. Display the result as a 
-percentage with two digits after the decimal point.
+**b. Three of a Kind.** Estimates the probability of rolling three of a kind with four dice. A 
+positive outcome includes the case when all four dice are the same.
+
+??? "Partial output 6.5.3b"
+    ```text
+    Rolling four dice 10,000,000 times...
+    Probability of rolling three of a kind:
+    ```
+
+The probability is between 9 and 10 percent.
 
 ---
 
-**c. Thor vs. Zeus.** Thor has nine four-sided dice with faces numbered from 1 to 4. Zeus has six 
-six-sided dice with faces numbered from 1 to 6. They roll their dice and add up the numbers 
-obtained. The highest total wins. The game is a draw if the totals are equal. Write a Monte Carlo
-simulation to calculate the probability of victory for Thor. Display the result as a percentage with 
-two digits after the decimal point.
+**c. Thor vs. Zeus.** Thor has nine 4-sided dice with faces numbered from 1 to 4. Zeus has six 
+6-sided dice with faces numbered from 1 to 6. They roll their dice and add up the numbers obtained. 
+The highest total wins. The game is a draw if the totals are equal.
+
+Write a Monte Carlo simulation that estimates the probability of victory for Thor.
+
+??? "Partial output 6.5.3c"
+    ```text
+    Simulating Thor vs. Zeus 100,000,000 times... 
+    Probability of victory for Thor:
+    ```
+
+The true probability is between 55 and 60 percent. 
 
 ---
 
-**d. Seven and Eleven.** Write a Monte Carlo simulation to calculate the expected number of rolls of 
-a pair of dice needed until sums of both 7 and 11 have been obtained. Display the result with two
-digits after the decimal point.
+**d. Seven and Eleven.** Estimates the expected number of rolls of a pair of dice until sums of 
+7 and 11 have each occurred at least once. 
+
+??? "Partial output 6.5.3d"
+    ```text
+    Rolling until sums of 7 and 11 have each occurred at least once.
+    Repeating 10,000,000 times... 
+    Expected number of rolls: 
+    ```
+
+The true expected number of rolls is between 15 and 20.
 
 ---
 
-**e. Capybara Payout.** Write a Monte Carlo simulation to calculate the expected payout for the 
-game of Capybara. The player repeatedly rolls a pair of dice and wins a dol-lar amount equal to the 
-sum. This continues until the player rolls 7, 8, or 9, at which point the game ends. Note that if 
-the first roll is 7, 8, or 9, the player wins nothing. Display the result in $X.YZ format.
+**e. Capybara Payout.** Estimates the expected payout for the game of Capybara. The player rolls a 
+pair of dice and wins the sum in dollars. Play continues until a sum of 7, 8, or 9 is rolled, ending 
+the game without a payout for that roll.
+
+??? "Partial output 6.5.3e"
+    ```text
+    Playing Capybara 100,000,000 times... 
+    Expected payout: $
+    ```
+
+The true expected payout is between $8 and $9.
 
 ---
 
-**f. Okapi Payout.** Write a Monte Carlo simulation to calculate the expected payout for the game 
-of Okapi. The player rolls three dice and receives a payout determined by the following rule. 
+**f. Okapi Payout.** Estimates the expected payout for the game of Okapi. The player rolls three 
+dice and receives a payout determined by the following rules.
 
-• If the 3 numbers are the same, the player wins the sum of those 3 numbers. 
+- If the three numbers are the same, the player wins the sum of those three numbers.
+- If exactly two of the numbers are the same, the player wins the sum of those two numbers.
+- For three different numbers, the player wins nothing.
 
-• If only 2 of the numbers are the same, the player wins the sum of those 2 numbers. 
+??? "Partial output 6.5.3f"
+    ```text
+    Playing Okapi 100,000,000 times... 
+    Expected payout: $
+    ```
 
-• For 3 different numbers, the player wins nothing. 
-
-Display the result in $X.YZ format.
-
----
-
-**g. Quetzal.** Write a Monte Carlo simulation to calculate the expected payout for the game of 
-Quetzal. The payout is defined to be the number of even-numbered rolls times the sum of 
-even-numbered rolls, plus the number of odd-numbered rolls times the sum of the odd-numbered rolls. 
-Display the result in $X.YZ format.
+The true expected payout is between $3 and $4.
 
 ---
 
-**h. Colliding Kings.** Two kings are on a standard chessboard. The black king is at A1 (bottom 
-left) and the white king is at H8 (top right). The black king can move one square up or to the right 
-as long as he remains on the board. If either move is possible, the king chooses at random. 
-Similarly, the white king can move one square down or to the left, and chooses at random when both 
-moves are possible. The two kings move simultaneously once every second. What is the probability 
-that they will collide? Write a Monte Carlo simulation to find out. Display the result as a 
-percentage with two digits after the decimal point.
+**g. Quetzal.** Estimates the expected payout for the game of Quetzal. The player rolls three dice.
+The payout is equal to the number of even rolls multiplied by the sum of the even rolls, plus the
+number of odd rolls multiplied by the sum of the odd rolls.
+
+For example, a roll of 2-5-4 consists of two even rolls (2 and 4) and one odd roll (5), so the 
+payout is 2 × (2 + 4) + 1 × 5 = $17. A roll of 3-1-5 consists of no even rolls and three odd rolls,
+so the payout is 0 + 3 × (3 + 1 + 5) = $27.
+
+??? "Partial output 6.5.3g"
+    ```text
+    Playing Quetzal 100,000,000 times...
+    Expected payout: $
+    ```
+
+The true expected payout is between $20 and $22.
+
+---
+
+**h. Colliding Kings.** Two kings are placed on opposite corners of a standard chessboard. The 
+black king starts at A1 (bottom left) and the white king starts at H8 (top right). Each second, the 
+kings move simultaneously. The black king moves one square up or one square right (if both moves are 
+possible, it chooses randomly). The white king moves one square down or one square left (also 
+choosing randomly when both moves are possible).
+
+The kings are said to *collide* if they land on the same square at the same time.
+
+Write a Monte Carlo simulation to estimate the probability of a collision.
+
+??? "Output 6.5.3g"
+    ```text
+    Simulating the moving kings 10,000,000 times...
+    Probability of collision:
+    ```
+
+The probability is between 20 and 21 percent.
 
 ---
 
