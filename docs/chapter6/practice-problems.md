@@ -1171,28 +1171,27 @@ omitted here for typographical convenience, but your program should generate eve
 
 ## 6.5.5 Graphics Applications with Nested Loops
 
-**a. Circle Matrix.** Write a JavaFX application that draws a collection of brightly colored circles 
-aligned in rows and columns.
+**a. Circle Matrix.** Draws a grid of randomly colored circles.
 
 ??? "Output 6.5.5a"
 ![Output 6.5.5a – Circle Matrix](images/output6.5.5a.png)
 
 ---
 
-**b. Stained Glass.** Write a JavaFX application that fills the viewing area with tiny, 
-overlapping, squares. Each square's color and angle of rotation are selected at random.
+**b. Stained Glass.** Fills the viewing area with tiny overlapping squares. Each square is assigned 
+a random color and rotation angle.
 
 ![Output 6.5.5b – Stained Glass](images/output6.5.5b.png)
 
 ---
 
-**c. Disjoint Circles.** Write a JavaFX application that draws a set of disjoint circles. The 
-location, radius, and fill color of each circle are selected at random. Use the root node as a container for all of the circles.
+**c. Disjoint Circles.** Draws a collection of disjoint circles. The position, radius, and fill 
+color of each circle are selected at random.
 
 ![Output 6.5.5c – Disjoint Circles](images/output6.5.5c.png)
 
-Before adding a new circle to the root node, you must ensure that it does not intersect an existing 
-one. The following code can be used for this purpose.
+Before adding a new circle to the root node, ensure that it does not intersect any existing circle.
+The following code checks whether the new circle intersects any existing circle.
 
 ```java
 boolean intersectionFound = false; 
@@ -1208,11 +1207,11 @@ for (Node node: root.getChildren()) {
 ---
 
 **d. Chaos on a Square.** Section 6.2.3 described the construction of a fractal called a Sierpinski 
-triangle. We can apply the same general idea using the corners of a square instead of a triangle and 
-repeatedly moving the current point halfway to a randomly chosen corner. However, in this version we 
-must ensure that the same corner is not chosen twice in a row. Modify Listing 6.2.3a to draw this 
-fractal. The construction of the Sierpinski triangle and the modification described here are both 
-instances of a general concept known as the 
-<a href="https://en.wikipedia.org/wiki/Chaos_game">Chaos Game</a>.
+triangle. The same general idea can be applied using the corners of a square instead of a triangle 
+and repeatedly moving the current point halfway to a randomly chosen corner. However, the same 
+corner must not be chosen twice in a row. Modify Listing 6.2.3a to draw this fractal.
 
 ![Output 6.5.5d – Chaos on a Square](images/output6.5.5d.png)
+
+The construction of the Sierpinski triangle and the variation described here are both instances of a
+general concept known as the <a href="https://en.wikipedia.org/wiki/Chaos_game">Chaos Game</a>.
