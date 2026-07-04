@@ -853,42 +853,48 @@ The probability is between 20 and 21 percent.
 ---
 
 **i. Relatively Prime.** Two integers that have no common divisor greater than 1 are said to be 
-relatively prime. 12 and 15 are not relatively prime since 3 is a common divisor, but 12 and 25 are 
-relatively prime. It turns out that the probability of two random positive integers being relatively 
-prime is 6/π2. 
+*relatively prime*. For example, 12 and 15 are not relatively prime since they have the common 
+divisor 3, but 12 and 25 *are* relatively prime. A remarkable result in number theory is that the 
+probability of two random positive integers being relatively prime is 6/π<sup>2</sup>.
 
-Implement a Monte Carlo simulation to confirm this mathematical fact. The user enters a positive 
-integer n and the simulation generates random pairs of positive n-digit integers. Display the 
-fraction of relatively prime pairs and the exact rounded value of 6/π2  for comparison.
-
-Display both numbers with 5 digits after the decimal point. Implement a helper method that returns a
-BigInteger constructed with a given number of random digits. You can compute the greatest common 
-divisor of two BigIntegers using the gcd method of the class.
+Write a Monte Carlo simulation to investigate this result. The user enters the number of integer 
+pairs to generate and the number of digits in each integer. The simulation generates random pairs of 
+positive integers of the specified length, displays the fraction of relatively prime pairs, and 
+compares it with the double-precision floating-point value nearest to 6/π<sup>2</sup>.
 
 ??? "Output 6.5.3i-1"
     ```text
-    Number of random pairs to generate: 10000 
-    Number of random digits: 50
-    Fraction of relatively prime pairs: 0.60580 
-    The correct rounded value of 6/π^2: 0.60793
+    Integer pairs: 1000000
+    Random digits: 50
+    Generating 1,000,000 random pairs of 50-digit integers... 
+    Fraction of relatively prime pairs: 0.60801 
+    Double-precision floating-point value nearest to 6/π^2: 0.60793 
     ```
 
 ??? "Output 6.5.3i-2"
     ```text
-    Number of random pairs to generate: 1000000 
-    Number of digits: 50
-    Fraction of relatively prime pairs: 0.60715 
-    The correct rounded value of 6/π^2: 0.60793
+    Integer pairs: 10000000
+    Random digits: 25
+    Generating 10,000,000 random pairs of 25-digit integers...
+    Fraction of relatively prime pairs: 0.60760
+    Double-precision floating-point value nearest to 6/π^2: 0.60793
     ```
+
+Implement a helper method that creates and returns a randomly generated BigInteger with the 
+specified number of digits. Use the `gcd` method to find the greatest common divisor 
+of two `BigInteger`s.
+
+This simulation can also be adapted to approximate π. Compare it with Listing 6.3.3. The two methods 
+approximate the same geometric constant, but in remarkably different ways.
 
 ---
 
-**j. Sums in Ranges.** Let P(a, b, n) denote the probability of rolling a sum in the range [a, b] 
-with n ordinary 6-sided dice. For example, P(4, 7, 2) is the probability of rolling a sum in the 
-range [4, 7] with 2 dice. Write a simulation that calculates P(a, b, n) for n = 2, 3, 4, 5 and all
-possible choices of a and b. Output the results that are within 0.001 of 50%. Your main method will 
-iterate over the (a, b, n) combinations with nested loops. For each combination, a helper method is 
-called to calculate P(a, b, n).
+**j. Sums in Ranges.** Let *P*(*a*, *b*, *n*) denote the probability that the rolled sum of *n* 
+ordinary 6-sided dice lies in the range [*a*, *b*]. For example, *P*(4, 7, 2) is the probability 
+that the rolled sum of two dice is between 4 and 7 inclusive.
+
+Write a Monte Carlo simulation that estimates *P*(*a*, *b*, *n*) for *n* = 2, 3, 4, 5 and every 
+possible range [*a*, *b*]. Output the probabilities that are within 0.001 of 0.5.
 
 ??? "Partial Output 6.5.3j"
     ```text
@@ -897,13 +903,17 @@ called to calculate P(a, b, n).
     P(3, 10, 3) = 0.499906
     ```
 
+The main method should iterate over the possible values of *a*, *b*, and *n* using nested loops. 
+Implement a helper method that estimates *P*(*a*, *b*, *n*) for a given combination.
+
 ## 6.5.4 Console Applications with Nested Loops
 
-**a. Pyramid of Stars.**  Write a program that displays a pyramid of user-specified height.
+**a. Pyramid of Stars.**  Draws a pyramid of height specified by the user.
 
 ??? "Output 6.5.4a-1"
     ```text
-    Height of pyramid: 4 
+    Pyramid height: 4 
+
           * 
         * * * 
       * * * * * 
@@ -912,7 +922,8 @@ called to calculate P(a, b, n).
 
 ??? "Output 6.5.4a-2"
     ```text
-    Height of pyramid: 6 
+    Pyramid height: 6 
+
               * 
             * * * 
           * * * * * 
@@ -923,8 +934,8 @@ called to calculate P(a, b, n).
 
 ---
 
-**b. Slatipac.** Write a program that prompts the user for a line of text and outputs the string 
-obtained from the input by reversing all substrings consisting entirely of capital letters.
+**b. Slatipac.** Prompts the user for a line of text and reverses each maximal substring consisting
+entirely of capital letters.
 
 ??? "Output 6.5.4b-1"
     ```text
@@ -946,16 +957,15 @@ obtained from the input by reversing all substrings consisting entirely of capit
 
 ??? "Output 6.5.4b-4"
     ```text
-    
     Input: AbCCDD-2EfghPONY 
     Output: AbDDCC-2EfghYNOP
     ```
 
 ---
 
-**c. Sum Sentences.** Write a program that prompts the user for a string of digits, and displays 
-the string with a plus symbol and an equals sign inserted to form a true number sentence. If this is 
-not possible, the program displays the input unchanged.
+**c. Sum Sentences.** Prompts the user for a string of digits and displays the string with one plus 
+sign and one equals sign inserted to form a valid equation of the form A + B = C, if possible; 
+otherwise, outputs the original string unchanged.
 
 ??? "Output 6.5.4c-1"
     ```text
@@ -975,55 +985,54 @@ not possible, the program displays the input unchanged.
     1794326
     ```
 
+*Hint:* Each substring can be interpreted directly as a `BigInteger` using the constructor that 
+takes a string. Use `BigInteger` arithmetic to test whether a given partition of the input forms a 
+valid equation of the form A + B = C.
+
 ---
 
-**d. Arithmetic Progressions.** An arithmetic progression (AP) is an infinite sequence of integers 
-with a constant difference between successive terms. Let AP(k, d) denote the AP with initial term k 
-and common difference d. Now define AP(k, d, n) to be the finite AP consisting of first n terms of 
-AP(k, d). For example: AP(5, 3, 7) = 5, 8, 11, 14, 17, 21, 24.
+**d. Arithmetic Progressions.** An arithmetic progression (AP) is a sequence of integers with a 
+constant difference between successive terms. Let AP(*k*, *d*, *n*) denote the AP with initial term 
+*k*, difference *d*, and length *n*. For example, AP(5, 3, 7) = 5, 8, 11, 14, 17, 20, 23.
 
-Write a program that prompts the user for two finite APs and displays their common terms. The 
-simplest way to solve this problem is to iterate over the terms of one sequence, and for each of 
-those terms iterate over those of the other sequence to look for matches. (A more efficient solution 
-is possible using basic concepts from number theory, an area of pure mathematics that investigates
-the properties of integers.)
+Write a program that prompts the user for the parameters of two APs and displays the terms that 
+appear in both.
 
 ??? "Output 6.5.4d-1"
     ```text
-    Finite AP parameters (k, d, n): 0 5 20 
-    Finite AP parameters (k, d, n): 1 4 40 
+    AP parameters (k, d, n): 0 5 20 
+    AP parameters (k, d, n): 1 4 40 
     Common terms: 5 25 45 65 85
     ```
 
 ??? "Output 6.5.4d-2"
     ```text
-    Finite AP parameters (k, d, n): 8 24 50 
-    Finite AP parameters (k, d, n): 5 9 60 
+    AP parameters (k, d, n): 8 24 50 
+    AP parameters (k, d, n): 5 9 60 
     Common terms: 32 104 176 248 320 392 464 536
     ```
 
+A straightforward approach is to iterate over the terms of one AP and, for each term, check the 
+terms of the other AP for a match. More efficient solutions exist using number-theoretic properties 
+of arithmetic progressions.
+
 ---
 
-**e. Legs.** I had a dinner party at my house last week. Five people were there, including me, and 
-as we started to eat it occurred to me that there were 84 legs in the room. I was including spiders 
-and cockroaches. Here is my calculation, exactly as I wrote it on a napkin: 
+**e. Legs.** Last week I hosted a dinner party for five people, including myself. As we started to 
+eat, it occurred to me that there were 84 legs in the room. I was including spiders and cockroaches. 
+Here's the calculation I scribbled on a napkin:
 
-• 5 people with 2 legs each = 10 legs 
+- 5 people × 2 legs = 10 legs
+- 4 spiders × 8 legs = 32 legs
+- 7 cockroaches × 6 legs = 42 legs 
+- TOTAL: 84 legs
 
-• 4 spiders with 8 legs each = 32 legs 
+This amused everyone, and someone wondered how many different combinations of people, spiders, and 
+cockroaches have a total of 84 legs. It turns out there are 88 such combinations. For example, (7 
+people, 8 spiders, 1 cockroach) and (18 people, 6 spiders, 0 cockroaches) are both solutions.
 
-• 7 cockroaches with 6 legs = 42 legs 
-
-• Total: 10 + 32 + 42 = 84 legs
-
-This fact amused people, and someone wondered how many different combinations of people, spiders,
-and cockroaches have a combined total of 84 legs. It turns out that there are 88 combinations. For 
-example, 7 people, 8 spiders, and 1 cockroach have 84 legs.
-
-Another possibility would be 18 people, 6 spiders, and no cockroaches. 
-
-Write a program that prompts the user for the number of legs, and outputs the number of different 
-combinations of people, spiders, and cockroaches having that many legs.
+Write a program that prompts the user for the total number of legs, and outputs the number of 
+different combinations of people, spiders, and cockroaches having that many legs.
 
 ??? "Output 6.5.4e-1"
     ```text
@@ -1045,30 +1054,31 @@ combinations of people, spiders, and cockroaches having that many legs.
 
 ---
 
-** f. Stacking Cubes.**  Given a collection of cubes, your job is to arrange them into triangular 
-stacks with none left over. You might need more than one stack to do this, but it is always possible 
-with at most four stacks. For example, if you have 34 cubes, you can stack them as shown below.
+**f. Stacking Cubes.**  Given a collection of cubes, the goal is to arrange them into triangular 
+stacks with no cubes left over. A triangular stack of height *n* contains 1 + 2 + \cdots + *n* 
+cubes. For example, 34 cubes can be arranged into triangular stacks as shown below.
 
-       O 
-      OOO
-     OOOOO      O
-    OOOOOOO    OOO
-   OOOOOOOOO  OOOOO
+       * 
+      ***
+     *****     *
+    *******   ***
+   ********* *****
 
-A single cube by itself counts as a stack of height one, so 35 cubes could be stacked as follows. 
+A single cube by itself counts as a stack of height one, so 35 cubes can be arranged by adding a 
+stack of height one to the arrangement for 34 cubes.
 
-       O
-      OOO
-     OOOOO      O
-    OOOOOOO    OOO
-   OOOOOOOOO  OOOOO  O
 
-Usually, there are many possible ways to arrange a given number of cubes into triangular stacks. We 
-want the combination with the highest possible first stack, and if there are several such 
-combinations then we want the one with the highest possible second stack, and so on. 
+       *
+      ***
+     *****     *
+    *******   ***
+   ********* ***** *
 
-Write a program that prompts the user for the number of cubes and outputs the size of each stack in 
-descending order.
+It is always possible to arrange a given number of cubes into at most four triangular stacks.
+
+Write a program that prompts the user for the number of cubes and outputs the heights of the 
+triangular stacks in descending order. If there are several possible arrangements, choose the one 
+with the largest first stack; ties are broken by the second stack, then the third.
 
 ??? "Output 6.5.4f-1"
     ```
@@ -1081,47 +1091,46 @@ descending order.
 
 ??? "Output 6.5.4f-2"
     ```
-    How many cubes? 75 
-    Height of 1st stack: 8 
-    Height of 2nd stack: 3 
-    Height of 3rd stack: 1 
-    Height of 4th stack: 1
+    How many cubes? 5566 
+    Height of 1st stack: 74 
+    Height of 2nd stack: 9
+    Height of 3rd stack: 3
     ```
 
 ---
 
-**g. Stacking Cubes 2.** This is a variant of the preceding problem. Write a program that prompts 
-the user for the number of cubes and draws the stacks with # symbols.
+**g. Stacking Cubes 2.** This is a variation of the previous problem. Write a program that prompts 
+the user for the number of cubes and displays the triangular stacks.
 
 ??? "Output 6.5.4g-1"
     ```text
     How many cubes? 35 
     
-        #
-       ###
-      #####     #
-     #######   ###
-    ######### ##### #
+        *
+       ***
+      *****     *
+     *******   ***
+    ********* ***** *
     ```
 
 ??? "Output 6.5.4g-2"
     ```text
-    How many boxes? 79 
+    How many cubes? 79 
     
-          #
-         ###
-        #####         #
-       #######       ###
-      #########     #####
-     ###########   #######   #
-    ############# ######### ### # 
+          *
+         ***
+        *****         *
+       *******       ***
+      *********     *****
+     ***********   *******   *
+    ************* ********* *** * 
     ```
 
 ---
 
-**h. Change Maker.** Write a program that prompts the user for an amount in US currency and then 
-displays all the ways to form that amount using nickels, dimes, and quarters. The input string 
-begins with a dollar sign and has a decimal point separating the dollars and cents.
+**h. Change Maker.** Prompts the user for an amount in U.S. currency and displays all the ways to 
+make that amount using nickels, dimes, and quarters. The input consists of a dollar sign followed by 
+the amount in dollars and cents.
 
 ??? "Output 6.5.4h-1"
     ```
@@ -1158,7 +1167,7 @@ begins with a dollar sign and has a decimal point separating the dollars and cen
     ```
 
 The vertical ellipsis (⋮) in the last execution sample indicates that most of the output has been 
-omitted here for typographical convenience, but your program should generate all the combinations.
+omitted here for typographical convenience, but your program should generate every combination.
 
 ## 6.5.5 Graphics Applications with Nested Loops
 
