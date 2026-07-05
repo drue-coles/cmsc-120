@@ -489,13 +489,13 @@ number.
 ??? "Output 6.5.1q-1"
     ```text
     Enter a positive integer: 7
-    28
+    Happy number: 28
     ```
 
 ??? "Output 6.5.1q-2"
     ```text
     Enter a positive integer: 70
-    446
+    Happy number 70: 446
     ```
 
 ---
