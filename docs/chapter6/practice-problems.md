@@ -91,13 +91,11 @@ necessary so that it contains exactly 2*n* digits. The first pseudorandom number
 length *n* beginning at index *n*/2 (integer division). This value becomes the next seed, and the 
 process repeats.
 
-Figure 6.5.1f illustrates this process with an initial seed of 1352. 
+Figure 6.5.1f: [Middle Square Illustration with Seed 1352](images/figure6.5.1f.png)
 
-Figure 6.5.1f: [Middle Square Illustration](images/figure6.5.1f.png)
-
-In the preceding example, *n* = 4 and 1352<sup>2</sup> = 1827904. The result is prepended with a 
-zero so that it has 2*n* = 8 digits: 01827904. The *n*-digit substring beginning at index *n*/2 is  
-8279, which becomes the next seed.
+In Figure 6.5.1f, *n* = 4 and 1352<sup>2</sup> = 1827904. The result is prepended with a zero so 
+that it has 2*n* = 8 digits: 01827904. The *n*-digit substring beginning at index *n*/2 is  8279, 
+which becomes the next seed.
 
 ??? "Output 6.5.1f-1"
     ```text
@@ -173,17 +171,16 @@ in the factorial of *k*.
     The digits of 12345! sum to 189000.
     ```
 
-Adapted from Project Euler, Problem 20 (https://projecteuler.net/problem=20).
+Adapted from <a href="https://projecteuler.net/problem=20">Project Euler, Problem 20</a>.
 
 ---
 
 **i. Euclidean Cake.** Happy birthday! Your best friend has baked a cake for you. It’s rectangular, 
 your favorite shape. You have resolved to eat just one slice each day, and it must be square —
 tastes better that way. Specifically, each day you will eat the largest square slice that can be 
-removed with a single straight cut. 
-
-Suddenly you have a great idea: you can write a program that prompts the user for the dimensions of 
-a cake and outputs the size of the remaining cake after each successive slice.
+removed with a single straight cut. Suddenly you have a great idea: you can write a program that 
+prompts the user for the dimensions of a cake and outputs the size of the remaining cake after each 
+successive slice.
 
 ??? "Output 6.5.1i-1"
     ```text
@@ -382,7 +379,7 @@ digit sums.
 ---
 
 **o Safe Password**. Prompts the user for a password and outputs a message indicating whether it is 
-safe. for this problem, a safe password is one that satisfies the following conditions. 
+safe. For this problem, a safe password is one that satisfies the following conditions. 
 
 - It contains at least eight characters.
 - At least one character is a digit. 
@@ -390,7 +387,7 @@ safe. for this problem, a safe password is one that satisfies the following cond
 - At least one character is an uppercase letter of the alphabet. 
 - At least one character is neither a letter nor a digit. 
 
-Conditions (2)–(5) can be tested using static methods in the `Character` class.
+The last four conditions can be tested using static methods in the `Character` class.
 
 ??? "Output 6.5.1o-1"
     ```text
@@ -433,10 +430,9 @@ Conditions (2)–(5) can be tested using static methods in the `Character` class
 **p. Pace Band.** Suppose you are running a 5-mile road race and you want to maintain a steady pace 
 of 6:25 per mile. If you start your watch when the gun sounds, the time on your watch at the first 
 mile marker would be 6:25; at the second mile marker, your watch would read 12:50; at the third, 
-19:15, and so on. 
-
-Prior to GPS watches, some runners wore printed times on a so-called *pace band* around their 
-wrists. This allowed them to track progress at each mile marker without mental calculation.
+19:15, and so on. Prior to GPS watches, some runners wore printed times on a so-called *pace band* 
+around their wrists. This allowed them to track progress at each mile marker without mental 
+calculation.
 
 Write a program that prompts the user for a race distance in miles and a target pace in M:SS format, 
 and outputs the corresponding pace band times at each mile marker. The distance of a race may not be
@@ -475,33 +471,16 @@ or HH:MM:SS format.
 
 ---
 
-**q. Happy Numbers.** Given a positive integer n, we can produce a sequence s(n) by replacing n with 
-the sum of the squares of its digits, and repeatedly applying this process for each resulting
-number. We say that n is happy if s(n) reaches 1. For example, 32 is a happy number since s(32) = 
-(32. 13, 10, 1).
+**q. Happy Numbers.** Given a positive integer *n*, form a sequence by replacing *n* with the sum of 
+the squares of its digits, and repeatedly applying this process to each resulting number. The number 
+*n* is called *happy* if the sequence reaches 1. For example, the sequence beginning at 32 is 32, 
+13, 10, 1, so 32 is happy. The first few 
+<a href="https://en.wikipedia.org/wiki/Happy_number">happy numbers</a> are 1, 7, 10, 13, 19, 23, and 
+28.
 
-The first few happy numbers are 1, 7, 10, 13, 19, 23, and 28. 
-
-The number 38, on the other hand, is sad (not happy). To see why, look at the first ten terms of the 
-sequence: 38, 73, 58, 69, 145, 42, 20, 4, 16, 37. The next number would be 3^2 + 7^2 = 58, which 
-appears earlier in the sequence, so we have entered the endless cycle (58, 69, 145, 42, 20, 4, 16, 
-37). It can be shown that every sad number enters this same cycle, which provides an easy test to 
-determine if a number n is happy or sad: just pick one of the numbers in the cycle, say 4, and 
-generate the terms of s(n) until reaching either 1 (happy) or 4 (unhappy).
-
-See https://en.wikipedia.org/wiki/Happy_number.
-
-This program prompts the user for a positive integer k and outputs the k-th happy number.
-
-
-Given a positive integer *n*, form a sequence by replacing *n* with the sum of the squares of its 
-digits, and repeatedly applying this process to each resulting number. The number *n* is called 
-*happy* if the sequence reaches 1. For example, the sequence beginning at 32 is 32, 13, 10, 1, so 
-32 is happy. The first few happy numbers are 1, 7, 10, 13, 19, 23, and 28.
-
-The number 38, on the other hand, is *sad*. Its sequence begins 38, 73, 58, 69, 145, 42, 20, 4, 16, 
-37, after which the value 58 reappears, so the sequence enters the repeating cycle (58, 69, 145, 42, 
-20, 4, 16, 37). In fact, every sad number eventually enters this same cycle. Therefore, to determine 
+The number 38 is sad (not happy). Its sequence begins 38, 73, 58, 69, 145, 42, 20, 4, 16, 37, after 
+which the value 58 reappears, so the sequence enters the repeating cycle (58, 69, 145, 42, 20, 4, 
+16, 37). In fact, every sad number eventually enters this same cycle. Therefore, to determine 
 whether a number is happy, it suffices to generate terms until reaching either 1 (happy) or 4 (sad).
 
 Write a program that prompts the user for a positive integer *k* and outputs the *k*-th happy 
@@ -519,17 +498,12 @@ number.
     446
     ```
 
-*For more about happy numbers, see the 
-[Wikipedia article on happy numbers](https://en.wikipedia.org/wiki/Happy_number).*
-
 ---
 
 **r. Rule 184.** Imagine a circular sequence of the symbols **L** and **R**, where each **L** looks
 to the left and each **R** looks to the right. Two or more consecutive **L**s form an *L-block*,
-and similarly for *R-blocks*.
-
-Repeatedly apply the following update rule: whenever two adjacent symbols are looking at each other,
-they swap places. All swaps occur simultaneously. The following example illustrates one update.
+and similarly for *R-blocks*. Repeatedly apply the following update rule: whenever two adjacent 
+symbols are looking at each other, they swap places. All swaps occur simultaneously. For example:
 
 ```text
 R L L R L L R R
@@ -553,31 +527,31 @@ L R L R L L L R R
 R L R L R L L R L
 ```
 
-Remember that the sequence is circular. For example, in the third line above, the **L** at the
-beginning and the **R** at the end are looking at each other. Likewise, the first and last symbols
-of **LRLRL** form an *L-block*.
+Remember that the sequence is circular. So, in the third line above, the **L** at the beginning and
+the **R** at the end are looking at each other. Likewise, the first and last symbols of **LRLRL** 
+form an *L-block*.
 
 Write a program that prompts the user for a start sequence, repeatedly applies the update rule until 
 the final sequence is reached, and outputs the final sequence. For convenience, sequences are 
 entered and displayed without spaces.
 
 ??? "Output 6.5.1r-1"
-```text
-Start sequence: RRLLLLLRR
-Final sequence: RLRLRLLRL
-```
+    ```text
+    Start sequence: RRLLLLLRR
+    Final sequence: RLRLRLLRL
+    ```
 
 ??? "Output 6.5.1r-2"
-```text
-Start sequence: RRRRLLLL
-Final sequence: RLRLRLRL
-```
+    ```text
+    Start sequence: RRRRLLLL
+    Final sequence: RLRLRLRL
+    ```
 
 ??? "Output 6.5.1r-3"
-```text
-Start sequence: LLRRRLLRLLRLRRL
-Final sequence: RLRLRLRLLRLRLRL
-```
+    ```text
+    Start sequence: LLRRRLLRLLRLRRL
+    Final sequence: RLRLRLRLLRLRLRL
+    ```
 
 Rule 184 can model traffic flow and particle systems. Curious readers may enjoy the Wikipedia
 articles on
@@ -589,7 +563,7 @@ articles on
 **a. Rainbow Circles.** Draws a series of concentric circles with random colors.
 
 ??? "Output 6.5.2a"
-![Output 6.5.2a – Rainbow Circles](images/output6.5.2a.png)
+    ![Output 6.5.2a – Rainbow Circles](images/output6.5.2a.png)
 
 ---
 
@@ -598,7 +572,7 @@ regular intervals.
 
 
 ??? "Output 6.5.2b"
-![Output 6.5.2b – Petals](images/output6.5.2b.png)
+    ![Output 6.5.2b – Petals](images/output6.5.2b.png)
 
 For an extra challenge, experiment with the use of `RotateTransition` and/or `ScaleTransition` to 
 animate individual petals.
@@ -609,13 +583,13 @@ animate individual petals.
 fill color alternates between red and green, and red are rotated by squares by 45 degrees.
 
 ??? "Output 6.5.2c-1"
-![Output 6.5.2c-1 – Interleaved Squares](images/output6.5.2c-1.png)
+    ![Output 6.5.2c-1 – Interleaved Squares](images/output6.5.2c-1.png)
 
 For an extra challenge, experiment with the use of `RotateTransition` to animate the individual 
 squares.
 
 ??? "Output 6.5.2c-2"
-![Output 6.5.2c-2 – Interleaved Squares](images/output6.5.2c-2.png)
+    ![Output 6.5.2c-2 – Interleaved Squares](images/output6.5.2c-2.png)
 
 ---
 
@@ -624,7 +598,7 @@ bottom edge of the scene. The height of each bar is chosen randomly between a fi
 height of the scene. The bars all have the same width and are separated by a fixed gap.
 
 ??? "Output 6.5.2d"
-![Output 6.5.2d – Color Bars](images/output6.5.d.png)
+    ![Output 6.5.2d – Color Bars](images/output6.5.2d.png)
 
 ---
 
@@ -633,7 +607,7 @@ rectangle has the same height, while its width is chosen randomly between a fixe
 width of the scene.
 
 ??? "Output 6.5.2e"
-![Output 6.5.2e – Random Tower](images/output6.5.2e.png)
+    ![Output 6.5.2e – Random Tower](images/output6.5.2e.png)
 
 ---
 
@@ -641,7 +615,7 @@ width of the scene.
 circular orbits around the Sun. 
 
 ??? "Output 6.5.2f"
-![Output 6.5.2f – Around the Sun](images/output6.5.2f.png)
+    ![Output 6.5.2f – Around the Sun](images/output6.5.2f.png)
 
 Use `PathTransition` to animate the planets along their orbits. The distances and planet sizes are 
 not to scale (and real planetary orbits are elliptical), but the relative orbital speeds should be. 
@@ -659,13 +633,13 @@ Different colors are used to distinguish points within the circumscribed quarter
 those outside it.
 
 ??? "Output 6.5.2g-1"
-![Output 6.5.2g-1 – Random Points](images/output6.5.2g-1.png)
+    ![Output 6.5.2g-1 – Random Points](images/output6.5.2g-1.png)
 
 The fraction of points inside the quarter circle approximates π/4, so multiplying that fraction by
 four approximates π itself. Display this information in an alert dialog:
 
 ??? "Output 6.5.2g-2"
-![Output 6.5.2g-2 – Alert Dialog](images/output6.5.2g-2.png)
+    ![Output 6.5.2g-2 – Alert Dialog](images/output6.5.2g-2.png)
 
 The following helper method can be used to display the results in an alert dialog:
 
@@ -690,7 +664,7 @@ alert.showAndWait();
 **h. Down the Drain.** Animates a dot moving along a spiral path.
 
 ??? "Output 6.5.2h"
-![Output 6.5.2h – Down the Drain](images/output6.5.2h.png)
+    ![Output 6.5.2h – Down the Drain](images/output6.5.2h.png)
 
 Use `PathTransition` for the animation. Represent the spiral as a `Polyline` whose vertices lie on
 imaginary circles of gradually increasing radius. Constructing the polyline involves elementary
@@ -749,7 +723,7 @@ positive outcome includes the case when all four dice are the same.
     Probability of rolling three of a kind:
     ```
 
-The probability is between 9 and 10 percent.
+The true probability is between 9 and 10 percent.
 
 ---
 
@@ -816,11 +790,9 @@ The true expected payout is between $3 and $4.
 
 **g. Quetzal.** Estimates the expected payout for the game of Quetzal. The player rolls three dice.
 The payout is equal to the number of even rolls multiplied by the sum of the even rolls, plus the
-number of odd rolls multiplied by the sum of the odd rolls.
-
-For example, a roll of 2-5-4 consists of two even rolls (2 and 4) and one odd roll (5), so the 
-payout is 2 × (2 + 4) + 1 × 5 = $17. A roll of 3-1-5 consists of no even rolls and three odd rolls,
-so the payout is 0 + 3 × (3 + 1 + 5) = $27.
+number of odd rolls multiplied by the sum of the odd rolls. For example, a roll of 2-5-4 consists of 
+two even rolls (2 and 4) and one odd roll (5), so the payout is 2 × (2 + 4) + 1 × 5 = $17. A roll of 
+3-1-5 consists of no even rolls and three odd rolls, so the payout is 0 + 3 × (3 + 1 + 5) = $27.
 
 ??? "Partial output 6.5.3g"
     ```text
@@ -836,9 +808,8 @@ The true expected payout is between $20 and $22.
 black king starts at A1 (bottom left) and the white king starts at H8 (top right). Each second, the 
 kings move simultaneously. The black king moves one square up or one square right (if both moves are 
 possible, it chooses randomly). The white king moves one square down or one square left (also 
-choosing randomly when both moves are possible).
-
-The kings are said to *collide* if they land on the same square at the same time.
+choosing randomly when both moves are possible). The kings are said to *collide* if they land on the 
+same square at the same time.
 
 Write a Monte Carlo simulation to estimate the probability of a collision.
 
@@ -880,9 +851,8 @@ compares it with the double-precision floating-point value nearest to 6/π<sup>2
     Double-precision floating-point value nearest to 6/π^2: 0.60793
     ```
 
-Implement a helper method that creates and returns a randomly generated BigInteger with the 
-specified number of digits. Use the `gcd` method to find the greatest common divisor 
-of two `BigInteger`s.
+Implement a helper method that creates and returns a randomly generated `BigInteger` with the 
+specified number of digits. Use the `gcd` method to find greatest common divisors.
 
 This simulation can also be adapted to approximate π. Compare it with Listing 6.3.3. The two methods 
 approximate the same geometric constant, but in remarkably different ways.
@@ -1055,24 +1025,27 @@ different combinations of people, spiders, and cockroaches having that many legs
 ---
 
 **f. Stacking Cubes.**  Given a collection of cubes, the goal is to arrange them into triangular 
-stacks with no cubes left over. A triangular stack of height *n* contains 1 + 2 + \cdots + *n* 
+stacks with no cubes left over. A triangular stack of height *n* contains 1 + 2 + ... + *n* 
 cubes. For example, 34 cubes can be arranged into triangular stacks as shown below.
 
+```test
        * 
       ***
      *****     *
     *******   ***
    ********* *****
+```
 
 A single cube by itself counts as a stack of height one, so 35 cubes can be arranged by adding a 
 stack of height one to the arrangement for 34 cubes.
 
-
+```text
        *
       ***
      *****     *
     *******   ***
    ********* ***** *
+```
 
 It is always possible to arrange a given number of cubes into at most four triangular stacks.
 
@@ -1087,7 +1060,7 @@ with the largest first stack; ties are broken by the second stack, then the thir
     Height of 2nd stack: 3 
     Height of 3rd stack: 1 
     Height of 4th stack: 1
-    ```text
+    ```
 
 ??? "Output 6.5.4f-2"
     ```
@@ -1174,21 +1147,23 @@ omitted here for typographical convenience, but your program should generate eve
 **a. Circle Matrix.** Draws a grid of randomly colored circles.
 
 ??? "Output 6.5.5a"
-![Output 6.5.5a – Circle Matrix](images/output6.5.5a.png)
+    ![Output 6.5.5a – Circle Matrix](images/output6.5.5a.png)
 
 ---
 
 **b. Stained Glass.** Fills the viewing area with tiny overlapping squares. Each square is assigned 
 a random color and rotation angle.
 
-![Output 6.5.5b – Stained Glass](images/output6.5.5b.png)
+??? "Output 6.5.5b"
+    ![Output 6.5.5b – Stained Glass](images/output6.5.5b.png)
 
 ---
 
 **c. Disjoint Circles.** Draws a collection of disjoint circles. The position, radius, and fill 
 color of each circle are selected at random.
 
-![Output 6.5.5c – Disjoint Circles](images/output6.5.5c.png)
+??? "Output 6.5.5c"
+    ![Output 6.5.5c – Disjoint Circles](images/output6.5.5c.png)
 
 Before adding a new circle to the root node, ensure that it does not intersect any existing circle.
 The following code checks whether the new circle intersects any existing circle.
@@ -1211,7 +1186,8 @@ triangle. The same general idea can be applied using the corners of a square ins
 and repeatedly moving the current point halfway to a randomly chosen corner. However, the same 
 corner must not be chosen twice in a row. Modify Listing 6.2.3a to draw this fractal.
 
-![Output 6.5.5d – Chaos on a Square](images/output6.5.5d.png)
+??? "Output 6.5.5d"
+    ![Output 6.5.5d – Chaos on a Square](images/output6.5.5d.png)
 
 The construction of the Sierpinski triangle and the variation described here are both instances of a
 general concept known as the <a href="https://en.wikipedia.org/wiki/Chaos_game">Chaos Game</a>.
