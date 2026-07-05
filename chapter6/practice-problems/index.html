@@ -1340,6 +1340,24 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6.5 Practice Problems
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -1356,6 +1374,80 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#651-basic-console-applications" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.5.1 Basic Console Applications
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#652-basic-graphics-applications" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.5.2 Basic Graphics Applications
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#653-monte-carlo-simulations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.5.3 Monte Carlo Simulations
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#654-console-applications-with-nested-loops" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.5.4 Console Applications with Nested Loops
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#655-graphics-applications-with-nested-loops" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.5.5 Graphics Applications with Nested Loops
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -1583,6 +1675,69 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#651-basic-console-applications" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.5.1 Basic Console Applications
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#652-basic-graphics-applications" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.5.2 Basic Graphics Applications
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#653-monte-carlo-simulations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.5.3 Monte Carlo Simulations
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#654-console-applications-with-nested-loops" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.5.4 Console Applications with Nested Loops
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#655-graphics-applications-with-nested-loops" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.5.5 Graphics Applications with Nested Loops
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1599,7 +1754,1040 @@
 
 
 <h1 id="65-practice-problems">6.5 Practice Problems</h1>
-<p>Content for this section is under development.</p>
+<h2 id="651-basic-console-applications">6.5.1 Basic Console Applications</h2>
+<p><strong>a. Big Summer.</strong> Calculates the sum of the positive integers from 1 up to a user-specified limit.</p>
+<details>
+<summary>Output 6.5.1a</summary>
+<div class="highlight"><pre><span></span><code>Enter a positive integer: 123456789
+1 + 2 + 3 + ... + 123,456,789 = 7,620,789,436,823,655
+</code></pre></div>
+</details>
+<p>Adapt Listing 6.2.1a using <code>BigInteger</code> to avoid overflow.</p>
+<hr />
+<p><strong>b. Capybara.</strong> Plays the game of Capybara. The player repeatedly rolls a pair of dice and wins a 
+dollar amount equal to the sum. Play continues until a sum of 7, 8, or 9 is rolled, at which point 
+the game ends. If the first roll is 7, 8, or 9, the player wins nothing.</p>
+<details>
+<summary>Output 6.5.1b</summary>
+<div class="highlight"><pre><span></span><code>Welcome to Capybara. 
+4 + 6 = 10 
+2 + 3 = 5 
+3 + 3 = 6 
+1 + 6 = 7 
+You win $21.
+</code></pre></div>
+</details>
+<hr />
+<p><strong>c. Leibniz Accuracy.</strong> Outputs the approximation of π obtained by summing the first <em>n</em> terms of 
+the Leibniz series shown in Listing 6.2.1b, for <em>n</em> = 10, 100, 1000, and so on, up to a billion. 
+Also outputs the accuracy of each approximation — the number of consecutive correct digits after 
+the decimal point.</p>
+<details>
+<summary>Output 6.5.1c</summary>
+<div class="highlight"><pre><span></span><code>π = 4 - 4/3 + 4/5 - 4/7 + ...
+
+        Terms     Result    Accuracy 
+           10  3.2323158094     0 
+          100  3.1514934011     1 
+        1,000  3.1425916543     2 
+       10,000  3.1416926436     3 
+      100,000  3.1416026535     3 
+    1,000,000  3.1415936536     5 
+   10,000,000  3.1415927536     6
+  100,000,000  3.1415926636     7
+1,000,000,000  3.1415926546     8
+</code></pre></div>
+</details>
+<p>Implement a helper method that converts two <code>double</code> values to strings, then iterates over the
+characters to locate the first position at which they differ.</p>
+<hr />
+<p><strong>d. Greatest Substring.</strong> Prompts the user for a string of digits and an integer <em>k</em> ≤ 9, and 
+outputs the greatest <em>k</em>-digit substring.</p>
+<details>
+<summary>Output 6.5.1d</summary>
+<div class="highlight"><pre><span></span><code>Enter a string of digits and an integer ≤ 9: 9093286194516827995 4
+Greatest 4-digit substring: 9451
+</code></pre></div>
+</details>
+<p>Hint: convert each <em>k</em>-digit substrings to an <code>int</code> using <code>Integer.parseInt</code>.</p>
+<hr />
+<p><strong>e. Distinct Digits.</strong> Prompts the user to enter a four-digit year and outputs the first 
+subsequent year with four different digits.</p>
+<details>
+<summary>Output 6.5.1e</summary>
+<div class="highlight"><pre><span></span><code>Enter a four-digit year: 1987
+The first subsequent year with four different digits: 2013
+</code></pre></div>
+</details>
+<p>A straightforward approach converts the year to a string and compares each pair of characters using 
+a nested loop. Alternatively, for each position <em>k</em>, the digit can be checked for inclusion in the 
+substring starting at index <em>k</em> + 1.</p>
+<hr />
+<p><strong>f. Middle Square.</strong> Outputs five pseudorandom numbers generated from a user-selected seed using 
+the <em>middle square method</em>. Let <em>n</em> be the number of digits in the seed. To generate the first 
+pseudorandom number, square the seed, convert the result to a string, and left-pad it with a zero if 
+necessary so that it contains exactly 2<em>n</em> digits. The first pseudorandom number is the substring of 
+length <em>n</em> beginning at index <em>n</em>/2 (integer division). This value becomes the next seed, and the 
+process repeats.</p>
+<p>Figure 6.5.1f: <a href="../images/figure6.5.1f.png">Middle Square Illustration with Seed 1352</a></p>
+<p>In Figure 6.5.1f, <em>n</em> = 4 and 1352<sup>2</sup> = 1827904. The result is prepended with a zero so 
+that it has 2<em>n</em> = 8 digits: 01827904. The <em>n</em>-digit substring beginning at index <em>n</em>/2 is  8279, 
+which becomes the next seed.</p>
+<details>
+<summary>Output 6.5.1f-1</summary>
+<div class="highlight"><pre><span></span><code>Initial seed: 1352
+Output 1: 8279 
+Output 2: 5418 
+Output 3: 3547 
+Output 4: 5812 
+Output 5: 7793 
+</code></pre></div>
+</details>
+<details>
+<summary>Output 6.5.1f-2</summary>
+<div class="highlight"><pre><span></span><code>Initial seed: 12345
+Output 1: 523990 
+Output 2: 565520 
+Output 3: 812870 
+Output 4: 757636 
+Output 5: 012308 
+</code></pre></div>
+</details>
+<hr />
+<p><strong>g. Back and Forth.</strong> A robot moves along a straight line, starting at point <em>A</em>. It walks to point 
+<em>B</em> at a constant speed of 1 unit per second. Upon reaching <em>B</em>, it immediately turns around and 
+walks back to <em>A</em> at the same speed. This process repeats indefinitely and gives the robot a sense 
+of fulfillment.</p>
+<p>Write a program that prompts the user for positive integers <em>A</em> and <em>B</em>, and time <em>T</em> in seconds, 
+and outputs the location of the robot at time <em>T</em>. </p>
+<details>
+<summary>Output 6.5.1g-1</summary>
+<div class="highlight"><pre><span></span><code>Enter A, B, and T: 5 13 27 
+Location at time 27: 10
+</code></pre></div>
+</details>
+<details>
+<summary>Output 6.5.1g-2</summary>
+<div class="highlight"><pre><span></span><code>Enter A, B, and T: 1 500 12345
+Location at time 12345: 370
+</code></pre></div>
+</details>
+<p>One approach is to simulate the robot's motion by incrementing or decrementing its position once per 
+second for <em>T</em> seconds. This works well for moderate values of <em>T</em>, but becomes impractical when 
+<em>T</em> is very large. For an extra challenge, solve the problem mathematically (without loops) 
+by exploiting the periodic nature of the robot's motion. This approach works efficiently even for 
+arbitrarily large values of <em>T</em>.</p>
+<details>
+<summary>Output 6.5.1g-3</summary>
+<div class="highlight"><pre><span></span><code>Enter A, B, and T: 3 97 12345678987654321
+Location at time 12345678987654321: 84
+</code></pre></div>
+</details>
+<hr />
+<p><strong>h. Factorial Digit Sum.</strong> The factorial of <em>k</em>, denoted <em>k</em>!, is the product of positive integers 
+from 1 to <em>k</em>. For example, 6! = 6 × 5 × 4 × 3 × 2 × 1 = 720.</p>
+<p>Write a program that prompts the user for a positive integer <em>k</em> and outputs the sum of the digits 
+in the factorial of <em>k</em>.  </p>
+<details>
+<summary>Output 6.5.1h-1</summary>
+<div class="highlight"><pre><span></span><code>Enter a positive integer: 6
+The digits of 6! sum to 9.
+</code></pre></div>
+</details>
+<details>
+<summary>Output 6.5.1h-2</summary>
+<div class="highlight"><pre><span></span><code>Enter a positive integer: 12345
+The digits of 12345! sum to 189000.
+</code></pre></div>
+</details>
+<p>Adapted from <a href="https://projecteuler.net/problem=20">Project Euler, Problem 20</a>.</p>
+<hr />
+<p><strong>i. Euclidean Cake.</strong> Happy birthday! Your best friend has baked a cake for you. It’s rectangular, 
+your favorite shape. You have resolved to eat just one slice each day, and it must be square —
+tastes better that way. Specifically, each day you will eat the largest square slice that can be 
+removed with a single straight cut. Suddenly you have a great idea: you can write a program that 
+prompts the user for the dimensions of a cake and outputs the size of the remaining cake after each 
+successive slice.</p>
+<details>
+<summary>Output 6.5.1i-1</summary>
+<div class="highlight"><pre><span></span><code>Enter dimensions of cake: 8 12 
+Size of cake on day 1: 8 x 12 
+Size of cake on day 2: 4 x 8 
+Size of cake on day 3: 4 x 4 
+The cake is gone.
+</code></pre></div>
+</details>
+<details>
+<summary>Output 6.5.1i-2</summary>
+<div class="highlight"><pre><span></span><code>Enter dimensions of cake: 8 13 
+Size of cake on day 1: 8 x 13 
+Size of cake on day 2: 5 x 8 
+Size of cake on day 3: 3 x 5 
+Size of cake on day 4: 2 x 3 
+Size of cake on day 5: 1 x 2 
+Size of cake on day 6: 1 x 1 
+The cake is gone. 
+</code></pre></div>
+</details>
+<details>
+<summary>Output 6.5.1i-3</summary>
+<div class="highlight"><pre><span></span><code>Enter dimensions of cake: 42 30 
+Size of cake on day 1: 30 x 42 
+Size of cake on day 2: 12 x 30 
+Size of cake on day 3: 12 x 18 
+Size of cake on day 4: 6 x 12 
+Size of cake on day 5: 6 x 6 
+The cake is gone.
+</code></pre></div>
+</details>
+<p>The user may enter the length and width in either order, but the program displays all dimensions 
+with the shorter side first.</p>
+<hr />
+<p><strong>j. Babylonian Square Root.</strong> Various mathematical techniques are known for approximating square 
+roots. One such technique, called the Babylonian method, is based on the following idea: if <em>k</em> is 
+an approximation of the square root of <em>n</em>, then the average of <em>k</em> and <em>n</em>/<em>k</em> is a better 
+approximation.</p>
+<p>Write a program that approximates the square root of a user-selected number <em>n</em> by starting with 
+<em>n</em>/2 as an initial approximation and repeatedly applying the Babylonian update rule until 
+successive approximations are equal (within floating-point precision). This indicates that further 
+iteration produces no change in the stored <code>double</code> value.</p>
+<details>
+<summary>Output 6.5.1j-1</summary>
+<div class="highlight"><pre><span></span><code>Enter a positive number: 2 
+1. 1.500000 
+2. 1.416667 
+3. 1.414216 
+4. 1.414214
+5. 1.414214
+</code></pre></div>
+</details>
+<details>
+<summary>Output 6.5.1j-2</summary>
+<div class="highlight"><pre><span></span><code>Enter a positive number: 23.6 
+1. 6.900000 
+2. 5.160145 
+3. 4.866830 
+4. 4.857991 
+5. 4.857983 
+6. 4.857983
+</code></pre></div>
+</details>
+<hr />
+<p><strong>k. Exam Strategy.</strong> Course grades are determined by four exams, each consisting of 100 questions 
+worth a single point. The average exam score is converted to a letter grade according to the 
+following scale:</p>
+<ul>
+<li>A = [90, 100]</li>
+<li>B = [80, 90)</li>
+<li>C = [70, 80)</li>
+<li>D = [60, 70)</li>
+<li>F = [0, 60)</li>
+</ul>
+<p>So far, you have taken three exams. You have prepared well for the fourth exam and you are confident 
+that you can answer every question correctly, but you do not want to waste your time answering more 
+questions than necessary. </p>
+<p>Write a program that prompts the user for the first three exam scores and outputs the smallest 
+number of questions that must be answered correctly on the fourth exam to earn the highest 
+attainable letter grade. If passing the course is impossible, the program instead advises the user 
+to skip the fourth exam.</p>
+<details>
+<summary>Output 6.5.1k-1</summary>
+<div class="highlight"><pre><span></span><code>First three exam scores: 81 82 83
+Answer 74 questions on the fourth exam to earn a grade of B.
+</code></pre></div>
+</details>
+<details>
+<summary>Output 6.5.1k-2</summary>
+<div class="highlight"><pre><span></span><code>First three exam scores: 50 66 77
+Answer 87 questions on the fourth exam to earn a grade of C. 
+</code></pre></div>
+</details>
+<details>
+<summary>Output 6.5.1k-3</summary>
+<div class="highlight"><pre><span></span><code>First three exam scores: 90 93 87
+Answer 90 questions on the fourth exam to earn a grade of A.
+</code></pre></div>
+</details>
+<details>
+<summary>Output 6.5.1k-4</summary>
+<div class="highlight"><pre><span></span><code>First three exam scores: 91 23 25 
+Skip the fourth exam. 
+</code></pre></div>
+</details>
+<details>
+<summary>Output 6.5.1k-5</summary>
+<div class="highlight"><pre><span></span><code>First three exam scores: 45 50 60
+Answer 85 questions on the fourth exam to earn a grade of D. 
+</code></pre></div>
+</details>
+<hr />
+<p><strong>l. Hill Workout.</strong> Distance runners often build strength and stamina by running hill repeats. A 
+runner starts at the bottom of a hill of length <em>n</em> miles, runs uphill <em>x</em> miles, immediately turns 
+around and runs downhill <em>y</em> miles, then repeats this pattern until reaching the top of the hill.</p>
+<p>Write a program that prompts the user for <em>x</em>, <em>y</em>, and <em>n</em>, and outputs the total distance run 
+during the workout, including both the uphill and downhill portions.</p>
+<details>
+<summary>Output 6.5.1l-1</summary>
+<div class="highlight"><pre><span></span><code>Enter x, y and n: 5 3 7 
+Workout distance: 13 miles.
+</code></pre></div>
+</details>
+<details>
+<summary>Output 6.5.1l-2</summary>
+<div class="highlight"><pre><span></span><code>Enter x, y and n: 3 1 8 
+Workout distance: 14 miles.
+</code></pre></div>
+</details>
+<hr />
+<p><strong>m. Hailstones.</strong> A hailstone sequence starts with a positive integer and continues according to 
+the following rule: if the number is even, divide it by 2; otherwise, multiply it by 3 and add 1. 
+The rule is applied repeatedly until the number 1 is reached. For example, the hailstone sequence 
+starting at 6 is 6, 3, 10, 5, 16, 8, 4, 2, 1. The name <em>hailstone sequence</em> comes from the way the 
+terms appear to rise and fall like hail in a storm before hitting the ground.</p>
+<p>Is every hailstone sequence finite? In other words, does every sequence eventually reach 1? This is
+a famous open question. Every starting value tested so far eventually reaches 1, but nobody has been 
+able to prove that this must always be the case.</p>
+<p>Write a program that prompts the user for a positive integer <em>n</em> and outputs the smallest starting 
+value whose hailstone sequence contains exactly <em>n</em> terms.</p>
+<details>
+<summary>Output 6.5.1m-1</summary>
+<div class="highlight"><pre><span></span><code>Enter a positive integer: 9
+The first hailstone sequence with 9 terms starts at 6. 
+</code></pre></div>
+</details>
+<details>
+<summary>Output 6.5.1m-2</summary>
+<div class="highlight"><pre><span></span><code>Enter a positive integer: 100
+The first hailstone sequence with 100 terms starts at 27. 
+</code></pre></div>
+</details>
+<details>
+<summary>Output 6.5.1m-3</summary>
+<div class="highlight"><pre><span></span><code>Enter a positive integer: 500
+The first hailstone sequence with 500 terms starts at 3,030,267.
+</code></pre></div>
+</details>
+<hr />
+<p><strong>n. Digit Sum Chain.</strong>  Choose a positive integer. Replace it with the sum of its digits, and 
+repeat this process until a single digit remains. The resulting sequence is called a <em>chain of 
+digit sums</em>. </p>
+<p>Write a program that prompts the user for a positive integer and outputs the corresponding chain of 
+digit sums.</p>
+<details>
+<summary>Output 6.5.1n-1</summary>
+<div class="highlight"><pre><span></span><code>Enter a positive integer: 879 
+Chain of digit sums: 879 24 6
+</code></pre></div>
+</details>
+<details>
+<summary>Output 6.5.1n-2</summary>
+<div class="highlight"><pre><span></span><code>Enter a positive integer: 557788999 
+Chain of digit sums: 557788999 67 13 4
+</code></pre></div>
+</details>
+<hr />
+<p><strong>o Safe Password</strong>. Prompts the user for a password and outputs a message indicating whether it is 
+safe. For this problem, a safe password is one that satisfies the following conditions. </p>
+<ul>
+<li>It contains at least eight characters.</li>
+<li>At least one character is a digit. </li>
+<li>At least one character is a lowercase letter of the alphabet. </li>
+<li>At least one character is an uppercase letter of the alphabet. </li>
+<li>At least one character is neither a letter nor a digit. </li>
+</ul>
+<p>The last four conditions can be tested using static methods in the <code>Character</code> class.</p>
+<details>
+<summary>Output 6.5.1o-1</summary>
+<div class="highlight"><pre><span></span><code>Enter password: SafePass8 
+SafePass8 is NOT a safe password.
+</code></pre></div>
+</details>
+<details>
+<summary>Output 6.5.1o-2</summary>
+<div class="highlight"><pre><span></span><code>Enter password: Bb5? 
+Bb5? is NOT a safe password.
+</code></pre></div>
+</details>
+<details>
+<summary>Output 6.5.1o-3</summary>
+<div class="highlight"><pre><span></span><code>Enter password: quokka3+ 
+quokka3+ is NOT a safe password.
+</code></pre></div>
+</details>
+<details>
+<summary>Output 6.5.1o-4</summary>
+<div class="highlight"><pre><span></span><code>Enter password: PSWRD#17 
+PSWRD#17 is NOT a safe password.
+</code></pre></div>
+</details>
+<details>
+<summary>Output 6.5.1o-5</summary>
+<div class="highlight"><pre><span></span><code>Enter password: one+one=two 
+one+one=two is NOT a safe password.
+</code></pre></div>
+</details>
+<details>
+<summary>Output 6.5.1o-6</summary>
+<div class="highlight"><pre><span></span><code>Enter password: Safe@123 
+Safe@123 is a safe password.
+</code></pre></div>
+</details>
+<hr />
+<p><strong>p. Pace Band.</strong> Suppose you are running a 5-mile road race and you want to maintain a steady pace 
+of 6:25 per mile. If you start your watch when the gun sounds, the time on your watch at the first 
+mile marker would be 6:25; at the second mile marker, your watch would read 12:50; at the third, 
+19:15, and so on. Prior to GPS watches, some runners wore printed times on a so-called <em>pace band</em> 
+around their wrists. This allowed them to track progress at each mile marker without mental 
+calculation.</p>
+<p>Write a program that prompts the user for a race distance in miles and a target pace in M:SS format, 
+and outputs the corresponding pace band times at each mile marker. The distance of a race may not be
+a whole number of miles (a marathon, for example, is 26.2 miles), but only whole-mile progress is
+required. The ran distance can therefore be assumed to be an integer. </p>
+<details>
+<summary>Output 6.5.1p-1</summary>
+<div class="highlight"><pre><span></span><code>Enter distance in miles: 5 
+Enter target pace: 6:25 
+06:25 
+12:50 
+19:15
+25:40
+32:05
+</code></pre></div>
+</details>
+<details>
+<summary>Output 6.5.1p-2</summary>
+<div class="highlight"><pre><span></span><code>Enter distance in miles: 10 
+Enter target pace: 6:59 
+06:59 
+13:58 
+20:57 
+27:56 
+34:55 
+41:54 
+48:53 
+55:52
+01:02:51 
+01:09:50
+</code></pre></div>
+</details>
+<p>Use the <code>LocalTime</code> class and its methods for adding minutes or seconds. Output the times in MM:SS 
+or HH:MM:SS format.</p>
+<hr />
+<p><strong>q. Happy Numbers.</strong> Given a positive integer <em>n</em>, form a sequence by replacing <em>n</em> with the sum of 
+the squares of its digits, and repeatedly applying this process to each resulting number. The number 
+<em>n</em> is called <em>happy</em> if the sequence reaches 1. For example, the sequence beginning at 32 is 32, 
+13, 10, 1, so 32 is happy. The first few 
+<a href="https://en.wikipedia.org/wiki/Happy_number">happy numbers</a> are 1, 7, 10, 13, 19, 23, and 
+28.</p>
+<p>The number 38 is sad (not happy). Its sequence begins 38, 73, 58, 69, 145, 42, 20, 4, 16, 37, after 
+which the value 58 reappears, so the sequence enters the repeating cycle (58, 69, 145, 42, 20, 4, 
+16, 37). In fact, every sad number eventually enters this same cycle. Therefore, to determine 
+whether a number is happy, it suffices to generate terms until reaching either 1 (happy) or 4 (sad).</p>
+<p>Write a program that prompts the user for a positive integer <em>k</em> and outputs the <em>k</em>-th happy 
+number.</p>
+<details>
+<summary>Output 6.5.1q-1</summary>
+<div class="highlight"><pre><span></span><code>Enter a positive integer: 7
+28
+</code></pre></div>
+</details>
+<details>
+<summary>Output 6.5.1q-2</summary>
+<div class="highlight"><pre><span></span><code>Enter a positive integer: 70
+446
+</code></pre></div>
+</details>
+<hr />
+<p><strong>r. Rule 184.</strong> Imagine a circular sequence of the symbols <strong>L</strong> and <strong>R</strong>, where each <strong>L</strong> looks
+to the left and each <strong>R</strong> looks to the right. Two or more consecutive <strong>L</strong>s form an <em>L-block</em>,
+and similarly for <em>R-blocks</em>. Repeatedly apply the following update rule: whenever two adjacent 
+symbols are looking at each other, they swap places. All swaps occur simultaneously. For example:</p>
+<div class="highlight"><pre><span></span><code>R L L R L L R R
+L R L L R L R R
+</code></pre></div>
+<p>Starting from any sequence and repeatedly applying the update rule, one of three outcomes is
+guaranteed:</p>
+<ol>
+<li>If there are more <strong>L</strong>s than <strong>R</strong>s, the final sequence contains an <em>L-block</em> but no <em>R-blocks</em>.</li>
+<li>If there are more <strong>R</strong>s than <strong>L</strong>s, the final sequence contains an <em>R-block</em> but no <em>L-blocks</em>.</li>
+<li>If there are equally many <strong>L</strong>s and <strong>R</strong>s, the final sequence contains no blocks.</li>
+</ol>
+<p>The following example begins with a majority of <strong>L</strong>s. After three updates, the final sequence is
+reached.</p>
+<div class="highlight"><pre><span></span><code>R R L L L L L R R
+R L R L L L L R R
+L R L R L L L R R
+R L R L R L L R L
+</code></pre></div>
+<p>Remember that the sequence is circular. So, in the third line above, the <strong>L</strong> at the beginning and
+the <strong>R</strong> at the end are looking at each other. Likewise, the first and last symbols of <strong>LRLRL</strong> 
+form an <em>L-block</em>.</p>
+<p>Write a program that prompts the user for a start sequence, repeatedly applies the update rule until 
+the final sequence is reached, and outputs the final sequence. For convenience, sequences are 
+entered and displayed without spaces.</p>
+<details>
+<summary>Output 6.5.1r-1</summary>
+<div class="highlight"><pre><span></span><code>Start sequence: RRLLLLLRR
+Final sequence: RLRLRLLRL
+</code></pre></div>
+</details>
+<details>
+<summary>Output 6.5.1r-2</summary>
+<div class="highlight"><pre><span></span><code>Start sequence: RRRRLLLL
+Final sequence: RLRLRLRL
+</code></pre></div>
+</details>
+<details>
+<summary>Output 6.5.1r-3</summary>
+<div class="highlight"><pre><span></span><code>Start sequence: LLRRRLLRLLRLRRL
+Final sequence: RLRLRLRLLRLRLRL
+</code></pre></div>
+</details>
+<p>Rule 184 can model traffic flow and particle systems. Curious readers may enjoy the Wikipedia
+articles on
+<a href="https://en.wikipedia.org/wiki/Rule_184">Rule 184</a> and
+<a href="https://en.wikipedia.org/wiki/Elementary_cellular_automaton">elementary cellular automata</a>.</p>
+<h2 id="652-basic-graphics-applications">6.5.2 Basic Graphics Applications</h2>
+<p><strong>a. Rainbow Circles.</strong> Draws a series of concentric circles with random colors.</p>
+<details>
+<summary>Output 6.5.2a</summary>
+<p><img alt="Output 6.5.2a – Rainbow Circles" src="../images/output6.5.2a.png" /></p>
+</details>
+<hr />
+<p><strong>b. Petals.</strong>  Draws a petal-like structure by rotating identical ellipses about their centers at 
+regular intervals.</p>
+<details>
+<summary>Output 6.5.2b</summary>
+<p><img alt="Output 6.5.2b – Petals" src="../images/output6.5.2b.png" /></p>
+</details>
+<p>For an extra challenge, experiment with the use of <code>RotateTransition</code> and/or <code>ScaleTransition</code> to 
+animate individual petals.</p>
+<hr />
+<p><strong>c. Interleaved Squares.</strong>  Draws a series of centered squares with decreasing side lengths. The 
+fill color alternates between red and green, and red are rotated by squares by 45 degrees.</p>
+<details>
+<summary>Output 6.5.2c-1</summary>
+<p><img alt="Output 6.5.2c-1 – Interleaved Squares" src="../images/output6.5.2c-1.png" /></p>
+</details>
+<p>For an extra challenge, experiment with the use of <code>RotateTransition</code> to animate the individual 
+squares.</p>
+<details>
+<summary>Output 6.5.2c-2</summary>
+<p><img alt="Output 6.5.2c-2 – Interleaved Squares" src="../images/output6.5.2c-2.png" /></p>
+</details>
+<hr />
+<p><strong>d. Color Bars.</strong> Draws a sequence of randomly colored vertical bars with their bases along the 
+bottom edge of the scene. The height of each bar is chosen randomly between a fixed minimum and the 
+height of the scene. The bars all have the same width and are separated by a fixed gap.</p>
+<details>
+<summary>Output 6.5.2d</summary>
+<p><img alt="Output 6.5.2d – Color Bars" src="../images/output6.5.2d.png" /></p>
+</details>
+<hr />
+<p><strong>e. Random Tower.</strong> Draws a tower of rectangles spanning the scene from top to bottom. Each 
+rectangle has the same height, while its width is chosen randomly between a fixed minimum and the 
+width of the scene.</p>
+<details>
+<summary>Output 6.5.2e</summary>
+<p><img alt="Output 6.5.2e – Random Tower" src="../images/output6.5.2e.png" /></p>
+</details>
+<hr />
+<p><strong>f. Around the Sun.</strong>  Draws a top-down view of the Solar System with all the planets moving in 
+circular orbits around the Sun. </p>
+<details>
+<summary>Output 6.5.2f</summary>
+<p><img alt="Output 6.5.2f – Around the Sun" src="../images/output6.5.2f.png" /></p>
+</details>
+<p>Use <code>PathTransition</code> to animate the planets along their orbits. The distances and planet sizes are 
+not to scale (and real planetary orbits are elliptical), but the relative orbital speeds should be. 
+Look up the orbital periods (or speeds) of the planets and scale them proportionally so that Mercury 
+completes one orbit every second.</p>
+<p>One of the Chapter 7 practice problems invites you to simplify your solution to this problem using 
+arrays.</p>
+<hr />
+<p><strong>g. Graphical π Approximator.</strong> Displays a graphical representation of the Monte Carlo simulation 
+used to approximate π in Section 6.3.3. Random points are generated within a square scene. 
+Different colors are used to distinguish points within the circumscribed quarter circle from 
+those outside it.</p>
+<details>
+<summary>Output 6.5.2g-1</summary>
+<p><img alt="Output 6.5.2g-1 – Random Points" src="../images/output6.5.2g-1.png" /></p>
+</details>
+<p>The fraction of points inside the quarter circle approximates π/4, so multiplying that fraction by
+four approximates π itself. Display this information in an alert dialog:</p>
+<details>
+<summary>Output 6.5.2g-2</summary>
+<p><img alt="Output 6.5.2g-2 – Alert Dialog" src="../images/output6.5.2g-2.png" /></p>
+</details>
+<p>The following helper method can be used to display the results in an alert dialog:</p>
+<p><div class="highlight"><pre><span></span><code><span class="cm">/**</span>
+<span class="cm"> * Creates and returns an alert dialog with the simulation results.</span>
+<span class="cm"> */</span>
+<span class="kd">private</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="n">Alert</span><span class="w"> </span><span class="nf">getAlert</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">pointsInQuarterCircle</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">totalPoints</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// Consult the API documentation for the Alert class.</span>
+<span class="p">}</span>
+</code></pre></div>
+Call the method from <code>start</code> as follows:</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// display simulation results</span>
+<span class="n">Alert</span><span class="w"> </span><span class="n">alert</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">getAlert</span><span class="p">(</span><span class="n">pointsInQuarterCircle</span><span class="p">,</span><span class="w"> </span><span class="n">totalPoints</span><span class="p">);</span>
+<span class="n">alert</span><span class="p">.</span><span class="na">showAndWait</span><span class="p">();</span>
+</code></pre></div>
+<hr />
+<p><strong>h. Down the Drain.</strong> Animates a dot moving along a spiral path.</p>
+<details>
+<summary>Output 6.5.2h</summary>
+<p><img alt="Output 6.5.2h – Down the Drain" src="../images/output6.5.2h.png" /></p>
+</details>
+<p>Use <code>PathTransition</code> for the animation. Represent the spiral as a <code>Polyline</code> whose vertices lie on
+imaginary circles of gradually increasing radius. Constructing the polyline involves elementary
+trigonometry, but the following code can be used without understanding the mathematics:</p>
+<div class="highlight"><pre><span></span><code><span class="w"> </span><span class="cm">/**</span>
+<span class="cm"> * Creates and returns a polyline representing a spiral.</span>
+<span class="cm"> *</span>
+<span class="cm"> * @param x x-coordinate of center</span>
+<span class="cm"> * @param y y-coordinate of center</span>
+<span class="cm"> * @param n number of revolutions</span>
+<span class="cm"> * @param rStep increase in radius between successive vertices</span>
+<span class="cm"> * @param aStep increase in angle (in degrees) between successive vertices </span>
+<span class="cm"> */</span>
+<span class="kd">private</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="n">Polyline</span><span class="w"> </span><span class="nf">getSpiral</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">rStep</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">aStep</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">Polyline</span><span class="w"> </span><span class="n">spiral</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Polyline</span><span class="p">();</span>
+<span class="w">    </span><span class="kt">double</span><span class="w"> </span><span class="n">radius</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">angle</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">angle</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">Math</span><span class="p">.</span><span class="na">PI</span><span class="p">;</span><span class="w"> </span><span class="n">angle</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">Math</span><span class="p">.</span><span class="na">toRadians</span><span class="p">(</span><span class="n">aStep</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kt">double</span><span class="w"> </span><span class="n">u</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">radius</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">Math</span><span class="p">.</span><span class="na">cos</span><span class="p">(</span><span class="n">angle</span><span class="p">);</span>
+<span class="w">        </span><span class="kt">double</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">radius</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">Math</span><span class="p">.</span><span class="na">sin</span><span class="p">(</span><span class="n">angle</span><span class="p">);</span>
+<span class="w">        </span><span class="n">spiral</span><span class="p">.</span><span class="na">getPoints</span><span class="p">().</span><span class="na">addAll</span><span class="p">(</span><span class="n">u</span><span class="p">,</span><span class="w"> </span><span class="n">v</span><span class="p">);</span>
+<span class="w">        </span><span class="n">radius</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">rStep</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">spiral</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+<h2 id="653-monte-carlo-simulations">6.5.3 Monte Carlo Simulations</h2>
+<p><strong>a. Roulette.</strong> An American roulette wheel has 38 equally sized slots. Two are green, 18 are red,
+and 18 are black. A common wager is to bet $1 on red. If the ball lands on a red slot, the player
+receives the original dollar back plus another dollar. Otherwise, the player loses the dollar.</p>
+<p>Write a Monte Carlo simulation that estimates the expected payout. </p>
+<details>
+<summary>Partial output 6.5.3a</summary>
+<div class="highlight"><pre><span></span><code>Spin the roulette wheel and bet a dollar on RED.
+Simulating 100,000,000 trials...
+Expected payout:
+</code></pre></div>
+</details>
+<p>The correct result is slightly negative, indicating a small expected loss.</p>
+<hr />
+<p><strong>b. Three of a Kind.</strong> Estimates the probability of rolling three of a kind with four dice. A 
+positive outcome includes the case when all four dice are the same.</p>
+<details>
+<summary>Partial output 6.5.3b</summary>
+<div class="highlight"><pre><span></span><code>Rolling four dice 10,000,000 times...
+Probability of rolling three of a kind:
+</code></pre></div>
+</details>
+<p>The true probability is between 9 and 10 percent.</p>
+<hr />
+<p><strong>c. Thor vs. Zeus.</strong> Thor has nine 4-sided dice with faces numbered from 1 to 4. Zeus has six 
+6-sided dice with faces numbered from 1 to 6. They roll their dice and add up the numbers obtained. 
+The highest total wins. The game is a draw if the totals are equal.</p>
+<p>Write a Monte Carlo simulation that estimates the probability of victory for Thor.</p>
+<details>
+<summary>Partial output 6.5.3c</summary>
+<div class="highlight"><pre><span></span><code>Simulating Thor vs. Zeus 100,000,000 times... 
+Probability of victory for Thor:
+</code></pre></div>
+</details>
+<p>The true probability is between 55 and 60 percent. </p>
+<hr />
+<p><strong>d. Seven and Eleven.</strong> Estimates the expected number of rolls of a pair of dice until sums of 
+7 and 11 have each occurred at least once. </p>
+<details>
+<summary>Partial output 6.5.3d</summary>
+<div class="highlight"><pre><span></span><code>Rolling until sums of 7 and 11 have each occurred at least once.
+Repeating 10,000,000 times... 
+Expected number of rolls: 
+</code></pre></div>
+</details>
+<p>The true expected number of rolls is between 15 and 20.</p>
+<hr />
+<p><strong>e. Capybara Payout.</strong> Estimates the expected payout for the game of Capybara. The player rolls a 
+pair of dice and wins the sum in dollars. Play continues until a sum of 7, 8, or 9 is rolled, ending 
+the game without a payout for that roll.</p>
+<details>
+<summary>Partial output 6.5.3e</summary>
+<div class="highlight"><pre><span></span><code>Playing Capybara 100,000,000 times... 
+Expected payout: $
+</code></pre></div>
+</details>
+<p>The true expected payout is between $8 and $9.</p>
+<hr />
+<p><strong>f. Okapi Payout.</strong> Estimates the expected payout for the game of Okapi. The player rolls three 
+dice and receives a payout determined by the following rules.</p>
+<ul>
+<li>If the three numbers are the same, the player wins the sum of those three numbers.</li>
+<li>If exactly two of the numbers are the same, the player wins the sum of those two numbers.</li>
+<li>For three different numbers, the player wins nothing.</li>
+</ul>
+<details>
+<summary>Partial output 6.5.3f</summary>
+<div class="highlight"><pre><span></span><code>Playing Okapi 100,000,000 times... 
+Expected payout: $
+</code></pre></div>
+</details>
+<p>The true expected payout is between $3 and $4.</p>
+<hr />
+<p><strong>g. Quetzal.</strong> Estimates the expected payout for the game of Quetzal. The player rolls three dice.
+The payout is equal to the number of even rolls multiplied by the sum of the even rolls, plus the
+number of odd rolls multiplied by the sum of the odd rolls. For example, a roll of 2-5-4 consists of 
+two even rolls (2 and 4) and one odd roll (5), so the payout is 2 × (2 + 4) + 1 × 5 = $17. A roll of 
+3-1-5 consists of no even rolls and three odd rolls, so the payout is 0 + 3 × (3 + 1 + 5) = $27.</p>
+<details>
+<summary>Partial output 6.5.3g</summary>
+<div class="highlight"><pre><span></span><code>Playing Quetzal 100,000,000 times...
+Expected payout: $
+</code></pre></div>
+</details>
+<p>The true expected payout is between $20 and $22.</p>
+<hr />
+<p><strong>h. Colliding Kings.</strong> Two kings are placed on opposite corners of a standard chessboard. The 
+black king starts at A1 (bottom left) and the white king starts at H8 (top right). Each second, the 
+kings move simultaneously. The black king moves one square up or one square right (if both moves are 
+possible, it chooses randomly). The white king moves one square down or one square left (also 
+choosing randomly when both moves are possible). The kings are said to <em>collide</em> if they land on the 
+same square at the same time.</p>
+<p>Write a Monte Carlo simulation to estimate the probability of a collision.</p>
+<details>
+<summary>Output 6.5.3g</summary>
+<div class="highlight"><pre><span></span><code>Simulating the moving kings 10,000,000 times...
+Probability of collision:
+</code></pre></div>
+</details>
+<p>The probability is between 20 and 21 percent.</p>
+<hr />
+<p><strong>i. Relatively Prime.</strong> Two integers that have no common divisor greater than 1 are said to be 
+<em>relatively prime</em>. For example, 12 and 15 are not relatively prime since they have the common 
+divisor 3, but 12 and 25 <em>are</em> relatively prime. A remarkable result in number theory is that the 
+probability of two random positive integers being relatively prime is 6/π<sup>2</sup>.</p>
+<p>Write a Monte Carlo simulation to investigate this result. The user enters the number of integer 
+pairs to generate and the number of digits in each integer. The simulation generates random pairs of 
+positive integers of the specified length, displays the fraction of relatively prime pairs, and 
+compares it with the double-precision floating-point value nearest to 6/π<sup>2</sup>.</p>
+<details>
+<summary>Output 6.5.3i-1</summary>
+<div class="highlight"><pre><span></span><code>Integer pairs: 1000000
+Random digits: 50
+Generating 1,000,000 random pairs of 50-digit integers... 
+Fraction of relatively prime pairs: 0.60801 
+Double-precision floating-point value nearest to 6/π^2: 0.60793 
+</code></pre></div>
+</details>
+<details>
+<summary>Output 6.5.3i-2</summary>
+<div class="highlight"><pre><span></span><code>Integer pairs: 10000000
+Random digits: 25
+Generating 10,000,000 random pairs of 25-digit integers...
+Fraction of relatively prime pairs: 0.60760
+Double-precision floating-point value nearest to 6/π^2: 0.60793
+</code></pre></div>
+</details>
+<p>Implement a helper method that creates and returns a randomly generated <code>BigInteger</code> with the 
+specified number of digits. Use the <code>gcd</code> method to find greatest common divisors.</p>
+<p>This simulation can also be adapted to approximate π. Compare it with Listing 6.3.3. The two methods 
+approximate the same geometric constant, but in remarkably different ways.</p>
+<hr />
+<p><strong>j. Sums in Ranges.</strong> Let <em>P</em>(<em>a</em>, <em>b</em>, <em>n</em>) denote the probability that the rolled sum of <em>n</em> 
+ordinary 6-sided dice lies in the range [<em>a</em>, <em>b</em>]. For example, <em>P</em>(4, 7, 2) is the probability 
+that the rolled sum of two dice is between 4 and 7 inclusive.</p>
+<p>Write a Monte Carlo simulation that estimates <em>P</em>(<em>a</em>, <em>b</em>, <em>n</em>) for <em>n</em> = 2, 3, 4, 5 and every 
+possible range [<em>a</em>, <em>b</em>]. Output the probabilities that are within 0.001 of 0.5.</p>
+<details>
+<summary>Partial Output 6.5.3j</summary>
+<div class="highlight"><pre><span></span><code>P(4, 7, 2) = 0.499999 
+P(7, 10, 2) = 0.500157 
+P(3, 10, 3) = 0.499906
+</code></pre></div>
+</details>
+<p>The main method should iterate over the possible values of <em>a</em>, <em>b</em>, and <em>n</em> using nested loops. 
+Implement a helper method that estimates <em>P</em>(<em>a</em>, <em>b</em>, <em>n</em>) for a given combination.</p>
+<h2 id="654-console-applications-with-nested-loops">6.5.4 Console Applications with Nested Loops</h2>
+<p><strong>a. Pyramid of Stars.</strong>  Draws a pyramid of height specified by the user.</p>
+<details>
+<summary>Output 6.5.4a-1</summary>
+<div class="highlight"><pre><span></span><code>Pyramid height: 4 
+
+      * 
+    * * * 
+  * * * * * 
+* * * * * * *
+</code></pre></div>
+</details>
+<details>
+<summary>Output 6.5.4a-2</summary>
+<div class="highlight"><pre><span></span><code>Pyramid height: 6 
+
+          * 
+        * * * 
+      * * * * * 
+    * * * * * * * 
+  * * * * * * * * * 
+* * * * * * * * * * *
+</code></pre></div>
+</details>
+<hr />
+<p><strong>b. Slatipac.</strong> Prompts the user for a line of text and reverses each maximal substring consisting
+entirely of capital letters.</p>
+<details>
+<summary>Output 6.5.4b-1</summary>
+<div class="highlight"><pre><span></span><code>Input: GABCFabc 
+Output: FCBAGabc
+</code></pre></div>
+</details>
+<details>
+<summary>Output 6.5.4b-2</summary>
+<div class="highlight"><pre><span></span><code>Input: 123abcAZBCDExyzXSTZ 
+Output: 123abcEDCBZAxyzZTSX
+</code></pre></div>
+</details>
+<details>
+<summary>Output 6.5.4b-3</summary>
+<div class="highlight"><pre><span></span><code>Input: abcdefAABxyz 
+Output: abcdefBAAxyz
+</code></pre></div>
+</details>
+<details>
+<summary>Output 6.5.4b-4</summary>
+<div class="highlight"><pre><span></span><code>Input: AbCCDD-2EfghPONY 
+Output: AbDDCC-2EfghYNOP
+</code></pre></div>
+</details>
+<hr />
+<p><strong>c. Sum Sentences.</strong> Prompts the user for a string of digits and displays the string with one plus 
+sign and one equals sign inserted to form a valid equation of the form A + B = C, if possible; 
+otherwise, outputs the original string unchanged.</p>
+<details>
+<summary>Output 6.5.4c-1</summary>
+<div class="highlight"><pre><span></span><code>Enter a string of digits: 32896424 
+328 + 96 = 424
+</code></pre></div>
+</details>
+<details>
+<summary>Output 6.5.4c-2</summary>
+<div class="highlight"><pre><span></span><code>Enter a string of digits: 1122222233 
+11 + 2222 = 2233
+</code></pre></div>
+</details>
+<details>
+<summary>Output 6.5.4c-3</summary>
+<div class="highlight"><pre><span></span><code>Enter a string of digits: 1794326 
+1794326
+</code></pre></div>
+</details>
+<p><em>Hint:</em> Each substring can be interpreted directly as a <code>BigInteger</code> using the constructor that 
+takes a string. Use <code>BigInteger</code> arithmetic to test whether a given partition of the input forms a 
+valid equation of the form A + B = C.</p>
+<hr />
+<p><strong>d. Arithmetic Progressions.</strong> An arithmetic progression (AP) is a sequence of integers with a 
+constant difference between successive terms. Let AP(<em>k</em>, <em>d</em>, <em>n</em>) denote the AP with initial term 
+<em>k</em>, difference <em>d</em>, and length <em>n</em>. For example, AP(5, 3, 7) = 5, 8, 11, 14, 17, 20, 23.</p>
+<p>Write a program that prompts the user for the parameters of two APs and displays the terms that 
+appear in both.</p>
+<details>
+<summary>Output 6.5.4d-1</summary>
+<div class="highlight"><pre><span></span><code>AP parameters (k, d, n): 0 5 20 
+AP parameters (k, d, n): 1 4 40 
+Common terms: 5 25 45 65 85
+</code></pre></div>
+</details>
+<details>
+<summary>Output 6.5.4d-2</summary>
+<div class="highlight"><pre><span></span><code>AP parameters (k, d, n): 8 24 50 
+AP parameters (k, d, n): 5 9 60 
+Common terms: 32 104 176 248 320 392 464 536
+</code></pre></div>
+</details>
+<p>A straightforward approach is to iterate over the terms of one AP and, for each term, check the 
+terms of the other AP for a match. More efficient solutions exist using number-theoretic properties 
+of arithmetic progressions.</p>
+<hr />
+<p><strong>e. Legs.</strong> Last week I hosted a dinner party for five people, including myself. As we started to 
+eat, it occurred to me that there were 84 legs in the room. I was including spiders and cockroaches. 
+Here's the calculation I scribbled on a napkin:</p>
+<ul>
+<li>5 people × 2 legs = 10 legs</li>
+<li>4 spiders × 8 legs = 32 legs</li>
+<li>7 cockroaches × 6 legs = 42 legs </li>
+<li>TOTAL: 84 legs</li>
+</ul>
+<p>This amused everyone, and someone wondered how many different combinations of people, spiders, and 
+cockroaches have a total of 84 legs. It turns out there are 88 such combinations. For example, (7 
+people, 8 spiders, 1 cockroach) and (18 people, 6 spiders, 0 cockroaches) are both solutions.</p>
+<p>Write a program that prompts the user for the total number of legs, and outputs the number of 
+different combinations of people, spiders, and cockroaches having that many legs.</p>
+<details>
+<summary>Output 6.5.4e-1</summary>
+<div class="highlight"><pre><span></span><code>Number of legs: 20
+Combinations of people, spiders, and cockroaches: 8  
+</code></pre></div>
+</details>
+<details>
+<summary>Output 6.5.4e-2</summary>
+<div class="highlight"><pre><span></span><code>Number of legs: 100
+Combinations of people, spiders, and cockroaches: 121
+</code></pre></div>
+</details>
+<details>
+<summary>Output 6.5.4e-3</summary>
+<div class="highlight"><pre><span></span><code>Number of legs: 500
+Combinations of people, spiders, and cockroaches: 2688
+</code></pre></div>
+</details>
+<hr />
+<p><strong>f. Stacking Cubes.</strong>  Given a collection of cubes, the goal is to arrange them into triangular 
+stacks with no cubes left over. A triangular stack of height <em>n</em> contains 1 + 2 + ... + <em>n</em> 
+cubes. For example, 34 cubes can be arranged into triangular stacks as shown below.</p>
+<div class="highlight"><pre><span></span><code>       * 
+      ***
+     *****     *
+    *******   ***
+   ********* *****
+</code></pre></div>
+<p>A single cube by itself counts as a stack of height one, so 35 cubes can be arranged by adding a 
+stack of height one to the arrangement for 34 cubes.</p>
+<div class="highlight"><pre><span></span><code>       *
+      ***
+     *****     *
+    *******   ***
+   ********* ***** *
+</code></pre></div>
+<p>It is always possible to arrange a given number of cubes into at most four triangular stacks.</p>
+<p>Write a program that prompts the user for the number of cubes and outputs the heights of the 
+triangular stacks in descending order. If there are several possible arrangements, choose the one 
+with the largest first stack; ties are broken by the second stack, then the third.</p>
+<details>
+<summary>Output 6.5.4f-1</summary>
+<div class="highlight"><pre><span></span><code>How many cubes? 75 
+Height of 1st stack: 8 
+Height of 2nd stack: 3 
+Height of 3rd stack: 1 
+Height of 4th stack: 1
+</code></pre></div>
+</details>
+<details>
+<summary>Output 6.5.4f-2</summary>
+<div class="highlight"><pre><span></span><code>How many cubes? 5566 
+Height of 1st stack: 74 
+Height of 2nd stack: 9
+Height of 3rd stack: 3
+</code></pre></div>
+</details>
+<hr />
+<p><strong>g. Stacking Cubes 2.</strong> This is a variation of the previous problem. Write a program that prompts 
+the user for the number of cubes and displays the triangular stacks.</p>
+<details>
+<summary>Output 6.5.4g-1</summary>
+<div class="highlight"><pre><span></span><code>How many cubes? 35 
+
+    *
+   ***
+  *****     *
+ *******   ***
+********* ***** *
+</code></pre></div>
+</details>
+<details>
+<summary>Output 6.5.4g-2</summary>
+<div class="highlight"><pre><span></span><code>How many cubes? 79 
+
+      *
+     ***
+    *****         *
+   *******       ***
+  *********     *****
+ ***********   *******   *
+************* ********* *** * 
+</code></pre></div>
+</details>
+<hr />
+<p><strong>h. Change Maker.</strong> Prompts the user for an amount in U.S. currency and displays all the ways to 
+make that amount using nickels, dimes, and quarters. The input consists of a dollar sign followed by 
+the amount in dollars and cents.</p>
+<details>
+<summary>Output 6.5.4h-1</summary>
+<div class="highlight"><pre><span></span><code>Enter amount: $0.35 
+1. 1 quarter + 1 dime 
+2. 3 dimes + 1 nickel 
+3. 1 quarter + 2 nickels 
+4. 2 dimes + 3 nickels 
+5. 1 dime + 5 nickels 
+6. 7 nickels
+</code></pre></div>
+</details>
+<details>
+<summary>Output 6.5.4h-2</summary>
+<div class="highlight"><pre><span></span><code>Enter amount: $1.23
+Impossible to make change for that amount.
+</code></pre></div>
+</details>
+<details>
+<summary>Partial Output 6.5.4h-3</summary>
+<div class="highlight"><pre><span></span><code>Enter amount: $12.95 
+1. 51 quarters + 2 dimes 
+2. 49 quarters + 7 dimes 
+3. 47 quarters + 12 dimes 
+4. 45 quarters + 17 dimes 
+5. 43 quarters + 22 dimes 
+6. 41 quarters + 27 dimes
+
+⋮
+
+3456. 2 dimes + 255 nickels 
+3457. 1 dime + 257 nickels 
+3458. 259 nickels
+</code></pre></div>
+</details>
+<p>The vertical ellipsis (⋮) in the last execution sample indicates that most of the output has been 
+omitted here for typographical convenience, but your program should generate every combination.</p>
+<h2 id="655-graphics-applications-with-nested-loops">6.5.5 Graphics Applications with Nested Loops</h2>
+<p><strong>a. Circle Matrix.</strong> Draws a grid of randomly colored circles.</p>
+<details>
+<summary>Output 6.5.5a</summary>
+<p><img alt="Output 6.5.5a – Circle Matrix" src="../images/output6.5.5a.png" /></p>
+</details>
+<hr />
+<p><strong>b. Stained Glass.</strong> Fills the viewing area with tiny overlapping squares. Each square is assigned 
+a random color and rotation angle.</p>
+<details>
+<summary>Output 6.5.5b</summary>
+<p><img alt="Output 6.5.5b – Stained Glass" src="../images/output6.5.5b.png" /></p>
+</details>
+<hr />
+<p><strong>c. Disjoint Circles.</strong> Draws a collection of disjoint circles. The position, radius, and fill 
+color of each circle are selected at random.</p>
+<details>
+<summary>Output 6.5.5c</summary>
+<p><img alt="Output 6.5.5c – Disjoint Circles" src="../images/output6.5.5c.png" /></p>
+</details>
+<p>Before adding a new circle to the root node, ensure that it does not intersect any existing circle.
+The following code checks whether the new circle intersects any existing circle.</p>
+<div class="highlight"><pre><span></span><code><span class="kt">boolean</span><span class="w"> </span><span class="n">intersectionFound</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="p">;</span><span class="w"> </span>
+<span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">Node</span><span class="w"> </span><span class="n">node</span><span class="p">:</span><span class="w"> </span><span class="n">root</span><span class="p">.</span><span class="na">getChildren</span><span class="p">())</span><span class="w"> </span><span class="p">{</span><span class="w"> </span>
+<span class="w">    </span><span class="n">Circle</span><span class="w"> </span><span class="n">circle</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">Circle</span><span class="p">)</span><span class="w"> </span><span class="n">node</span><span class="p">;</span><span class="w"> </span>
+<span class="w">    </span><span class="n">Bounds</span><span class="w"> </span><span class="n">bounds</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">circle</span><span class="p">.</span><span class="na">getBoundsInParent</span><span class="p">();</span><span class="w"> </span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">circleToAdd</span><span class="p">.</span><span class="na">intersects</span><span class="p">(</span><span class="n">bounds</span><span class="p">))</span><span class="w"> </span><span class="p">{</span><span class="w"> </span>
+<span class="w">        </span><span class="n">intersectionFound</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span><span class="w"> </span>
+<span class="p">}</span>
+</code></pre></div>
+<hr />
+<p><strong>d. Chaos on a Square.</strong> Section 6.2.3 described the construction of a fractal called a Sierpinski 
+triangle. The same general idea can be applied using the corners of a square instead of a triangle 
+and repeatedly moving the current point halfway to a randomly chosen corner. However, the same 
+corner must not be chosen twice in a row. Modify Listing 6.2.3a to draw this fractal.</p>
+<details>
+<summary>Output 6.5.5d</summary>
+<p><img alt="Output 6.5.5d – Chaos on a Square" src="../images/output6.5.5d.png" /></p>
+</details>
+<p>The construction of the Sierpinski triangle and the variation described here are both instances of a
+general concept known as the <a href="https://en.wikipedia.org/wiki/Chaos_game">Chaos Game</a>.</p>
 
 
 
