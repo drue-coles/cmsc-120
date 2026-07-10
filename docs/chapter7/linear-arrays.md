@@ -1,7 +1,8 @@
 # 7.1 Linear Arrays
 
-**Key terms:** array, element type, linear array, one-dimensional array, initializer list, utility 
-class, shallow copy, deep copy, clone, command-line arguments
+**Key terms:** array, element type, linear array, one-dimensional array, initializer list, 
+for-each loop, enhanced for loop, utility class, shallow copy, deep copy, clone, command-line 
+arguments
 
 ## 7.1.1 Using Arrays 
 
@@ -79,17 +80,52 @@ order to fill a sentence template with randomly chosen words. Arrays are objects
 each has a `length` attribute that stores its number of elements. The `get` method uses `length` to 
 generate a random index in the valid range for the array.
 
-#### Listing 7.1.3 - [LoveLetterGenerator.java](https://github.com/drue-coles/cmsc-120/blob/master/code/src/chap07/sect1/LoveLetterGenerator.java)
+#### Listing 7.1.2 - [LoveLetterGenerator.java](https://github.com/drue-coles/cmsc-120/blob/master/code/src/chap07/sect1/LoveLetterGenerator.java)
 ``` java title="LoveLetterGenerator.java"
 --8<-- "code/src/chap07/sect1/LoveLetterGenerator.java"
 ```
 
-??? "Output 7.1.3"
+??? "Output 7.1.2"
     ```text
     Dear Jane, I will cherish your unspeakably blinding echo forever! ♥ ♥ ♥
     ```
 
-## 7.1.3 Copying Arrays
+## 7.1.3 For-Each Loops
+
+Many array-processing tasks require visiting every element of an array in turn. Up to this point, a 
+loop control variable has been used as an array index for this purpose. For example:
+
+```java
+int[] values = {3, 1, 4, 1, 5, 9};
+int sum = 0;
+
+for (int i = 0; i < values.length; i++) {
+    sum += values[i];
+}
+```
+
+When the index itself is not needed, Java provides a simpler construct called the **for-each loop**
+(officially, the **enhanced `for` loop**). The following code produces the same result.
+
+```java
+int[] values = {3, 1, 4, 1, 5, 9};
+int sum = 0;
+
+for (int value : values) {
+    sum += value;
+}
+```
+
+The loop variable (`value` in this example) is assigned the value of each element of the array in 
+turn. The programmer no longer needs to manage an index variable or test whether the end of the 
+array has been reached. This raises the level of abstraction, allowing the programmer to focus on
+the operation being performed rather than on the mechanics of traversing the array.
+
+The for-each loop should be used whenever every element of an array must be processed and the index
+is not required. If the position of an element is needed, or if the loop must modify the array by
+assigning values to its elements, an indexed `for` loop must be used instead.
+
+## 7.1.4 Copying Arrays
 
 In Section 5.1.3, we learned that `BigInteger` has an `equals` method to test for deep equality. 
 Arrays also have an `equals` method, but it tests for shallow equality. It would be straightforward 
@@ -206,7 +242,7 @@ System.out.println(Arrays.toString(a5));
 Note that `arraycopy` does not follow Java's usual camel-case naming convention for method names. A 
 few methods in the standard library are historical exceptions.
 
-## 7.1.4 Command-Line Arguments
+## 7.1.5 Command-Line Arguments
 
 The main method, the entry point to an application, has a parameter (`args`):
 
