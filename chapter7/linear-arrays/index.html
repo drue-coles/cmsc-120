@@ -1524,10 +1524,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#listing-713-lovelettergeneratorjava" class="md-nav__link">
+  <a href="#listing-712-lovelettergeneratorjava" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Listing 7.1.3 - LoveLetterGenerator.java
+        Listing 7.1.2 - LoveLetterGenerator.java
       
     </span>
   </a>
@@ -1540,10 +1540,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#713-copying-arrays" class="md-nav__link">
+  <a href="#713-for-each-loops" class="md-nav__link">
     <span class="md-ellipsis">
       
-        7.1.3 Copying Arrays
+        7.1.3 For-Each Loops
       
     </span>
   </a>
@@ -1551,10 +1551,21 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#714-command-line-arguments" class="md-nav__link">
+  <a href="#714-copying-arrays" class="md-nav__link">
     <span class="md-ellipsis">
       
-        7.1.4 Command-Line Arguments
+        7.1.4 Copying Arrays
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#715-command-line-arguments" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.1.5 Command-Line Arguments
       
     </span>
   </a>
@@ -1767,10 +1778,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#listing-713-lovelettergeneratorjava" class="md-nav__link">
+  <a href="#listing-712-lovelettergeneratorjava" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Listing 7.1.3 - LoveLetterGenerator.java
+        Listing 7.1.2 - LoveLetterGenerator.java
       
     </span>
   </a>
@@ -1783,10 +1794,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#713-copying-arrays" class="md-nav__link">
+  <a href="#713-for-each-loops" class="md-nav__link">
     <span class="md-ellipsis">
       
-        7.1.3 Copying Arrays
+        7.1.3 For-Each Loops
       
     </span>
   </a>
@@ -1794,10 +1805,21 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#714-command-line-arguments" class="md-nav__link">
+  <a href="#714-copying-arrays" class="md-nav__link">
     <span class="md-ellipsis">
       
-        7.1.4 Command-Line Arguments
+        7.1.4 Copying Arrays
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#715-command-line-arguments" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.1.5 Command-Line Arguments
       
     </span>
   </a>
@@ -1822,8 +1844,9 @@
 
 
 <h1 id="71-linear-arrays">7.1 Linear Arrays</h1>
-<p><strong>Key terms:</strong> array, element type, linear array, one-dimensional array, initializer list, utility 
-class, shallow copy, deep copy, clone, command-line arguments</p>
+<p><strong>Key terms:</strong> array, element type, linear array, one-dimensional array, initializer list, 
+for-each loop, enhanced for loop, utility class, shallow copy, deep copy, clone, command-line 
+arguments</p>
 <h2 id="711-using-arrays">7.1.1 Using Arrays</h2>
 <p>When rolling a pair of ordinary 6-sided dice, there are 11 possible sums (2-12). Listing 7.1.1a 
 calculates the probabilities of these sums. Note the redundancy in the code: there are 11 variable 
@@ -2006,7 +2029,7 @@ separated by commas and wrapped in curly braces. The program declares several <c
 order to fill a sentence template with randomly chosen words. Arrays are objects in Java, and 
 each has a <code>length</code> attribute that stores its number of elements. The <code>get</code> method uses <code>length</code> to 
 generate a random index in the valid range for the array.</p>
-<h4 id="listing-713-lovelettergeneratorjava">Listing 7.1.3 - <a href="https://github.com/drue-coles/cmsc-120/blob/master/code/src/chap07/sect1/LoveLetterGenerator.java">LoveLetterGenerator.java</a></h4>
+<h4 id="listing-712-lovelettergeneratorjava">Listing 7.1.2 - <a href="https://github.com/drue-coles/cmsc-120/blob/master/code/src/chap07/sect1/LoveLetterGenerator.java">LoveLetterGenerator.java</a></h4>
 <div class="highlight"><span class="filename">LoveLetterGenerator.java</span><pre><span></span><code><span class="kn">package</span><span class="w"> </span><span class="nn">chap07.sect1</span><span class="p">;</span>
 
 <span class="kn">import</span><span class="w"> </span><span class="nn">java.util.Scanner</span><span class="p">;</span>
@@ -2051,11 +2074,41 @@ generate a random index in the valid range for the array.</p>
 <span class="p">}</span>
 </code></pre></div>
 <details>
-<summary>Output 7.1.3</summary>
+<summary>Output 7.1.2</summary>
 <div class="highlight"><pre><span></span><code>Dear Jane, I will cherish your unspeakably blinding echo forever! ♥ ♥ ♥
 </code></pre></div>
 </details>
-<h2 id="713-copying-arrays">7.1.3 Copying Arrays</h2>
+<h2 id="713-for-each-loops">7.1.3 For-Each Loops</h2>
+<p>Many array-processing tasks require visiting every element of an array in turn. Up to this point, a 
+loop control variable has been used as an array index for this purpose. For example:</p>
+<div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="o">[]</span><span class="w"> </span><span class="n">values</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">9</span><span class="p">};</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">sum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+
+<span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">values</span><span class="p">.</span><span class="na">length</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">sum</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">values</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>When an array is processed by reading each element in turn without modifying it, the same pattern
+appears repeatedly: declare and initialize an index variable, test whether the end of the array has
+been reached, and increment the index. A <strong>for-each loop</strong> (officially, an <strong>enhanced <code>for</code> loop</strong>)
+eliminates this bookkeeping:</p>
+<div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="o">[]</span><span class="w"> </span><span class="n">values</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">9</span><span class="p">};</span>
+<span class="kt">int</span><span class="w"> </span><span class="n">sum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+
+<span class="c1">// sum the values in the array</span>
+<span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">values</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">sum</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">value</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>The loop header is read as: "For each element <code>value</code> in the array <code>values</code>, do the following." 
+The variable <code>value</code> is assigned each array element in turn. The programmer no longer needs to 
+manage an index variable or test whether the end of the array has been reached. This raises the
+level of abstraction, allowing the programmer to focus on the application logic rather than the 
+mechanics of traversing the array.</p>
+<p>The for-each loop should be used whenever the elements of an array must be read in order and the 
+index of an element is not required. If the index is needed, or if the array elements themselves 
+must be modified by assignment, an indexed <code>for</code> loop must be used instead.</p>
+<h2 id="714-copying-arrays">7.1.4 Copying Arrays</h2>
 <p>In Section 5.1.3, we learned that <code>BigInteger</code> has an <code>equals</code> method to test for deep equality. 
 Arrays also have an <code>equals</code> method, but it tests for shallow equality. It would be straightforward 
 but tedious to write code for checking if two arrays have the same contents (deep equality). 
@@ -2144,7 +2197,7 @@ starting index in the destination, and the number of elements to copy.</p>
 </details>
 <p>Note that <code>arraycopy</code> does not follow Java's usual camel-case naming convention for method names. A 
 few methods in the standard library are historical exceptions.</p>
-<h2 id="714-command-line-arguments">7.1.4 Command-Line Arguments</h2>
+<h2 id="715-command-line-arguments">7.1.5 Command-Line Arguments</h2>
 <p>The main method, the entry point to an application, has a parameter (<code>args</code>):</p>
 <div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 

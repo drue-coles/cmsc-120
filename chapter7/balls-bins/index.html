@@ -1450,6 +1450,24 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7.2 Balls into Bins
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -1466,6 +1484,92 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#721-definition-and-applications" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.2.1 Definition and Applications
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#722-case-study-the-birthday-paradox" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.2.2 Case Study: The Birthday Paradox
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7.2.2 Case Study: The Birthday Paradox">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#listing-722-birthdayparadoxjava" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Listing 7.2.2 - BirthdayParadox.java
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#723-case-study-randomized-playlist" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.2.3 Case Study: Randomized Playlist
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7.2.3 Case Study: Randomized Playlist">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#listing-723-randomizedplaylistjava" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Listing 7.2.3 - RandomizedPlaylist.java
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -1583,6 +1687,81 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#721-definition-and-applications" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.2.1 Definition and Applications
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#722-case-study-the-birthday-paradox" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.2.2 Case Study: The Birthday Paradox
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7.2.2 Case Study: The Birthday Paradox">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#listing-722-birthdayparadoxjava" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Listing 7.2.2 - BirthdayParadox.java
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#723-case-study-randomized-playlist" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.2.3 Case Study: Randomized Playlist
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7.2.3 Case Study: Randomized Playlist">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#listing-723-randomizedplaylistjava" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Listing 7.2.3 - RandomizedPlaylist.java
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1599,7 +1778,186 @@
 
 
 <h1 id="72-balls-into-bins">7.2 Balls into Bins</h1>
-<p>Content for this section is under development.</p>
+<p><strong>Key terms:</strong> </p>
+<p>Many probabilistic algorithms can be understood in terms of balls being thrown at random into bins.
+This simple model has applications in computer science, engineering, and the natural sciences, and 
+it provides an excellent setting for using loops and Monte Carlo simulation.</p>
+<h2 id="721-definition-and-applications">7.2.1 Definition and Applications</h2>
+<p>Many problems in applied probability can be modeled in terms of balls being thrown at random into 
+bins. Consider a high-traffic website that must distribute thousands of requests every second to 
+remote servers. Each server can handle one request at a time and has a waiting queue for other 
+requests. If all the servers are currently busy and a new request for service arrives, the system 
+must place it in one of the queues. The system must quickly decide which queue should receive the 
+request while avoiding significant imbalances in the distribution of work. One simple and effective
+strategy is randomized load balancing: choose a queue uniformly at random, or choose the shortest 
+queue from a small random sample. This is naturally modeled as balls (requests) being thrown at 
+random into bins (queues). The expected maximum load on the servers corresponds to the maximum 
+number of balls likely to end up in a single bin. This can be calculated mathematically, but it 
+can also be approximated with high accuracy by a Monte Carlo simulation. </p>
+<p>There are many other practical problems in computing, engineering, and the natural sciences that can 
+be modeled as balls-into-bins problems and analyzed with the help of Monte Carlo simulations.
+Depending on the problem, we may be interested in the expected number of empty bins, the average 
+load, the maximum load, or the number of balls required before every bin receives at least one.</p>
+<h2 id="722-case-study-the-birthday-paradox">7.2.2 Case Study: The Birthday Paradox</h2>
+<p>How large must a random sample of people be before it becomes likely that two of them have the 
+same birthday? For simplicity, assume that birthdays are uniformly distributed throughout the 
+year. This question is known as the <em>birthday paradox</em> because the answer, 23, seems surprisingly
+small to most people. It is a classic balls-into-bins question. Imagine 365 bins, one for each day
+of the year. A random sample of 23 birthdays corresponds to throwing 23 balls uniformly at random 
+into the bins. A shared birthday occurs exactly when two balls land in the same bin. The birthday 
+paradox states that this probability is slightly greater than 50%. Listing 7.2.2 is a Monte Carlo
+simulation that estimates this probability.</p>
+<h4 id="listing-722-birthdayparadoxjava">Listing 7.2.2 - <a href="https://github.com/drue-coles/cmsc-120/blob/master/code/src/chap07/sect2/BirthdayParadox.java">BirthdayParadox.java</a></h4>
+<div class="highlight"><span class="filename">BirthdayParadox.java</span><pre><span></span><code><span class="kn">package</span><span class="w"> </span><span class="nn">chap07.sect2</span><span class="p">;</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">java.util.Scanner</span><span class="p">;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">java.util.concurrent.ThreadLocalRandom</span><span class="p">;</span>
+
+<span class="cm">/**</span>
+<span class="cm"> * Estimates the probability that at least two people in a random sample share the same birthday.</span>
+<span class="cm"> *</span>
+<span class="cm"> * @author Drue Coles</span>
+<span class="cm"> */</span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">BirthdayParadox</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">   </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">print</span><span class="p">(</span><span class="s">&quot;Number of birthdays to sample: &quot;</span><span class="p">);</span>
+<span class="w">      </span><span class="n">Scanner</span><span class="w"> </span><span class="n">in</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Scanner</span><span class="p">(</span><span class="n">System</span><span class="p">.</span><span class="na">in</span><span class="p">);</span>
+<span class="w">      </span><span class="kd">final</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">sampleSize</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">in</span><span class="p">.</span><span class="na">nextInt</span><span class="p">();</span>
+<span class="w">      </span><span class="kd">final</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">trials</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10_000_000</span><span class="p">;</span>
+<span class="w">      </span><span class="kt">int</span><span class="w"> </span><span class="n">matches</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+
+<span class="w">      </span><span class="c1">// Monte Carlo simulation</span>
+<span class="w">      </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">printf</span><span class="p">(</span><span class="s">&quot;Simulating %,d trials... %n&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">trials</span><span class="p">);</span>
+<span class="w">      </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">trials</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">         </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">sampleHasMatch</span><span class="p">(</span><span class="n">sampleSize</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">matches</span><span class="o">++</span><span class="p">;</span>
+<span class="w">         </span><span class="p">}</span>
+<span class="w">      </span><span class="p">}</span>
+
+<span class="w">      </span><span class="kt">double</span><span class="w"> </span><span class="n">prob</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="kt">double</span><span class="p">)</span><span class="w"> </span><span class="n">matches</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">trials</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">100</span><span class="p">;</span>
+<span class="w">      </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">printf</span><span class="p">(</span><span class="s">&quot;Probability of a birthday match: %.2f%% %n&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">prob</span><span class="p">);</span>
+<span class="w">   </span><span class="p">}</span>
+
+<span class="w">   </span><span class="cm">/**</span>
+<span class="cm">    * Samples random birthdays and returns true if any day is chosen twice.</span>
+<span class="cm">    */</span>
+<span class="w">   </span><span class="kd">private</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="nf">sampleHasMatch</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">sampleSize</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="kd">final</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">daysInYear</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">365</span><span class="p">;</span>
+<span class="w">      </span><span class="kt">boolean</span><span class="o">[]</span><span class="w"> </span><span class="n">previouslyChosen</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="kt">boolean</span><span class="o">[</span><span class="n">daysInYear</span><span class="o">]</span><span class="p">;</span>
+
+<span class="w">      </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">sampleSize</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">         </span><span class="kt">int</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ThreadLocalRandom</span><span class="p">.</span><span class="na">current</span><span class="p">().</span><span class="na">nextInt</span><span class="p">(</span><span class="n">daysInYear</span><span class="p">);</span><span class="w"> </span><span class="c1">// choose random birthday</span>
+<span class="w">         </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">previouslyChosen</span><span class="o">[</span><span class="n">j</span><span class="o">]</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span>
+<span class="w">         </span><span class="p">}</span>
+<span class="w">         </span><span class="n">previouslyChosen</span><span class="o">[</span><span class="n">j</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="kc">false</span><span class="p">;</span>
+<span class="w">   </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<details>
+<summary>Output 7.2.2</summary>
+<div class="highlight"><pre><span></span><code>Number of birthdays to sample: 23
+Simulating 10,000,000 trials... 
+Probability of a birthday match: 50.73% 
+</code></pre></div>
+</details>
+<h2 id="723-case-study-randomized-playlist">7.2.3 Case Study: Randomized Playlist</h2>
+<p>If songs are streamed randomly from a curated playlist, how many songs would be expected to be 
+played before every song has been heard at least once? This is another balls-into-bins problem: 
+each song in the playlist represents a bin, and each randomly selected song corresponds to 
+throwing a ball into that bin. Listing 7.2.3 estimates this expected value.</p>
+<h4 id="listing-723-randomizedplaylistjava">Listing 7.2.3 - <a href="https://github.com/drue-coles/cmsc-120/blob/master/code/src/chap07/sect2/RandomizedPlaylist.java">RandomizedPlaylist.java</a></h4>
+<div class="highlight"><span class="filename">RandomizedPlaylist.java</span><pre><span></span><code><span class="kn">package</span><span class="w"> </span><span class="nn">chap07.sect2</span><span class="p">;</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">java.util.Scanner</span><span class="p">;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">java.util.concurrent.ThreadLocalRandom</span><span class="p">;</span>
+
+<span class="cm">/**</span>
+<span class="cm"> * Prompts the user for the number of songs in a randomized playlist and outputs the expected number</span>
+<span class="cm"> * of songs that will be played until every song is heard at least once.</span>
+<span class="cm"> *</span>
+<span class="cm"> * @author Drue Coles</span>
+<span class="cm"> */</span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">RandomizedPlaylist</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">   </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">print</span><span class="p">(</span><span class="s">&quot;Number of songs in the playlist: &quot;</span><span class="p">);</span>
+<span class="w">      </span><span class="n">Scanner</span><span class="w"> </span><span class="n">in</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Scanner</span><span class="p">(</span><span class="n">System</span><span class="p">.</span><span class="na">in</span><span class="p">);</span>
+<span class="w">      </span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">in</span><span class="p">.</span><span class="na">nextInt</span><span class="p">();</span>
+
+<span class="w">      </span><span class="kd">final</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">trials</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1_000_000</span><span class="p">;</span>
+<span class="w">      </span><span class="kt">int</span><span class="w"> </span><span class="n">total</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w">  </span><span class="c1">// songs played in all trials</span>
+
+<span class="w">      </span><span class="c1">// Monte Carlo simulation</span>
+<span class="w">      </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">printf</span><span class="p">(</span><span class="s">&quot;Simulating %,d trials... %n&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">trials</span><span class="p">);</span>
+<span class="w">      </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">trials</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">         </span><span class="n">total</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">playSongs</span><span class="p">(</span><span class="n">n</span><span class="p">);</span>
+<span class="w">      </span><span class="p">}</span>
+
+<span class="w">      </span><span class="kt">double</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="kt">double</span><span class="p">)</span><span class="w"> </span><span class="n">total</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">trials</span><span class="p">;</span>
+<span class="w">      </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">printf</span><span class="p">(</span><span class="s">&quot;Expected number of songs until all are played: %.2f %n&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">result</span><span class="p">);</span>
+<span class="w">   </span><span class="p">}</span>
+
+<span class="w">   </span><span class="cm">/**</span>
+<span class="cm">    * Samples songs at random from a playlist until every song is heard at least once.</span>
+<span class="cm">    *</span>
+<span class="cm">    * @param n number of songs in the playlist</span>
+<span class="cm">    * @return total number of songs played</span>
+<span class="cm">    */</span>
+<span class="w">   </span><span class="kd">private</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">playSongs</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="kt">boolean</span><span class="o">[]</span><span class="w"> </span><span class="n">alreadyPlayed</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="kt">boolean</span><span class="o">[</span><span class="n">n</span><span class="o">]</span><span class="p">;</span>
+<span class="w">      </span><span class="kt">int</span><span class="w"> </span><span class="n">totalSongsPlayed</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">      </span><span class="kt">int</span><span class="w"> </span><span class="n">distinctSongsPlayed</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+
+<span class="w">      </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">distinctSongsPlayed</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">         </span><span class="kt">int</span><span class="w"> </span><span class="n">songIndex</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ThreadLocalRandom</span><span class="p">.</span><span class="na">current</span><span class="p">().</span><span class="na">nextInt</span><span class="p">(</span><span class="n">n</span><span class="p">);</span>
+<span class="w">         </span><span class="n">totalSongsPlayed</span><span class="o">++</span><span class="p">;</span>
+<span class="w">         </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">alreadyPlayed</span><span class="o">[</span><span class="n">songIndex</span><span class="o">]</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">distinctSongsPlayed</span><span class="o">++</span><span class="p">;</span>
+<span class="w">         </span><span class="p">}</span>
+<span class="w">         </span><span class="n">alreadyPlayed</span><span class="o">[</span><span class="n">songIndex</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="n">totalSongsPlayed</span><span class="p">;</span>
+<span class="w">   </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<details>
+<summary>Output 7.2.3</summary>
+<div class="highlight"><pre><span></span><code>Number of songs in the playlist: 15
+Simulating 1,000,000 trials... 
+Expected number of songs until all are played: 49.75
+</code></pre></div>
+</details>
+<p>The <code>playSongs</code> method maintains a counter for the number of distinct songs played. An alternative 
+approach is to delegate the test for whether every song has been played to a helper method. A 
+for-each loop is appropriate because the array elements need not be modified and it suffices to 
+read them sequentially. </p>
+<div class="highlight"><pre><span></span><code><span class="kd">private</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="nf">allSongsPlayed</span><span class="p">(</span><span class="kt">boolean</span><span class="o">[]</span><span class="w"> </span><span class="n">alreadyPlayed</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">boolean</span><span class="w"> </span><span class="n">played</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">alreadyPlayed</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">played</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="kc">false</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>The loop in <code>playSongs</code> could then be simplified:</p>
+<div class="highlight"><pre><span></span><code><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="kc">true</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">songIndex</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ThreadLocalRandom</span><span class="p">.</span><span class="na">current</span><span class="p">().</span><span class="na">nextInt</span><span class="p">(</span><span class="n">n</span><span class="p">);</span>
+<span class="w">    </span><span class="n">totalSongsPlayed</span><span class="o">++</span><span class="p">;</span>
+<span class="w">    </span><span class="n">alreadyPlayed</span><span class="o">[</span><span class="n">songIndex</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">allSongsPlayed</span><span class="p">(</span><span class="n">alreadyPlayed</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">totalSongsPlayed</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>The original implementation is more efficient because it tracks the number of distinct songs played, 
+avoiding repeated traversals of the array. However, clarity and simplicity are important principles 
+of good program design. Straightforward code can often be optimized later if efficiency becomes a 
+concern, whereas unnecessarily complex code is more difficult to understand, test, and maintain.</p>
 
 
 
