@@ -126,8 +126,7 @@ level of abstraction, allowing the programmer to focus on the application logic 
 mechanics of traversing the array.
 
 The for-each loop should be used whenever the elements of an array must be read in order and the 
-index of an element is not required. If the index is needed, or if the array elements themselves 
-must be modified by assignment, an indexed `for` loop must be used instead.
+index of an element is not required. 
 
 ## 7.1.4 Copying Arrays
 
