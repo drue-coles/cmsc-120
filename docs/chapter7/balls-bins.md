@@ -67,38 +67,36 @@ throwing a ball into that bin. Listing 7.2.3 estimates this expected value.
     Expected number of songs until all are played: 49.75
     ```
 
-The `playSongs` method maintains a separate counter for the number of distinct songs played. An 
-alternative implementation could determine whether the simulation is complete by counting the 
-number of unplayed songs after each selection. A for-each loop is appropriate for this task because
-only the values stored in the array matter; the indices are not needed.
+The `playSongs` method maintains a counter for the number of distinct songs played. An alternative 
+approach is to delegate the test for whether every song has been played to a helper method. A 
+for-each loop is appropriate because the array elements need not be modified and it suffices to 
+read them sequentially. 
 
 ```java
-private static int countUnplayed(boolean[] alreadyPlayed) {
-    int count = 0;
+private static boolean allSongsPlayed(boolean[] alreadyPlayed) {
     for (boolean played : alreadyPlayed) {
         if (!played) {
-            count++;
+            return false;
         }
     }
-    return count;
+    return true;
 }
 ```
 
-The loop in `playSongs` could then be rewritten as follows:
+The loop in `playSongs` could then be simplified:
 
 ```java
 while (true) {
     int songIndex = ThreadLocalRandom.current().nextInt(n);
     totalSongsPlayed++;
     alreadyPlayed[songIndex] = true;
-    if (countUnplayed(alreadyPlayed) == 0) {
+    if (allSongsPlayed(alreadyPlayed)) {
         return totalSongsPlayed;
     }
 }
 ```
 
-The original implementation is more efficient because it maintains the number of distinct songs 
-played incrementally, avoiding repeated scans of the entire array. However, clarity and simplicity
-are especially important when learning programming and are priorities throughout this book. Clear
-code can often be streamlined later if efficiency is a concern, but more efficient code is not 
-always easy to understand. 
+The original implementation is more efficient because it tracks the number of distinct songs played, 
+avoiding repeated traversals of the array. However, clarity and simplicity are important principles 
+of good program design. Straightforward code can often be optimized later if efficiency becomes a 
+concern, whereas unnecessarily complex code is more difficult to understand, test, and maintain.

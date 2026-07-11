@@ -104,26 +104,30 @@ for (int i = 0; i < values.length; i++) {
 }
 ```
 
-When the index itself is not needed, Java provides a simpler construct called the **for-each loop**
-(officially, the **enhanced `for` loop**). The following code produces the same result.
+When an array is processed by reading each element in turn without modifying it, the same pattern
+appears repeatedly: declare and initialize an index variable, test whether the end of the array has
+been reached, and increment the index. A **for-each loop** (officially, an **enhanced `for` loop**)
+eliminates this bookkeeping:
 
 ```java
 int[] values = {3, 1, 4, 1, 5, 9};
 int sum = 0;
 
+// sum the values in the array
 for (int value : values) {
     sum += value;
 }
 ```
 
-The loop variable (`value` in this example) is assigned the value of each element of the array in 
-turn. The programmer no longer needs to manage an index variable or test whether the end of the 
-array has been reached. This raises the level of abstraction, allowing the programmer to focus on
-the operation being performed rather than on the mechanics of traversing the array.
+The loop header is read as: "For each element `value` in the array `values`, do the following." 
+The variable `value` is assigned each array element in turn. The programmer no longer needs to 
+manage an index variable or test whether the end of the array has been reached. This raises the
+level of abstraction, allowing the programmer to focus on the application logic rather than the 
+mechanics of traversing the array.
 
-The for-each loop should be used whenever every element of an array must be processed and the index
-is not required. If the position of an element is needed, or if the loop must modify the array by
-assigning values to its elements, an indexed `for` loop must be used instead.
+The for-each loop should be used whenever the elements of an array must be read in order and the 
+index of an element is not required. If the index is needed, or if the array elements themselves 
+must be modified by assignment, an indexed `for` loop must be used instead.
 
 ## 7.1.4 Copying Arrays
 
