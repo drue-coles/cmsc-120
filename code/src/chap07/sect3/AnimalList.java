@@ -16,18 +16,18 @@ public class AnimalList {
       animals.add("cow");
       animals.add("fox");
       animals.add("yak");
-      System.out.println(animals); // [ant, bat, cow, fox, yak]
+      System.out.println(animals);
 
       animals.add(2, "emu");
-      System.out.println(animals); // [ant, bat, emu, cow, fox, yak]
+      System.out.println(animals);
 
       animals.set(3, "pig");
-      System.out.println(animals); // [ant, bat, emu, pig, fox, yak]
+      System.out.println(animals);
 
       animals.remove(3);
-      System.out.println(animals); // [ant, bat, emu, fox, yak]
+      System.out.println(animals);
 
       animals.remove("fox");
-      System.out.println(animals); // [ant, bat, emu, yak]
+      System.out.println(animals);
    }
 }
