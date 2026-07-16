@@ -1478,6 +1478,24 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7.3 ArrayLists
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -1494,6 +1512,81 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#731-generic-types" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.3.1 Generic Types
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7.3.1 Generic Types">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#listing-731-animallistjava" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Listing 7.3.1 - AnimalList.java
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#732-wrapper-classes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.3.2 Wrapper Classes
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7.3.2 Wrapper Classes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#listing-732-hailstonesjava" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Listing 7.3.2 - Hailstones.java
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -1583,6 +1676,70 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#731-generic-types" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.3.1 Generic Types
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7.3.1 Generic Types">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#listing-731-animallistjava" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Listing 7.3.1 - AnimalList.java
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#732-wrapper-classes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.3.2 Wrapper Classes
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7.3.2 Wrapper Classes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#listing-732-hailstonesjava" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Listing 7.3.2 - Hailstones.java
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1599,7 +1756,199 @@
 
 
 <h1 id="73-array-lists">7.3 Array Lists</h1>
-<p>Content for this section is under development.</p>
+<p><strong>Key terms:</strong> array list, generic class, type variable, angle brackets, type argument, 
+diamond, wrapper class, autoboxing, unboxing, boxed primitives</p>
+<h2 id="731-generic-types">7.3.1 Generic Types</h2>
+<p>Consider two situations in which the use of an array presents a problem:</p>
+<ol>
+<li>
+<p>You need to maintain a list of items that can be directly accessed through a positional index. 
+The number of items may vary greatly during program execution, and the maximum number may be 
+impossible to predict. However, the size of an array must be specified when it is created and
+can never change. One solution is to declare an array large enough to accommodate any expected 
+number of items, but this may waste memory. Alternatively, a small array could be used initially, 
+and if more space is needed a larger array could be created with the contents of the old one copied
+into it.</p>
+</li>
+<li>
+<p>You want to insert and remove items at specified positions. Arrays have no methods for these 
+operations, but it is possible to write code that shifts elements to make room for an insertion or 
+to close a gap left by a removal.</p>
+</li>
+</ol>
+<p>The <code>ArrayList</code> class in <code>java.util</code> is intended to deal with these issues. It manages a linear 
+array internally and provides a layer of abstraction on top in the form of methods for inserting and 
+removing elements at specified positions. In general programming terms, an <strong>array list</strong> is a 
+dynamically resizable array with insert/remove functionality. </p>
+<p>Sometimes the name of the class is written as <code>ArrayList&lt;E&gt;</code> to emphasize that it is a <strong>generic 
+class</strong>. This means that it is defined with one or more <strong>type variables</strong> (one in this case, 
+denoted by <code>E</code>) inside <strong>angle brackets</strong> (<code>&lt;</code> and <code>&gt;</code>). For <code>ArrayList</code>, the type variable serves 
+as a parameter for the element type of the list. When the class is instantiated, a <strong>type argument</strong> 
+is provided in place of the variable, which enables <code>ArrayList</code> to be used for storing objects of 
+any kind.</p>
+<p>The code below illustrates the creation of two array lists, one for strings and another for circles. 
+Note that the type argument is omitted from the angle brackets on the right since it is already 
+specified on the left. The angle brackets are often referred to collectively as the <strong>diamond</strong>.</p>
+<div class="highlight"><pre><span></span><code><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">listOfStrings</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ArrayList</span><span class="o">&lt;&gt;</span><span class="p">();</span><span class="w"> </span>
+<span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Circle</span><span class="o">&gt;</span><span class="w"> </span><span class="n">listOfCircles</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ArrayList</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+</code></pre></div>
+<p>The compiler ensures that the type of an object added to an array list is compatible with the type 
+argument used to instantiate it. In the preceding code, for example, only strings can be added to 
+<code>listOfStrings</code>. Listing 7.3.1 demonstrates basic array list functionality. </p>
+<h4 id="listing-731-animallistjava">Listing 7.3.1 - <a href="https://github.com/drue-coles/cmsc-120/blob/master/code/src/chap07/sect3/AnimalList.java">AnimalList.java</a></h4>
+<div class="highlight"><span class="filename">AnimalList.java</span><pre><span></span><code><span class="kn">package</span><span class="w"> </span><span class="nn">chap07.sect3</span><span class="p">;</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">java.util.ArrayList</span><span class="p">;</span>
+
+<span class="cm">/**</span>
+<span class="cm"> * Demonstrates basic operations of the ArrayList class.</span>
+<span class="cm"> *</span>
+<span class="cm"> * @author Drue Coles</span>
+<span class="cm"> */</span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">AnimalList</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">   </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span><span class="w"> </span><span class="n">animals</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ArrayList</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+<span class="w">      </span><span class="n">animals</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="s">&quot;ant&quot;</span><span class="p">);</span>
+<span class="w">      </span><span class="n">animals</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="s">&quot;bat&quot;</span><span class="p">);</span>
+<span class="w">      </span><span class="n">animals</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="s">&quot;cow&quot;</span><span class="p">);</span>
+<span class="w">      </span><span class="n">animals</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="s">&quot;fox&quot;</span><span class="p">);</span>
+<span class="w">      </span><span class="n">animals</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="s">&quot;yak&quot;</span><span class="p">);</span>
+<span class="w">      </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">animals</span><span class="p">);</span><span class="w"> </span><span class="c1">// =&gt; [ant, bat, cow, fox, yak]</span>
+
+<span class="w">      </span><span class="n">animals</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;emu&quot;</span><span class="p">);</span>
+<span class="w">      </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">animals</span><span class="p">);</span><span class="w"> </span><span class="c1">// =&gt; [ant, bat, emu, cow, fox, yak]</span>
+
+<span class="w">      </span><span class="n">animals</span><span class="p">.</span><span class="na">set</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;pig&quot;</span><span class="p">);</span>
+<span class="w">      </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">animals</span><span class="p">);</span><span class="w"> </span><span class="c1">// =&gt; [ant, bat, emu, pig, fox, yak]</span>
+
+<span class="w">      </span><span class="n">animals</span><span class="p">.</span><span class="na">remove</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
+<span class="w">      </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">animals</span><span class="p">);</span><span class="w"> </span><span class="c1">// =&gt; [ant, bat, emu, fox, yak]</span>
+
+<span class="w">      </span><span class="n">animals</span><span class="p">.</span><span class="na">remove</span><span class="p">(</span><span class="s">&quot;fox&quot;</span><span class="p">);</span>
+<span class="w">      </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">animals</span><span class="p">);</span><span class="w"> </span><span class="c1">// =&gt; [ant, bat, emu, yak]</span>
+<span class="w">   </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<details>
+<summary>Output 7.3.1</summary>
+<div class="highlight"><pre><span></span><code>[ant, bat, cow, fox, yak]
+[ant, bat, emu, cow, fox, yak]
+[ant, bat, emu, pig, fox, yak]
+[ant, bat, emu, fox, yak]
+[ant, bat, emu, yak]
+</code></pre></div>
+</details>
+<p>An array list can also be the target of a for-each loop, as will be seen in Listing 7.3.2.</p>
+<p>The subject of generics in Java is broad and important, but it is treated here only to the extent
+needed for a practical understanding of the <code>ArrayList</code> class.</p>
+<h2 id="732-wrapper-classes">7.3.2 Wrapper Classes</h2>
+<p>A <strong>wrapper class</strong> provides an object-like container for a primitive type value. For each of 
+the eight primitive types, there is a corresponding wrapper class in <code>java.lang</code>: the <code>Integer</code> 
+class wraps an <code>int</code> value, the <code>Long</code> class wraps a <code>long</code> value, and so on. </p>
+<p>In the following code, an <code>Integer</code> is created using the factory method <code>valueOf</code>, and the wrapped 
+value is subsequently extracted by a call to the <code>intValue</code> method.</p>
+<div class="highlight"><pre><span></span><code><span class="n">Integer</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Integer</span><span class="p">.</span><span class="na">valueOf</span><span class="p">(</span><span class="mi">23</span><span class="p">);</span><span class="w"> </span>
+<span class="kt">int</span><span class="w"> </span><span class="n">val</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">k</span><span class="p">.</span><span class="na">intValue</span><span class="p">();</span>
+</code></pre></div>
+<p>What is the point of this? If a program needs an <code>int</code>, why not use an <code>int</code> rather than an object 
+that stores one?</p>
+<p>It turns out that, for technical reasons that need not be considered here, a generic class cannot be
+instantiated with a primitive type, so if you want, say, an array list of <code>int</code> values then you must
+use <code>Integer</code> objects. This is not quite as cumbersome as you might think, thanks to <strong>autoboxing</strong>
+and <strong>unboxing</strong>. These features enable the preceding code fragment to be written more intuitively 
+as shown below. </p>
+<div class="highlight"><pre><span></span><code><span class="n">Integer</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">23</span><span class="p">;</span><span class="w"> </span>
+<span class="kt">int</span><span class="w"> </span><span class="n">val</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">k</span><span class="p">;</span>
+</code></pre></div>
+<p>At first glance, both statements seem to involve type mismatch errors: a primitive type appears on 
+one side of the assignment operator and a reference type on the other. However, in the first 
+statement, the compiler automatically <em>boxes</em> the value <code>23</code> into an <code>Integer</code>. Similarly, it 
+automatically unboxes <code>k</code> to produce the <code>int</code> value in the second statement. Wrapper class 
+objects are often referred to as <strong>boxed primitives</strong>.</p>
+<p>The wrapper classes also provide several useful constants and static methods, such as 
+<code>Integer.MAX_VALUE</code>. It is worth reviewing the API documentation for these classes since some of the 
+constants and methods are commonly used. </p>
+<p>Listing 7.3.2 uses an array list of <code>Integer</code> objects to hold the terms of a numerical sequence. 
+Autoboxing occurs in the helper method, where each <code>int</code> value is automatically converted to an 
+<code>Integer</code> object before being added to the list. In the loop in <code>main</code>, each <code>Integer</code> in the list 
+is automatically unboxed to an <code>int</code> before being assigned to the loop variable <code>n</code>.</p>
+<h4 id="listing-732-hailstonesjava">Listing 7.3.2 - <a href="https://github.com/drue-coles/cmsc-120/blob/master/code/src/chap07/sect3/Hailstones.java">Hailstones.java</a></h4>
+<div class="highlight"><span class="filename">Hailstones.java</span><pre><span></span><code><span class="kn">package</span><span class="w"> </span><span class="nn">chap07.sect3</span><span class="p">;</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">java.util.ArrayList</span><span class="p">;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">java.util.Scanner</span><span class="p">;</span>
+
+<span class="cm">/**</span>
+<span class="cm"> * Calculates the hailstone sequence starting at a number chosen by the user and outputs the</span>
+<span class="cm"> * number of terms, the largest term, and the number of records.</span>
+<span class="cm"> *</span>
+<span class="cm"> * By definition, each term of a hailstone sequence is obtained from the previous term according to</span>
+<span class="cm"> * the following rule:</span>
+<span class="cm"> *</span>
+<span class="cm"> *    (a) If even, divide by 2.</span>
+<span class="cm"> *    (b) If odd, multiply by 3 and add 1.</span>
+<span class="cm"> *</span>
+<span class="cm"> * The sequence terminates when the number 1 appears. For example: 12, 6, 3, 10, 5, 16, 8, 4, 2, 1.</span>
+<span class="cm"> *</span>
+<span class="cm"> * Aside: it is a famous conjecture in mathematics that every hailstone sequence eventually</span>
+<span class="cm"> * terminates, but nobody has ever been able to prove that this is so.</span>
+<span class="cm"> *</span>
+<span class="cm"> * @author Drue Coles</span>
+<span class="cm"> */</span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Hailstones</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">   </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">print</span><span class="p">(</span><span class="s">&quot;Enter a positive integer: &quot;</span><span class="p">);</span>
+<span class="w">      </span><span class="n">Scanner</span><span class="w"> </span><span class="n">in</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Scanner</span><span class="p">(</span><span class="n">System</span><span class="p">.</span><span class="na">in</span><span class="p">);</span>
+<span class="w">      </span><span class="kt">int</span><span class="w"> </span><span class="n">initialTerm</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">in</span><span class="p">.</span><span class="na">nextInt</span><span class="p">();</span>
+
+<span class="w">      </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">printf</span><span class="p">(</span><span class="s">&quot;Calculating the hailstone sequence starting at %,d... %n&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">initialTerm</span><span class="p">);</span>
+<span class="w">      </span><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">hailstones</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">getHailstones</span><span class="p">(</span><span class="n">initialTerm</span><span class="p">);</span>
+
+<span class="w">      </span><span class="kt">int</span><span class="w"> </span><span class="n">numTerms</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">hailstones</span><span class="p">.</span><span class="na">size</span><span class="p">();</span>
+<span class="w">      </span><span class="kt">int</span><span class="w"> </span><span class="n">maxValue</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">      </span><span class="kt">int</span><span class="w"> </span><span class="n">records</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+
+<span class="w">      </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">hailstones</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">         </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">maxValue</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">maxValue</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">n</span><span class="p">;</span>
+<span class="w">            </span><span class="n">records</span><span class="o">++</span><span class="p">;</span>
+<span class="w">         </span><span class="p">}</span>
+<span class="w">      </span><span class="p">}</span>
+
+<span class="w">      </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">printf</span><span class="p">(</span><span class="s">&quot;Number of terms: %,d %n&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">numTerms</span><span class="p">);</span>
+<span class="w">      </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">printf</span><span class="p">(</span><span class="s">&quot;Number of records: %,d %n&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">records</span><span class="p">);</span>
+<span class="w">      </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">printf</span><span class="p">(</span><span class="s">&quot;Maximum value: %,d %n&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">maxValue</span><span class="p">);</span>
+<span class="w">   </span><span class="p">}</span>
+
+<span class="w">   </span><span class="cm">/**</span>
+<span class="cm">    * Returns the hailstone sequence starting at n.</span>
+<span class="cm">    */</span>
+<span class="w">   </span><span class="kd">private</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">getHailstones</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span><span class="w"> </span><span class="n">hailstones</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ArrayList</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+<span class="w">      </span><span class="n">hailstones</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">n</span><span class="p">);</span>
+<span class="w">      </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">         </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">n</span><span class="w"> </span><span class="o">/=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
+<span class="w">         </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="w">         </span><span class="p">}</span>
+<span class="w">         </span><span class="n">hailstones</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">n</span><span class="p">);</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="n">hailstones</span><span class="p">;</span>
+<span class="w">   </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<details>
+<summary>Output 7.3.2</summary>
+<div class="highlight"><pre><span></span><code>Enter a positive integer: 10001
+Calculating the hailstone sequence starting at 10,001...
+Number of terms: 180
+Number of records: 11
+Maximum value: 250,504
+</code></pre></div>
+</details>
 
 
 
