@@ -58,6 +58,8 @@ argument used to instantiate it. In the preceding code, for example, only string
     [ant, bat, emu, yak]
     ```
 
+An array list can also be the target of a for-each loop, as will be seen in Listing 7.3.2.
+
 The subject of generics in Java is broad and important, but it is treated here only to the extent
 needed for a practical understanding of the `ArrayList` class.
 
@@ -95,13 +97,14 @@ statement, the compiler automatically *boxes* the value `23` into an `Integer`. 
 automatically unboxes `k` to produce the `int` value in the second statement. Wrapper class 
 objects are often referred to as **boxed primitives**.
 
-The wrapper classes also provide several useful constants and static methods. It is worth reviewing 
-the API documentation for these classes since some of the constants and methods are commonly used. 
-Listing 7.3.2 uses an array list of `Integer`s to hold the terms of a certain numerical sequence.
+The wrapper classes also provide several useful constants and static methods, such as 
+`Integer.MAX_VALUE`. It is worth reviewing the API documentation for these classes since some of the 
+constants and methods are commonly used. 
+
+Listing 7.3.2 uses an array list of `Integer` objects to hold the terms of a numerical sequence. 
 Autoboxing occurs in the helper method, where each `int` value is automatically converted to an 
-`Integer` object before being added to the list. An array list can also be the target of a for-each 
-loop. In the loop in `main`, each `Integer` in the list is automatically unboxed to an `int` before 
-being assigned to the loop variable `n`.
+`Integer` object before being added to the list. In the loop in `main`, each `Integer` in the list 
+is automatically unboxed to an `int` before being assigned to the loop variable `n`.
 
 #### Listing 7.3.2 - [Hailstones.java](https://github.com/drue-coles/cmsc-120/blob/master/code/src/chap07/sect3/Hailstones.java)
 ``` java title="Hailstones.java"
