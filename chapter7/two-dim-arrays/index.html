@@ -1506,6 +1506,24 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7.4 Two-Dimensional Arrays
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -1522,6 +1540,97 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#741-motivation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.4.1 Motivation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#742-arrays-of-arrays" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.4.2 Arrays of Arrays
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7.4.2 Arrays of Arrays">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#listing-742a-animaltablejava" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Listing 7.4.2a - AnimalTable.java
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#listing-742b-rule90java" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Listing 7.4.2b - Rule90.java
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#743-ragged-arrays" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.4.3 Ragged Arrays
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#744-multidimensional-arrays" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.4.4 Multidimensional Arrays
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -1583,6 +1692,86 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#741-motivation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.4.1 Motivation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#742-arrays-of-arrays" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.4.2 Arrays of Arrays
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7.4.2 Arrays of Arrays">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#listing-742a-animaltablejava" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Listing 7.4.2a - AnimalTable.java
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#listing-742b-rule90java" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Listing 7.4.2b - Rule90.java
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#743-ragged-arrays" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.4.3 Ragged Arrays
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#744-multidimensional-arrays" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.4.4 Multidimensional Arrays
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1599,7 +1788,254 @@
 
 
 <h1 id="74-two-dimensional-arrays">7.4 Two-Dimensional Arrays</h1>
-<p>Content for this section is under development.</p>
+<p><strong>Key terms:</strong> two-dimensional array, ragged array</p>
+<h2 id="741-motivation">7.4.1 Motivation</h2>
+<p>The <a href="https://en.wikipedia.org/wiki/15_puzzle">Game of Fifteen</a>, which dates back to the 
+19th century, is played on a 4×4 grid of tiles numbered from 1 to 15. A tile adjacent to the empty 
+space can be moved by sliding it horizontally or vertically into the space. The goal is to rearrange 
+the tiles in ascending order. </p>
+<p>Figure 7.4.1a: <a href="../images/figure7.4.1a.png">Random and Winning Configurations</a></p>
+<p>In a program presenting the game to a player, how should the game state be represented? One idea 
+might be to declare 16 integer variables for the 16 different grid positions. Each variable could 
+store either a tile number or a value representing the empty space. But with this approach the 
+variables do not reflect the structure of the game, so checking if a particular move is valid 
+would require a long and tedious sequence of decision statements. Alternatively, the tile 
+numbers could be stored in a linear array, using 16 to denote the empty space:</p>
+<p>Figure 7.4.1b: <a href="../images/figure7.4.1b.png">Game State with Linear Array</a></p>
+<p>This is a little more intuitive but still problematic. The game state is naturally viewed as 
+a two-dimensional (2D) grid. If the tile numbers are stored in a linear array, the programmer must
+mentally translate the two-dimensional adjacency relationships into the one-dimensional structure
+of the array. A language-level structure is needed that more naturally matches the conceptual 
+structure of the game. The same need arises in many applications, such as spreadsheets, in which
+information is organized as a grid, matrix, or table.</p>
+<p>The following code shows how to declare a 2D array to store the game state. Note that the type name
+for a 2D array is the same as for a linear array except that there is a second pair of brackets for
+the second dimension. The first dimension specifies the number of rows, and the second specifies the 
+number of columns.</p>
+<div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="o">[][]</span><span class="w"> </span><span class="n">grid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="kt">int</span><span class="o">[</span><span class="mi">4</span><span class="o">][</span><span class="mi">4</span><span class="o">]</span><span class="p">;</span>
+</code></pre></div>
+<p>A program for the Game of Fifteen might initialize the grid by first putting it into the winning 
+state and then working backwards to a shuffled starting state by making a series of legal random 
+moves — that is, by repeatedly sliding a tile chosen at random from among those that are adjacent 
+to the empty space. This guarantees that the initial configuration is solvable, since reversing 
+the same sequence of moves returns the puzzle to the winning configuration. The first part of this 
+initialization, putting the grid into the winning state, could be coded as shown below. The outer 
+loop ranges over the row indices, and for each row the inner loop ranges over the column indices. 
+Successive tile numbers are assigned to <code>grid[i][j]</code>, which refers to row <code>i</code> and column <code>j</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// initialize grid to the winning configuration </span>
+<span class="kt">int</span><span class="w"> </span><span class="n">tile</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span>
+<span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">4</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">4</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span>
+<span class="w">        </span><span class="n">grid</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">j</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">tile</span><span class="o">++</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span><span class="w"> </span>
+<span class="p">}</span>
+</code></pre></div>
+<h2 id="742-arrays-of-arrays">7.4.2 Arrays of Arrays</h2>
+<p>A computer’s memory is really a vast linear array of bytes, so how exactly should a 2D array be
+understood in terms of physical storage? The answer is that a 2D array is implemented as an array 
+whose elements are themselves arrays. Thus, although Java provides convenient syntax for working 
+with two-dimensional arrays, the underlying representation is really an array of arrays. To make 
+this clear, the code below shows how an initializer list could be used to put <code>grid</code> into the 
+winning state (compare with the preceding loop-based initialization). Recall that an initializer 
+list is a comma-separated sequence of array elements inside curly braces. Here the elements of the
+outer array are themselves arrays representing the rows of <code>grid</code>, each initialized with its own
+initializer list.</p>
+<div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="o">[][]</span><span class="w"> </span><span class="n">grid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">},</span><span class="w"> </span>
+<span class="w">        </span><span class="p">{</span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span><span class="p">},</span><span class="w"> </span>
+<span class="w">        </span><span class="p">{</span><span class="mi">9</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mi">11</span><span class="p">,</span><span class="w"> </span><span class="mi">12</span><span class="p">},</span><span class="w"> </span>
+<span class="w">        </span><span class="p">{</span><span class="mi">13</span><span class="p">,</span><span class="w"> </span><span class="mi">14</span><span class="p">,</span><span class="w"> </span><span class="mi">15</span><span class="p">,</span><span class="w"> </span><span class="mi">16</span><span class="p">}</span>
+<span class="p">};</span>
+</code></pre></div>
+<p>Figure 7.4.2: <a href="../images/figure7.4.2.png">How the Array is Represented in Memory</a></p>
+<p>The following code shows how to traverse a 2D array with a for-each loop. The outer loop iterates 
+over the rows of <code>grid</code>, each of which is a linear array. For each row, the inner loop iterates over 
+its <code>int</code> elements.</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// output the grid in tabular format </span>
+<span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="o">[]</span><span class="w"> </span><span class="n">row</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">grid</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">tile</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">row</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">printf</span><span class="p">(</span><span class="s">&quot;%2d &quot;</span><span class="p">,</span><span class="w"> </span><span class="n">tile</span><span class="p">);</span><span class="w"> </span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">();</span><span class="w"> </span><span class="c1">// insert newline after each row </span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Listing 7.4.2a brings these ideas together in a simple program.</p>
+<h4 id="listing-742a-animaltablejava">Listing 7.4.2a - <a href="https://github.com/drue-coles/cmsc-120/blob/master/code/src/chap07/sect4/AnimalTable.java">AnimalTable.java</a></h4>
+<div class="highlight"><span class="filename">AnimalTable.java</span><pre><span></span><code><span class="kn">package</span><span class="w"> </span><span class="nn">chap07.sect4</span><span class="p">;</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">java.util.Arrays</span><span class="p">;</span>
+
+<span class="cm">/**</span>
+<span class="cm"> * Displays a table of animal names before and after sorting each row.</span>
+<span class="cm"> *</span>
+<span class="cm"> * @author Drue Coles</span>
+<span class="cm"> */</span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">AnimalTable</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">   </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="n">String</span><span class="o">[][]</span><span class="w"> </span><span class="n">animals</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">         </span><span class="p">{</span><span class="s">&quot;gorilla&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;buffalo&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;lobster&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;cheetah&quot;</span><span class="p">},</span>
+<span class="w">         </span><span class="p">{</span><span class="s">&quot;penguin&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;quetzal&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;meerkat&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;octopus&quot;</span><span class="p">},</span>
+<span class="w">         </span><span class="p">{</span><span class="s">&quot;vulture&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;whippet&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;raccoon&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;wallaby&quot;</span><span class="p">}</span>
+<span class="w">      </span><span class="p">};</span>
+
+<span class="w">      </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">toString</span><span class="p">(</span><span class="n">animals</span><span class="p">));</span>
+
+<span class="w">      </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">row</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">animals</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">         </span><span class="n">Arrays</span><span class="p">.</span><span class="na">sort</span><span class="p">(</span><span class="n">row</span><span class="p">);</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">      </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">toString</span><span class="p">(</span><span class="n">animals</span><span class="p">));</span>
+<span class="w">   </span><span class="p">}</span>
+
+<span class="w">   </span><span class="cm">/**</span>
+<span class="cm">    * Returns a string representation of a 2D array with rows separated by newlines.</span>
+<span class="cm">    */</span>
+<span class="w">   </span><span class="kd">private</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="nf">toString</span><span class="p">(</span><span class="n">String</span><span class="o">[][]</span><span class="w"> </span><span class="n">arr</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="n">String</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;&quot;</span><span class="p">;</span>
+<span class="w">      </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">row</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">arr</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">         </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">item</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">row</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">result</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">item</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot; &quot;</span><span class="p">;</span>
+<span class="w">         </span><span class="p">}</span>
+<span class="w">         </span><span class="n">result</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="s">&quot;\n&quot;</span><span class="p">;</span><span class="w"> </span><span class="c1">// end of row</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="n">result</span><span class="p">;</span>
+<span class="w">   </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<details>
+<summary>Output 7.4.2a</summary>
+<div class="highlight"><pre><span></span><code>gorilla buffalo lobster cheetah 
+penguin quetzal meerkat octopus 
+vulture whippet raccoon wallaby 
+
+buffalo cheetah gorilla lobster 
+meerkat octopus penguin quetzal 
+raccoon vulture wallaby whippet 
+</code></pre></div>
+</details>
+<p>Listing 7.4.2b illustrates a graphical application of 2D arrays. The program implements a simple 
+mathematical process known as <a href="https://en.wikipedia.org/wiki/Rule_90">Rule 90</a>. 
+Starting with a single 1 in the center of the first row, each subsequent row is computed from the 
+previous one according to a fixed rule. The rows therefore represent successive time steps, while
+the columns represent positions in space. Displaying the completed array reveals that Rule 90 
+provides an alternative construction of the Sierpiński triangle (see Section 6.2.3).</p>
+<h4 id="listing-742b-rule90java">Listing 7.4.2b - <a href="https://github.com/drue-coles/cmsc-120/blob/master/code/src/chap07/sect4/Rule90.java">Rule90.java</a></h4>
+<div class="highlight"><span class="filename">Rule90.java</span><pre><span></span><code><span class="kn">package</span><span class="w"> </span><span class="nn">chap07.sect4</span><span class="p">;</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">javafx.application.Application</span><span class="p">;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">javafx.scene.Scene</span><span class="p">;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">javafx.scene.layout.Pane</span><span class="p">;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">javafx.scene.paint.Color</span><span class="p">;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">javafx.scene.shape.Circle</span><span class="p">;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">javafx.stage.Stage</span><span class="p">;</span>
+
+<span class="cm">/**</span>
+<span class="cm"> * Displays a time-space diagram of a sequence of bits updated by Rule 90. At discrete steps, each</span>
+<span class="cm"> * bit becomes the exclusive-or of its two neighbors. The initial configuration consists of a 1 in</span>
+<span class="cm"> * the middle and 0s everywhere else. From this configuration, a structured pattern emerges over</span>
+<span class="cm"> * time.</span>
+<span class="cm"> *</span>
+<span class="cm"> * @author Drue Coles</span>
+<span class="cm"> */</span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Rule90</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">Application</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">    </span><span class="nd">@Override</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">start</span><span class="p">(</span><span class="n">Stage</span><span class="w"> </span><span class="n">stage</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">final</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">width</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">800</span><span class="p">;</span>
+<span class="w">        </span><span class="kd">final</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">height</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">385</span><span class="p">;</span>
+<span class="w">        </span><span class="n">Pane</span><span class="w"> </span><span class="n">root</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Pane</span><span class="p">();</span>
+<span class="w">        </span><span class="n">Scene</span><span class="w"> </span><span class="n">scene</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Scene</span><span class="p">(</span><span class="n">root</span><span class="p">,</span><span class="w"> </span><span class="n">width</span><span class="p">,</span><span class="w"> </span><span class="n">height</span><span class="p">,</span><span class="w"> </span><span class="n">Color</span><span class="p">.</span><span class="na">LIGHTSTEELBLUE</span><span class="p">);</span>
+
+<span class="w">        </span><span class="c1">// drawing constants</span>
+<span class="w">        </span><span class="kd">final</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">radius</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span>
+<span class="w">        </span><span class="kd">final</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">diameter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">radius</span><span class="p">;</span>
+<span class="w">        </span><span class="kd">final</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">numCells</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">width</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">diameter</span><span class="p">;</span>
+
+<span class="w">        </span><span class="c1">// Computes the space-time history of a sequence of bits evolving according to Rule 90.</span>
+<span class="w">        </span><span class="c1">// Row k represents the sequence at time k. The sequence starts with a 1 in the center</span>
+<span class="w">        </span><span class="c1">// and 0s elsewhere.</span>
+<span class="w">        </span><span class="kt">int</span><span class="o">[][]</span><span class="w"> </span><span class="n">grid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">spaceTimeHistoryRule90</span><span class="p">(</span><span class="n">numCells</span><span class="p">);</span>
+
+<span class="w">        </span><span class="c1">// display the grid</span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">row</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">row</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">numCells</span><span class="p">;</span><span class="w"> </span><span class="n">row</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">col</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">col</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">numCells</span><span class="p">;</span><span class="w"> </span><span class="n">col</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">grid</span><span class="o">[</span><span class="n">row</span><span class="o">][</span><span class="n">col</span><span class="o">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                    </span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">diameter</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">col</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">diameter</span><span class="p">;</span>
+<span class="w">                    </span><span class="kt">int</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">diameter</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">row</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">diameter</span><span class="p">;</span>
+<span class="w">                    </span><span class="n">root</span><span class="p">.</span><span class="na">getChildren</span><span class="p">().</span><span class="na">add</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">Circle</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="n">radius</span><span class="p">));</span>
+<span class="w">                </span><span class="p">}</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="n">stage</span><span class="p">.</span><span class="na">setTitle</span><span class="p">(</span><span class="s">&quot;Rule 90&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="n">stage</span><span class="p">.</span><span class="na">setScene</span><span class="p">(</span><span class="n">scene</span><span class="p">);</span>
+<span class="w">        </span><span class="n">stage</span><span class="p">.</span><span class="na">show</span><span class="p">();</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="cm">/**</span>
+<span class="cm">     * Creates and returns an n x n array of bits, initializing the first row with a 1 in the center</span>
+<span class="cm">     * and 0s everywhere else. Each subsequent row is obtained from the previous one by applying</span>
+<span class="cm">     * Rule 90.</span>
+<span class="cm">     */</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">int</span><span class="o">[][]</span><span class="w"> </span><span class="nf">spaceTimeHistoryRule90</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kt">int</span><span class="o">[][]</span><span class="w"> </span><span class="n">grid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="kt">int</span><span class="o">[</span><span class="n">n</span><span class="o">][</span><span class="n">n</span><span class="o">]</span><span class="p">;</span>
+<span class="w">        </span><span class="n">grid</span><span class="o">[</span><span class="mi">0</span><span class="o">][</span><span class="n">n</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">2</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="c1">// initial condition: a single 1 in the center</span>
+
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="c1">// fill rows 1, 2, ..., n-1</span>
+<span class="w">            </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="c1">// calculate the j-th bit in row i</span>
+<span class="w">                </span><span class="kt">int</span><span class="w"> </span><span class="n">left</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">get</span><span class="p">(</span><span class="n">grid</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
+<span class="w">                </span><span class="kt">int</span><span class="w"> </span><span class="n">right</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">get</span><span class="p">(</span><span class="n">grid</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
+<span class="w">                </span><span class="n">grid</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">j</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">left</span><span class="w"> </span><span class="o">^</span><span class="w"> </span><span class="n">right</span><span class="p">;</span><span class="w"> </span><span class="c1">// Rule 90 (XOR)</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">grid</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="cm">/**</span>
+<span class="cm">     * Returns grid[i][j] if j is in bounds, and 0 otherwise.</span>
+<span class="cm">     */</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">get</span><span class="p">(</span><span class="kt">int</span><span class="o">[][]</span><span class="w"> </span><span class="n">grid</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">j</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="n">grid</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="p">.</span><span class="na">length</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">grid</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">j</span><span class="o">]</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">launch</span><span class="p">(</span><span class="n">args</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<details>
+<summary>Output 7.4.2b</summary>
+<p><img alt="Output 7.4.2b – Rule 90" src="../images/output7.4.2b.png" /></p>
+</details>
+<h2 id="743-ragged-arrays">7.4.3 Ragged Arrays</h2>
+<p>Occasionally, a programmer needs a 2D array whose rows have different lengths. This is called a 
+<strong>ragged array</strong>. Since a 2D array is an array of arrays, declaring a ragged array is simple. Only
+the number of rows is specified in the declaration. Each row is then created separately and may
+have a different length. For example:</p>
+<div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="o">[][]</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="kt">int</span><span class="o">[</span><span class="mi">3</span><span class="o">][]</span><span class="p">;</span><span class="w"> </span>
+<span class="n">x</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="kt">int</span><span class="o">[</span><span class="mi">8</span><span class="o">]</span><span class="p">;</span><span class="w"> </span>
+<span class="n">x</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="kt">int</span><span class="o">[</span><span class="mi">10</span><span class="o">]</span><span class="p">;</span><span class="w"> </span>
+<span class="n">x</span><span class="o">[</span><span class="mi">2</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="kt">int</span><span class="o">[</span><span class="mi">6</span><span class="o">]</span><span class="p">;</span>
+
+<span class="n">x</span><span class="o">[</span><span class="mi">1</span><span class="o">][</span><span class="mi">6</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">97</span><span class="p">;</span>
+</code></pre></div>
+<p>Figure 7.4.3: <a href="../images/figure7.4.3.png">Representation in Memory</a></p>
+<h2 id="744-multidimensional-arrays">7.4.4 Multidimensional Arrays</h2>
+<p>The syntax for multidimensional arrays is a straightforward extension of the 2D case: an extra set
+of brackets is needed for each extra dimension. As a practical example, consider a program that 
+stores daily temperatures recorded at a particular location throughout the twentieth century. The
+following statement declares a 3D array for this purpose. </p>
+<div class="highlight"><pre><span></span><code><span class="kt">int</span><span class="o">[][][]</span><span class="w"> </span><span class="n">temperature</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="kt">int</span><span class="o">[</span><span class="mi">13</span><span class="o">][</span><span class="mi">32</span><span class="o">][</span><span class="mi">100</span><span class="o">]</span><span class="p">;</span><span class="w"> </span>
+</code></pre></div>
+<p>The three dimensions correspond to month, day, and year. The first index represents the month and 
+ranges from 1–12, the second represents the day and ranges from 1–31, and the third represents the 
+year and ranges from 0–99. Index 0 is unused for the month and day dimensions. In this scheme, the 
+temperature on June 18, 1986, would be stored at <code>temperature[6][18][86]</code>.</p>
+<p>If hourly rather than daily temperatures were needed, a fourth dimension could represent the hour of 
+the day.</p>
 
 
 
