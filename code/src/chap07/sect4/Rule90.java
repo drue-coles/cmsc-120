@@ -13,10 +13,6 @@ import javafx.stage.Stage;
  * the middle and 0s everywhere else. From this configuration, a structured pattern emerges over
  * time.
  *
- * @see <a href="https://en.wikipedia.org/wiki/Rule_90">Rule 90</a>.
- * @see <a href="https://en.wikipedia.org/wiki/Sierpi%C5%84ski_triangle">Sierpiński Triangle</a> for
- * alternative ways to generate the same pattern.
- *
  * @author Drue Coles
  */
 public class Rule90 extends Application {
