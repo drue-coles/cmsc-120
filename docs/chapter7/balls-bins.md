@@ -1,10 +1,6 @@
 # 7.2 Balls into Bins
 
-**Key terms:** 
-
-Many probabilistic algorithms can be understood in terms of balls being thrown at random into bins.
-This simple model has applications in computer science, engineering, and the natural sciences, and 
-it provides an excellent setting for using loops and Monte Carlo simulation.
+**Key terms:** none introduced
 
 ## 7.2.1 Definition and Applications
 
