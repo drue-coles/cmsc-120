@@ -5,36 +5,32 @@
 ## 7.4.1 Motivation
 
 The <a href="https://en.wikipedia.org/wiki/15_puzzle">Game of Fifteen</a>, which dates back to the 
-19th century, is played on a 4×4 grid of tiles numbered from 1 to 15. 
+19th century, is played on a 4×4 grid of tiles numbered from 1 to 15. A tile adjacent to the empty 
+space can be moved by sliding it horizontally or vertically into the space. The goal is to rearrange 
+the tiles in ascending order. 
 
-Figure 7.4.1a: [Game of Fifteen](images/figure7.4.1a.png)
-
-A tile adjacent to the empty space can be moved by sliding it horizontally or vertically into the 
-space. The goal is to rearrange the tiles in ascending order.
-
-Figure 7.4.1b: [Winning Configuration](images/figure7.4.1b.png)
+Figure 7.4.1a: [Random and Winning Configurations](images/figure7.4.1a.png)
 
 In a program presenting the game to a player, how should the game state be represented? One idea 
 might be to declare 16 integer variables for the 16 different grid positions. Each variable could 
 store either a tile number or a value representing the empty space. But with this approach the 
 variables do not reflect the structure of the game, so checking if a particular move is valid 
 would require a long and tedious sequence of decision statements. Alternatively, the tile 
-numbers could be stored in a linear array:
+numbers could be stored in a linear array, using 16 to denote the empty space:
 
-Figure 7.4.1c: [Game State with Linear Array](images/figure7.4.1c.png)
-
-Here 16 designates the empty space.
+Figure 7.4.1b: [Game State with Linear Array](images/figure7.4.1b.png)
 
 This is a little more intuitive but still problematic. The game state is naturally viewed as 
 a two-dimensional (2D) grid. If the tile numbers are stored in a linear array, the programmer must
 mentally translate the two-dimensional adjacency relationships into the one-dimensional structure
 of the array. A language-level structure is needed that more naturally matches the conceptual 
-structure of the game. The same need arises in many applications that organize information as a 
-grid, matrix, or table, such as spreadsheets. 
+structure of the game. The same need arises in many applications, such as spreadsheets, in which
+information is organized as a grid, matrix, or table.
 
-The following code shows how to declare a 2D array of `int`s to store the game state. Note that 
-the type name for a 2D array is the same as for a linear array except that there is a second pair 
-of brackets for the second dimension.
+The following code shows how to declare a 2D array to store the game state. Note that the type name
+for a 2D array is the same as for a linear array except that there is a second pair of brackets for
+the second dimension. The first dimension specifies the number of rows, and the second specifies the 
+number of columns.
 
 ```java
 int[][] grid = new int[4][4];
@@ -61,15 +57,15 @@ for (int i = 0; i < 4; i++) {
 
 ## 7.4.2 Arrays of Arrays 
 
-A computer’s memory is really a vast linear array of bytes, so how exactly should we understand a 
-2D array in terms of physical storage? This turns out to be an important question for reasons that 
-will be clear shortly. The answer is that a 2D array is implemented as an array whose elements are
-themselves arrays. Thus, although Java provides convenient syntax for working with two-dimensional
-arrays, the underlying representation is really an array of arrays. To make this clear, the code 
-below shows how an initializer list could be used to put grid into the winning state (compare with
-the preceding loop-based initialization). Recall that an initializer list is a comma-separated 
-sequence of array elements inside curly braces. Here the elements of the outer array are 
-themselves arrays representing the rows of grid, each initialized with its own initializer list.
+A computer’s memory is really a vast linear array of bytes, so how exactly should a 2D array be
+understood in terms of physical storage? The answer is that a 2D array is implemented as an array 
+whose elements are themselves arrays. Thus, although Java provides convenient syntax for working 
+with two-dimensional arrays, the underlying representation is really an array of arrays. To make 
+this clear, the code below shows how an initializer list could be used to put `grid` into the 
+winning state (compare with the preceding loop-based initialization). Recall that an initializer 
+list is a comma-separated sequence of array elements inside curly braces. Here the elements of the
+outer array are themselves arrays representing the rows of `grid`, each initialized with its own
+initializer list.
 
 ```java
 int[][] grid = {
@@ -80,13 +76,11 @@ int[][] grid = {
 };
 ```
 
-Figure 7.4.2 illustrates how the array is represented in memory.
+Figure 7.4.2: [How the Array is Represented in Memory](images/figure7.4.2.png)
 
-Figure 7.4.2: [Two-Dimensional Array](images/figure7.4.2.png)
-
-With these ideas in mind, we can understand how to traverse a 2D array using a for-each loop. See 
-the code below. The outer loop iterates over the rows of grid, each of which is a linear array. For 
-each row, the inner loop iterates over its `int` values.
+The following code shows how to traverse a 2D array with a for-each loop. The outer loop iterates 
+over the rows of `grid`, each of which is a linear array. For each row, the inner loop iterates over 
+its `int` elements.
 
 ```java
 // output the grid in tabular format 
@@ -98,8 +92,7 @@ for (int[] row : grid) {
 }
 ```
 
-Listing 7.4.2a illustrates the syntax for initializing 2D arrays with initializer lists and 
-traversing them with for-each loops.
+Listing 7.4.2a brings these ideas together in a simple program.
 
 #### Listing 7.4.2a - [AnimalTable.java](https://github.com/drue-coles/cmsc-120/blob/master/code/src/chap07/sect4/AnimalTable.java)
 ``` java title="AnimalTable.java"
@@ -135,9 +128,9 @@ provides an alternative construction of the Sierpiński triangle (see Section 6.
 ## 7.4.3 Ragged Arrays
 
 Occasionally, a programmer needs a 2D array whose rows have different lengths. This is called a 
-**ragged array**. Since a 2D array is an array of arrays, declaring a ragged array is 
-straightforward. The following code declares a ragged array, and Figure 7.4.3 shows how it is 
-represented in memory.
+**ragged array**. Since a 2D array is an array of arrays, declaring a ragged array is simple. Only
+the number of rows is specified in the declaration. Each row is then created separately and may
+have a different length. For example:
 
 ```java
 int[][] x = new int[3][]; 
@@ -148,21 +141,23 @@ x[2] = new int[6];
 x[1][6] = 97;
 ```
 
-Figure 7.4.3: [Ragged Array](images/figure7.4.3.png)
+Figure 7.4.3: [Representation in Memory](images/figure7.4.3.png)
 
 ## 7.4.4 Multidimensional Arrays
 
 The syntax for multidimensional arrays is a straightforward extension of the 2D case: an extra set
 of brackets is needed for each extra dimension. As a practical example, consider a program that 
 stores daily temperatures recorded at a particular location throughout the twentieth century. The
-code below declares a 3D array for this purpose. The three dimensions correspond to month, day, 
-and year. The first index represents the month and ranges from 1–12, the second represents the day
-and ranges from 1–31, and the third represents the year and ranges from 0–99. Index 0 is unused 
-for the month and day dimensions. In this scheme, the temperature on June 18, 1986, would be 
-stored at `temperature[6][18][86]`.
+following statement declares a 3D array for this purpose. 
 
 ```java
 int[][][] temperature = new int[13][32][100]; 
 ```
 
-If hourly temperatures were also stored, a fourth dimension could represent the hour of the day.
+The three dimensions correspond to month, day, and year. The first index represents the month and 
+ranges from 1–12, the second represents the day and ranges from 1–31, and the third represents the 
+year and ranges from 0–99. Index 0 is unused for the month and day dimensions. In this scheme, the 
+temperature on June 18, 1986, would be stored at `temperature[6][18][86]`.
+
+If hourly rather than daily temperatures were needed, a fourth dimension could represent the hour of 
+the day.
