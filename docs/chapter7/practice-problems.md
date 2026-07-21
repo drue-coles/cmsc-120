@@ -318,79 +318,275 @@ Faro shuffles are used in card tricks and have applications in the theory of par
 
 ## 7.5.2 Monte Carlo Simulations
 
-**a. Fatal Fives.**
+**a. Fatal Fives.** Simulates the game of Fatal Fives and displays a horizontal bar chart of the 
+estimated probability of each possible payout. The user rolls three dice, and the payout is defined 
+to be the sum of the numbers on the dice. However, fives do not count, and neither do any rolls that 
+follow a five. For example, the payout for 3-4-2 is $9 and the payout for 3-5-6 is $3.
 
 ??? "Output 7.5.2a"
     ```text
+     0 *****************
+     1 ***
+     2 ***
+     3 ****
+     4 ******
+     5 *****
+     6 *********
+     7 *******
+     8 ********
+     9 ********
+    10 ********
+    11 *******
+    12 *****
+    13 ****
+    14 ***
+    15 *
+    16 *
+    17 .
+    18 .
     ```
 
+The first line corresponds to a payout of $0. The estimated probability of this outcome is 16.6%, 
+which rounds (`Math.round`) to 17 asterisks. A dot indicates that the estimated probability 
+rounds to zero asterisks.
+
 ---
 
-**b. Fatal Fives 2.**
+**b. Fatal Fives Vertical.** Modify a solution to the previous problem so that the bar chart is 
+displayed vertically, with the payout values along the bottom and the asterisks stacked in columns 
+above them.
 
----
-
-**c. The Long Run.**
-
-??? "Output 7.5.2c"
+??? "Output 7.5.2b"
     ```text
+    *                                                                           
+    *                                                                           
+    *                                                                           
+    *                                                                           
+    *                                                                           
+    *                                                                           
+    *                                                                           
+    *                                                                           
+    *                       *                                                   
+    *                       *       *   *   *                                   
+    *                       *   *   *   *   *   *                               
+    *               *       *   *   *   *   *   *                               
+    *               *   *   *   *   *   *   *   *   *                           
+    *           *   *   *   *   *   *   *   *   *   *   *                       
+    *   *   *   *   *   *   *   *   *   *   *   *   *   *   *                   
+    *   *   *   *   *   *   *   *   *   *   *   *   *   *   *                   
+    *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *           
+    0   1   2   3   4   5   6   7   8   9  10  11  12  13  14  15  16  17  18   
     ```
 
 ---
 
-**d. Everybody Has One.
+**c. The Long Run.** Prompts the user for the number of coins to flip and estimates the expected 
+length of the longest run. A run is a maximal sequence of consecutive heads or consecutive tails.
 
-??? "Output 7.5.2d"
-```text
-```
 
----
-
-**e. Maximum Load.**
-
-??? "Output 7.5.2e"
+??? "Output 7.5.2c-1"
     ```text
+    How many coin flips: 50
+    Expected length of longest run: 5.98
     ```
 
----
-
-**f. Target Load.**
-
-??? "Output 7.5.2f"
+??? "Output 7.5.2c-2"
     ```text
+    How many coin flips: 500
+    Expected length of longest run: 9.30
     ```
+
+In each simulation, fill a `boolean` array with random values and traverse it to determine the length
+of the longest run. For an extra challenge, solve the problem without using an array.
 
 ---
 
-**g. Yahtzee.**
+**d. Everybody Has One.** Prompts the user for a number of bins and estimates the expected number of 
+balls that must be thrown at random into the bins before every bin contains at least one ball.
 
-??? "Output 7.5.2g"
+??? "Output 7.5.2d-1"
     ```text
+    How many bins: 10
+    Throwing balls until every bin contains one. 
+    Expected number of balls: 29.28
+    ```
+
+??? "Output 7.5.2d-2"
+    ```text
+    How many bins: 25
+    Throwing balls until every bin contains one... 
+    Expected number of balls: 95.35
+    ```
+
+This simulation models the famous
+<a href="https://en.wikipedia.org/wiki/Coupon_collector%27s_problem">Coupon Collector's Problem</a>.
+
+---
+
+**e. Maximum Load.** Estimates the expected maximum number of balls in any bin when a user-specified 
+number of balls are thrown at random into a user-specified number of bins.
+
+??? "Output 7.5.2e-1"
+    ```text
+    Enter number of balls and number of bins: 25 10 
+    Simulating 10,000,000 trials of throwing 25 balls into 10 bins...
+    Expected maximum load: 5.17
+    ```
+
+??? "Output 7.5.2e-2"
+    ```text
+    Enter number of balls and number of bins: 50 10 
+    Simulating 10,000,000 trials of throwing 50 balls into 10 bins...
+    Expected maximum load: 8.69
     ```
 
 ---
 
-**h. Free Massage 3.**
+**f. Target Load.** Estimates the expected number of balls that must be thrown at random into a 
+user-specified number of bins before one bin contains a user-specified number of balls.
+
+??? "Output 7.5.2f-1"
+    ```text
+    Enter number of bins and target load: 10 5 
+    Simulating 10,000,000 trials of throwing balls into 10 bins before one bin contains 5 balls... 
+    Expected number of balls: 21.86
+    ```
+
+??? "Output 7.5.2f-2"
+    ```text
+    Enter number of bins and target load: 40 10 
+    Simulating 10,000,000 trials of throwing balls into 40 bins before one bin contains 10 balls...
+    Expected number of balls: 179.27
+    ```
+
+---
+
+**g. Yahtzee.** In the game of Yahtzee, a player rolls five dice and may choose some of them to roll 
+a second or third time. The goal is to obtain various scoring combinations.
+
+Write a Monte Carlo simulation to estimate the probability of each of the following outcomes on a 
+single roll.
+
+- Yahtzee: all five dice show the same number.
+- Large Straight: five consecutive numbers (12345 or 23456).
+- Small Straight: four consecutive numbers among the five dice (1234, 2345, or 3456).
+- Full House: three dice show one number and the other two dice show a different number.
+- Four of a Kind: four dice show the same number.
+- Three of a Kind: three dice show the same number.
+
+??? "Partial Output 7.5.2g"
+    ```text
+    Yahtzee: 0.08%
+    Large Straight: 3.09% 
+    Small Straight: 15.45% 
+    Full House: 
+    Four of a Kind: 
+    Three of a Kind: 
+    ```
+
+Each trial consists of filling an array with five random dice values and checking which outcomes 
+occur. Implement a separate helper method for each outcome. The logic is much simpler if the array 
+is sorted first.
+
+---
+
+**h. Waiting for Massage Extended.** Modify Listing 6.3.5 (Waiting for Massage) so that a 
+user-specified number of massage therapists can work simultaneously. Customers wait in a single line 
+for the next available therapist. Output the expected average waiting time.
 
 ??? "Output 7.5.2h"
     ```text
+    Number of massage therapists: 3 
+    Time for each massage (in minutes): 10
+    Average time between arrivals (in minutes): 5
+    Period of operation (in minutes): 120
+    
+    Simulating 1,000,000 operational periods...
+    Expected average waiting time: 1:17
     ```
+
+Use an array to keep track of the time remaining for each massage currently in progress.
 
 ## 7.5.3 Array Lists
 
-**a. Random Anagram 2.**
+**a. Random Anagram Redux.** Rewrite a solution to Practice Problem 7.5.1b (Random Anagram) using
+an array list instead of an array. Use the static `Collections.shuffle` method to shuffle the 
+contents.
 
 ---
 
-**b. Distinct Random Numbers 2.**
+**b. Distinct Random Numbers Redux.** Rewrite a solution to Practice Problem 7.5.1c (Distinct Random
+Numbers) using an array list instead of an array. Fill the list with the non-negative integers less 
+than *n*, shuffle it using `Collections.shuffle`, repeatedly remove the last element until only *k* 
+elements remain, and then sort the result using `Collections.sort`.
 
 ---
 
-**c. Towers of Hanoi.**
+**c. Towers of Hanoi.** Three tall pegs stand in the courtyard of a monastery. Sixty-four disks 
+are stacked on the first peg in size order from the largest on the bottom to the smallest on the 
+top. The monks want to move the entire stack (or tower) from the first peg to the second, using the
+third for temporary storage as needed, but the disks can only be moved one at a time. Specifically, 
+a disk can be transferred from the top of one stack to the top of another, or to an empty peg, but 
+size order must be maintained: a disk can never be placed on top of a smaller one. 
+
+It was foretold that once the monks accomplish their task, the world will end. The prophecy is
+a safe one: even if the monks could move one disk every second, the sun would burn out long before
+they could complete the task. In general, the minimum number of moves required for a tower of *n* 
+disks is 2<sup>*n*</sup> − 1. For *n* = 64, that amounts to over 500 billion years at a rate of
+one move per second. With only 3 disks, however, the puzzle can be solved in just seven moves.
+
+Write a program that presents the 
+<a href="https://en.wikipedia.org/wiki/Tower_of_Hanoi">Towers of Hanoi</a> as a puzzle to be solved
+with a number of disks specified by the user. Let consecutive integers represent the disks in order 
+of size, and use three array lists to represent the towers.
 
 ??? "Output 7.5.3c"
     ```text
+    How many disks? 3 
+    Tower A: 3 2 1 
+    Tower B: 
+    Tower C:
+    
+    Enter move (from to): A B 
+    Tower A: 3 2 
+    Tower B: 1 
+    Tower C:
+    
+    Enter move (from to): A C 
+    Tower A: 3 
+    Tower B: 1 
+    Tower C: 2
+    
+    Enter move (from to): B C 
+    Tower A: 3 
+    Tower B: 
+    Tower C: 2 1
+    
+    Enter move (from to): A B 
+    Tower A: 
+    Tower B: 3 
+    Tower C: 2 1
+    
+    Enter move (from to): C A 
+    Tower A: 1 
+    Tower B: 3 
+    Tower C: 2
+    
+    Enter move (from to): C B 
+    Tower A: 1 
+    Tower B: 3 2 
+    Tower C:
+    
+    Enter move (from to): A B 
+    Tower A: 
+    Tower B: 3 2 1 
+    Tower C:
+    
+    You solved the puzzle in 7 moves.
     ```
+
+The program should reject invalid moves by displaying an appropriate error message and prompting the 
+user to try again.
 
 ---
 

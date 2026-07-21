@@ -26,8 +26,7 @@ time in standard 12-hour format (for example, 10:50 PM or 4:05 AM).
 
 **b. Fatal Fives.** Prompts the user for three dice rolls and outputs the profit for the game of 
 Fatal Fives. The profit is defined to be the sum of the numbers on the dice. However, fives do not 
-count, and no roll that comes after a five counts. Implement a helper method that takes three dice 
-rolls and returns the profit.
+count, and no roll that comes after a five counts. 
 
 ??? "Output 5.6b-1"
     ```text
@@ -52,6 +51,8 @@ rolls and returns the profit.
     Dice rolls: 5 6 3 
     Profit = $0
     ```
+
+Implement a helper method that takes three dice rolls and returns the profit.
 
 ---
 
