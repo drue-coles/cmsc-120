@@ -729,47 +729,221 @@ by FIFO.
 
 ## 7.5.4 Two-Dimensional Arrays
 
-**a. Sentence Square.**
+**a. Text Square.**  Prompts the user for a line of text and writes it clockwise around the 
+perimeter of a square. The side length is the smallest possible that accommodates all the characters 
+in the text.
 
 ??? "Output 7.5.4a"
     ```text
+    Enter text: This R2 unit has a bad motivator!
+    
+    This R2 un
+    i
+    t
+    
+    !        h
+    r        a
+    o        s
+    t         
+    a        a
+    vitom dab
     ```
+
+Use a 2D array to represent the square. Simulate a point moving clockwise around its perimeter, 
+placing the next input character at each position.
 
 ---
 
-**b. Latin Square Failure.**
+**b. Latin Square Failure.** A Latin square of order *n* is an *n* × *n* grid in which each row and 
+each column contains the first *n* letters of the alphabet exactly once. Here are examples for 
+*n* = 3 and *n* = 4.
+
+```text
+ABC         CBAD
+CAB         BADC
+BCA         ADCB
+            DCAB
+```
+
+One possible construction method begins with a specified letter in the upper-left corner and fills 
+the grid row by row, left to right within each row. At each position, the least letter that has not 
+already appeared in the current row or column is chosen. For example, this method constructs the 
+following Latin square of order 4 starting with the letter B:
+
+```text
+BACD 
+ABDC 
+CDAB 
+DCBA
+```
+
+Unfortunately, the method does not always succeed. Starting with the letter C, the construction 
+reaches a point at which no letter can be placed in the final position of the second row:
+
+```text
+CABD 
+ABC
+```
+
+Write a program that prompts the user for the order and starting letter, and outputs the 
+construction up to the point of failure. If the construction succeeds, output the completed Latin 
+square.
 
 ??? "Output 7.5.4b"
     ```text
+    Enter order and starting letter: 6 B 
+    B A C D E F 
+    A B D C F E 
+    C D A B
     ```
 
 ---
 
-**c. Random Walks.**
+**c. Random Walks.** Draws multiple random walks (Section 6.3.2) from the center of a square to 
+its perimeter. Each walk is displayed in a different color. 
 
-??? "Output 7.5.4c"
-    ![Output 7.5.4c – Random Walks](images/output7.5.4c.png)
+??? "Output 7.5.4c-1"
+    ![Output 7.5.4c-1 – Random Walks](images/output7.5.4c-1.png)
+
+??? "Output 7.5.4c-2"
+    ![Output 7.5.4c-2 – Random Walks](images/output7.5.4c-2.png)
+
+Use a 2D array to store the color at each pixel. Blend the colors of intersecting walks using the 
+`Color` method `interpolate`. The number of walks is inferred from the size of the colors array 
+(five in the program used to generate the sample output above).
 
 ---
 
-**d. Lights Out.**
+**d. Lights Out.** The game of  
+<a href="https://en.wikipedia.org/wiki/Lights_Out_(game)">Lights Out</a> is played on a 2D grid. 
+Each cell contains a light that is either on or off. Initially, some of the lights are on, and the 
+goal is to turn them all off. Toggling a light also toggles the lights in the neighboring cells 
+(two cells are neighbors if they share an edge).
+
+Write a console application that enables the user to play the game.
 
 ??? "Output 7.5.4d"
     ```text
+    Enter grid size: 6
+    
+       0  1  2  3  4  5  
+    0  .  .  #  #  .  .
+    1  .  .  .  .  #  #
+    2  .  .  .  .  #  .
+    3  #  .  .  .  .  #
+    4  .  #  .  .  .  #
+    5  .  #  .  #  #  .
+    
+    1. Enter your move (row col): 5 0
+    
+       0  1  2  3  4  5  
+    0  .  .  #  #  .  .
+    1  .  .  .  .  #  #
+    2  .  .  .  .  #  .
+    3  #  .  .  .  .  #
+    4  #  #  .  .  .  #
+    5  #  .  .  #  #  .
+    
+   2. Enter your move (row col): 4 0
+
+      0  1  2  3  4  5  
+   0  .  .  #  #  .  .
+   1  .  .  .  .  #  #
+   2  .  .  .  .  #  .
+   3  .  .  .  .  .  #
+   4  .  .  .  .  .  #
+   5  .  .  .  #  #  .
+
+   3. Enter your move (row col): 5 4
+
+      0  1  2  3  4  5  
+   0  .  .  #  #  .  .
+   1  .  .  .  .  #  #
+   2  .  .  .  .  #  .
+   3  .  .  .  .  .  #
+   4  .  .  .  .  #  #
+   5  .  .  .  .  .  #
+
+   4. Enter your move (row col): 4 5
+    
+       0  1  2  3  4  5  
+    0  .  .  #  #  .  .
+    1  .  .  .  .  #  #
+    2  .  .  .  .  #  .
+    3  .  .  .  .  .  .
+    4  .  .  .  .  .  .
+    5  .  .  .  .  .  .
+    
+    5. Enter your move (row col): 0 3
+    
+       0  1  2  3  4  5  
+    0  .  .  .  .  #  .
+    1  .  .  .  #  #  #
+    2  .  .  .  .  #  .
+    3  .  .  .  .  .  .
+    4  .  .  .  .  .  .
+    5  .  .  .  .  .  .
+    
+    6. Enter your move (row col): 1 4
+    
+       0  1  2  3  4  5  
+    0  .  .  .  .  .  .
+    1  .  .  .  .  .  .
+    2  .  .  .  .  .  .
+    3  .  .  .  .  .  .
+    4  .  .  .  .  .  .
+    5  .  .  .  .  .  .
+    
+    LIGHTS OUT!
     ```
 
----
+Implement helper methods to create and initialize the grid, toggle a light and its neighbors, 
+display the grid, and determine whether all the lights are out. 
 
-**e. Rainbow Coloring.**
-
-??? "Output 7.5.4e"
-    ![Output 7.5.4e – Rainbow Coloring](images/output7.5.4e.png)
-
----
-
-**f. Rainbow Coloring 2.**
-
-??? "Output 7.5.4f"
-    ![Output 7.5.4f – Rainbow Coloring 2](images/output7.5.4f.png)
+Do not initialize the grid by independently turning each light on or off at random, since the 
+resulting position may not be solvable. Instead, begin with all lights off and perform a series of 
+legal moves at randomly selected positions. Repeating those same moves in reverse order will return 
+the grid to the winning position, so every generated puzzle is guaranteed to be solvable.
 
 ---
+
+**e. Rainbow Coloring.**  This problem is based on the mathematical concept of a 
+<a href="https://www.quantamagazine.org/mathematicians-prove-ringels-graph-theory-conjecture
+-20200219/">rainbow coloring</a>. For our purposes, a rainbow coloring consists of dots evenly 
+spaced around a circle, with each pair of dots connected by a line segment and all line segments of
+the same length having the same color. 
+
+Write a JavaFX application that displays a rainbow coloring with 16 dots. If the center of the
+circle is *Q* = (*x*, *y*) and its radius is *r*, then the coordinates of a point P on the circle
+are
+
+$$
+P = (x + r\cos\theta,\; y + r\sin\theta),
+$$
+
+where *θ* is the angle between *PQ* and the *x*-axis.
+
+The following screenshots illustrate the different distances by showing all line segments of lengths 
+1, 2, and 3.
+
+??? "Output 7.5.4e-1"
+    ![Output 7.5.4e – Distance 1](images/output7.5.4e-1.png)
+
+
+??? "Output 7.5.4e-2"
+    ![Output 7.5.4e – Distance 2](images/output7.5.4e-2.png)
+
+??? "Output 7.5.4e-3"
+    ![Output 7.5.4e – Distance 3](images/output7.5.4e-3.png)
+
+The complete rainbow coloring is shown below. Assign a randomly generated dark color (using the
+static `Color.darker` method) to each distinct distance.
+
+??? "Output 7.5.4e-4"
+    ![Output 7.5.4e – Rainbow Coloring](images/output7.5.4e-4.png)
+
+For an extra challenge, present a dialog box that prompts the user for the number of dots. Use
+`TextInputDialog`. Consult the API documentation for details.
+
+??? "Output 7.5.4e-5"
+    ![Output 7.5.4e – Dialog Box](images/output7.5.4e-5.png)
