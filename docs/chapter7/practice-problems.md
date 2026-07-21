@@ -590,27 +590,142 @@ user to try again.
 
 ---
 
-**d. FIFO Pager.**
+**d. FIFO Pager.** A program's code and data are organized into blocks called *pages*. When a 
+program executes in a virtual memory environment, some of its pages reside in main memory while 
+the rest are stored on disk. If the program attempts to access a page that is not currently in 
+memory, a *page fault* occurs. The operating system then loads the requested page into memory. 
+However, because the number of pages a program may keep in memory is limited, loading a new page 
+may require another page to be removed first.
 
-??? "Output 7.5.3d"
+How should the memory manager decide which page to remove? Ideally, the policy should minimize 
+the number of page faults. This problem explores a simple (but not very good) replacement policy. 
+Two better approaches are explored in the following problems.
+
+The *first in, first out* (FIFO) replacement policy selects among those pages currently in memory
+the one that entered memory first. To see how this works, suppose the page limit is three and 
+consider the following sequence of requests: (5, 3, 6, 0, 5, 6, 4, 3, 6, 3). Initially, none of the
+program’s pages are in memory, so each of the first three requests (5, 3, 6)  generates a page 
+fault. The next request, 0, also causes a page fault, and to make room for it, page 5 will be 
+swapped out since it was loaded into memory before 3 and 6 were. 
+
+Write a program that prompts the user for the page limit and a sequence of page requests. After 
+each request is satisfied, output the pages currently in memory in FIFO order, appending an 
+asterisk to indicate a page fault. Use an array list to keep track of the pages in memory.
+
+??? "Output 7.5.3d-1"
     ```text
+    Page limit: 3 
+    Page requests: 5 3 6 0 5 6 4 3 6 
+    FIFO Page Replacement Simulation 
+    5: 5 *
+    3: 5 3 *
+    6: 5 3 6 *
+    0: 3 6 0 *
+    5: 6 0 5 *
+    6: 6 0 5 
+    4: 0 5 4 *
+    3: 5 4 3 *
+    6: 4 3 6 *
     ```
 
+??? "Output 7.5.3d-2"
+    ```text
+    Page limit: 4
+    Page requests: 5 3 6 0 5 6 4 3 6
+    FIFO Page Replacement Simulation
+    5: 5 *
+    3: 5 3 *
+    6: 5 3 6 *
+    0: 5 3 6 0 *
+    5: 5 3 6 0 
+    6: 5 3 6 0 
+    4: 3 6 0 4 *
+    3: 3 6 0 4 
+    6: 3 6 0 4 
+    ```
+    
 ---
 
-**e. LRU Pager.**
+**e. LRU Pager.** Extend a solution to the previous problem to also implement *least recently used* 
+(LRU) replacement. By this policy, the page to be swapped out is the one that was requested least
+recently. This generally produces fewer page faults than FIFO.
 
 ??? "Output 7.5.3e"
     ```text
+    Page limit: 3
+    Page requests: 5 3 6 0 5 6 4 3 6
+    FIFO Page Replacement Simulation
+    5: 5 *
+    3: 5 3 *
+    6: 5 3 6 *
+    0: 3 6 0 *
+    5: 6 0 5 *
+    6: 6 0 5 
+    4: 0 5 4 *
+    3: 5 4 3 *
+    6: 4 3 6 *
+
+    LRU Page Replacement Simulation
+    5: 5 *
+    3: 5 3 *
+    6: 5 3 6 *
+    0: 3 6 0 *
+    5: 6 0 5 *
+    6: 0 5 6 
+    4: 5 6 4 *
+    3: 6 4 3 *
+    6: 4 3 6 
     ```
+
+Compare the seven page faults produced by LRU with the eight produced by FIFO using the same 
+reference string and page limit.
 
 ---
 
-**f. OPT Pager.**
+**f. OPT Pager.** Extend a solution to the previous problem to also implement optimal (OPT) 
+replacement. By this policy, the page to be swapped out is the one whose next use lies 
+furthest in the future. This policy minimizes the number of page faults, but it cannot be used in 
+practice because there is no way to predict future page requests.
 
 ??? "Output 7.5.3f"
     ```text
+    Page limit: 3
+    Page requests: 5 3 6 0 5 6 4 3 6
+    FIFO Page Replacement Simulation
+    5: 5 *
+    3: 5 3 *
+    6: 5 3 6 *
+    0: 3 6 0 *
+    5: 6 0 5 *
+    6: 6 0 5
+    4: 0 5 4 *
+    3: 5 4 3 *
+    6: 4 3 6 *
+    
+    LRU Page Replacement Simulation
+    5: 5 *
+    3: 5 3 *
+    6: 5 3 6 *
+    0: 3 6 0 *
+    5: 6 0 5 *
+    6: 0 5 6
+    4: 5 6 4 *
+    3: 6 4 3 *
+    6: 4 3 6
+    
+    OPT Page Replacement Simulation
+    5: 5 *
+    3: 5 3 *
+    6: 5 3 6 *
+    0: 5 6 0 *
+    5: 5 6 0
+    6: 5 6 0
+    4: 6 0 4 *
+    3: 6 4 3 *
+    6: 6 4 3
     ```
+Compare the six page faults produced by OPT with the seven produced by LRU and the eight produced 
+by FIFO.
 
 ## 7.5.4 Two-Dimensional Arrays
 
