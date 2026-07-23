@@ -4,7 +4,7 @@
 
 **a. Dice Sums Deluxe.**  Prompts the user for a number of dice and the number of sides per die, 
 and estimates by Monte Carlo simulation the probability of each possible sum. The results are 
-displayed as a horizontal bar chart using stars.
+displayed as a horizontal bar chart.
 
 ??? "Output 7.5.1a"
     ```text
@@ -27,8 +27,8 @@ displayed as a horizontal bar chart using stars.
     15  0.8% ★
     ```
 
-Listing 7.1.1b solves this problem for the special case of two six-sided dice. Extending it to the 
-general case is straightforward.
+To solve this problem, adapt Listing 7.1.1b so that it works for any number of dice and any 
+number of sides.
 
 ---
 
@@ -47,21 +47,22 @@ characters in random order).
     Random anagram: shot! aT noom'n
     ```
 
-Use the `Scanner` method `nextLine` to read input, and pass the input to a helper method that 
-returns a random anagram. The helper method will need to convert the string to an array of 
-characters. Although it would be easy to code this from scratch, the `String` class has a method 
-`toCharArray` for this. 
+Use the `Scanner` method `nextLine` to read the input, and pass the resulting string to a helper 
+method that returns a random anagram. The helper method should first convert the string to an array
+of characters. Although the conversion could easily be coded from scratch, the `String` class 
+provides the `toCharArray` method.
 
 The next step is to shuffle the array. The most efficient algorithm for this is known as the 
-*Fisher–Yates shuffle* (or the *Knuth shuffle*). Traverse the array from beginning to end, swapping 
-each character with a randomly chosen character at the same or a subsequent position. After 
-shuffling the array, convert it back to a string and return it. This requires only a single line of
-code using the `String` constructor that takes a `char[]` argument.
+*<a href="https://en.wikipedia.org/wiki/Fisher%E2%80%93Yates_shuffle">Fisher–Yates shuffle</a>* (or 
+the *Knuth shuffle*). Traverse the array from beginning to end, swapping each character with a 
+randomly chosen character at the same or a subsequent position. After shuffling the array, convert
+it back to a string and return it. Converting the array back to a string requires only a single line 
+of code using the `String` constructor that takes a `char[]` argument.
 
 ---
 
 **c. Distinct Random Numbers.** Prompts the user for two positive integers *k* and *n*, and outputs 
-a sorted list of *k* distinct random integers in the range \[0, *n* − 1]. 
+a sorted list of *k* distinct random non-negative integers less than *n*. 
 
 ??? "Output 7.5.1c-1"
     ```text
@@ -75,16 +76,17 @@ a sorted list of *k* distinct random integers in the range \[0, *n* − 1].
     2 3 5 6 8 9
     ```
 
-A convenient approach is to create an array containing the integers from 0 to *n* − 1, shuffle it,
-and then use the first *k* values. The `Arrays` class provides methods for copying and sorting 
-arrays.
+A convenient approach is to initialize an array with the integers from 0 to *n* − 1, shuffle it,
+and then output the first *k* elements. To shuffle the array, use the technique described in the 
+previous problem.
 
 ---
 
-**d. Line of Coins.** One hundred coins are arranged in a line, all tails-up. The coins are 
-indexed from 1 to 100. First, turn over every coin. Then turn over every second coin (2, 4, 6,
-...). Next, turn over every third coin (3, 6, 9, ...). Continue in this way, turning over every 
-fourth coin, every fifth coin, and so on, up to every hundredth coin.
+**d. Line of Coins.** One hundred coins are arranged in a line, all tails-up. The coins are indexed 
+from 1 to 100. Plato is bored, so he turns over every coin. That was fun, so he then turns over 
+every second coin (2, 4, 6, ...). Next, he turns over every third coin (3, 6, 9, ...). He continues
+in this way, turning over every fourth coin, every fifth coin, and so on, up to every hundredth
+coin.
 
 Write a program that simulates this procedure and displays the indices of the coins that are 
 heads-up at the end. There should be exactly ten heads-up coins. Their indices follow an 
@@ -129,6 +131,16 @@ others. The following protocol will be used to ensure that each guest has the sa
 2. All guests simultaneously transfer half of their peas to the guest on their right. 
 3. If all plates now have the same number of peas, dinner begins; otherwise, return to step 1.
 
+Figure 7.5.1g illustrates one round of the protocol. The vertical arrows between the first two 
+configurations show the additional peas given in step 1 of the protocol. The horizontal arrows in 
+the third configuration show the transfers made in step 2; for example, the third guest has 10 peas,
+transfers 5 to the right, and simultaneously receives 4 from the left, leaving 9 peas at the start
+of the next round. Remember, the guests are seated in a circle, so the transfers wrap around from 
+the last number in the output to the first. The fourth configuration shows the pea counts at the
+start of the next round.
+
+Figure 7.5.1g: [One Round of the Protocol](images/figure7.5.1g.png)
+
 Write a program that prompts the user for the number of guests and the initial pea counts, and 
 outputs the pea counts after each round.
 
@@ -145,18 +157,6 @@ outputs the pea counts after each round.
     7.  10   9   9  10  10  10
     8.  10  10  10  10  10  10
     ```
-
-The first line of output shows the original pea counts. After the first step of the protocol, in 
-which plates with odd numbers of peas receive an additional pea, the counts are as shown in the 
-following figure.
-
-Figure 7.5.1g: [Pea Counts](images/figure7.5.1g.png)
-
-The arrows depict the quantities transferred in step 2 of the protocol (half of the peas on each 
-guest's plate). For example, the third guest has 10 peas, transfers 5 to the right, and 
-simultaneously receives 4 from the left, leaving 9 peas at the start of the next round. Remember, 
-the guests are seated in a circle, so the transfers wrap around from the last number in the 
-output to the first.
 
 ---
 
@@ -180,11 +180,9 @@ See the hint for **Median Score without Count** above.
 
 ---
 
-**i. Dinner Party Max-Min.** In this version of the preceding problem, a different protocol is used 
-to redistribute the peas. In each round, a person with the maximum number of peas gives one to a 
-person with the minimum number. It might not be possible for everyone to end up with exactly the 
-same number of peas, so the goal is to reach a state in which the minimum and maximum differ by at 
-most 1, as shown in the second sample output below.
+**i. Dinner Party Max-Min.** In this version of the Dinner Party problem, a different protocol is 
+used to redistribute the peas. In each round, a guest with the maximum number of peas gives one to 
+a guest with the minimum number. 
 
 ??? "Output 7.5.1i-1"
     ```text
@@ -195,6 +193,10 @@ most 1, as shown in the second sample output below.
     4.   7   7   7   6   7   8
     5.   7   7   7   7   7   7   
     ```
+
+In general, it might not be possible for everyone to end up with exactly the same number of peas, so 
+the goal is to reach a state in which the maximum and minimum differ by at most 1, as shown in the 
+following sample output.
 
 ??? "Output 7.5.1i-2"
     ```text
@@ -210,20 +212,24 @@ most 1, as shown in the second sample output below.
 ---
 
 **j. Bell Curve.** This problem requires knowledge of elementary statistics. The `ThreadLocalRandom`
-class has been used throughout the book to generate uniformly distributed random numbers. For 
-example, when simulating the roll of a die, each outcome should be equally likely because this 
+class has been used throughout this book to generate uniformly distributed random numbers. When 
+simulating the roll of a die, for example, each outcome should be equally likely because this 
 models the behavior of physical dice. However, in the natural and social sciences, the *normal* 
 (or *Gaussian*) distribution is often a better model for observed data. Height and IQ, for example, 
 are not uniformly distributed in real populations. The average IQ in the United States is around 
 100, and most people have an IQ between 85 and 115; fewer than 1% of people are classified as 
 geniuses, with an IQ of 145 or higher.
 
-The `ThreadLocalRandom` method `nextGaussian` generates normally distributed floating-point 
-numbers. The purpose of this exercise is to test this method. Use the method to fill an array with 
-one million numbers having a mean of 100 and a standard deviation of 15 (representing IQ scores), 
-and output the results as shown in the sample output below. The `nextGaussian` method returns 
-normally distributed values with a mean of 0 and a standard deviation of 1, so the values must be 
-shifted and scaled appropriately.
+The `ThreadLocalRandom` class also provides the `nextGaussian` method, which generates normally 
+distributed floating-point numbers. The purpose of this exercise is to investigate its behavior 
+experimentally. Use `nextGaussian` to fill an array with one million values having a mean of 100 and 
+a standard deviation of 15 (representing IQ scores). Since `nextGaussian` returns normally 
+distributed values with a mean of 0 and a standard deviation of 1, the values must be shifted and 
+scaled appropriately.
+
+After filling the array, traverse it to compute the sample mean, sample standard deviation, and the
+percentages of values within one, two, and three standard deviations of the mean. The results 
+should approximate the well-known 68–95–99.7 rule for the normal distribution.
 
 ??? "Output 7.5.1j-1"
     ```text
@@ -260,8 +266,8 @@ number 2.
 The replacement is made only if the resulting abbreviation is shorter than the original word. Thus, 
 STAR remains STAR rather than becoming ST1R.
 
-Write a program that prompts the user for a line of text consisting of words separated by single 
-spaces and outputs the numeronymic abbreviation of each word.
+Write a program that prompts the user for a line of text and outputs the numeronymic abbreviation of
+each word.
 
 ??? "Output 7.5.1k-1"
     ```text
@@ -307,7 +313,7 @@ number of cards entered by the user.
     The deck will return to its original order after 6 in-shuffles. 
     ```
 
-??? "Output 7.5.1m-1"
+??? "Output 7.5.1m-2"
     ```text
     Number of cards: 51
     It must be an even number. Try again: 52
@@ -319,9 +325,9 @@ Faro shuffles are used in card tricks and have applications in the theory of par
 ## 7.5.2 Monte Carlo Simulations
 
 **a. Fatal Fives.** Simulates the game of Fatal Fives and displays a horizontal bar chart of the 
-estimated probability of each possible payout. The user rolls three dice, and the payout is defined 
-to be the sum of the numbers on the dice. However, fives do not count, and neither do any rolls that 
-follow a five. For example, the payout for 3-4-2 is $9 and the payout for 3-5-6 is $3.
+estimated probabilities for each possible payout. The user rolls three dice, and the payout is 
+defined to be the sum of the numbers on the dice. However, fives do not count, and neither do any 
+rolls that follow a five. For example, the payout for 3-4-2 is $9 and the payout for 3-5-6 is $3.
 
 ??? "Output 7.5.2a"
     ```text
@@ -462,15 +468,14 @@ user-specified number of bins before one bin contains a user-specified number of
 ---
 
 **g. Yahtzee.** In the game of Yahtzee, a player rolls five dice and may choose some of them to roll 
-a second or third time. The goal is to obtain various scoring combinations.
-
-Write a Monte Carlo simulation to estimate the probability of each of the following outcomes on a 
-single roll.
+a second or third time. The goal is to obtain various scoring combinations. Write a Monte Carlo 
+simulation to estimate the probability of each of the following outcomes on a single roll.
 
 - Yahtzee: all five dice show the same number.
 - Large Straight: five consecutive numbers (12345 or 23456).
 - Small Straight: four consecutive numbers among the five dice (1234, 2345, or 3456).
-- Full House: three dice show one number and the other two dice show a different number.
+- Full House: three dice show one number and the other two dice show a different number (for 
+  example, 22555 or 44466).
 - Four of a Kind: four dice show the same number.
 - Three of a Kind: three dice show the same number.
 
@@ -486,7 +491,7 @@ single roll.
 
 Each trial consists of filling an array with five random dice values and checking which outcomes 
 occur. Implement a separate helper method for each outcome. The logic is much simpler if the array 
-is sorted first.
+is sorted first (use `Arrays.sort`).
 
 ---
 
@@ -643,7 +648,9 @@ asterisk to indicate a page fault. Use an array list to keep track of the pages 
     3: 3 6 0 4 
     6: 3 6 0 4 
     ```
-    
+
+Many online page replacement simulators are available and can be used to test the program with
+additional page request sequences and page limits.
 ---
 
 **e. LRU Pager.** Extend a solution to the previous problem to also implement *least recently used* 
@@ -678,7 +685,7 @@ recently. This generally produces fewer page faults than FIFO.
     ```
 
 Compare the seven page faults produced by LRU with the eight produced by FIFO using the same 
-reference string and page limit.
+page request sequence and page limit.
 
 ---
 
@@ -724,8 +731,6 @@ practice because there is no way to predict future page requests.
     3: 6 4 3 *
     6: 6 4 3
     ```
-Compare the six page faults produced by OPT with the seven produced by LRU and the eight produced 
-by FIFO.
 
 ## 7.5.4 Two-Dimensional Arrays
 
@@ -733,13 +738,13 @@ by FIFO.
 perimeter of a square. The side length is the smallest possible that accommodates all the characters 
 in the text.
 
-??? "Output 7.5.4a"
+??? "Output 7.5.4a-1"
     ```text
     Enter text: This R2 unit has a bad motivator!
     
     This R2 un
-    i
-    t
+             i
+             t
     
     !        h
     r        a
@@ -749,14 +754,26 @@ in the text.
     vitom dab
     ```
 
+??? "Output 7.5.4a-2"
+    ```text
+    Enter text: What a piece of junk.
+    
+    What a
+          p
+          i
+          e
+    .     c
+    k     e
+    nuj fo
+    ```
+
 Use a 2D array to represent the square. Simulate a point moving clockwise around its perimeter, 
 placing the next input character at each position.
 
 ---
 
 **b. Latin Square Failure.** A Latin square of order *n* is an *n* × *n* grid in which each row and 
-each column contains the first *n* letters of the alphabet exactly once. Here are examples for 
-*n* = 3 and *n* = 4.
+each column contains the first *n* letters of the alphabet. Here are examples for *n* = 3 and *n* = 4.
 
 ```text
 ABC         CBAD
@@ -789,12 +806,21 @@ Write a program that prompts the user for the order and starting letter, and out
 construction up to the point of failure. If the construction succeeds, output the completed Latin 
 square.
 
-??? "Output 7.5.4b"
+??? "Output 7.5.4b-1"
     ```text
-    Enter order and starting letter: 6 B 
-    B A C D E F 
-    A B D C F E 
+    Enter order and starting letter: 6 A
+    A B C D E F
+    B A D C F E
     C D A B
+    ```
+
+??? "Output 7.5.4b-2"
+    ```text
+    Enter order and starting letter: 4 B
+    B A C D
+    A B D C
+    C D A B
+    D C B A
     ```
 
 ---
@@ -808,17 +834,16 @@ its perimeter. Each walk is displayed in a different color.
 ??? "Output 7.5.4c-2"
     ![Output 7.5.4c-2 – Random Walks](images/output7.5.4c-2.png)
 
-Use a 2D array to store the color at each pixel. Blend the colors of intersecting walks using the 
-`Color` method `interpolate`. The number of walks is inferred from the size of the colors array 
+Use a 2D array to store the color at each position. Blend the colors of intersecting walks using 
+the `Color` method `interpolate`. The number of walks is inferred from the size of the colors array 
 (five in the program used to generate the sample output above).
 
 ---
 
-**d. Lights Out.** The game of  
-<a href="https://en.wikipedia.org/wiki/Lights_Out_(game)">Lights Out</a> is played on a 2D grid. 
-Each cell contains a light that is either on or off. Initially, some of the lights are on, and the 
-goal is to turn them all off. Toggling a light also toggles the lights in the neighboring cells 
-(two cells are neighbors if they share an edge).
+**d. Lights Out.** The game of <a href="https://en.wikipedia.org/wiki/Lights_Out_(game)">Lights Out</a>
+is played on a 2D grid. Each cell contains a light that is either on or off. Initially, some of the 
+lights are on, and the goal is to turn them all off. Toggling a light also toggles the lights in the
+neighboring cells (two cells are neighbors if they share an edge). 
 
 Write a console application that enables the user to play the game.
 
@@ -843,28 +868,28 @@ Write a console application that enables the user to play the game.
     3  #  .  .  .  .  #
     4  #  #  .  .  .  #
     5  #  .  .  #  #  .
-    
-   2. Enter your move (row col): 4 0
+        
+    2. Enter your move (row col): 4 0
 
-      0  1  2  3  4  5  
-   0  .  .  #  #  .  .
-   1  .  .  .  .  #  #
-   2  .  .  .  .  #  .
-   3  .  .  .  .  .  #
-   4  .  .  .  .  .  #
-   5  .  .  .  #  #  .
+       0  1  2  3  4  5  
+    0  .  .  #  #  .  .
+    1  .  .  .  .  #  #
+    2  .  .  .  .  #  .
+    3  .  .  .  .  .  #
+    4  .  .  .  .  .  #
+    5  .  .  .  #  #  .
 
-   3. Enter your move (row col): 5 4
+    3. Enter your move (row col): 5 4
 
-      0  1  2  3  4  5  
-   0  .  .  #  #  .  .
-   1  .  .  .  .  #  #
-   2  .  .  .  .  #  .
-   3  .  .  .  .  .  #
-   4  .  .  .  .  #  #
-   5  .  .  .  .  .  #
+       0  1  2  3  4  5  
+    0  .  .  #  #  .  .
+    1  .  .  .  .  #  #
+    2  .  .  .  .  #  .
+    3  .  .  .  .  .  #
+    4  .  .  .  .  #  #
+    5  .  .  .  .  .  #
 
-   4. Enter your move (row col): 4 5
+    4. Enter your move (row col): 4 5
     
        0  1  2  3  4  5  
     0  .  .  #  #  .  .
@@ -897,53 +922,45 @@ Write a console application that enables the user to play the game.
     LIGHTS OUT!
     ```
 
-Implement helper methods to create and initialize the grid, toggle a light and its neighbors, 
-display the grid, and determine whether all the lights are out. 
-
 Do not initialize the grid by independently turning each light on or off at random, since the 
 resulting position may not be solvable. Instead, begin with all lights off and perform a series of 
 legal moves at randomly selected positions. Repeating those same moves in reverse order will return 
 the grid to the winning position, so every generated puzzle is guaranteed to be solvable.
 
+Implement helper methods to toggle a light and its neighbors, display the grid, and determine 
+whether all the lights are out.
+
 ---
 
-**e. Rainbow Coloring.**  This problem is based on the mathematical concept of a 
-<a href="https://www.quantamagazine.org/mathematicians-prove-ringels-graph-theory-conjecture
--20200219/">rainbow coloring</a>. For our purposes, a rainbow coloring consists of dots evenly 
-spaced around a circle, with each pair of dots connected by a line segment and all line segments of
-the same length having the same color. 
+**e. Rainbow Coloring.**  A 
+<a href="https://www.quantamagazine.org/mathematicians-prove-ringels-graph-theory-conjecture-20200219/">rainbow coloring</a>
+consists of dots evenly spaced around a circle, with each pair of dots connected by a line segment 
+and all line segments assigned colors according to the separation of their endpoints. The following 
+figures show partial rainbow colorings with 16 dots, displaying all line segments connecting pairs 
+of dots with separations 1, 2, and 3.
 
-Write a JavaFX application that displays a rainbow coloring with 16 dots. If the center of the
-circle is *Q* = (*x*, *y*) and its radius is *r*, then the coordinates of a point P on the circle
-are
+??? "Figure 7.5.4e-1: Partial rainbow coloring (separation 1)"
+    ![Separation 1](images/output7.5.4e-1.png)
 
-$$
-P = (x + r\cos\theta,\; y + r\sin\theta),
-$$
+??? "Figure 7.5.4e-2: Partial rainbow coloring (separation 2)"
+    ![Separation 2](images/output7.5.4e-2.png)
 
-where *θ* is the angle between *PQ* and the *x*-axis.
+??? "Figure 7.5.4e-3: Partial rainbow coloring (separation 3)"
+    ![Separation 3](images/output7.5.4e-3.png)
 
-The following screenshots illustrate the different distances by showing all line segments of lengths 
-1, 2, and 3.
+If the center of the circle is (*x*, *y*) and its radius is *r*, the coordinates of the *i*-th dot 
+are $(x + r\cos(i \theta),\; y + r\sin(i \theta)),$ where *θ* = 2π/*n* and *n* is the number of 
+dots.
 
-??? "Output 7.5.4e-1"
-    ![Output 7.5.4e – Distance 1](images/output7.5.4e-1.png)
+Write a JavaFX application that displays a complete rainbow coloring with 16 dots. Assign a randomly 
+generated color to each separation between pairs of dots and use that color for the corresponding 
+line segments.
 
-
-??? "Output 7.5.4e-2"
-    ![Output 7.5.4e – Distance 2](images/output7.5.4e-2.png)
-
-??? "Output 7.5.4e-3"
-    ![Output 7.5.4e – Distance 3](images/output7.5.4e-3.png)
-
-The complete rainbow coloring is shown below. Assign a randomly generated dark color (using the
-static `Color.darker` method) to each distinct distance.
-
-??? "Output 7.5.4e-4"
+??? "Output 7.5.4e"
     ![Output 7.5.4e – Rainbow Coloring](images/output7.5.4e-4.png)
 
-For an extra challenge, present a dialog box that prompts the user for the number of dots. Use
-`TextInputDialog`. Consult the API documentation for details.
+As an additional feature, prompt the user to enter the number of dots in a dialog box created with 
+the `TextInputDialog` class.
 
-??? "Output 7.5.4e-5"
-    ![Output 7.5.4e – Dialog Box](images/output7.5.4e-5.png)
+??? "Dialog Box"
+    ![Dialog Box](images/output7.5.4e-5.png)
